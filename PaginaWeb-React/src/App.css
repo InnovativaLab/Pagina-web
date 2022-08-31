@@ -3,3 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+html,
+body{
+  background-color: #0A0A0A;
+}
