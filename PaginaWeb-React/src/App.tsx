@@ -8,27 +8,29 @@ function App () {
 
   return (
     <div className='App'>
-      <Browser />
-      <ButtonCallToAction
-        text="Comunidad"
-        background={false}
-        style={1}
-      />
-      <ButtonCallToAction
-        text="Comunidad"
-        background={false}
-        style={1}
-      />
-      <ButtonCallToAction
-        text="Comunidad"
-        background={false}
-        style={1}
-      />
-      <ButtonCallToAction
-        text="Iniciar Sesión"
-        background={true}
-        style={1}
-      />
+      <div className='containerMenu'>
+        <Browser />
+        <ButtonCallToAction
+          text="Comunidad"
+          background={false}
+          style={2}
+        />
+        <ButtonCallToAction
+          text="Comunidad"
+          background={false}
+          style={0}
+        />
+        <ButtonCallToAction
+          text="Comunidad"
+          background={false}
+          style={0}
+        />
+        <ButtonCallToAction
+          text="Iniciar Sesión"
+          background={true}
+          style={1}
+        />
+      </div>
     </div>
   )
 }
