@@ -1,3 +1,9 @@
+.withBackground{
+    background: linear-gradient(86.47deg, #2563EB 0%, #00A7E3 100%);
+}
+.withoutBackground{
+    background-color: transparent;
+}
 .ButtonCallToAction{
     border: none;
     display: flex;
@@ -7,10 +13,36 @@
     gap: 70px;
     width: 139px;
     height: 35px;
-    background: linear-gradient(86.47deg, #2563EB 0%, #00A7E3 100%);
     border-radius: 5px;
     flex: none;
     order: 4;
+    flex-grow: 0;
+}
+.MenuItem{
+    /* Label */
+    width: 101px;
+    height: 24px;
+    /* Items menu */
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    text-transform: uppercase;
+    font-feature-settings: 'liga' off;
+
+    /* Gris Claro */
+
+    color: #C9C9CA;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
     flex-grow: 0;
 }
 .ButtonCallToAction:hover{
