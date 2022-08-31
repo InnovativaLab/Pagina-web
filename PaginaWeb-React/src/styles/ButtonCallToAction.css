@@ -37,13 +37,6 @@
     /* Gris Claro */
 
     color: #C9C9CA;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 .ButtonCallToAction:hover{
     box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;

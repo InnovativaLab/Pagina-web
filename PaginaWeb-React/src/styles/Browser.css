@@ -1,0 +1,45 @@
+.browserContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    gap: 10px;
+    width: 600px;
+    height: 54px;
+    background: #171717;
+    border-radius: 15px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.browserContainer input{
+    background-color: transparent;
+    border: none;
+    width:80%;
+    outline:none;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    font-feature-settings: 'liga' off;
+
+    color: #C9C9CA;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.browserContainer button{
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+}
+.browserContainer button:hover{
+    box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
+    -webkit-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
+    -moz-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
+}
