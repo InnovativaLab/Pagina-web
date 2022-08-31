@@ -1,0 +1,28 @@
+.ButtonCallToAction{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px 15px;
+    gap: 70px;
+    width: 139px;
+    height: 35px;
+    background: linear-gradient(86.47deg, #2563EB 0%, #00A7E3 100%);
+    border-radius: 5px;
+    flex: none;
+    order: 4;
+    flex-grow: 0;
+}
+.ButtonCallToAction:hover{
+    box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
+    -webkit-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
+    -moz-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
+}
+.ButtonCallToAction span{
+    font-family: 'Work Sans',sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
