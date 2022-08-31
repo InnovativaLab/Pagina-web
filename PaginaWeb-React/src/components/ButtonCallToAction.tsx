@@ -12,9 +12,23 @@ function ButtonCallToAction({text,background,style}:propButtonCallToAction) {
     console.log("Se hizo clic")
   }
   const selectorStyle=(backgroundIn:boolean, styleIn:Number)=>{
-    let styles
-    styles = (backgroundIn)?"withBackground ":"withoutBackground "
-    return styles + 'ButtonCallToAction'
+    let styles = "buttonItemMenu "
+    styles += (backgroundIn)?"withBackground":"withoutBackground"
+    switch (styleIn) {
+      case 0:
+        styles += " simple"
+        break;
+      case 1:
+        styles += " ButtonCallToAction"
+        break;
+      case 2:
+        styles += " important"
+        break;
+      default:
+        styles +=" buttonItemMenu"
+        break;
+    }
+    return styles
   }
 
   return (

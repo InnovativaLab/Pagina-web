@@ -4,39 +4,22 @@
 .withoutBackground{
     background-color: transparent;
 }
-.ButtonCallToAction{
+.buttonItemMenu{
     border: none;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    text-transform: uppercase;
+    padding: 7px 15px;
+}
+.ButtonCallToAction{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 7px 15px;
     gap: 70px;
-    width: 139px;
-    height: 35px;
     border-radius: 5px;
-    flex: none;
-    order: 4;
-    flex-grow: 0;
-}
-.MenuItem{
-    /* Label */
-    width: 101px;
-    height: 24px;
-    /* Items menu */
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 150%;
-    /* identical to box height, or 24px */
-
-    text-transform: uppercase;
-    font-feature-settings: 'liga' off;
-
-    /* Gris Claro */
-
-    color: #C9C9CA;
 }
 .ButtonCallToAction:hover{
     box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
@@ -44,10 +27,19 @@
     -moz-box-shadow: 10px 10px 33px 0px rgba(0,0,0,0.39) inset;
 }
 .ButtonCallToAction span{
-    font-family: 'Work Sans',sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 150%;
     text-transform: uppercase;
     color: #FFFFFF;
+}
+
+.important{
+    background: linear-gradient(86.47deg, #2563EB 0%, #00A7E3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.simple{
+    background-color: transparent;
+    border: none;
+    color: #C9C9CA;
+    ;
 }
