@@ -10,7 +10,6 @@
     background: #171717;
     border-radius: 15px;
     flex: none;
-    order: 1;
     flex-grow: 0;
 }
 .browserContainer input{
@@ -23,13 +22,7 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 150%;
-    font-feature-settings: 'liga' off;
-
     color: #C9C9CA;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 .browserContainer button{
     background-color: transparent;
