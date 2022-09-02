@@ -15,7 +15,10 @@ body{
   padding: 20px 170px;
 }
 .FondoOlas{
-  position: absolute;
-  top: 43vh;
+  position:absolute;
+  top: 46vh;
   width: 100%;
+}
+.contenedorFondoOlas{
+  height: 54vh;
 }
