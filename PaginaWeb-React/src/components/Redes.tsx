@@ -14,10 +14,10 @@ function Redes({size}:propRedes) {
         <img className={(size==="small")?"imgChica":"imgGrande"} src={Logo} alt='Logo de InnovativaLab' />
         <p className={`footerLinksTitle ${(size==="small")?"redesTitleChico":"redesTitleGrande"}`}>InnovativaLab</p>
         <div>
-            <a href='#'><img src={LogoInstagram} alt='Logo de Instagram'/></a>
-            <a href='#'><img src={LogoTwitter} alt='Logo de Twitter'/></a>
-            <a href='#'><img src={LogoYouTube} alt='Logo de YouTube'/></a>
-            <a href='#'><img src={LogoLinkedin} alt='Logo de Linkedin'/></a>
+            <a href='https://www.instagram.com/innovativalab/' target="_blank"><img src={LogoInstagram} alt='Logo de Instagram'/></a>
+            <a href='https://twitter.com/InnovativaLab' target="_blank"><img src={LogoTwitter} alt='Logo de Twitter'/></a>
+            <a href='https://www.youtube.com/c/InnovativaLab' target="_blank"><img src={LogoYouTube} alt='Logo de YouTube'/></a>
+            <a href='https://www.linkedin.com/company/innovativalab/' target="_blank"><img src={LogoLinkedin} alt='Logo de Linkedin'/></a>
         </div>
     </div>
   )
