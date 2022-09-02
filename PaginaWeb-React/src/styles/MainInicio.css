@@ -4,4 +4,44 @@
     background-size:cover;
     height: 70vh;
     width: 100%;
+    color: var(--Blanco);
+    font-family: 'Work Sans';
+    font-size: 20px;
+    line-height: 125%;
+}
+.mainContainer{
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    margin:110px 170px ;
+}
+.mainInformation{
+    width: 750px;
+}
+.mainInformation h1{
+    font-weight: 500;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 125%;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-right: 80px;
+}
+
+.mainInformation h2{
+    width: 700px;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 125%;
+    color: var(--GrisClaro);
+    margin-bottom: 15px;
+
+}
+.mainContainer img{
+    border-radius: 50px;
+    width: 750px;
+    height: 478px;
+    object-fit: cover;
 }
