@@ -3,6 +3,15 @@ footer{
     color: var(--Blanco);
     font-family: 'Work Sans';
     line-height: 125%;
+    display: flex;
+    padding: 80px 0 40px 0;
+    justify-content: center;
+}
+.footerCallToAction{
+    padding: 0 170px 0 170px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 .footerLinksContainer{
     width: 34vw;;
@@ -10,6 +19,7 @@ footer{
     justify-content: space-evenly;
 }
 .footerLinksTitle{
+    margin-top: 5px;
     font-size: 24px;
     font-weight: 700;
     padding: 10px 0px 16px 0;
