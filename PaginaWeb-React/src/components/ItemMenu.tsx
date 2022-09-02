@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/ButtonCallToAction.css"
+import "../styles/ItemMenu.css"
 
 interface propButtonCallToAction{
     text:string,
@@ -7,7 +7,7 @@ interface propButtonCallToAction{
     style:Number
 }
 
-function ButtonCallToAction({text,background,style}:propButtonCallToAction) {
+function ItemMenu({text,background,style}:propButtonCallToAction) {
   const clic=()=>{
     console.log("Se hizo clic")
   }
@@ -19,7 +19,7 @@ function ButtonCallToAction({text,background,style}:propButtonCallToAction) {
         styles += " simple"
         break;
       case 1:
-        styles += " ButtonCallToAction"
+        styles += " ItemMenu"
         break;
       case 2:
         styles += " important"
@@ -38,4 +38,4 @@ function ButtonCallToAction({text,background,style}:propButtonCallToAction) {
   )
 }
 
-export default ButtonCallToAction
+export default ItemMenu
