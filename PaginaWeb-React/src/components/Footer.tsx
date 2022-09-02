@@ -36,7 +36,14 @@ function Footer() {
                 </div>
             </div>
         </div>
-        
+        <div className='footerInformation'>
+            <p>©2022, All right reserved.</p>
+            <div className='footerInformationLinks'>
+                <a href='#'>Politicas de privacidad</a>
+                <a href='#'>Terminos de servicio</a>
+                <a href='#'>Uso de Cookies</a>
+            </div>
+        </div>
     </footer>
   )
 }

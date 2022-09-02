@@ -6,9 +6,10 @@ footer{
     display: flex;
     padding: 80px 0 40px 0;
     justify-content: center;
+    flex-direction: column;
 }
 .footerCallToAction{
-    padding: 0 170px 0 170px 0;
+    padding: 0 170px 40px 170px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -30,5 +31,20 @@ footer{
 }
 .footerLinksList a{
     text-decoration: none;
+    color: var(--Blanco);
+}
+.footerInformation{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    border-top: 1px solid var(--GrisClaro);
+    padding:0 60px ;
+    padding-top: 40px;
+}
+.footerInformationLinks{
+    display: flex;
+    gap: 24px;
+}
+.footerInformationLinks a{
     color: var(--Blanco);
 }
