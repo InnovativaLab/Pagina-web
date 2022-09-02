@@ -1,0 +1,30 @@
+footer{
+    z-index:1;
+    color: var(--Blanco);
+    font-family: 'Work Sans';
+    line-height: 125%;
+}
+.footerLinksContainer{
+    width: 34vw;;
+    display: flex;
+    justify-content: space-evenly;
+}
+.footerLinksColumn{
+
+}
+.footerLinksTitle{
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px 0px 16px 0;
+}
+.footerLinksList{
+
+}
+.footerLinksList li{
+    list-style:none;
+    padding-bottom: 8px;
+}
+.footerLinksList a{
+    text-decoration: none;
+    color: var(--Blanco);
+}

@@ -11,7 +11,9 @@ function App () {
     <div className='App'>
       <Header />
       <MainInicio />
-      <img className='FondoOlas' src={fondoOlas} alt="Olas celestes"/>
+      <div className='contenedorFondoOlas'>
+        <img className='FondoOlas' src={fondoOlas} alt="Olas celestes"/>
+      </div>
       <Footer />
     </div>
   )
