@@ -1,0 +1,14 @@
+.LogoBanner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.LogoBanner p{
+    padding-left: 10px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: var(--Blanco);
+}
