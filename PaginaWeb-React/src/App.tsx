@@ -10,7 +10,7 @@ function App () {
     <div className='App'>
       <Header />
       <MainInicio />
-      <img src={fondoOlas} alt="Olas celestes"/>
+      <img className='FondoOlas' src={fondoOlas} alt="Olas celestes"/>
     </div>
   )
 }

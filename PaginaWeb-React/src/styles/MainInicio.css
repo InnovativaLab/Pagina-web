@@ -1,4 +1,7 @@
 .mainInicio{
     background-image: url("../assets/fondoArduino.png");
-    height: 700px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 70vh;
+    width: 100%;
 }

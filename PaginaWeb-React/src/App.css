@@ -14,3 +14,8 @@ body{
   align-items: center;
   padding: 20px 170px;
 }
+.FondoOlas{
+  position: absolute;
+  top: 43vh;
+  width: 100%;
+}
