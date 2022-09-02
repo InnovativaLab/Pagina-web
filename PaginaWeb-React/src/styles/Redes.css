@@ -1,0 +1,28 @@
+.redesTitleGrande{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imgGrande{
+    width: 400px;
+    height: 400px;
+}
+.imgChica{
+    width: 120px;
+    height: 120px;
+}
+.redesTitle{
+    font-family: 'Work Sans';
+    font-weight: 700;
+    line-height: 125%;
+    align-items: center;
+    text-align: center;
+    color:var(--Blanco);
+}
+.redesTitleGrande{
+    font-size: 48px;
+}
+.redesTitleChico{
+    font-size: 24px;
+}
