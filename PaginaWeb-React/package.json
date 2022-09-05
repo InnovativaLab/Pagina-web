@@ -25,10 +25,10 @@
     "vite": "^3.0.7"
   },
   "ts-standard": {
-    "project": "path/to/tsconfig.json",
+    "project": "tsconfig.json",
     "ignore": [
-      "vite-env.d.ts",
-      "vite"
+      "dist",
+      "src/**/*.js"
     ]
   }
 }

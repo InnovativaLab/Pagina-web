@@ -1,9 +1,9 @@
 import React from 'react'
-import "../styles/MainInicio.css"
+import '../styles/MainInicio.css'
 import ItemMenu from './ItemMenu'
-import FotoRobot from "../assets/robotAzul.png"
+import FotoRobot from '../assets/robotAzul.png'
 
-function MainInicio() {
+function MainInicio () {
   return (
     <main className='mainInicio'>
       <div className='mainContainer'>
@@ -11,12 +11,12 @@ function MainInicio() {
           <h1>Aprende sobre tecnologia muy facilmente de forma colaborativa y online.</h1>
           <h2>Cursos online sobre tecnologia al alcence de todos, con efoque practico</h2>
           <ItemMenu
-              text="¡Empeza ahora!"
-              background={true}
-              style={1}
-            />
+            text='¡Empeza ahora!'
+            background
+            style={1}
+          />
         </div>
-        <img src={FotoRobot} alt="Foto de un robot azul"/>
+        <img src={FotoRobot} alt='Foto de un robot azul' />
       </div>
     </main>
   )

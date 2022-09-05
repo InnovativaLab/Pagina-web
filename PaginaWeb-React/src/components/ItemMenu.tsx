@@ -1,38 +1,38 @@
 import React from 'react'
-import "../styles/ItemMenu.css"
+import '../styles/ItemMenu.css'
 
 interface propButtonCallToAction{
-    text:string,
-    background:boolean,
-    style:Number
+  text: string
+  background: boolean
+  style: Number
 }
 
-function ItemMenu({text,background,style}:propButtonCallToAction) {
-  const clic=()=>{
-    console.log("Se hizo clic")
+function ItemMenu ({ text, background, style }: propButtonCallToAction) {
+  const clic = () => {
+    console.log('Se hizo clic')
   }
-  const selectorStyle=(backgroundIn:boolean, styleIn:Number)=>{
-    let styles = "buttonItemMenu "
-    styles += (backgroundIn)?"withBackground":"withoutBackground"
+  const selectorStyle = (backgroundIn: boolean, styleIn: Number) => {
+    let styles = 'buttonItemMenu '
+    styles += (backgroundIn) ? 'withBackground' : 'withoutBackground'
     switch (styleIn) {
       case 0:
-        styles += " simple"
-        break;
+        styles += ' simple'
+        break
       case 1:
-        styles += " ItemMenu"
-        break;
+        styles += ' ItemMenu'
+        break
       case 2:
-        styles += " important"
-        break;
+        styles += ' important'
+        break
       default:
-        styles +=" buttonItemMenu"
-        break;
+        styles += ' buttonItemMenu'
+        break
     }
     return styles
   }
 
   return (
-    <button onClick={clic} className={selectorStyle(background,style)}>
+    <button onClick={clic} className={selectorStyle(background, style)}>
       <span>{text}</span>
     </button>
   )
