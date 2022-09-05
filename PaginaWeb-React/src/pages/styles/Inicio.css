@@ -1,0 +1,15 @@
+.containerMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 170px;
+  }
+  .FondoOlas{
+    position:absolute;
+    top: 46vh;
+    width: 100%;
+  }
+  .contenedorFondoOlas{
+    height: 54vh;
+  }
