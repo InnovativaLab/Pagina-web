@@ -1,3 +1,9 @@
+.presentation{
+  height: 120vh;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+}
 .containerMenu{
     display: flex;
     flex-direction: row;
@@ -5,11 +11,37 @@
     align-items: center;
     padding: 20px 170px;
   }
-  .FondoOlas{
-    position:absolute;
-    top: 46vh;
-    width: 100%;
-  }
-  .contenedorFondoOlas{
-    height: 54vh;
-  }
+.FondoOlas{
+  position:absolute;
+  top: 380px;
+  width: 100%;
+}
+.contenedorFondoOlas{
+  height: 54vh;
+}
+.weObjects{
+  z-index: 100;
+  position: absolute;
+  bottom: -250px;
+  display: flex;
+  color: var(--Blanco);
+  align-items: center;
+  padding: 40px 170px;
+  gap: 80px;
+}
+.weObjectsTitle{/* Nuestro objetivo */
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 125%;
+}
+.weObjectsText{
+    
+  width: 800px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 125%;
+}
