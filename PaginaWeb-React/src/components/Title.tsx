@@ -1,5 +1,4 @@
-import React from 'react'
-import "../styles/Title.css"
+import "../styles/Utils.css"
 
 interface propTitle{
     msg:string
