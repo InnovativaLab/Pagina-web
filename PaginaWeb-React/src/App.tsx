@@ -16,7 +16,7 @@ function App () {
         <Route path='/' element={<Inicio />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signin' element={<SignIn />} />
-        <Route path='/reoverpws' element={<RecoverPws />} />
+        <Route path='/recoverpws' element={<RecoverPws />} />
         <Route path='/home' element={<Home />} />
       </Routes>
       <Footer />
