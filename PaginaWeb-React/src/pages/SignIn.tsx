@@ -29,12 +29,14 @@ function SignIn() {
 
           <Subtitle msg="Confirmar contraseña" />
           <TextBox placeholder="Confirme tu contraseña" />
-
+          <Link to="/" className="fullSpace">
           <ItemMenu
             text='Crear cuenta'
             background
             style={3}
           />
+          </Link>
+          
           <Link className="secondaryButton fullSpace" to="/" >
             Cancelar
           </Link>
