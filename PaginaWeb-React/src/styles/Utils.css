@@ -12,3 +12,34 @@
     font-size: 20px;
     font-weight: bold;
 }
+.textbox{
+    padding: 10px 15px;
+    border: none;
+    width: 500px;
+    background: var(--Negro);
+    color: var(--Blanco);
+    border-bottom: 4px solid #2563EB;
+    border-radius: 5px;
+    align-self: stretch;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 125%;
+}
+.textbox:focus {
+    outline: none;
+}
+.secondaryButton{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 125%;
+    color: var(--GrisClaro);
+    text-decoration: none;
+}
+.fullSpace{
+    width: 100%;
+    text-align: center;
+}
