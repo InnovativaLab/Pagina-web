@@ -33,7 +33,7 @@
 }
 .ItemMenu span{
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--Blanco);
 }
 
 .important{
@@ -47,4 +47,14 @@
     border: none;
     color: #C9C9CA;
     ;
+}
+.button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    color: var(--Blanco);
 }
