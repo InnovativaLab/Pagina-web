@@ -1,5 +1,5 @@
-import Title from '../components/Title';
-import "./styles/Home.css"
+import Title from '../components/Title'
+import './styles/Home.css'
 function Home () {
   return (
     <div className='home'>

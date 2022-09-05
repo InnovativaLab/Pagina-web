@@ -2,7 +2,7 @@ import React from 'react'
 import MainInicio from '../components/MainInicio'
 import fondoOlas from '../assets/fondoOlas.svg'
 import './styles/Inicio.css'
-import learnImg from "../assets/svgLearn.svg"
+import learnImg from '../assets/svgLearn.svg'
 
 function Inicio () {
   return (
