@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/ItemMenu.css'
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 interface propButtonCallToAction{
   text: string
@@ -26,8 +26,8 @@ function ItemMenu ({ text, background, style }: propButtonCallToAction) {
         styles += ' important'
         break
       case 3:
-          styles += ' button'
-          break
+        styles += ' button'
+        break
       default:
         styles += ' buttonItemMenu'
         break

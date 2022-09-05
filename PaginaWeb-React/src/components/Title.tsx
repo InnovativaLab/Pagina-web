@@ -1,9 +1,9 @@
-import "../styles/Utils.css"
+import '../styles/Utils.css'
 
 interface propTitle{
-    msg:string
+  msg: string
 }
-function Title({msg}:propTitle) {
+function Title ({ msg }: propTitle) {
   return (
     <h1 className='title'>{msg}</h1>
   )

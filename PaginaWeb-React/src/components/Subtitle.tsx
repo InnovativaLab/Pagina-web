@@ -1,10 +1,10 @@
 import React from 'react'
-import "../styles/Utils.css"
+import '../styles/Utils.css'
 
 interface propSubtitle{
-    msg:string
+  msg: string
 }
-function Subtitle({msg}:propSubtitle) {
+function Subtitle ({ msg }: propSubtitle) {
   return (
     <p className='subtitle'>{msg}</p>
   )

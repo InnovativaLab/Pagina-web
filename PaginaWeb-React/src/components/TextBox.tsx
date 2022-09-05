@@ -1,11 +1,11 @@
-import "../styles/Utils.css"
+import '../styles/Utils.css'
 
 interface propTextBox{
-    placeholder:string
+  placeholder: string
 }
-function TextBox({placeholder}:propTextBox) {
+function TextBox ({ placeholder }: propTextBox) {
   return (
-    <input className="textbox" type="text" placeholder={placeholder}></input>
+    <input className='textbox' type='text' placeholder={placeholder} />
   )
 }
 export default TextBox
