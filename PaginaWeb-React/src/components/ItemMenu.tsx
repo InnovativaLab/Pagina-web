@@ -25,6 +25,9 @@ function ItemMenu ({ text, background, style }: propButtonCallToAction) {
       case 2:
         styles += ' important'
         break
+      case 3:
+          styles += ' button'
+          break
       default:
         styles += ' buttonItemMenu'
         break
