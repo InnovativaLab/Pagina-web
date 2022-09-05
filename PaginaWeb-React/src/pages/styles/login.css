@@ -1,0 +1,21 @@
+.mainLogin{
+    display: flex;
+    height:90vh;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(180deg, var(--negro) 0%, var(--GrisOscuro) 100%);
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 15px;
+    background: var(--GrisOscuro);
+    border-radius: 15px;
+    z-index: 100;
+}
+.olasLogin{
+    position: absolute;
+    bottom: 0;
+}
