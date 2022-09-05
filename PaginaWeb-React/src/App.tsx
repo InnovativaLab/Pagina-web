@@ -13,6 +13,10 @@ function App () {
       <Header />
       <Routes>
         <Route path='/' element={<Inicio />} />
+        <Route path='/login' element={<Inicio />} />
+        <Route path='/signin' element={<Inicio />} />
+        <Route path='/reoverpws' element={<Inicio />} />
+        <Route path='/home' element={<Inicio />} />
       </Routes>
       <Footer />
     </div>
