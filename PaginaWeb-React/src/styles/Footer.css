@@ -20,10 +20,8 @@ footer{
     justify-content: space-evenly;
 }
 .footerLinksTitle{
-    margin-top: 5px;
     font-size: 24px;
     font-weight: 700;
-    padding: 10px 0px 16px 0;
 }
 .footerLinksList li{
     list-style:none;

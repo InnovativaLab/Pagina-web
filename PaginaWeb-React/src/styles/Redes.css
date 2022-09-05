@@ -1,16 +1,18 @@
 .redesTitleGrande{
+    color: var(--Blanco);
+    font-family: 'Work Sans';
+    line-height: 125%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index:1;
 }
 .imgGrande{
     width: 400px;
-    height: 400px;
 }
 .imgChica{
     width: 120px;
-    height: 120px;
 }
 .redesTitle{
     font-family: 'Work Sans';
