@@ -1,6 +1,6 @@
+
 .presentation{
   height: 120vh;
-  background-color: aliceblue;
   display: flex;
   flex-direction: column;
 }
@@ -28,6 +28,10 @@
   align-items: center;
   padding: 40px 170px;
   gap: 80px;
+  width: 100%;
+}
+.weObjectsinfo{
+  width: 100%;
 }
 .weObjectsTitle{/* Nuestro objetivo */
   font-family: 'Work Sans';
@@ -37,11 +41,39 @@
   line-height: 125%;
 }
 .weObjectsText{
-    
-  width: 800px;
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 125%;
+}
+.mainInformation h1{
+  font-size: 40px;
+  margin-right: 50px;
+  width: 500px;
+}
+@media screen and (max-width:1300px) {
+  .FondoOlas{
+    top: 600px;
+  }
+  .weObjectsSvg{
+    width: 350px;
+  }
+  .weObjects{
+    bottom: -150px;
+    padding: 20px 50px;
+    gap: 80px;
+  }
+  .weObjectsTitle{/* Nuestro objetivo */
+    font-size: 40px;
+  }
+  .weObjectsText{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width:800px) {
+
+}
+@media screen and (max-width:500px) {
+
 }
