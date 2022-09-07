@@ -12,7 +12,7 @@ function Header () {
   const   btnMenuCerrar = document.getElementById("closeMenuButtom")
   const   menu = document.getElementById("menu")
 
-  const[state,setState]= useState(" hide");
+  const[state,setState]= useState("hide");
 
   const cambiarEstadoMenu = ()=>{
     if(state==="show"){

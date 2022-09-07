@@ -14,6 +14,12 @@ header{
     width: 100%;
     text-align: end;
     transition: top ease .5s;
+    top: -70px;
+    display: none;
+    z-index: 10000;
+}
+.closeMenuButtom{
+    display: none;
 }
 .containerMenu{
     display: flex;
@@ -23,7 +29,14 @@ header{
     padding: 20px 0;
     width: 80%;
     transition: left ease .3s;
+    z-index: 10000;
   }
+  .menuhide{
+    left: -100%;
+  }
+  .menushow{
+      left: 0px;
+    }
   @media screen and (max-width:1300px) {
         .containerMenu{
            padding: 20px 70px;
@@ -33,14 +46,14 @@ header{
     header{
         align-items: baseline;
         justify-content: start;
-        
     }
-    .menuhide{
-      left: -100%;
+    .openMenuButtom{
+        top: 0px;
+        display: block;
     }
-    .menushow{
-        left: 0px;
-      }
+    .closeMenuButtom{
+        display: block;
+    }
    .containerMenu{position: fixed;
     background-color: var(--Negro);
     z-index: 1000;

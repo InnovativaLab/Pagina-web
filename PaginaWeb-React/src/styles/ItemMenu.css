@@ -48,6 +48,12 @@
     color: #C9C9CA;
     ;
 }
+.buttonhide{
+  top: 0px;
+}
+.buttonshow{
+    top: -70px;
+}
 .button{
     display: flex;
     flex-direction: column;
@@ -62,18 +68,13 @@
     .buttonItemMenu{
         padding: 7px 10px;
     }
+    
 }
 @media screen and (max-width:800px) {
     .buttonItemMenu {
         width: 80%;
         padding: 15px 10px;
         text-align: center;
-    }
-    .buttonhide{
-      top: 0px;
-    }
-    .buttonshow{
-        top: -70px;
     }
 }
 @media screen and (max-width:500px) {
