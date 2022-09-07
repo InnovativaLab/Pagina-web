@@ -15,7 +15,8 @@
     z-index: 10;
     justify-content: center;
     align-items: center;
-    margin:110px 170px ;
+    width: 100%;
+    padding:110px 170px ;
 }
 .mainInformation{
     width: 750px;
@@ -56,7 +57,7 @@
     }
     .mainInformation h1{
         font-size: 40px;
-        margin-right: 50px;
+        padding-right: 50px;
     }
     .mainContainer img{
         height: 378px;
@@ -78,6 +79,11 @@
         justify-content: center;
         flex-direction: column;
         text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .mainInformation h1{
+        padding-right: 0;
     }
   }
   @media screen and (max-width:500px) {

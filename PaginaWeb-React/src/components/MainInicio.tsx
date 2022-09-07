@@ -9,7 +9,7 @@ function MainInicio () {
       <div className='mainContainer'>
         <div className='mainInformation'>
           <h1>Aprende sobre tecnologia muy facilmente de forma colaborativa y online.</h1>
-          <h2>Cursos online sobre tecnologia al alcence de todos, con efoque practico</h2>
+          <h2>Cursos online sobre tecnologia al alcence de todos, con enfoque practico</h2>
           <ItemMenu
             text='¡Empeza ahora!'
             background
