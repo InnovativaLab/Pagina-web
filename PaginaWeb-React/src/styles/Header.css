@@ -1,0 +1,57 @@
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.openMenuButtom{
+    background-color: var(--Negro);
+    border:none;
+    color: var(--Blanco);
+    margin-left: auto;
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+    text-align: end;
+    transition: top ease .5s;
+}
+.containerMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    width: 80%;
+    transition: left ease .3s;
+  }
+  @media screen and (max-width:1300px) {
+        .containerMenu{
+           padding: 20px 70px;
+        }
+  }
+  @media screen and (max-width:900px) {
+    header{
+        align-items: baseline;
+        justify-content: start;
+        
+    }
+    .menuhide{
+      left: -100%;
+    }
+    .menushow{
+        left: 0px;
+      }
+   .containerMenu{position: fixed;
+    background-color: var(--Negro);
+    z-index: 1000;
+    flex-direction: column;
+    height: 100vh;
+    width: 80%;
+    padding:50px  0;
+    justify-content: start;
+    gap: 15px;
+   }
+  }
+  @media screen and (max-width:500px) {
+
+  }

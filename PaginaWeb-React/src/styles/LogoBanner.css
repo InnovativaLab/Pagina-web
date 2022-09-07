@@ -12,3 +12,13 @@
     text-transform: uppercase;
     color: var(--Blanco);
 }
+@media screen and (max-width:1200px) {
+    .LogoBanner p{
+        display: none;
+    }
+}
+@media screen and (max-width:900px) {
+    .LogoBanner p{
+        display: block;
+    }
+}

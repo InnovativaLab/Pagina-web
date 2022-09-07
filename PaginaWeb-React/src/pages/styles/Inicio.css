@@ -1,16 +1,9 @@
-
 .presentation{
   height: 120vh;
   display: flex;
   flex-direction: column;
 }
-.containerMenu{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 170px;
-  }
+
 .FondoOlas{
   position:absolute;
   top: 380px;
