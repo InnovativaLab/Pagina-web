@@ -28,3 +28,18 @@
 .redesTitleChico{
     font-size: 24px;
 }
+@media screen and (max-width:1300px) {
+    .imgGrande{
+        width: 300px
+    }
+}
+@media screen and (max-width:900px) {
+    .imgGrande{
+        width: 250px
+    }
+    .redesTitleGrande{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:500px) {
+}
