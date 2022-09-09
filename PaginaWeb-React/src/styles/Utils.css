@@ -15,7 +15,7 @@
 .textbox{
     padding: 10px 15px;
     border: none;
-    width: 500px;
+    width: 100%;
     background: var(--Negro);
     color: var(--Blanco);
     border-bottom: 4px solid #2563EB;
@@ -39,8 +39,15 @@
     color: var(--GrisClaro);
     text-decoration: none;
 }
-.fullSpace{
+.fullSpace, .fullSpace button {
     width: 100%;
     text-align: center;
     text-decoration: none;
+}
+@media screen and (max-width:1300px) {
+
+}
+@media screen and (max-width:900px) {
+}
+@media screen and (max-width:500px) {
 }
