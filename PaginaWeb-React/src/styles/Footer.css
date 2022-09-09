@@ -13,9 +13,10 @@ footer{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .footerLinksContainer{
-    width: 34vw;;
+    width: 50%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -46,3 +47,22 @@ footer{
 .footerInformationLinks a{
     color: var(--Blanco);
 }
+@media screen and (max-width:1300px) {
+    .footerCallToAction{
+        padding: 0 100px 40px 100px;
+    }
+  }
+  @media screen and (max-width:900px) {
+    .footerLinksContainer{
+        margin-top: 30px;
+        width: 100%;
+    }
+    .footerCallToAction{
+        padding: 0 70px 40px 70px;
+    }
+  }
+  @media screen and (max-width:500px) {
+    .footerCallToAction{
+        padding: 0 30px 20px 30px;
+    }
+  }
