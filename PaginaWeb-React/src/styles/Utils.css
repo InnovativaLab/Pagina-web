@@ -48,6 +48,11 @@
 
 }
 @media screen and (max-width:900px) {
+    .secondaryButton, .textbox, .subtitle{
+        font-size: 15px;
+    }.title{
+        font-size: 40px;
+    }
 }
 @media screen and (max-width:500px) {
 }
