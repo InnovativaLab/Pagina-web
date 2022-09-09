@@ -3,6 +3,7 @@
     height:90vh;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     background: linear-gradient(180deg, var(--negro) 0%, var(--GrisOscuro) 100%);
 }
 .loginForm{
