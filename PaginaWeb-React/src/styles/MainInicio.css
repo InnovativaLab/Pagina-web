@@ -1,8 +1,4 @@
 .mainInicio{
-    background-image: url("../assets/fondoArduino.png");
-    background-repeat: no-repeat;
-    background-size:cover;
-    height: 70vh;
     width: 100%;
     color: var(--Blanco);
     font-family: 'Work Sans';
@@ -10,16 +6,15 @@
     line-height: 125%;
 }
 .mainContainer{
-    position: absolute;
     display: flex;
     z-index: 10;
     justify-content: center;
     align-items: center;
     padding:110px 170px ;
+    gap: 50px;
 }
 .mainInformation{
-    width: 750px;
-    padding-right: 50px;
+    width: 60%;
 }
 .mainInformation h1{
     font-weight: 700;
@@ -39,8 +34,7 @@
 }
 .mainContainer img{
     border-radius: 50px;
-    width: 50%;
-    height: 478px;
+    width: 40%;
     object-fit: cover;
 }
 
@@ -52,17 +46,15 @@
         padding:50px 70px ;
     }
     .mainInformation {
-        width: 500px;
     }
     .mainInformation h1{
         font-size: 40px;
-        padding-right: 50px;
-    }
-    .mainContainer img{
-        height: 378px;
     }
   }
-  @media screen and (max-width:800px) {
+  @media screen and (max-width:900px) {
+    .mainInicio{
+        padding-top: 40px;
+    }
     .mainContainer{
         flex-direction: column;
       }
@@ -80,9 +72,14 @@
         text-align: center;
         margin: 0;
         padding: 0;
+        width: 90%;
     }
     .mainInformation h1{
         padding-right: 0;
+        width: 90%;
+    }
+    .mainContainer img{
+        width: 80%;
     }
   }
   @media screen and (max-width:500px) {

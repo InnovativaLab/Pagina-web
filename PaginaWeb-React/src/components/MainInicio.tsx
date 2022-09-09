@@ -16,7 +16,7 @@ function MainInicio () {
             style={1}
           />
         </div>
-        <img className='' src={FotoRobot} alt='Foto de un robot azul' />
+        <img className='inicioImgRobot' src={FotoRobot} alt='Foto de un robot azul' />
       </div>
     </main>
   )

@@ -1,20 +1,12 @@
 .presentation{
-  height: 120vh;
   display: flex;
   flex-direction: column;
-}
-
-.FondoOlas{
-  position:absolute;
-  top: 380px;
-  width: 100%;
-}
-.contenedorFondoOlas{
-  height: 54vh;
+  background-image: url("../../assets/fondoInicio.svg");
+  background-repeat: no-repeat;
+  background-size:cover;
 }
 .weObjects{
   z-index: 100;
-  position: absolute;
   bottom: -250px;
   display: flex;
   color: var(--Blanco);
@@ -26,7 +18,7 @@
 .weObjectsinfo{
   width: 100%;
 }
-.weObjectsTitle{/* Nuestro objetivo */
+.weObjectsTitle{
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 700;
@@ -40,21 +32,12 @@
   font-size: 20px;
   line-height: 125%;
 }
-.mainInformation h1{
-  font-size: 40px;
-  width: 500px;
-}
 @media screen and (max-width:1300px) {
-  .FondoOlas{
-    top: 600px;
-  }
   .weObjectsSvg{
     width: 350px;
   }
   .weObjects{
-    bottom: -150px;
     padding: 20px 50px;
-    gap: 80px;
   }
   .weObjectsTitle{/* Nuestro objetivo */
     font-size: 40px;
@@ -63,10 +46,12 @@
     font-size: 16px;
   }
 }
-@media screen and (max-width:800px) {
-.weObjects{
-    flex-direction: column;
-}
+@media screen and (max-width:900px) {
+  .weObjects{
+      flex-direction: column;
+      margin: 20px 0;
+      gap: 0;
+  }
 }
 @media screen and (max-width:500px) {
 
