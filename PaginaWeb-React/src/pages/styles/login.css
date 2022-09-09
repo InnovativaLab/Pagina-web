@@ -1,10 +1,13 @@
 .mainLogin{
     display: flex;
-    height:90vh;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    background: linear-gradient(180deg, var(--negro) 0%, var(--GrisOscuro) 100%);
+    background-image: url("../../assets/fondoLogin.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 180px 170px;
+    gap: 30px;
 }
 .loginForm{
     display: flex;
@@ -15,8 +18,29 @@
     background: var(--GrisOscuro);
     border-radius: 15px;
     z-index: 100;
+    width: 35%;
 }
-.olasLogin{
-    position: absolute;
-    bottom: 0;
-}
+@media screen and (max-width:1300px) {
+    .mainLogin{
+        padding: 100px 100px;
+    }
+    .loginForm{
+        width: 60%;
+    }
+  }
+  @media screen and (max-width:900px) {
+    .mainLogin{
+        padding: 100px 50px;
+    }
+    .loginForm{
+        width: 90%;
+    }
+  }
+  @media screen and (max-width:500px) {
+    .mainLogin{
+        padding: 100px 20px;
+    }
+    .loginForm{
+        width: 100%;
+    }
+  }

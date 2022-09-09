@@ -32,7 +32,6 @@ function Login () {
             Registrarse
           </Link>
         </form>
-        <img className='olasLogin' src={olas} alt='Olas azules de decoracion' />
       </main>
     </div>
   )
