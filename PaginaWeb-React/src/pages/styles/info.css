@@ -1,0 +1,51 @@
+.infoContainer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.mainInfo{
+    color: var(--Blanco);
+    display: flex;
+    flex-direction: column;
+}
+.infoTitleContainer{
+    background-color: var(--Gris);/* Terminos y condiciones */
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 125%;
+    padding: 60px 0;
+    text-align: center;
+}
+.infoMenu{
+    background-color: var(--GrisOscuro);
+}
+.infoMain{
+    margin: 50px;
+    font-family: 'Work Sans';
+    line-height: 125%;
+    overflow-y: scroll;
+}
+.infoMain h3{
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+.infoMain p{
+    max-height: 800px;
+}
+.infoMenuEnable{
+    background-color: var(--Gris);
+}
+.infoMenuDisabled{
+    background-color: var(--GrisOscuro);
+}
+.infoMenu button{
+    border: none;
+    color: var(--Blanco);
+    padding: 15px 65px;
+    border-bottom: 1px solid #000000;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+}
