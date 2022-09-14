@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/Footer.css'
 import Redes from './Redes'
 function Footer () {
@@ -39,9 +40,9 @@ function Footer () {
       <div className='footerInformation'>
         <p>©2022, All right reserved.</p>
         <div className='footerInformationLinks'>
-          <a href='#'>Politicas de privacidad</a>
-          <a href='#'>Terminos de servicio</a>
-          <a href='#'>Uso de Cookies</a>
+          <Link to="/privacity" >Politicas de privacidad</Link>
+          <Link to="/terms" >Terminos de servicio</Link>
+          <Link to="/cookies" >Uso de Cookies</Link>
         </div>
       </div>
     </footer>
