@@ -1,0 +1,5 @@
+APIS:
+    Login
+    Autenticar
+    VerVistaPreviaCurso
+    VerCurso
