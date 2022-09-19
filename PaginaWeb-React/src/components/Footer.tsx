@@ -40,9 +40,9 @@ function Footer () {
       <div className='footerInformation'>
         <p>©2022, All right reserved.</p>
         <div className='footerInformationLinks'>
-          <Link to="/privacity" >Politicas de privacidad</Link>
-          <Link to="/terms" >Terminos de servicio</Link>
-          <Link to="/cookies" >Uso de Cookies</Link>
+          <Link to='/privacity'>Politicas de privacidad</Link>
+          <Link to='/terms'>Terminos de servicio</Link>
+          <Link to='/cookies'>Uso de Cookies</Link>
         </div>
       </div>
     </footer>
