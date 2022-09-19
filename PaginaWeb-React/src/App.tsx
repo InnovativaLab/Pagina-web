@@ -9,6 +9,7 @@ import RecoverPws from './pages/RecoverPws'
 import Home from './pages/Home'
 import Info from './pages/Info';
 import { infoOptions } from './pages/Info';
+import Teacher from './pages/Teacher';
 
 function App () {
   return (
@@ -20,6 +21,7 @@ function App () {
         <Route path='/signin' element={<SignIn />} />
         <Route path='/recoverpws' element={<RecoverPws />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/teacher' element={<Teacher />} />
         <Route path='/privacity' element={<Info
         title={infoOptions.Privacity}
         header="Lorem Iptum"
