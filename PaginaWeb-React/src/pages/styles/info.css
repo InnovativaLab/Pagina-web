@@ -49,3 +49,17 @@
     font-size: 16px;
     line-height: 125%;
 }
+@media screen and (max-width:1300px) {
+
+  }
+  @media screen and (max-width:900px) {
+    .infoMenu{
+        display: none;
+    }
+    .infoTitleContainer{
+        padding-top: 120px;
+    }
+  }
+  @media screen and (max-width:500px) {
+
+  }
