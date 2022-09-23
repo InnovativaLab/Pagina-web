@@ -9,6 +9,8 @@ import RecoverPws from './pages/RecoverPws'
 import Home from './pages/Home'
 import Info, { infoOptions } from './pages/Info'
 import Teacher from './pages/Teacher'
+import Curso from './pages/Curso'
+import Busqueda from './pages/Busqueda';
 
 function App () {
   return (
@@ -21,6 +23,8 @@ function App () {
         <Route path='/recoverpws' element={<RecoverPws />} />
         <Route path='/home' element={<Home />} />
         <Route path='/teacher' element={<Teacher />} />
+        <Route path='/course' element={<Curso />} />
+        <Route path='/browse' element={<Busqueda />} />
         <Route
           path='/privacity' element={<Info
             title={infoOptions.Privacity}
