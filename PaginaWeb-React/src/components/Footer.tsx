@@ -32,7 +32,7 @@ function Footer () {
               <li><a href='#'>Link</a></li>
               <li><a href='#'>Link</a></li>
               <li><a href='#'>Link</a></li>
-              <li><a href='#'>Link</a></li>
+              <Link to='/teacher'>Ser profesor</Link>
             </ul>
           </div>
         </div>
