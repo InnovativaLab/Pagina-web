@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import ItemMenu from './ItemMenu'
 import Browser from './Browser'
 import LogoBanner from './LogoBanner'
-
 import { Link } from 'react-router-dom'
 import '../styles/Header.css'
 import burger from '../assets/bx-menu.svg'
@@ -25,21 +24,23 @@ function Header () {
     <header>
       <button onClick={cambiarEstadoMenu} className={`openMenuButtom button${state}`} id='openMenuButtom'><img src={burger} alt='Icono menu' /></button>
       <div className={`containerMenu menu${state}`}>
-        <LogoBanner />
+        <Link className='noLink' onClick={cambiarEstadoMenu} to='/'>
+          <LogoBanner />
+        </Link>
         <Browser />
-        <Link to='/' onClick={cambiarEstadoMenu}  className='buttonItemMenu simple'>
+        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Cursos</span>
         </Link>
-        <Link to='/' onClick={cambiarEstadoMenu}  className='buttonItemMenu simple'>
+        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
         </Link>
-        <Link to='/' onClick={cambiarEstadoMenu}  className='buttonItemMenu simple'>
+        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Sobre nosotros</span>
         </Link>
-        <Link to='/' onClick={cambiarEstadoMenu}  className='buttonItemMenu simple'>
+        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Contacto</span>
         </Link>
-        <Link to='/login' onClick={cambiarEstadoMenu}  className='buttonItemMenu withBackground ItemMenu'>
+        <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
           <span>Iniciar Sesión</span>
         </Link>
         <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
