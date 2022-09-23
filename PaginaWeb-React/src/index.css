@@ -8,3 +8,7 @@
     --Negro:#0A0A0A;
 }
 /*@import url("./styles/ItemMenu.css") all;*/
+
+.noLink{
+    text-decoration: none;
+}
