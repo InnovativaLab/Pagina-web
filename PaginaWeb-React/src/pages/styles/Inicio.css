@@ -32,6 +32,30 @@
   font-size: 20px;
   line-height: 125%;
 }
+.homeCourseSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: var(--Blanco);
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+}
+.homeCourseTitle{
+  font-family: 'Work Sans';
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 125%;
+  text-align: center;
+  color:var(--Blanco);
+}
+.homeCardsContainer{
+  width: 90%;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 @media screen and (max-width:1300px) {
   .weObjectsSvg{
     width: 350px;
