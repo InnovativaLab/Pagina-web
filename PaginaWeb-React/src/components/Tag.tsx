@@ -2,17 +2,16 @@ import '../styles/Tag.css'
 import { enumCourseType } from '../enums/enumData'
 
 interface propTag{
-    text: String
     type: enumCourseType
   }
 
-function Tag({text, type}:propTag) {
+function Tag({type}:propTag) {
   let style=""
  if(type !== undefined){
   style = type
  }
   return (
-    <div className={`tag ${style}`}>{text}</div>
+    <div className={`tag ${style}`}>{type}</div>
   )
 }
 
