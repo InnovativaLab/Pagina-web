@@ -9,9 +9,15 @@
     border: 4px solid #2563EB;
     border-radius: 15px;
     overflow: hidden;
+    transition: transform ease .3s;
+}
+.card:hover{
+    transform: scale(1.02);
 }
 .card img{
     width: 100%;
+    height: 375px;
+    object-fit: cover;
 }
 .cardContainerInfo{
     display: flex;
