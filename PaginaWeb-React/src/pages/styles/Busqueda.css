@@ -1,0 +1,29 @@
+.browse{
+    padding: 50px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.browseTitle{
+    padding: 50px;
+    width: 100%;
+    background: var(--Gris);
+    border: 1px solid  var(--Gris);
+    border-radius: 15px;
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 125%;
+    color: var(--Blanco);
+}
+.tagContainer{
+    display: flex;
+    gap:5px;
+}
+.browseSubTitle{
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 125%;
+    color: var(--Blanco);
+}
