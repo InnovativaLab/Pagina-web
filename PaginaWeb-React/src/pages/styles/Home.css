@@ -28,3 +28,8 @@
     font-size: 48px;
     color: var(--Blanco);
 }
+.cardsContinaer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 60px;
+}
