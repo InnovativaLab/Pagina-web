@@ -1,9 +1,9 @@
 export enum enumCourseType {
-    Robotica = "Robotica",
-    Programacion = "Programacion",
+    Robotica = "Robótica",
+    Programacion = "Programación",
     DesarrolloWeb = "DesarrolloWeb",
-    Electronica = "Electronica",
+    Electronica = "Electrónica",
     Arduino = "Arduino",
     Tinkercad ="Tinkercad",
-    Impresion3D = "Impresion3D"
+    Impresion3D = "Impresión3D"
 }
