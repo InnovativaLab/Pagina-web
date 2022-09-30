@@ -7,3 +7,10 @@ export enum enumCourseType {
     Tinkercad ="Tinkercad",
     Impresion3D = "Impresión3D"
 }
+export enum enumSocialNetwork {
+    YouTube = "YouTube",
+    Twitter = "Twitter",
+    Instagram = "Instagram",
+    TikTok = "TikTok",
+    LinkedIn = "LinkedIn"
+}
