@@ -56,6 +56,21 @@
   gap: 40px;
   flex-wrap: wrap;
 }
+.socialNetworks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px 0;
+}
+.socialNetworksContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (max-width:1300px) {
   .weObjectsSvg{
     width: 350px;

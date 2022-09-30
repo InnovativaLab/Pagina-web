@@ -2,8 +2,8 @@ import MainInicio from '../components/MainInicio'
 import './styles/Inicio.css'
 import learnImg from '../assets/svgLearn.svg'
 import Card from '../components/Card';
-import { enumCourseType } from '../enums/enumData';
-
+import { enumCourseType,enumSocialNetwork } from '../enums/enumData';
+import SocialNetworkButton from '../components/SocialNetworkButton';
 function Inicio () {
   return (
     <div className='presentation'>
@@ -14,6 +14,16 @@ function Inicio () {
           <p className='weObjectsTitle'>Nuestro objetivo.</p>
           <p className='weObjectsText'>Somos una plataforma educativa con el objetivo de ser la plataforma educativa que propicie la transformación social mediante la promoción e impulso de la tecnología y sus pilares. <br /><br />Nos encargamos de garantizar una educación de calidad proporcionando una formación en base tecnológica mediante la utilización de herramientas interactivas con el fin de capacitar a los alumnos en la creación de proyectos autónomos de triple impacto.</p>
         </div>
+      </section>
+      <section className='socialNetworks'>
+        <p className='homeCourseTitle'>Nuestras comunidades</p>
+        <div  className='socialNetworksContainer'>
+        <SocialNetworkButton tipo={enumSocialNetwork.Instagram} link="https://www.instagram.com/innovativalab/"/>
+          <SocialNetworkButton tipo={enumSocialNetwork.YouTube} link="https://www.youtube.com/c/InnovativaLab"/>
+          <SocialNetworkButton tipo={enumSocialNetwork.Twitter} link="https://twitter.com/InnovativaLab/"/>
+          <SocialNetworkButton tipo={enumSocialNetwork.TikTok} link="https://www.tiktok.com/@francobalich"/>
+        </div>
+        <p className='homeCourseTitle'>+30.000 personas</p>
       </section>
       <section className='homeCourseSection'>
         <p className='homeCourseTitle'>Cursos</p>
