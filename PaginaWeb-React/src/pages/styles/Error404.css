@@ -1,0 +1,19 @@
+.error404Container{
+    color: var(--Blanco);
+    font-family: 'Work Sans';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 125%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.error404Container img{
+    width: 500px;
+}
+.error404Container a{
+    text-decoration: none;
+}
