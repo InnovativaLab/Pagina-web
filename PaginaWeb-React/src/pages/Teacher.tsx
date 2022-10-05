@@ -35,7 +35,7 @@ function Teacher () {
       </section>
 
       <div className='grafic' />
-      <section className='analiticSection' >
+      <section className='analiticSection'>
         <p className='msgAlert'>Cursos top</p>
         <ul className='listCousesTop'>
           <li className='itemCouseTop titleCouseTop'>
@@ -63,7 +63,7 @@ function Teacher () {
             <p>48%</p>
           </li>
         </ul>
-      </ section>
+      </section>
     </div>
   )
 }

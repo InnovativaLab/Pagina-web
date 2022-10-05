@@ -10,8 +10,8 @@ import Home from './pages/Home'
 import Info, { infoOptions } from './pages/Info'
 import Teacher from './pages/Teacher'
 import Curso from './pages/Curso'
-import Busqueda from './pages/Busqueda';
-import Error404 from './pages/Error404';
+import Busqueda from './pages/Busqueda'
+import Error404 from './pages/Error404'
 
 function App () {
   return (

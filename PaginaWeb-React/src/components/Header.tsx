@@ -27,7 +27,7 @@ function Header () {
         <Link className='noLink' onClick={cambiarEstadoMenu} to='/'>
           <LogoBanner />
         </Link>
-        <Browser closeFunction={cambiarEstadoMenu}/>
+        <Browser closeFunction={cambiarEstadoMenu} />
         <Link to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
         </Link>

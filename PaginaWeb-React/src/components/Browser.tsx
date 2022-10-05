@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 interface propBrowser{
   closeFunction: any
 }
-function Browser ({closeFunction}:propBrowser) {
+function Browser ({ closeFunction }: propBrowser) {
   return (
     <div className='browserContainer'>
       <input type='text' placeholder='Buscar curso' />
