@@ -22,6 +22,7 @@ function Header () {
     }
   }
   return (
+    <>
     <header>
       <button onClick={cambiarEstadoMenu} className={`openMenuButtom button${state}`} id='openMenuButtom'><img src={burger} alt='Icono menu' /></button>
       <div className={`containerMenu menu${state}`}>
@@ -47,6 +48,9 @@ function Header () {
         <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
       </div>
     </header>
+      <p className='headerSpace'></p>
+    </>
+    
   )
 }
 

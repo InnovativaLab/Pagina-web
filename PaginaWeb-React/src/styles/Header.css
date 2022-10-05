@@ -7,6 +7,9 @@ header{
     background-color: var(--Negro);
     z-index: 100000;
 }
+.headerSpace{
+    padding-top:90px;
+}
 .openMenuButtom{
     background-color: var(--Negro);
     border:none;
