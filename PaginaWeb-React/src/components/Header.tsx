@@ -5,6 +5,7 @@ import LogoBanner from './LogoBanner'
 import { Link } from 'react-router-dom'
 import '../styles/Header.css'
 import burger from '../assets/bx-menu.svg'
+import { HashLink } from 'react-router-hash-link'
 
 function Header () {
   const btnMenu = document.getElementById('openMenuButtom')
@@ -28,18 +29,18 @@ function Header () {
           <LogoBanner />
         </Link>
         <Browser closeFunction={cambiarEstadoMenu} />
-        <Link to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+        <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
-        </Link>
-        <Link to='#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+        </HashLink>
+        <HashLink to='#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Cursos</span>
-        </Link>
+        </HashLink>
         <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Sobre nosotros</span>
         </Link>
-        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+        <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Contacto</span>
-        </Link>
+        </a>
         <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
           <span>Iniciar Sesión</span>
         </Link>

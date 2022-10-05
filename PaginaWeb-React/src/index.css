@@ -9,6 +9,9 @@
 }
 /*@import url("./styles/ItemMenu.css") all;*/
 
+html{
+    scroll-behavior: smooth;
+}
 .noLink{
     text-decoration: none;
 }

@@ -4,7 +4,7 @@ import learnImg from '../assets/svgLearn.svg'
 import Card from '../components/Card'
 import { enumCourseType, enumSocialNetwork } from '../enums/enumData'
 import SocialNetworkButton from '../components/SocialNetworkButton'
-import { HashLink } from 'react-router-hash-link'
+
 
 function Inicio () {
   return (
