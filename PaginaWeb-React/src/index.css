@@ -11,7 +11,9 @@
 
 html{
     scroll-behavior: smooth;
+    
 }
+
 .noLink{
     text-decoration: none;
 }
