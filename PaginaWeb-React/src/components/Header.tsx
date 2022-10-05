@@ -28,11 +28,11 @@ function Header () {
           <LogoBanner />
         </Link>
         <Browser closeFunction={cambiarEstadoMenu}/>
-        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Cursos</span>
-        </Link>
-        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+        <Link to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
+        </Link>
+        <Link to='#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <span>Cursos</span>
         </Link>
         <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Sobre nosotros</span>
