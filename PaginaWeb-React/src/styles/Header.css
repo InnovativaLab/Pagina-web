@@ -3,6 +3,9 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    position:fixed;
+    background-color: var(--Negro);
+    z-index: 100000;
 }
 .openMenuButtom{
     background-color: var(--Negro);
