@@ -77,12 +77,14 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 .staffTitle{
   color: var(--Blanco);
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 700;
+  text-align: center;
   font-size: 48px;
   line-height: 125%;
   margin-bottom: 40px;
@@ -92,6 +94,7 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
+  flex-wrap: wrap;
 }
 @media screen and (max-width:1300px) {
   .weObjectsSvg{
