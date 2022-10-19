@@ -26,6 +26,7 @@
     font-size: 48px;
     line-height: 125%;
     color: var(--Blanco);
+    text-align: center;
 }
 .homeSubtitulo{
     padding: 30px 50px;
@@ -40,8 +41,11 @@
     font-family: 'Work Sans';
     line-height: 125%;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     padding: 20px 50px;
+    justify-content: center;
+    align-items: center;
 }
 .itemAnalitic{
     display: flex;
@@ -73,8 +77,10 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 125%;
+    overflow-y: scroll;
 }
 .itemCouseTop{
+    min-width: 900px;
     display: grid;
     grid-template-columns:  50px 1fr 1fr 150px;
     padding: 30px;
@@ -84,3 +90,19 @@
     background: var(--GrisOscuro);
     border-radius: 15px;
 }
+
+@media screen and (max-width:1300px) {
+
+  }
+  @media screen and (max-width:900px) {
+    .section{
+        padding: 20px 40px;
+    }
+    .msgAlert{
+        padding: 50px 25px;
+        font-size: 38px;
+    }
+  }
+  @media screen and (max-width:500px) {
+
+  }
