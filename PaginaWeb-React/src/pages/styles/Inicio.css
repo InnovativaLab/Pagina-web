@@ -71,11 +71,12 @@
   justify-content: center;
   align-items: center;
 }
-.experts{
+.staff{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 .staffTitle{
   color: var(--Blanco);

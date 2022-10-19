@@ -18,7 +18,7 @@ function Inicio () {
           <p className='weObjectsText'>Somos una plataforma educativa con el objetivo de ser la plataforma educativa que propicie la transformación social mediante la promoción e impulso de la tecnología y sus pilares. <br /><br />Nos encargamos de garantizar una educación de calidad proporcionando una formación en base tecnológica mediante la utilización de herramientas interactivas con el fin de capacitar a los alumnos en la creación de proyectos autónomos de triple impacto.</p>
         </div>
       </section>
-      <section className='experts'>
+      <section className='staff'>
         <p  className='staffTitle'>Aprende de la experiencia de <span className='blue'>expertos</span></p>
         <div className='staffContainer'>
           <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
@@ -60,6 +60,14 @@ function Inicio () {
             text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
             tags={[enumCourseType.Arduino, enumCourseType.Tinkercad, enumCourseType.Robotica]}
           />
+        </div>
+      </section>
+      <section className='staff'>
+      <p  className='staffTitle'>Nuestro equipo</p>
+        <div className='staffContainer'>
+          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
         </div>
       </section>
       {/* <img className='FondoOlas' src={fondoOlas} alt='Olas celestes' /> */}
