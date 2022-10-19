@@ -4,6 +4,7 @@ import learnImg from '../assets/svgLearn.svg'
 import Card from '../components/Card'
 import { enumCourseType, enumSocialNetwork } from '../enums/enumData'
 import SocialNetworkButton from '../components/SocialNetworkButton'
+import StaffCard from '../components/StaffCard';
 
 
 function Inicio () {
@@ -15,6 +16,14 @@ function Inicio () {
         <div className='weObjectsinfo'>
           <p className='weObjectsTitle'>Nuestro objetivo.</p>
           <p className='weObjectsText'>Somos una plataforma educativa con el objetivo de ser la plataforma educativa que propicie la transformación social mediante la promoción e impulso de la tecnología y sus pilares. <br /><br />Nos encargamos de garantizar una educación de calidad proporcionando una formación en base tecnológica mediante la utilización de herramientas interactivas con el fin de capacitar a los alumnos en la creación de proyectos autónomos de triple impacto.</p>
+        </div>
+      </section>
+      <section className='experts'>
+        <p  className='staffTitle'>Aprende de la experiencia de <span className='blue'>expertos</span></p>
+        <div className='staffContainer'>
+          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
         </div>
       </section>
       <section className='socialNetworks' id='Comunidad'>
