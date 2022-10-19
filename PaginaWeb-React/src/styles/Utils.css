@@ -44,6 +44,9 @@
     text-align: center;
     text-decoration: none;
 }
+.blue{
+    color: var(--Azul);
+}
 @media screen and (max-width:1300px) {
 
 }
