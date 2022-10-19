@@ -70,7 +70,6 @@ function Inicio () {
           <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
         </div>
       </section>
-      {/* <img className='FondoOlas' src={fondoOlas} alt='Olas celestes' /> */}
     </div>
   )
 }
