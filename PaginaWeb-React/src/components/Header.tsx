@@ -23,34 +23,34 @@ function Header () {
   }
   return (
     <>
-    <header>
-      <button onClick={cambiarEstadoMenu} className={`openMenuButtom button${state}`} id='openMenuButtom'><img src={burger} alt='Icono menu' /></button>
-      <div className={`containerMenu menu${state}`}>
-        <Link className='noLink' onClick={cambiarEstadoMenu} to='/'>
-          <LogoBanner />
-        </Link>
-        <Browser closeFunction={cambiarEstadoMenu} />
-        <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Comunidad</span>
-        </HashLink>
-        <HashLink to='#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Cursos</span>
-        </HashLink>
-        <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Sobre nosotros</span>
-        </Link>
-        <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Contacto</span>
-        </a>
-        <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
-          <span>Iniciar Sesión</span>
-        </Link>
-        <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
-      </div>
-    </header>
-      <p className='headerSpace'></p>
+      <header>
+        <button onClick={cambiarEstadoMenu} className={`openMenuButtom button${state}`} id='openMenuButtom'><img src={burger} alt='Icono menu' /></button>
+        <div className={`containerMenu menu${state}`}>
+          <Link className='noLink' onClick={cambiarEstadoMenu} to='/'>
+            <LogoBanner />
+          </Link>
+          <Browser closeFunction={cambiarEstadoMenu} />
+          <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Comunidad</span>
+          </HashLink>
+          <HashLink to='#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Cursos</span>
+          </HashLink>
+          <Link to='/' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Sobre nosotros</span>
+          </Link>
+          <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Contacto</span>
+          </a>
+          <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
+            <span>Iniciar Sesión</span>
+          </Link>
+          <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
+        </div>
+      </header>
+      <p className='headerSpace' />
     </>
-    
+
   )
 }
 

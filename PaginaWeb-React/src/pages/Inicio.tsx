@@ -4,8 +4,7 @@ import learnImg from '../assets/svgLearn.svg'
 import Card from '../components/Card'
 import { enumCourseType, enumSocialNetwork } from '../enums/enumData'
 import SocialNetworkButton from '../components/SocialNetworkButton'
-import StaffCard from '../components/StaffCard';
-
+import StaffCard from '../components/StaffCard'
 
 function Inicio () {
   return (
@@ -19,11 +18,11 @@ function Inicio () {
         </div>
       </section>
       <section className='staff'>
-        <p  className='staffTitle'>Aprende de la experiencia de <span className='blue'>expertos</span></p>
+        <p className='staffTitle'>Aprende de la experiencia de <span className='blue'>expertos</span></p>
         <div className='staffContainer'>
-          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
         </div>
       </section>
       <section className='socialNetworks' id='Comunidad'>
@@ -63,11 +62,11 @@ function Inicio () {
         </div>
       </section>
       <section className='staff'>
-      <p  className='staffTitle'>Nuestro equipo</p>
+        <p className='staffTitle'>Nuestro equipo</p>
         <div className='staffContainer'>
-          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name="Franco Balich" description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
         </div>
       </section>
     </div>

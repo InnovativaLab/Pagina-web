@@ -10,22 +10,20 @@ dotenv.config()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(pino())
 
-
-
 app.get('/api', async (req, res, next) => {
-  try {res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    let validUser="franco"
-    let course = {
-      title:"Curso Arduino",
-      tags:["Arduino","Tinkercad","Robotica"],
-      text:"En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot."
+  try {
+    res.header('Access-Control-Allow-Origin', '*') // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    const validUser = 'franco'
+    const course = {
+      title: 'Curso Arduino',
+      tags: ['Arduino', 'Tinkercad', 'Robotica'],
+      text: 'En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
     }
     const user = req.query.user
-    if(user===validUser){
+    if (user === validUser) {
       res.send(course)
-    }
-    else{
+    } else {
       res.status(401).send('El usuario no tiene ese curso asignado')
     }
   } catch (err) {

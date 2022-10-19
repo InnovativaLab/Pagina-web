@@ -5,13 +5,13 @@ import { enumCourseType } from '../enums/enumData'
 import axios from 'axios'
 
 function Home () {
-  let respuesta =""
-  /*const readCourses=async(user:string)=>{
+  const respuesta = ''
+  /* const readCourses=async(user:string)=>{
     const res = await axios.get(`http://localhost:3001/api?user=franco`)
     console.log(res.data);
     respuesta = res.data
     return res.data
-  }*/
+  } */
   return (
     <div className='home'>
       <p className='msgAlert'>¡Hola, Franco!</p>
