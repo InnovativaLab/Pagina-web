@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "vite",
-    "server": "node ./server/index.js",
+    "server": "node-env-run server --exec nodemon | pino-colada",
     "dev": "run-p server start",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -14,6 +15,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "axios": "^1.1.0",
     "dotenv": "^16.0.2",
     "gh-pages": "^4.0.0",
     "react": "18.2.0",
@@ -22,6 +24,7 @@
     "react-router-hash-link": "^2.4.3"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "@types/react-router-hash-link": "^2.4.5",
@@ -29,6 +32,8 @@
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "express-pino-logger": "^7.0.0",
+    "node-env-run": "^4.0.2",
+    "nodemon": "^2.0.20",
     "npm-run-all": "^4.1.5",
     "pino-colada": "^2.2.2",
     "ts-standard": "11.0.0",
