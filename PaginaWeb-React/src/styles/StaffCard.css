@@ -1,0 +1,27 @@
+.staffCard{
+    font-family: 'Work Sans';
+    line-height: 125%;
+    align-items: center;
+    text-align: center;
+    color: var(--Blanco);
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background: linear-gradient(180deg, var(--Negro) 0%, var(--GrisOscuro) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    gap: 30px;
+}
+.staffCard img{
+    width: 100%;
+    object-fit: cover;
+}
+.staffCardTitle{
+    font-weight: 700;
+    font-size: 48px;
+}
+.staffCardText{
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
