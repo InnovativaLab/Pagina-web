@@ -2,6 +2,10 @@ import pino from 'express-pino-logger'
 import bodyParser from 'body-parser'
 import * as dotenv from 'dotenv'
 import express from 'express'
+import * as userRouter from './routes/user.routes.js'
+import * as userController from './controllers/user.controller.js'
+import * as coursesRouter from './routes/courses.routes.js'
+import * as coursesController from './controllers/courses.controller.js'
 
 const app = express()
 const PORT = 3001
@@ -12,8 +16,6 @@ app.use(pino())
 
 app.get('/api', async (req, res, next) => {
   try {
-    res.header('Access-Control-Allow-Origin', '*') // update to match the domain you will make the request from
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     const validUser = 'franco'
     const course = {
       title: 'Curso Arduino',
