@@ -1,4 +1,5 @@
 import {pool} from '../db.js'
+import passwordHash from "password-hash"
 
 export const getUsers = async (req,res)=> {
     try {
@@ -14,9 +15,8 @@ export const getUser = async (req,res)=> {
     try {
         const {Email}= req.params
         const {Contraseña}= req.body
-        console.log(req.params);
         const [rows]=await pool.query('SELECT * from Usuario WHERE Email=? ',[Email])
-        if(rows[0].Contraseña===Contraseña) return res.json(rows)
+        if(passwordHash.verify(Contraseña,rows[0].Contraseña)) return res.json(rows)
         return res.status(500).json({
             message:'Data incorrect'
         })
@@ -30,11 +30,11 @@ export const getUser = async (req,res)=> {
 export const createUser = async (req,res)=> {
     try {
         const {Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado}= req.body
-        console.log(req.body)
-        const [rows]=await pool.query('INSERT INTO Usuario (Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado) VALUES (?,?,?,?,?,?,?,?)',[Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado])
+        const hash= passwordHash.generate(Contraseña);
+        const [rows]=await pool.query('INSERT INTO Usuario (Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado) VALUES (?,?,?,?,?,?,?,?)',[Nombre, Apellido,Genero,hash,Email,NombreDeUsuario,Preferencias,Estado])
         res.send({
             //id: rows.insertId,
-            Nombre,Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado,
+            Nombre,Apellido,Genero,hash,Email,NombreDeUsuario,Preferencias,Estado,
         })
     } catch (error) {
         console.log(error)
