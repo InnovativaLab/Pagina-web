@@ -1,3 +1,5 @@
+import {pool} from '../db.js'
+
 export const getCourses = async (req,res)=> {
     res.json({message:"Hello world"})
 }
