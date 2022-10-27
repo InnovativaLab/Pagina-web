@@ -26,16 +26,15 @@ CREATE TABLE Curso(
 );
 
 CREATE TABLE Usuario(
-    ID INT(11) NOT NULL AUTO_INCREMENT,
+    NombreDeUsuario VARCHAR(50) NOT NULL,
     Nombre VARCHAR(50) DEFAULT NULL,
     Apellido VARCHAR(50) DEFAULT NULL,
     Genero VARCHAR(50) DEFAULT NULL,
     Contraseña VARCHAR(50) DEFAULT NULL,
     Email VARCHAR(50) DEFAULT NULL,
-    NombreDeUsuario VARCHAR(50) DEFAULT NULL,
     Preferencias VARCHAR(50) DEFAULT NULL,
     Estado VARCHAR(50) DEFAULT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (NombreDeUsuario)
 );
 CREATE TABLE Permiso(
     ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -58,18 +57,18 @@ CREATE TABLE PermisoRol(
 CREATE TABLE RolUsuario(
     ID INT(11) NOT NULL AUTO_INCREMENT,
     RolID INT(11) NOT NULL,
-    UsuarioID INT(11) NOT NULL,
+    UsuarioNombreDeUsuario VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (RolID) REFERENCES Rol(ID),
-    FOREIGN KEY (UsuarioID) REFERENCES Usuario(ID)
+    FOREIGN KEY (UsuarioNombreDeUsuario) REFERENCES Usuario(NombreDeUsuario)
 );
 CREATE TABLE CursoUsuario(
     ID INT(11) NOT NULL AUTO_INCREMENT,
     CursoID INT(11) NOT NULL,
-    UsuarioID INT(11) NOT NULL,
+    UsuarioNombreDeUsuario VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (CursoID) REFERENCES Curso(ID),
-    FOREIGN KEY (UsuarioID) REFERENCES Usuario(ID)
+    FOREIGN KEY (UsuarioNombreDeUsuario) REFERENCES Usuario(NombreDeUsuario)
 );
 CREATE TABLE RegistroDeCompra(
     ID INT(11) NOT NULL AUTO_INCREMENT,
