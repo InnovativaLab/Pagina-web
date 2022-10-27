@@ -3,7 +3,7 @@ import {pool} from '../db.js'
 export const getUsers = async (req,res)=> {
     try {
         const [rows]=await pool.query('SELECT * from Usuario')
-        res.json({rows})
+        res.json(rows)
     } catch (error) {
         return res.status(500).json({
             message:'Something goes wrong'
@@ -12,8 +12,16 @@ export const getUsers = async (req,res)=> {
 }
 export const getUser = async (req,res)=> {
     try {
-        res.json({message:"Hello world"})
+        const {Email}= req.params
+        const {Contraseña}= req.body
+        console.log(req.params);
+        const [rows]=await pool.query('SELECT * from Usuario WHERE Email=? ',[Email])
+        if(rows[0].Contraseña===Contraseña) return res.json(rows)
+        return res.status(500).json({
+            message:'Data incorrect'
+        })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             message:'Something goes wrong'
         })
@@ -26,19 +34,12 @@ export const createUser = async (req,res)=> {
         const [rows]=await pool.query('INSERT INTO Usuario (Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado) VALUES (?,?,?,?,?,?,?,?)',[Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado])
         res.send({
             //id: rows.insertId,
-            Nombre,
-            Apellido,
-            Genero,
-            Contraseña,
-            Email,
-            NombreDeUsuario,
-            Preferencias,
-            Estado,
+            Nombre,Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado,
         })
     } catch (error) {
         console.log(error)
         return res.status(500).json({
-            message:'Something goes wrong'
+            message:error.sqlMessage
         })
     }
 }
@@ -58,7 +59,7 @@ export const deleteUser = async (req,res)=> {
         res.sendStatus(204)
     } catch (error) {
         return res.status(500).json({
-            message:'Something goes wrong'
+            message:error.sqlMessage
         })
     }
 }
