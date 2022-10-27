@@ -6,9 +6,9 @@ import coursesRouter from './routes/courses.routes.js'
 import {PORT} from './config.js'
 const app = express()
 
+app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(pino())
-app.use(express.json())
 
 app.use('/api', userRouter)
 app.use('/api', coursesRouter)
