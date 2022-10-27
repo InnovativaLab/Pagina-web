@@ -5,18 +5,23 @@ import Title from '../components/Title'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
 import TextBox from '../components/TextBox'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import {useState} from 'react'
 
 function Login () {
+  const [email,setEmail]= useState('')
+  const [pws,setPws]= useState('')
+  const navigate = useNavigate()
+
   const logIn=async()=>{
     console.log("Iniciando sesion...");
     try {
-      const res = await axios.get('http://localhost:3001/api/user')
+      const res = await axios.post(`http://localhost:3001/api/user/${email}`,{"Contraseña":pws})
       const data = res.data
       console.log(data);
-      return {  }
+      navigate('/home', {replace: true})
+      return {data}
     } catch (err:any) {
       console.log(err.response)
       return { authToken: null, error: err.response}
@@ -29,9 +34,9 @@ function Login () {
         <form className='loginForm'>
           <Title msg='Inicie sesión' />
           <Subtitle msg='Email' />
-          <TextBox placeholder='Ingresa tu correo electrónico' onChange={handleChangeEmail} />
+          <TextBox placeholder='Ingresa tu correo electrónico' getData={(value:any) => setEmail(value)} />
           <Subtitle msg='Contraseña' />
-          <TextBox placeholder='Ingresa tu contraseña' />
+          <TextBox placeholder='Ingresa tu contraseña' getData={(value:any) => setPws(value)} />
           <Link className='secondaryButton' to='/recoverpws'>
             ¿Olvidaste tu contraseña?
           </Link>
