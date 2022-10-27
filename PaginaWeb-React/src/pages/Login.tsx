@@ -34,9 +34,9 @@ function Login () {
         <form className='loginForm'>
           <Title msg='Inicie sesión' />
           <Subtitle msg='Email' />
-          <TextBox placeholder='Ingresa tu correo electrónico' getData={(value:any) => setEmail(value)} />
+          <TextBox placeholder='Ingresa tu correo electrónico' textType='email' getData={(value:any) => setEmail(value)} />
           <Subtitle msg='Contraseña' />
-          <TextBox placeholder='Ingresa tu contraseña' getData={(value:any) => setPws(value)} />
+          <TextBox placeholder='Ingresa tu contraseña' textType='password' getData={(value:any) => setPws(value)} />
           <Link className='secondaryButton' to='/recoverpws'>
             ¿Olvidaste tu contraseña?
           </Link>

@@ -3,13 +3,14 @@ import '../styles/Utils.css'
 
 interface propTextBox{
   placeholder: string,
-  getData:Function
+  getData:Function,
+  textType?:string
 }
-function TextBox ({ placeholder,getData}: propTextBox) {
+function TextBox ({ placeholder,getData,textType}: propTextBox) {
   return (
     <input className='textbox' onChange={
       (event)=>getData(event.target.value)
-    } type='text' placeholder={placeholder} />
+    } type={(textType!==undefined)?textType:'text'} placeholder={placeholder} />
   )
 }
 export default TextBox
