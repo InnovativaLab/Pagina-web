@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/user',getUsers)
 
-router.get('/user/:Email',getUser)
+router.post('/user/:Email',getUser)
 
 router.post('/user',createUser)
 
