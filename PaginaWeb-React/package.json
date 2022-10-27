@@ -11,13 +11,11 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "ts-standard",
-    "lint-fix": "ts-standard --fix",
-    "deploy": "gh-pages -d dist"
+    "lint-fix": "ts-standard --fix"
   },
   "dependencies": {
     "axios": "^1.1.0",
     "dotenv": "^16.0.2",
-    "gh-pages": "^4.0.0",
     "mysql2": "^2.3.3",
     "password-hash": "^1.2.2",
     "react": "18.2.0",
