@@ -6,11 +6,14 @@ interface propButtonCallToAction{
   text: string
   background: boolean
   style: Number
+  onClick?:()=>void
 }
 
-function ItemMenu ({ text, background, style }: propButtonCallToAction) {
-  const clic = () => {
-    console.log('Se hizo clic')
+function ItemMenu ({ text, background, style, onClick}: propButtonCallToAction) {
+  //console.log(onClick)
+  const clic = (evt:Event) =>{
+    evt.preventDefault();
+    (onClick===undefined)?console.log('Se hizo clic'):onClick()
   }
   const selectorStyle = (backgroundIn: boolean, styleIn: Number) => {
     let styles = 'buttonItemMenu '
