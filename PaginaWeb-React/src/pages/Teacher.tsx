@@ -1,4 +1,3 @@
-import Title from '../components/Title'
 import './styles/Teacher.css'
 import svgEstrella from '../assets/Estrella.svg'
 import svgReservas from '../assets/Reservas.svg'

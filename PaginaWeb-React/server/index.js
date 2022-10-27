@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import userRouter from './routes/user.routes.js'
 import coursesRouter from './routes/courses.routes.js'
-import {PORT} from './config.js'
+import { PORT } from './config.js'
 const app = express()
 
 app.use(express.json())
@@ -13,9 +13,9 @@ app.use(pino())
 app.use('/api', userRouter)
 app.use('/api', coursesRouter)
 
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
   res.status(404).json({
-      message:'Endpoint not found'
+    message: 'Endpoint not found'
   })
 })
 app.listen(PORT, () =>
