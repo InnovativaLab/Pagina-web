@@ -11,6 +11,6 @@ router.post('/user',createUser)
 
 router.patch('/user/:id',updateUser)
 
-router.delete('/user/:id',deleteUser)
+router.delete('/user/:NombreDeUsuario',deleteUser)
 
 export default router

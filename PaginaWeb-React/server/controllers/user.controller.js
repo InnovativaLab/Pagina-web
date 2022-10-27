@@ -53,7 +53,9 @@ export const updateUser = async (req,res)=> {
 }
 export const deleteUser = async (req,res)=> {
     try {
-        res.json({message:"Hello world"})
+        const [result]=await pool.query('DELETE from Usuario WHERE NombreDeUsuario=?;',[req.params.NombreDeUsuario])
+        if(result.affectedRows<=0)return res.status(404).json({message:'User not found'})
+        res.sendStatus(204)
     } catch (error) {
         return res.status(500).json({
             message:'Something goes wrong'
