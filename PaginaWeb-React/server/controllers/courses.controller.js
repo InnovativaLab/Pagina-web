@@ -2,8 +2,8 @@ import { pool } from '../db.js'
 
 export const getCourses = async (req, res) => {
   try {
-    const [result] = await pool.query('SELECT "Pong" AS result')
-    res.json(result)
+    const [rows] = await pool.query('SELECT * from Curso;')
+    res.json(rows)
   } catch (error) {
     return res.status(500).json({
       message: 'Something goes wrong'
@@ -21,8 +21,14 @@ export const getCourse = async (req, res) => {
 }
 export const createCourse = async (req, res) => {
   try {
-    res.json({ message: 'Hello world' })
+    const { Titulo,Subtitulo,Nivel,Categoria,Subcategoria,Descripcion,Estado,Idioma,TiempoDePublicacion,PrecioEnPesos,PrecioEnDolares,ImagenDePortada,VideoPromocional,MensajeDeBienvenida,MensajeDeFelicitaciones} = req.body
+    const [rows] = await pool.query('INSERT INTO Curso (Titulo,Subtitulo,Nivel,Categoria,Subcategoria,Descripcion,Estado,Idioma,TiempoDePublicacion,PrecioEnPesos,PrecioEnDolares,ImagenDePortada,VideoPromocional,MensajeDeBienvenida,MensajeDeFelicitaciones) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [Titulo,Subtitulo,Nivel,Categoria,Subcategoria,Descripcion,Estado,Idioma,TiempoDePublicacion,PrecioEnPesos,PrecioEnDolares,ImagenDePortada,VideoPromocional,MensajeDeBienvenida,MensajeDeFelicitaciones])
+    res.send({
+      id: rows.insertId,
+      Titulo,Subtitulo,Nivel,Categoria,Subcategoria,Descripcion,Estado,Idioma,TiempoDePublicacion,PrecioEnPesos,PrecioEnDolares,ImagenDePortada,VideoPromocional,MensajeDeBienvenida,MensajeDeFelicitaciones
+    })
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       message: 'Something goes wrong'
     })
