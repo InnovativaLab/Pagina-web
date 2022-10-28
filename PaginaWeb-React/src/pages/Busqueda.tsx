@@ -1,7 +1,7 @@
 import './styles/Busqueda.css'
 import { Link } from 'react-router-dom'
 import Card from '../components/Card'
-import { enumCourseType } from '../enums/enumData'
+import { enumCourseType } from '../enum'
 import Tag from '../components/Tag'
 
 function Busqueda () {

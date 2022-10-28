@@ -1,6 +1,6 @@
 import React from 'react'
 import Tag from './Tag'
-import { enumCourseType } from '../enums/enumData'
+import { enumCourseType } from '../enum'
 import ItemMenu from './ItemMenu'
 import imgDemo from '../assets/robotAzul.png'
 import '../styles/Card.css'

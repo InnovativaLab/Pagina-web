@@ -1,5 +1,5 @@
 import React from 'react'
-import { enumSocialNetwork } from '../enums/enumData'
+import { enumSocialNetwork } from '../enum'
 import imgInstagram from '../assets/svgInstagram.svg'
 import imgYouTube from '../assets/svgYoutube.svg'
 import imgTwitter from '../assets/svgTwitter.svg'

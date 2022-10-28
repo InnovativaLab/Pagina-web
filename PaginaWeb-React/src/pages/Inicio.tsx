@@ -2,7 +2,7 @@ import MainInicio from '../components/MainInicio'
 import './styles/Inicio.css'
 import learnImg from '../assets/svgLearn.svg'
 import Card from '../components/Card'
-import { enumCourseType, enumSocialNetwork } from '../enums/enumData'
+import { enumCourseType, enumSocialNetwork } from '../enum'
 import SocialNetworkButton from '../components/SocialNetworkButton'
 import StaffCard from '../components/StaffCard'
 

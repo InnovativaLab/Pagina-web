@@ -1,7 +1,7 @@
 import Title from '../components/Title'
 import './styles/Home.css'
 import Card from '../components/Card'
-import { enumCourseType } from '../enums/enumData'
+import { enumCourseType } from '../enum'
 import axios from 'axios';
 const API_LINK='http://localhost:3001'
 import { Course } from '../types';
