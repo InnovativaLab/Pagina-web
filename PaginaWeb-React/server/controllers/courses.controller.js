@@ -47,10 +47,15 @@ export const updateCourse = async (req, res) => {
 }
 export const deleteCourse = async (req, res) => {
   try {
-    res.json({ message: 'Hello world' })
-  } catch (error) {
+    const {id}= req.params
+    const [result]=await pool.query('UPDATE Curso SET Estado=IFNULL("Sin publicar",Estado) WHERE id=?;',[id])
+    if(result.affectedRows<=0)return res.status(404).json({message:'Course not found'})
+    const [rows]=await pool.query('SELECT * from Curso WHERE id=?;',[id])
+    res.json(rows[0])
+} catch (error) {
+  console.log(error);
     return res.status(500).json({
-      message: 'Something goes wrong'
+        message:'Something goes wrong'
     })
-  }
+}
 }
