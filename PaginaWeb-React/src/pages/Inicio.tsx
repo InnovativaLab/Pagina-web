@@ -2,7 +2,7 @@ import MainInicio from '../components/MainInicio'
 import './styles/Inicio.css'
 import learnImg from '../assets/svgLearn.svg'
 import Card from '../components/Card'
-import { enumCourseType, enumSocialNetwork } from '../enum'
+import { enumCategoriaCurso, enumRedSocial } from '../enum'
 import SocialNetworkButton from '../components/SocialNetworkButton'
 import StaffCard from '../components/StaffCard'
 
@@ -28,10 +28,10 @@ function Inicio () {
       <section className='socialNetworks' id='Comunidad'>
         <p className='homeCourseTitle'>Nuestras comunidades</p>
         <div className='socialNetworksContainer'>
-          <SocialNetworkButton tipo={enumSocialNetwork.Instagram} link='https://www.instagram.com/innovativalab/' />
-          <SocialNetworkButton tipo={enumSocialNetwork.YouTube} link='https://www.youtube.com/c/InnovativaLab' />
-          <SocialNetworkButton tipo={enumSocialNetwork.Twitter} link='https://twitter.com/InnovativaLab/' />
-          <SocialNetworkButton tipo={enumSocialNetwork.TikTok} link='https://www.tiktok.com/@francobalich' />
+          <SocialNetworkButton tipo={enumRedSocial.Instagram} link='https://www.instagram.com/innovativalab/' />
+          <SocialNetworkButton tipo={enumRedSocial.YouTube} link='https://www.youtube.com/c/InnovativaLab' />
+          <SocialNetworkButton tipo={enumRedSocial.Twitter} link='https://twitter.com/InnovativaLab/' />
+          <SocialNetworkButton tipo={enumRedSocial.TikTok} link='https://www.tiktok.com/@francobalich' />
         </div>
         <p className='homeCourseTitle'>+30.000 personas</p>
       </section>
@@ -43,21 +43,21 @@ function Inicio () {
             alt='robot'
             title='Introduccion a Arduino'
             text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
-            tags={[enumCourseType.Arduino, enumCourseType.Tinkercad, enumCourseType.Robotica]}
+            tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
           />
           <Card
             img=''
             alt='robot'
             title='Introduccion a Arduino'
             text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
-            tags={[enumCourseType.Arduino, enumCourseType.Tinkercad, enumCourseType.Robotica]}
+            tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
           />
           <Card
             img=''
             alt='robot'
             title='Introduccion a Arduino'
             text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
-            tags={[enumCourseType.Arduino, enumCourseType.Tinkercad, enumCourseType.Robotica]}
+            tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
           />
         </div>
       </section>

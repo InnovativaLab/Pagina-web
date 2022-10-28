@@ -1,8 +1,8 @@
 import '../styles/Tag.css'
-import { enumCourseType } from '../enum'
+import { enumCategoriaCurso } from '../enum'
 
 interface propTag{
-  type: enumCourseType
+  type: enumCategoriaCurso
 }
 
 function Tag ({ type }: propTag) {

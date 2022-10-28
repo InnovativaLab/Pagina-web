@@ -1,4 +1,4 @@
-export enum enumCourseType {
+export enum enumCategoriaCurso {
   Robotica = 'Robótica',
   Programacion = 'Programación',
   DesarrolloWeb = 'DesarrolloWeb',
@@ -7,7 +7,7 @@ export enum enumCourseType {
   Tinkercad ='Tinkercad',
   Impresion3D = 'Impresión3D'
 }
-export enum enumSocialNetwork {
+export enum enumRedSocial {
   YouTube = 'YouTube',
   Twitter = 'Twitter',
   Instagram = 'Instagram',

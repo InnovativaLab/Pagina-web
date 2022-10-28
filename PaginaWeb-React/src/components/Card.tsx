@@ -1,6 +1,6 @@
 import React from 'react'
 import Tag from './Tag'
-import { enumCourseType } from '../enum'
+import { enumCategoriaCurso } from '../enum'
 import ItemMenu from './ItemMenu'
 import imgDemo from '../assets/robotAzul.png'
 import '../styles/Card.css'
@@ -10,7 +10,7 @@ interface propCard{
   alt: string
   title: string
   text: string
-  tags: enumCourseType[]
+  tags: enumCategoriaCurso[]
 }
 
 function Card ({ img, alt, title, text, tags }: propCard) {

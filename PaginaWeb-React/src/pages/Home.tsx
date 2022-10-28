@@ -1,7 +1,7 @@
 import Title from '../components/Title'
 import './styles/Home.css'
 import Card from '../components/Card'
-import { enumCourseType } from '../enum'
+import { enumCategoriaCurso } from '../enum'
 import axios from 'axios';
 const API_LINK='http://localhost:3001'
 import { Course } from '../types';
@@ -22,7 +22,7 @@ function Home () {
         alt='robot'
         title={course.Titulo}
         text={course.Descripcion}
-        tags={[enumCourseType.Arduino, enumCourseType.Tinkercad, enumCourseType.Robotica]}
+        tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
       />)
       return coursesElements
     } catch (err:any) {
