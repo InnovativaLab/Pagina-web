@@ -26,17 +26,17 @@ function Header () {
       <header>
         <button onClick={cambiarEstadoMenu} className={`openMenuButtom button${state}`} id='openMenuButtom'><img src={burger} alt='Icono menu' /></button>
         <div className={`containerMenu menu${state}`}>
-          <HashLink to='#' onClick={cambiarEstadoMenu} className='noLink'>
+          <HashLink to='/#' onClick={cambiarEstadoMenu} className='noLink'>
             <LogoBanner />
           </HashLink>
           <Browser closeFunction={cambiarEstadoMenu} />
-          <HashLink to='#Nosotros' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <HashLink to='/#Nosotros' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Sobre nosotros</span>
           </HashLink>
           <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Comunidad</span>
           </HashLink>
-          <HashLink to='#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <HashLink to='/#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Cursos</span>
           </HashLink>
           <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
