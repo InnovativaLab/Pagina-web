@@ -22,7 +22,7 @@ function Home () {
       coursesElements = Object.values(courses).map(course =>
         <Card
           key={course.Titulo}
-          img=''
+          img={course.ImagenDePortada}
           alt='robot'
           title={course.Titulo}
           text={course.Descripcion}
