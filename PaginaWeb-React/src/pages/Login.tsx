@@ -1,5 +1,4 @@
 import './styles/login.css'
-import olas from '../assets/OlaLogin.svg'
 import Redes from '../components/Redes'
 import Title from '../components/Title'
 import Subtitle from '../components/Subtitle'

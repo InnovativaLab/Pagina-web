@@ -1,4 +1,3 @@
-import Title from '../components/Title'
 import './styles/Home.css'
 import Card from '../components/Card'
 import { enumCategoriaCurso } from '../enum'
