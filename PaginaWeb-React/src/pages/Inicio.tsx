@@ -8,6 +8,7 @@ import { enumRedSocial } from '../enum'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import axios from 'axios'
+import imgProfRobot from '../assets/staff/profRobot.jpeg'
 
 const API_LINK = 'http://localhost:3001'
 
@@ -44,8 +45,7 @@ function Inicio () {
         <p className='staffTitle'>Aprende de la experiencia de <span className='blue'>expertos</span></p>
         <div className='staffContainer'>
           <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Profesor robot' description='Un robot que es capaz de enseñar robótica' img={imgProfRobot} />
         </div>
       </section>
       <section className='socialNetworks' id='Comunidad'>
