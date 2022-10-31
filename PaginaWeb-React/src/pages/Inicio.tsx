@@ -5,8 +5,33 @@ import Card from '../components/Card'
 import { enumCategoriaCurso, enumRedSocial } from '../enum'
 import SocialNetworkButton from '../components/SocialNetworkButton'
 import StaffCard from '../components/StaffCard'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Course } from '../types'
+import { loadCards } from '../services/cards';
+const API_LINK = 'http://localhost:3001'
 
 function Inicio () {
+
+  const coursesCards: JSX.Element[] = []
+  const [listCourses, setListCourses] = useState(coursesCards)
+  const getCourses = async () => {
+    try {
+      const res = await axios.post(`${API_LINK}/api/courses/get`,{"Cantidad": 3})
+      const courses: Course[] = res.data
+      let coursesElements: JSX.Element[] = loadCards(courses)
+      return coursesElements
+    } catch (err: any) {
+      console.log(err.response)
+      return coursesCards
+    }
+  }
+  useEffect(() => {
+    getCourses().then((listaCursos) => {
+      setListCourses(listaCursos)
+      //console.log(coursesCards)
+    })
+  }, [])
   return (
     <div className='presentation'>
       <MainInicio />
@@ -38,27 +63,7 @@ function Inicio () {
       <section className='homeCourseSection' id='Cursos'>
         <p className='homeCourseTitle'>Cursos</p>
         <div className='homeCardsContainer'>
-          <Card
-            img=''
-            alt='robot'
-            title='Introduccion a Arduino'
-            text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
-            tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
-          />
-          <Card
-            img=''
-            alt='robot'
-            title='Introduccion a Arduino'
-            text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
-            tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
-          />
-          <Card
-            img=''
-            alt='robot'
-            title='Introduccion a Arduino'
-            text='En este cursos aprenderas los conceptos basicos de Arduino, electronica basica y sobre simuladores de robotica con el objetivo de que al finalizar el mismo seas capaz de crear tu propio robot.'
-            tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
-          />
+          {listCourses}
         </div>
       </section>
       <section className='staff'>
