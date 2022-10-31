@@ -6,7 +6,7 @@ export const getCourses = async (req, res) => {
     let query = ''
     if (Titulo === undefined && Cantidad === undefined) {
       query = 'SELECT * from Curso;'
-    } else if (Titulo !== undefined && Cantidad !== undefined) {
+    } else if (Titulo !== undefined && Cantidad === undefined) {
       query = `SELECT * from Curso Where Titulo Like "%${Titulo}%";`
     } else {
       query = `SELECT * FROM coursesdb.Curso LIMIT ${Cantidad};`
