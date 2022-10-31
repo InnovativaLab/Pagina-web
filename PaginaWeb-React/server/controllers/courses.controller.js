@@ -2,9 +2,21 @@ import { pool } from '../db.js'
 
 export const getCourses = async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT * from Curso;')
+    const {Titulo, Cantidad}= req.body;
+    let query =""
+    if(Titulo===undefined&&Cantidad===undefined){
+      query=`SELECT * from Curso;`
+    }
+    else if(Titulo!==undefined&&Cantidad!==undefined){
+      query=`SELECT * from Curso Where Titulo Like "%${Titulo}%";`
+    }
+    else{
+      query=`SELECT * FROM coursesdb.Curso LIMIT ${Cantidad};`
+    }
+    const [rows] = await pool.query(query)
     res.json(rows)
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       message: 'Something goes wrong'
     })
