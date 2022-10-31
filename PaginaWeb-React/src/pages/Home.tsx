@@ -5,8 +5,8 @@ import { enumCategoriaCurso } from '../enum'
 import axios from 'axios'
 import { Course } from '../types'
 import { useState, useEffect } from 'react'
-const API_LINK = 'http://localhost:3001'
 import Cookies from 'universal-cookie'
+const API_LINK = 'http://localhost:3001'
 
 function Home () {
   const coursesCards: JSX.Element[] = []
