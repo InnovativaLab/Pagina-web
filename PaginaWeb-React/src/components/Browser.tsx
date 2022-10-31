@@ -1,7 +1,7 @@
 import lupa from '../assets/lupa.svg'
 import '../styles/Browser.css'
 import { Link } from 'react-router-dom'
-import { useState, MouseEvent, ChangeEvent } from 'react'
+import { useState } from 'react'
 
 interface propBrowser {
   closeFunction: any
@@ -15,7 +15,7 @@ function Browser ({ closeFunction }: propBrowser) {
     <div className='browserContainer'>
       <input type='text' placeholder='Buscar curso' onChange={readBrowse}/>
       <button onClick={closeFunction}>
-        <Link to='/browse'>
+        <Link to={`/browse/${browse}`}>
           <img src={lupa} alt='' />
         </Link>
       </button>
