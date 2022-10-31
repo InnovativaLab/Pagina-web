@@ -1,6 +1,6 @@
 import '../styles/Utils.css'
 
-interface propTitle{
+interface propTitle {
   msg: string
 }
 function Title ({ msg }: propTitle) {

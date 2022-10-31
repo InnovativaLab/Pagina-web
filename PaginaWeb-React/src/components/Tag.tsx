@@ -1,7 +1,7 @@
 import '../styles/Tag.css'
 import { enumCategoriaCurso } from '../enum'
 
-interface propTag{
+interface propTag {
   type: enumCategoriaCurso
 }
 

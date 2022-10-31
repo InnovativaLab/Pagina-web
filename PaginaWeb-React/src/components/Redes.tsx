@@ -5,7 +5,7 @@ import LogoYouTube from '../assets/Youtube.svg'
 import LogoTwitter from '../assets/Twitter.svg'
 import LogoLinkedin from '../assets/Linkedin.svg'
 import '../styles/Redes.css'
-interface propRedes{
+interface propRedes {
   size: string
 }
 function Redes ({ size }: propRedes) {

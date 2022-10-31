@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Utils.css'
 
-interface propSubtitle{
+interface propSubtitle {
   msg: string
 }
 function Subtitle ({ msg }: propSubtitle) {

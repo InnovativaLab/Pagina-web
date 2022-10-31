@@ -4,7 +4,7 @@ export enum enumCategoriaCurso {
   DesarrolloWeb = 'DesarrolloWeb',
   Electronica = 'Electrónica',
   Arduino = 'Arduino',
-  Tinkercad ='Tinkercad',
+  Tinkercad = 'Tinkercad',
   Impresion3D = 'Impresión3D'
 }
 export enum enumRedSocial {
@@ -14,32 +14,32 @@ export enum enumRedSocial {
   TikTok = 'TikTok',
   LinkedIn = 'LinkedIn'
 }
-export enum enumNivel{
-  Principiante='Principiante',
-  Intermeido='Intermedio',
-  Avanzado='Avanzado'
+export enum enumNivel {
+  Principiante = 'Principiante',
+  Intermeido = 'Intermedio',
+  Avanzado = 'Avanzado'
 }
-export enum enumIdioma{
-  Español='Español',
-  Ingles='Ingles',
+export enum enumIdioma {
+  Español = 'Español',
+  Ingles = 'Ingles',
 }
-export enum enumEstadosCurso{
-  Borrador='Borrador',
-  Aprobado='Aprobado',
-  EnRevision='En revisión',
-  Retirado='Retirado'
+export enum enumEstadosCurso {
+  Borrador = 'Borrador',
+  Aprobado = 'Aprobado',
+  EnRevision = 'En revisión',
+  Retirado = 'Retirado'
 }
-export enum enumGenero{
-  Masculino='Masculino',
-  Femenino='Femenino',
-  Otro='Otro',
-  PrefieroNoDecirlo='Prefiero no decirlo'
+export enum enumGenero {
+  Masculino = 'Masculino',
+  Femenino = 'Femenino',
+  Otro = 'Otro',
+  PrefieroNoDecirlo = 'Prefiero no decirlo'
 }
-export enum enumEstadoCurso{
-  SinVerificar='Sin verificar',
-  Verificado='Verificado'
+export enum enumEstadoCurso {
+  SinVerificar = 'Sin verificar',
+  Verificado = 'Verificado'
 }
-export enum enumMoneda{
-  PesosArgentinos='Pesos Argentinos',
-  Dolares='Dolares'
+export enum enumMoneda {
+  PesosArgentinos = 'Pesos Argentinos',
+  Dolares = 'Dolares'
 }

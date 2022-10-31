@@ -2,7 +2,7 @@ import React from 'react'
 import fotoFranco from '../assets/staff/francobalich.png'
 import '../styles/StaffCard.css'
 
-interface propStaffCard{
+interface propStaffCard {
   name: string
   description: string
 }

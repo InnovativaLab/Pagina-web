@@ -6,7 +6,7 @@ import imgTwitter from '../assets/svgTwitter.svg'
 import imgTikTok from '../assets/svgTiktok.svg'
 import '../styles/SocialNetworkButton.css'
 
-interface propSocialNetwork{
+interface propSocialNetwork {
   tipo: enumRedSocial
   link: string
 }

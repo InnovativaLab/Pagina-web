@@ -1,15 +1,15 @@
 import './styles/info.css'
 import { Link } from 'react-router-dom'
 
-interface propInfo{
+interface propInfo {
   title: string
   header: string
   text: string
 }
 export enum infoOptions {
-  Terms='Terminos y condiciones',
-  Privacity='Politica de privacidad',
-  Cookies='Uso de cookies',
+  Terms = 'Terminos y condiciones',
+  Privacity = 'Politica de privacidad',
+  Cookies = 'Uso de cookies',
 }
 function Info ({ title, header, text }: propInfo) {
   return (

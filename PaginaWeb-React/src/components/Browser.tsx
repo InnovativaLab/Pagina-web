@@ -3,7 +3,7 @@ import lupa from '../assets/lupa.svg'
 import '../styles/Browser.css'
 import { Link } from 'react-router-dom'
 
-interface propBrowser{
+interface propBrowser {
   closeFunction: any
 }
 function Browser ({ closeFunction }: propBrowser) {

@@ -5,7 +5,7 @@ import ItemMenu from './ItemMenu'
 import imgDemo from '../assets/robotAzul.png'
 import '../styles/Card.css'
 
-interface propCard{
+interface propCard {
   img: string
   alt: string
   title: string

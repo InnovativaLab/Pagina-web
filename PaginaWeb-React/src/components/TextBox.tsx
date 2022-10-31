@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/Utils.css'
 
-interface propTextBox{
+interface propTextBox {
   placeholder: string
   getData: Function
   textType?: string
