@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
 import Cookies from 'universal-cookie'
+import {CartItemProps} from '../types'
+import React, {MouseEvent} from 'react';
 
 function Login () {
   const [email, setEmail] = useState('')
@@ -15,18 +17,19 @@ function Login () {
   const navigate = useNavigate()
   const cookies = new Cookies()
 
-  const logIn = async () => {
+  const sendDataLogin=async (pEmail:string,pPws:string) => {
+    const res = await axios.post(`http://localhost:3001/api/user/${pEmail}`, { Contraseña: pPws })
+    return res.data
+  }
+  const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     console.log('Iniciando sesion...')
     try {
-      const res = await axios.post(`http://localhost:3001/api/user/${email}`, { Contraseña: pws })
-      const data = res.data
+      const data = sendDataLogin(email,pws)
       console.log(data)
       cookies.set('user', data, { path: '/' })
       navigate('/home', { replace: true })
-      return { data }
     } catch (err: any) {
       console.log(err.response)
-      return { authToken: null, error: err.response }
     }
   }
   return (
