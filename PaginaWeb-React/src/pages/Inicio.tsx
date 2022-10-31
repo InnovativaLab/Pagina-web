@@ -68,8 +68,7 @@ function Inicio () {
         <p className='staffTitle'>Nuestro equipo</p>
         <div className='staffContainer'>
           <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
-          <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
+          <StaffCard name='Profesor robot' description='Un robot que es capaz de enseñar robótica' img={imgProfRobot} />
         </div>
       </section>
     </div>
