@@ -1,10 +1,12 @@
 import './styles/Busqueda.css'
-import { Link } from 'react-router-dom'
 import Card from '../components/Card'
 import { enumCategoriaCurso } from '../enum'
 import Tag from '../components/Tag'
+import { Route, Routes, Link, useParams, Outlet, NavLink } from 'react-router-dom'
 
 function Busqueda () {
+  const { toFind } = useParams()
+  console.log(toFind);
   return (
     <div className='browse'>
       <p className='browseTitle'>3 resultados para “Arduino”</p>

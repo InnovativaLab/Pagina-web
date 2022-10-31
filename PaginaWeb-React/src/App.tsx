@@ -25,7 +25,7 @@ function App () {
         <Route path='/home' element={<Home />} />
         <Route path='/teacher' element={<Teacher />} />
         <Route path='/course' element={<Curso />} />
-        <Route path='/browse' element={<Busqueda />} />
+        <Route path='/browse/:toFind' element={<Busqueda />} />
         <Route
           path='/privacity' element={<Info
             title={infoOptions.Privacity}
