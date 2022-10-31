@@ -21,6 +21,7 @@ function Home () {
       let coursesElements: JSX.Element[] = []
       coursesElements = Object.values(courses).map(course =>
         <Card
+          key={course.Titulo}
           img=''
           alt='robot'
           title={course.Titulo}
