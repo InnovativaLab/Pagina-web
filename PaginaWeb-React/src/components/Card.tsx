@@ -21,7 +21,7 @@ function Card ({ img, alt, title, text, tags }: propCard) {
         <p className='cardtitle'>{title}</p>
         <div className='cardTagContainer'>
           {tags.map(tag => {
-            return <Tag key={tag} type={tag} />
+            return <Tag key={tag+title?.replace(' ','')} type={tag} />
           })}
         </div>
         <p className='cardText'>{text}</p>
