@@ -1,25 +1,24 @@
-import MainInicio from '../components/MainInicio'
-import './styles/Inicio.css'
-import learnImg from '../assets/svgLearn.svg'
-import Card from '../components/Card'
-import { enumCategoriaCurso, enumRedSocial } from '../enum'
 import SocialNetworkButton from '../components/SocialNetworkButton'
+import MainInicio from '../components/MainInicio'
 import StaffCard from '../components/StaffCard'
+import { loadCards } from '../services/cards'
+import learnImg from '../assets/svgLearn.svg'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { enumRedSocial } from '../enum'
 import { Course } from '../types'
-import { loadCards } from '../services/cards';
+import './styles/Inicio.css'
+import axios from 'axios'
+
 const API_LINK = 'http://localhost:3001'
 
 function Inicio () {
-
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
   const getCourses = async () => {
     try {
-      const res = await axios.post(`${API_LINK}/api/courses/get`,{"Cantidad": 3})
+      const res = await axios.post(`${API_LINK}/api/courses/get`, { Cantidad: 3 })
       const courses: Course[] = res.data
-      let coursesElements: JSX.Element[] = loadCards(courses)
+      const coursesElements: JSX.Element[] = loadCards(courses)
       return coursesElements
     } catch (err: any) {
       console.log(err.response)
@@ -29,7 +28,6 @@ function Inicio () {
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
-      //console.log(coursesCards)
     })
   }, [])
   return (

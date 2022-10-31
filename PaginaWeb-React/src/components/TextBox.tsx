@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import '../styles/Utils.css'
 
 interface propTextBox {
@@ -11,13 +10,13 @@ function TextBox ({ placeholder, getData, textType }: propTextBox) {
     <input
       className='textbox' onChange={
       (event) => {
-        if(getData!==undefined){
-        getData(event.target.value)
-        }
-        else{
+        if (getData !== undefined) {
+          getData(event.target.value)
+        } else {
           console.log('hizo un clic')
         }
-    }} type={(textType !== undefined) ? textType : 'text'} placeholder={placeholder}
+      }
+} type={(textType !== undefined) ? textType : 'text'} placeholder={placeholder}
     />
   )
 }

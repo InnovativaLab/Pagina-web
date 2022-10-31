@@ -1,15 +1,13 @@
-import './styles/login.css'
-import Redes from '../components/Redes'
-import Title from '../components/Title'
+import { Link, useNavigate } from 'react-router-dom'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
+import { useState, MouseEvent } from 'react'
 import TextBox from '../components/TextBox'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useState } from 'react'
+import Title from '../components/Title'
+import Redes from '../components/Redes'
 import Cookies from 'universal-cookie'
-import {CartItemProps} from '../types'
-import React, {MouseEvent} from 'react';
+import './styles/login.css'
+import axios from 'axios'
 
 function Login () {
   const [email, setEmail] = useState('')
@@ -17,14 +15,14 @@ function Login () {
   const navigate = useNavigate()
   const cookies = new Cookies()
 
-  const sendDataLogin=async (pEmail:string,pPws:string) => {
+  const sendDataLogin = async (pEmail: string, pPws: string) => {
     const res = await axios.post(`http://localhost:3001/api/user/${pEmail}`, { Contraseña: pPws })
     return res.data
   }
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     console.log('Iniciando sesion...')
     try {
-      const data = sendDataLogin(email,pws)
+      const data = sendDataLogin(email, pws)
       console.log(data)
       cookies.set('user', data, { path: '/' })
       navigate('/home', { replace: true })

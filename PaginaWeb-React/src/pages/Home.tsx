@@ -1,9 +1,10 @@
-import './styles/Home.css'
-import axios from 'axios'
-import { Course } from '../types'
+import { loadCards } from '../services/cards'
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
-import { loadCards } from '../services/cards';
+import { Course } from '../types'
+import './styles/Home.css'
+import axios from 'axios'
+
 const API_LINK = 'http://localhost:3001'
 
 function Home () {
@@ -15,7 +16,7 @@ function Home () {
     try {
       const res = await axios.post(`${API_LINK}/api/courses/get`)
       const courses: Course[] = res.data
-      let coursesElements: JSX.Element[] = loadCards(courses)
+      const coursesElements: JSX.Element[] = loadCards(courses)
       return coursesElements
     } catch (err: any) {
       console.log(err.response)
@@ -25,7 +26,7 @@ function Home () {
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
-      //console.log(coursesCards)
+      // console.log(coursesCards)
     })
   }, [])
   return (

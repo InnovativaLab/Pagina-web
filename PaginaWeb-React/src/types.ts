@@ -27,6 +27,6 @@ export interface User {
   Estado: string
 }
 export interface CartItemProps {
-  onAdd?: () => void;
-  onRemove?: () => void;
+  onAdd?: () => void
+  onRemove?: () => void
 }

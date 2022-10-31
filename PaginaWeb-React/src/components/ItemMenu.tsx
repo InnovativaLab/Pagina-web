@@ -1,20 +1,16 @@
-import React, { HtmlHTMLAttributes, MouseEventHandler,MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 import '../styles/ItemMenu.css'
-import { Link } from 'react-router-dom'
-import {CartItemProps} from '../types'
 
 interface propButtonCallToAction {
   text: string
   background: boolean
   style: Number
-  onClick?:(e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>)=> void
+  onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
 function ItemMenu ({ text, background, style, onClick }: propButtonCallToAction) {
-  // console.log(onClick)
   const clic = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-    console.log(clic);
     (onClick === undefined) ? console.log('Se hizo clic') : onClick(event)
   }
   const selectorStyle = (backgroundIn: boolean, styleIn: Number) => {
@@ -41,7 +37,7 @@ function ItemMenu ({ text, background, style, onClick }: propButtonCallToAction)
   }
 
   return (
-    <button onClick={clic } className={selectorStyle(background, style)}>
+    <button onClick={clic} className={selectorStyle(background, style)}>
       <span>{text}</span>
     </button>
   )

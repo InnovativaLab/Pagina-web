@@ -2,16 +2,14 @@ import { pool } from '../db.js'
 
 export const getCourses = async (req, res) => {
   try {
-    const {Titulo, Cantidad}= req.body;
-    let query =""
-    if(Titulo===undefined&&Cantidad===undefined){
-      query=`SELECT * from Curso;`
-    }
-    else if(Titulo!==undefined&&Cantidad!==undefined){
-      query=`SELECT * from Curso Where Titulo Like "%${Titulo}%";`
-    }
-    else{
-      query=`SELECT * FROM coursesdb.Curso LIMIT ${Cantidad};`
+    const { Titulo, Cantidad } = req.body
+    let query = ''
+    if (Titulo === undefined && Cantidad === undefined) {
+      query = 'SELECT * from Curso;'
+    } else if (Titulo !== undefined && Cantidad !== undefined) {
+      query = `SELECT * from Curso Where Titulo Like "%${Titulo}%";`
+    } else {
+      query = `SELECT * FROM coursesdb.Curso LIMIT ${Cantidad};`
     }
     const [rows] = await pool.query(query)
     res.json(rows)
@@ -74,7 +72,7 @@ export const updateCourse = async (req, res) => {
 export const deleteCourse = async (req, res) => {
   try {
     const { id } = req.params
-    //const [result] = await pool.query('UPDATE Curso SET Estado=IFNULL("Sin publicar",Estado) WHERE id=?;', [id])
+    // const [result] = await pool.query('UPDATE Curso SET Estado=IFNULL("Sin publicar",Estado) WHERE id=?;', [id])
     const [result] = await pool.query('DELETE from Curso WHERE id=?;', [id])
     if (result.affectedRows <= 0) return res.status(404).json({ message: 'Course not found' })
     const [rows] = await pool.query('SELECT * from Curso WHERE id=?;', [id])

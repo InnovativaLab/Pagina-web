@@ -1,9 +1,7 @@
-import React from 'react'
-import Tag from './Tag'
-import { enumCategoriaCurso } from '../enum'
-import ItemMenu from './ItemMenu'
 import imgDemo from '../assets/robotAzul.png'
+import ItemMenu from './ItemMenu'
 import '../styles/Card.css'
+import Tag from './Tag'
 
 interface propCard {
   img: string
@@ -14,8 +12,8 @@ interface propCard {
 }
 
 function Card ({ img, alt, title, text, tags }: propCard) {
-  if(img===""){
-    img=imgDemo
+  if (img === '') {
+    img = imgDemo
   }
   return (
     <div className='card'>
@@ -24,7 +22,7 @@ function Card ({ img, alt, title, text, tags }: propCard) {
         <p className='cardtitle'>{title}</p>
         <div className='cardTagContainer'>
           {tags.map(tag => {
-            return <Tag key={tag+title?.replace(' ','')} type={tag} />
+            return <Tag key={tag + title?.replace(' ', '')} type={tag} />
           })}
         </div>
         <p className='cardText'>{text}</p>
