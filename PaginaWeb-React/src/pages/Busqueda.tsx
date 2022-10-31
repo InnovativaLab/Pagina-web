@@ -3,10 +3,18 @@ import Card from '../components/Card'
 import { enumCategoriaCurso } from '../enum'
 import Tag from '../components/Tag'
 import { Route, Routes, Link, useParams, Outlet, NavLink } from 'react-router-dom'
+import axios from 'axios'
+
+const API_LINK = 'http://localhost:3001'
 
 function Busqueda () {
   const { toFind } = useParams()
-  console.log(toFind);
+  const sendDataToFind = async (pToFind: string) => {
+    const res = await axios.post(`${API_LINK}/api/courses/get`, { "Titulo": pToFind })
+    return res.data
+  }
+  let info = sendDataToFind((toFind!==undefined)?toFind:"")
+  console.log(info)
   return (
     <div className='browse'>
       <p className='browseTitle'>3 resultados para “Arduino”</p>
