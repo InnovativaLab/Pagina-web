@@ -8,11 +8,13 @@ import TextBox from '../components/TextBox'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
+import Cookies from 'universal-cookie'
 
 function Login () {
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
+  const cookies = new Cookies()
 
   const logIn = async () => {
     console.log('Iniciando sesion...')
@@ -20,6 +22,7 @@ function Login () {
       const res = await axios.post(`http://localhost:3001/api/user/${email}`, { Contraseña: pws })
       const data = res.data
       console.log(data)
+      cookies.set('user', data, { path: '/' })
       navigate('/home', { replace: true })
       return { data }
     } catch (err: any) {

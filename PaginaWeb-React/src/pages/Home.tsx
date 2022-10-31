@@ -6,12 +6,16 @@ import axios from 'axios'
 import { Course } from '../types'
 import { useState, useEffect } from 'react'
 const API_LINK = 'http://localhost:3001'
+import Cookies from 'universal-cookie'
 
 function Home () {
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
+  const cookies = new Cookies()
   const getCourses = async () => {
     console.log('Cargando Cursos...')
+    console.log(cookies.get('user'))
+
     try {
       const res = await axios.get(`${API_LINK}/api/courses`)
       const courses: Course[] = res.data
