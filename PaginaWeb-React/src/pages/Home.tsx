@@ -26,7 +26,6 @@ function Home () {
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
-      // console.log(coursesCards)
     })
   }, [])
   return (

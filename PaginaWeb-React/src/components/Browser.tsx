@@ -8,18 +8,18 @@ interface propBrowser {
 }
 function Browser ({ closeFunction }: propBrowser) {
   const [browse, setbrowse] = useState('a')
-  const readBrowse = (event:any)=>{
+  const readBrowse = (event: any) => {
     setbrowse(event.target.value)
   }
   const navigate = useNavigate()
-  const goToBrowse=()=>{
+  const goToBrowse = () => {
     navigate(`/browse/${browse}`)
   }
   return (
     <div className='browserContainer'>
-      <input type='text' placeholder='Buscar curso' onChange={readBrowse}/>
+      <input type='text' placeholder='Buscar curso' onChange={readBrowse} />
       <button onClick={goToBrowse}>
-          <img src={lupa} alt='' />
+        <img src={lupa} alt='' />
       </button>
     </div>
   )

@@ -1,7 +1,7 @@
 import { loadCards } from '../services/cards'
 import { enumCategoriaCurso } from '../enum'
-import { useParams} from 'react-router-dom'
-import { useState ,useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import Tag from '../components/Tag'
 import { Course } from '../types'
 import './styles/Busqueda.css'
@@ -12,10 +12,10 @@ const API_LINK = 'http://localhost:3001'
 function Busqueda () {
   const coursesCards: Course[] = []
   const { toFind } = useParams()
-  const [num,setNum] =useState(0)
-  const [listCourses,setListCourses]=useState(coursesCards)
+  const [num, setNum] = useState(0)
+  const [listCourses, setListCourses] = useState(coursesCards)
   const sendDataToFind = async () => {
-    const res = await axios.post(`${API_LINK}/api/courses/get`, { "Titulo": toFind })
+    const res = await axios.post(`${API_LINK}/api/courses/get`, { Titulo: toFind })
     return res.data
   }
   useEffect(() => {
@@ -36,7 +36,7 @@ function Busqueda () {
         <Tag type={enumCategoriaCurso.Impresion3D} />
       </div>
       <div className='cardsContinaer'>
-        { loadCards(listCourses) }
+        {loadCards(listCourses)}
       </div>
     </div>
   )
