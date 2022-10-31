@@ -13,7 +13,7 @@ function Home () {
   const getCourses = async () => {
     console.log(cookies.get('user'))
     try {
-      const res = await axios.get(`${API_LINK}/api/courses`)
+      const res = await axios.post(`${API_LINK}/api/courses/get`)
       const courses: Course[] = res.data
       let coursesElements: JSX.Element[] = loadCards(courses)
       return coursesElements

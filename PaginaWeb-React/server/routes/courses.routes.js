@@ -3,7 +3,7 @@ import { getCourses, getCourse, createCourse, updateCourse, deleteCourse } from 
 
 const router = Router()
 
-router.get('/courses', getCourses)
+router.post('/courses/get', getCourses)
 
 router.get('/courses/:id', getCourse)
 
