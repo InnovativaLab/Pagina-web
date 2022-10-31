@@ -10,14 +10,13 @@ interface propCard {
   alt: string
   title: string
   text: string
-  tags: enumCategoriaCurso[]
+  tags: string[]
 }
 
 function Card ({ img, alt, title, text, tags }: propCard) {
   if(img===""){
     img=imgDemo
   }
-  console.log(img)
   return (
     <div className='card'>
       <img src={img} alt={alt} />

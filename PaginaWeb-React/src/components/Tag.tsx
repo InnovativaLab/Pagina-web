@@ -2,7 +2,7 @@ import '../styles/Tag.css'
 import { enumCategoriaCurso } from '../enum'
 
 interface propTag {
-  type: enumCategoriaCurso
+  type: string
 }
 
 function Tag ({ type }: propTag) {
