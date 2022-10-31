@@ -33,7 +33,7 @@ function Inicio () {
   return (
     <div className='presentation'>
       <MainInicio />
-      <section className='weObjects'>
+      <section className='weObjects' id='Nosotros'>
         <img className='weObjectsSvg' src={learnImg} alt='Ilustracion aprendiendo' />
         <div className='weObjectsinfo'>
           <p className='weObjectsTitle'>Nuestro objetivo.</p>
