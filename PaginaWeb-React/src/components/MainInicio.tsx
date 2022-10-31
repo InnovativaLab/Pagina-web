@@ -15,7 +15,7 @@ function MainInicio () {
               text='¡Empeza ahora!'
               background
               style={1}
-              onClick={()=>{}}
+              onClick={() => {}}
             />
           </HashLink>
         </div>

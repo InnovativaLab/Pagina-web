@@ -1,4 +1,5 @@
 import SocialNetworkButton from '../components/SocialNetworkButton'
+import imgProfRobot from '../assets/staff/profRobot.jpeg'
 import MainInicio from '../components/MainInicio'
 import StaffCard from '../components/StaffCard'
 import { loadCards } from '../services/cards'
@@ -8,7 +9,6 @@ import { enumRedSocial } from '../enum'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import axios from 'axios'
-import imgProfRobot from '../assets/staff/profRobot.jpeg'
 
 const API_LINK = 'http://localhost:3001'
 
