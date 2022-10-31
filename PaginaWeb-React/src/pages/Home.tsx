@@ -1,10 +1,9 @@
 import './styles/Home.css'
-import Card from '../components/Card'
-import { enumCategoriaCurso } from '../enum'
 import axios from 'axios'
 import { Course } from '../types'
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
+import { loadCards } from '../services/cards';
 const API_LINK = 'http://localhost:3001'
 
 function Home () {
@@ -12,22 +11,11 @@ function Home () {
   const [listCourses, setListCourses] = useState(coursesCards)
   const cookies = new Cookies()
   const getCourses = async () => {
-    console.log('Cargando Cursos...')
     console.log(cookies.get('user'))
-
     try {
       const res = await axios.get(`${API_LINK}/api/courses`)
       const courses: Course[] = res.data
-      let coursesElements: JSX.Element[] = []
-      coursesElements = Object.values(courses).map(course =>
-        <Card
-          key={course.Titulo}
-          img={course.ImagenDePortada}
-          alt='robot'
-          title={course.Titulo}
-          text={course.Descripcion}
-          tags={[enumCategoriaCurso.Arduino, enumCategoriaCurso.Tinkercad, enumCategoriaCurso.Robotica]}
-        />)
+      let coursesElements: JSX.Element[] = loadCards(courses)
       return coursesElements
     } catch (err: any) {
       console.log(err.response)
@@ -37,7 +25,7 @@ function Home () {
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
-      console.log(coursesCards)
+      //console.log(coursesCards)
     })
   }, [])
   return (
