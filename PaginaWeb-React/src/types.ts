@@ -29,7 +29,10 @@ export interface Usuario {
   RolNombre:string
   Permisos: Permisos[]
 }
-
+export interface Permisos {
+  Id: string
+  Nombre: string
+}
 export interface CartItemProps {
   onAdd?: () => void
   onRemove?: () => void
