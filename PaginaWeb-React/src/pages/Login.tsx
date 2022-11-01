@@ -22,9 +22,9 @@ function Login () {
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     console.log('Iniciando sesion...')
     try {
-      const data = sendDataLogin(email, pws)
-      console.log(data)
-      cookies.set('user', data, { path: '/' })
+      sendDataLogin(email, pws).then((data) => {
+        cookies.set('user', data, { path: '/' })
+      })
       navigate('/home', { replace: true })
     } catch (err: any) {
       console.log(err.response)

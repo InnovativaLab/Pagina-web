@@ -11,8 +11,8 @@ function Home () {
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
   const cookies = new Cookies()
+
   const getCourses = async () => {
-    console.log(cookies.get('user'))
     try {
       const res = await axios.post(`${API_LINK}/api/courses/get`)
       const courses: Course[] = res.data
@@ -23,11 +23,14 @@ function Home () {
       return coursesCards
     }
   }
+
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
     })
   }, [])
+  console.log(cookies.get('user'))
+
   return (
     <div className='home'>
       <p className='msgAlert'>¡Hola, Franco!</p>
