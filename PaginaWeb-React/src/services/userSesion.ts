@@ -28,7 +28,13 @@ export class userSesion {
     cookies.set('user', data, { path: '/' })
     userSesion.user = data
   }
-
+  public isLogged = () => {
+    console.log(userSesion.user.NombreDeUsuario)
+    if (userSesion.user.NombreDeUsuario!==undefined) {
+      return true
+    }
+    return false
+  }
   public isAuthorized = (permiso: enumPermisos) => {
     // if(permiso===)
   }
