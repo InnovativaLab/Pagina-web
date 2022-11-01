@@ -1,4 +1,4 @@
-import { Course, Usuario } from '../types'
+import { Course } from '../types'
 import axios from 'axios'
 import { loadCards } from './cards'
 const API_LINK = 'http://localhost:3001'

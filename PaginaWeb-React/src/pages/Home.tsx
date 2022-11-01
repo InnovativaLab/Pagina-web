@@ -3,19 +3,23 @@ import { useState, useEffect } from 'react'
 import { Usuario } from '../types'
 import './styles/Home.css'
 import { getCourses } from '../services/services'
+import { enumPermisos } from '../enum'
+import { useNavigate } from 'react-router-dom'
 
 function Home () {
+  const navigate = useNavigate()
   const sesion = userSesion.getInstance()
-  const user: Usuario | undefined = sesion.readSesion()
+
   const coursesCards: JSX.Element[] = []
+  const user: Usuario | undefined = sesion.readSesion()
   const [listCourses, setListCourses] = useState(coursesCards)
 
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
     })
-    if (sesion.isLogged()) {
-
+    if (!sesion.isAuthorized(enumPermisos.AccesoVistaCursos)) {
+      navigate('/', { replace: true })
     }
   }, [])
 
