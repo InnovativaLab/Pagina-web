@@ -89,6 +89,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 .infoDeCompraPrecio{
     font-size: 40px;
@@ -101,4 +102,31 @@
 }
 .textCenter{
     text-align: center;
+}
+@media screen and (max-width:1300px) {
+    .cursoMain{
+        margin: 30px 60px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .cursoMain{
+        flex-direction: column-reverse;
+        gap: 20px;
+        align-items: center;
+    }
+    .infoCurso{
+        width: 70%;
+    }
+    .infoDeCompra{
+        width: 70%;
+    }
+}
+@media screen and (max-width:500px) {
+    .infoCurso{
+        width: 95%;
+    }
+    .infoDeCompra{
+        width: 95%;
+    }
 }
