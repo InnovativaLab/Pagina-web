@@ -41,8 +41,6 @@
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
-    justify-content: start;
-    align-items: center;
 }
 .bold{
     font-weight: 700;
