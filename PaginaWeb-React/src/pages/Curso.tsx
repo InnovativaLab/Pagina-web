@@ -16,7 +16,7 @@ function Curso () {
   const getCourse = async () => {
     try {
       const res = await axios.get(`${API_LINK}/api/courses/${id}`)
-      const curso : Course = res.data
+      const curso: Course = res.data
       return curso
     } catch (err: any) {
       console.log(err.response)
@@ -33,49 +33,50 @@ function Curso () {
     <main className='cursoMain'>
       <section className='infoCurso'>
         <section className='courseInfo'>
-        <div className='courseInfoContainerTitle'>
-          <p className='courseInfoTitle'>{course.Titulo}</p>
-        </div>
-        <div className='courseInfoData'>
-          <p>{course.Descripcion}</p>
-          <p><span className='bold'>Categorias</span></p>
-          <div className='courseInfoTagContainer'>
-            <Tag key={course.Categoria+id} type={course.Categoria} />
-            <Tag key={course.Subcategoria+id} type={course.Subcategoria} />
+          <div className='courseInfoContainerTitle'>
+            <p className='courseInfoTitle'>{course.Titulo}</p>
           </div>
-          <p><span className='bold'>Reservado por:</span>{` ${100} estudiantes.`}</p>
-          <p><span className='bold'>Ultima actualización: </span>{`${course.Subcategoria}`}</p>
-          <p><span className='bold'>Idioma:</span>{` ${"Español"}`}</p>
-        </div>
-      </section>
-      <section className='resultados'>
-        <div className='resultadosContainerTitle'>
-          <p className='resultadosTitle'>Lo que aprenderas</p>
-        </div>
-        <ul>
-          <li><img src={imgCheck} alt='icono de check'/>En este cursos aprenderas los conceptos basicos de Arduino.</li>
-          <li><img src={imgCheck} alt='icono de check'/>Electronica basica.</li>
-          <li><img src={imgCheck} alt='icono de check'/>Simuladores de robotica.</li>
-          <li><img src={imgCheck} alt='icono de check'/>A crear tu propio robot.</li>
-        </ul>
-      </section>
+          <div className='courseInfoData'>
+            <p>{course.Descripcion}</p>
+            <p><span className='bold'>Categorias</span></p>
+            <div className='courseInfoTagContainer'>
+              <Tag key={course.Categoria + id} type={course.Categoria} />
+              <Tag key={course.Subcategoria + id} type={course.Subcategoria} />
+            </div>
+            <p><span className='bold'>Reservado por:</span>{` ${100} estudiantes.`}</p>
+            <p><span className='bold'>Ultima actualización: </span>{`${course.Subcategoria}`}</p>
+            <p><span className='bold'>Idioma:</span>{` ${'Español'}`}</p>
+          </div>
+        </section>
+        <section className='resultados'>
+          <div className='resultadosContainerTitle'>
+            <p className='resultadosTitle'>Lo que aprenderas</p>
+          </div>
+          <ul>
+            <li><img src={imgCheck} alt='icono de check' />En este cursos aprenderas los conceptos basicos de Arduino.</li>
+            <li><img src={imgCheck} alt='icono de check' />Electronica basica.</li>
+            <li><img src={imgCheck} alt='icono de check' />Simuladores de robotica.</li>
+            <li><img src={imgCheck} alt='icono de check' />A crear tu propio robot.</li>
+          </ul>
+        </section>
       </section>
       <section className='infoDeCompra'>
-            <img src={course.ImagenDePortada} alt={`Foto del curso`}/>
-            <div >
-              <div  className='infoDeCompraData'>
-                <div className='infoDeCompraPrecios'>
-                  <p className='infoDeCompraPrecio'>{`$${course.PrecioEnPesos}`}</p>
-                  <p className='infoDeCompraPrecioSinDescuento'>{`$${ course.PrecioEnPesos*2}`}</p>
-                </div>
-                <p>50% de descuento</p>
-                <ItemMenu
-                  text='Reservar curso'
-                  background
-                  style={3}/>
-                <p className='textCenter'>Garantia de 30 dias</p>
-              </div>
+        <img src={course.ImagenDePortada} alt='Foto del curso' />
+        <div>
+          <div className='infoDeCompraData'>
+            <div className='infoDeCompraPrecios'>
+              <p className='infoDeCompraPrecio'>{`$${course.PrecioEnPesos}`}</p>
+              <p className='infoDeCompraPrecioSinDescuento'>{`$${course.PrecioEnPesos * 2}`}</p>
             </div>
+            <p>50% de descuento</p>
+            <ItemMenu
+              text='Reservar curso'
+              background
+              style={3}
+            />
+            <p className='textCenter'>Garantia de 30 dias</p>
+          </div>
+        </div>
       </section>
     </main>
   )
