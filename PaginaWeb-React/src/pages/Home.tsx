@@ -23,13 +23,11 @@ function Home () {
       return coursesCards
     }
   }
-
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
     })
   }, [])
-  console.log(sesion.readSesion())
 
   return (
     <div className='home'>

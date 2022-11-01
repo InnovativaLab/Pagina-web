@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent,useEffect } from 'react'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
@@ -12,6 +12,7 @@ import axios from 'axios'
 function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
+  const [logged, setLogged] = useState(false)
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
 
@@ -20,16 +21,19 @@ function Login () {
     return res.data
   }
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
-    console.log('Iniciando sesion...')
     try {
+      console.log('Iniciando sesion...')
       sendDataLogin(email, pws).then((data) => {
         sesion.saveSesion(data)
       })
       navigate('/home', { replace: true })
-    } catch (err: any) {
+    }
+    catch (err: any) {
       console.log(err.response)
     }
   }
+  useEffect(() => {
+  }, [])
   return (
     <div>
       <main className='mainLogin'>

@@ -1,12 +1,12 @@
 import Cookies from 'universal-cookie'
-import { Usuario } from '../types'
 import { enumPermisos } from '../enum'
+import { Usuario } from '../types'
 
 const cookies = new Cookies()
 
 export class userSesion {
-  private static instance: userSesion
-  private static user: Usuario
+  private static instance: userSesion|undefined
+  private static user: Usuario|undefined
 
   private constructor () { }
 
@@ -18,7 +18,8 @@ export class userSesion {
   }
 
   public readSesion = () => {
-    if (!userSesion.user) {
+    console.log('Leyendo info de usaurio')
+    if (userSesion.user===undefined) {
       userSesion.user = cookies.get('user')
     }
     return userSesion.user
@@ -26,14 +27,22 @@ export class userSesion {
 
   public saveSesion = (data: Usuario) => {
     cookies.set('user', data, { path: '/' })
-    userSesion.user = data
+    let usuario= this.readSesion()
+    console.log(usuario)
+    return usuario
   }
   public isLogged = () => {
-    console.log(userSesion.user.NombreDeUsuario)
-    if (userSesion.user.NombreDeUsuario!==undefined) {
+    //console.log(userSesion.user)
+    if (userSesion.user!==undefined) {
       return true
     }
     return false
+  }
+  public closeSesion = () => {
+      userSesion.instance=undefined
+      userSesion.user=undefined
+      cookies.remove('user')
+      console.log('Cerrando sesion')
   }
   public isAuthorized = (permiso: enumPermisos) => {
     // if(permiso===)

@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
-import ItemMenu from './ItemMenu'
-import Browser from './Browser'
-import LogoBanner from './LogoBanner'
-import { Link } from 'react-router-dom'
-import '../styles/Header.css'
-import burger from '../assets/bx-menu.svg'
+import { userSesion } from '../services/userSesion'
 import { HashLink } from 'react-router-hash-link'
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import burger from '../assets/bx-menu.svg'
+import { Link, useNavigate } from 'react-router-dom'
+import LogoBanner from './LogoBanner'
+import Browser from './Browser'
+import '../styles/Header.css'
 
 function Header () {
-  const btnMenu = document.getElementById('openMenuButtom')
-  const btnMenuCerrar = document.getElementById('closeMenuButtom')
-  const menu = document.getElementById('menu')
-
+  const location = useLocation();
+  const navigate = useNavigate()
+  const sesion = userSesion.getInstance()
   const [state, setState] = useState('hide')
+  const [button, setButton] = useState(<></>)
 
   const cambiarEstadoMenu = () => {
     if (state === 'show') {
@@ -21,6 +22,34 @@ function Header () {
       setState('show')
     }
   }
+  const cerrarSesion = () => {
+    cambiarEstadoMenu()
+    let isLogged = sesion.isLogged()
+    if(isLogged){
+      console.log('000000clic');
+      sesion.closeSesion()
+      let button = generateButton(isLogged)
+      setButton(button)
+      navigate('/', { replace: false })
+    }
+  }
+  const generateButton = (state:Boolean)=>{
+    if(!state){
+      return <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
+          <span>Iniciar Sesión</span>
+        </Link>
+    }
+    return <span onClick={cerrarSesion} className='buttonItemMenu withBackground ItemMenu'>
+          <span>Cerrar Sesión</span>
+        </span>
+  }
+  useEffect(() => {
+    let isLogged = sesion.isLogged()
+    console.log(isLogged)
+    let button = generateButton(isLogged)
+    setButton(button)
+  }, [location])
+
   return (
     <>
       <header>
@@ -42,9 +71,7 @@ function Header () {
           <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Contacto</span>
           </a>
-          <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
-            <span>Iniciar Sesión</span>
-          </Link>
+          {button}
           <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
         </div>
       </header>
