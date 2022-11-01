@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import {saveSesion} from '../services/userSesion'
+import {userSesion} from '../services/userSesion'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
 import { useState, MouseEvent } from 'react'
@@ -10,6 +10,7 @@ import './styles/login.css'
 import axios from 'axios'
 
 function Login () {
+  const sesion = userSesion.getInstance();
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
@@ -22,7 +23,7 @@ function Login () {
     console.log('Iniciando sesion...')
     try {
       sendDataLogin(email, pws).then((data) => {
-        saveSesion(data)
+        sesion.saveSesion(data)
       })
       navigate('/home', { replace: true })
     } catch (err: any) {

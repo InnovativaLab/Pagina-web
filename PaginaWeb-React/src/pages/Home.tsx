@@ -1,4 +1,4 @@
-import {readSesion} from '../services/userSesion'
+import {userSesion} from '../services/userSesion'
 import { loadCards } from '../services/cards'
 import { useState, useEffect } from 'react'
 import { Course } from '../types'
@@ -8,6 +8,7 @@ import axios from 'axios'
 const API_LINK = 'http://localhost:3001'
 
 function Home () {
+  const sesion = userSesion.getInstance();
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
 
@@ -28,8 +29,7 @@ function Home () {
       setListCourses(listaCursos)
     })
   }, [])
-
-  console.log(readSesion())
+  console.log(sesion.readSesion())
 
   return (
     <div className='home'>
