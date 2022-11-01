@@ -15,8 +15,17 @@ export const getUser = async (req, res) => {
   try {
     const { Email } = req.params
     const { Contraseña } = req.body
-    const [rows] = await pool.query('SELECT * from Usuario WHERE Email=? ', [Email])
-    if (passwordHash.verify(Contraseña, rows[0].Contraseña)) return res.json(rows)
+    const dataUser = await pool.query(`SELECT usuario.NombreDeUsuario, usuario.Email, usuario.Nombre, usuario.Apellido, usuario.Genero, usuario.Contraseña, usuario.Preferencias, usuario.Estado, rolusuario.RolID, rol.Nombre as RolNombre, rolusuario.RolID as Permisos FROM coursesdb.usuario INNER JOIN rolusuario ON usuario.NombreDeUsuario=rolusuario.NombreDeUsuario
+                                      INNER JOIN rol ON rolusuario.Rolid=rol.ID
+                                      Where email=?;`, [Email])
+    let user=dataUser[0][0]
+    if (passwordHash.verify(Contraseña, user.Contraseña)){
+      const [rows] = await pool.query(`SELECT PermisoID, Nombre as PermisoNombre FROM coursesdb.permisorol
+      INNER JOIN coursesdb.permiso ON permisorol.permisoID=permiso.ID
+      Where RolID=?;`, [user.Permisos])
+      user.Permisos=rows
+      return res.json(user)
+    }
     return res.status(500).json({
       message: 'Data incorrect'
     })
