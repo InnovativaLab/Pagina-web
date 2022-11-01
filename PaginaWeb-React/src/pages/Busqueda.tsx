@@ -21,7 +21,7 @@ function Busqueda () {
   useEffect(() => {
     sendDataToFind().then((listaCursos) => {
       setNum(listaCursos.length)
-      console.log(listaCursos)
+      //console.log(listaCursos)
       setListCourses(listaCursos)
     })
   }, [toFind])

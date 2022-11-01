@@ -26,7 +26,6 @@ function Header () {
     cambiarEstadoMenu()
     const isLogged = sesion.isLogged()
     if (isLogged) {
-      console.log('000000clic')
       sesion.closeSesion()
       const button = generateButton(isLogged)
       setButton(button)
@@ -49,7 +48,7 @@ function Header () {
   }
   useEffect(() => {
     const isLogged = sesion.isLogged()
-    console.log('--', isLogged)
+    console.info('¿Esta logueado?:', isLogged)
     const buttonons = generateButton(isLogged)
     setButton(buttonons)
   }, [location])

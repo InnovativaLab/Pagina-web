@@ -18,7 +18,7 @@ export class userSesion {
   }
 
   public readSesion = () => {
-    console.log('Leyendo info del usuario')
+    //console.log('Leyendo info del usuario')
     if (userSesion.user === undefined) {
       userSesion.user = cookies.get('user')
     }
@@ -42,7 +42,6 @@ export class userSesion {
     userSesion.instance = undefined
     userSesion.user = undefined
     cookies.remove('user')
-    console.log('Cerrando sesion')
   }
 
   public isAuthorized = (permiso: enumPermisos) => {
