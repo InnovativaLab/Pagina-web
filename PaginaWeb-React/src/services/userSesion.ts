@@ -1,4 +1,3 @@
-
 import Cookies from 'universal-cookie'
 import { enumPermisos } from '../enum'
 import { Usuario } from '../types'

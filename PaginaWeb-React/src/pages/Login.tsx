@@ -1,4 +1,4 @@
-import { useState, MouseEvent,useEffect } from 'react'
+import { useState, MouseEvent, useEffect } from 'react'
 import { sendDataLogin } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
@@ -7,7 +7,7 @@ import ItemMenu from '../components/ItemMenu'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
-import { enumPermisos } from '../enum';
+import { enumPermisos } from '../enum'
 import './styles/login.css'
 
 function Login () {
