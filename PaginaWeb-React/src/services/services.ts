@@ -1,4 +1,4 @@
-import { Course } from '../types'
+import { Course, Usuario } from '../types'
 import axios from 'axios'
 import { loadCards } from './cards'
 const API_LINK = 'http://localhost:3001'
@@ -40,5 +40,16 @@ export const getCourse = async (id?: string) => {
   } catch (err: any) {
     console.log(err.response)
     return {} as Course
+  }
+}
+export const sendDataSignIn = async (pUser?: Usuario) => {
+  try {
+    if(pUser!==undefined){
+      const res = await axios.post(`${API_LINK}/api/user`, pUser)
+      return res.data
+    }
+    return undefined
+  } catch (error: any) {
+    console.error(error.message)
   }
 }
