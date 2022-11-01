@@ -24,7 +24,7 @@ function App () {
         <Route path='/recoverpws' element={<RecoverPws />} />
         <Route path='/home' element={<Home />} />
         <Route path='/teacher' element={<Teacher />} />
-        <Route path='/course' element={<Curso />} />
+        <Route path='/course/:id' element={<Curso />} />
         <Route path='/browse/:toFind' element={<Busqueda />} />
         <Route
           path='/privacity' element={<Info
