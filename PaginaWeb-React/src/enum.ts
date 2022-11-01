@@ -32,8 +32,8 @@ export enum enumEstadosCurso {
 export enum enumGenero {
   Masculino = 'Masculino',
   Femenino = 'Femenino',
-  Otro = 'Otro',
-  PrefieroNoDecirlo = 'Prefiero no decirlo'
+  PrefieroNoDecirlo = 'Prefiero no decirlo',
+  Otro = 'Otro'
 }
 export enum enumEstadoCurso {
   SinVerificar = 'Sin verificar',
