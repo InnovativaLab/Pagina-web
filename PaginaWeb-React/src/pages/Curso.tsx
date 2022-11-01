@@ -6,25 +6,15 @@ import Tag from '../components/Tag'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import './styles/Curso.css'
-import axios from 'axios'
+import { getCourse } from '../services/services';
 
-const API_LINK = 'http://localhost:3001'
 
 function Curso () {
   const { id } = useParams()
   const [course, setCourse] = useState({} as Course)
-  const getCourse = async () => {
-    try {
-      const res = await axios.get(`${API_LINK}/api/courses/${id}`)
-      const curso: Course = res.data
-      return curso
-    } catch (err: any) {
-      console.log(err.response)
-      return {} as Course
-    }
-  }
+  
   useEffect(() => {
-    getCourse().then((curso) => {
+    getCourse(id).then((curso) => {
       setCourse(curso)
       console.log(curso)
     })

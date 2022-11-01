@@ -1,3 +1,4 @@
+import { sendDataToFind } from '../services/services'
 import { loadCards } from '../services/cards'
 import { enumCategoriaCurso } from '../enum'
 import { useParams } from 'react-router-dom'
@@ -5,21 +6,14 @@ import { useState, useEffect } from 'react'
 import Tag from '../components/Tag'
 import { Course } from '../types'
 import './styles/Busqueda.css'
-import axios from 'axios'
-
-const API_LINK = 'http://localhost:3001'
 
 function Busqueda () {
   const coursesCards: Course[] = []
   const { toFind } = useParams()
   const [num, setNum] = useState(0)
   const [listCourses, setListCourses] = useState(coursesCards)
-  const sendDataToFind = async () => {
-    const res = await axios.post(`${API_LINK}/api/courses/get`, { Titulo: toFind })
-    return res.data
-  }
   useEffect(() => {
-    sendDataToFind().then((listaCursos) => {
+    sendDataToFind(toFind).then((listaCursos) => {
       setNum(listaCursos.length)
       //console.log(listaCursos)
       setListCourses(listaCursos)
