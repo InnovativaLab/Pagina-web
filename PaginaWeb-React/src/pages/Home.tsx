@@ -1,6 +1,6 @@
+import {readSesion} from '../services/userSesion'
 import { loadCards } from '../services/cards'
 import { useState, useEffect } from 'react'
-import Cookies from 'universal-cookie'
 import { Course } from '../types'
 import './styles/Home.css'
 import axios from 'axios'
@@ -10,7 +10,6 @@ const API_LINK = 'http://localhost:3001'
 function Home () {
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
-  const cookies = new Cookies()
 
   const getCourses = async () => {
     try {
@@ -29,7 +28,8 @@ function Home () {
       setListCourses(listaCursos)
     })
   }, [])
-  console.log(cookies.get('user'))
+
+  console.log(readSesion())
 
   return (
     <div className='home'>

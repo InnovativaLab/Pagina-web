@@ -1,11 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
+import {saveSesion} from '../services/userSesion'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
 import { useState, MouseEvent } from 'react'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
-import Cookies from 'universal-cookie'
 import './styles/login.css'
 import axios from 'axios'
 
@@ -13,7 +13,6 @@ function Login () {
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
-  const cookies = new Cookies()
 
   const sendDataLogin = async (pEmail: string, pPws: string) => {
     const res = await axios.post(`http://localhost:3001/api/user/${pEmail}`, { Contraseña: pPws })
@@ -23,7 +22,7 @@ function Login () {
     console.log('Iniciando sesion...')
     try {
       sendDataLogin(email, pws).then((data) => {
-        cookies.set('user', data, { path: '/' })
+        saveSesion(data)
       })
       navigate('/home', { replace: true })
     } catch (err: any) {
