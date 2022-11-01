@@ -17,15 +17,19 @@ export interface Course {
   MensajeDeFelicitaciones: string
 }
 export interface Usuario {
+  NombreDeUsuario: string
+  Email: string
   Nombre: string
   Apellido: string
   Genero: string
   Contraseña: string
-  Email: string
-  NombreDeUsuario: string
   Preferencias: string
   Estado: string
+  RolID: string
+  RolNombre:string
+  Permisos: Permisos[]
 }
+
 export interface CartItemProps {
   onAdd?: () => void
   onRemove?: () => void
