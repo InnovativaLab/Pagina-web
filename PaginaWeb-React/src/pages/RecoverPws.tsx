@@ -1,13 +1,21 @@
-import './styles/login.css'
-import olas from '../assets/OlaLogin.svg'
+import { Link, useNavigate } from 'react-router-dom'
+import { userSesion } from '../services/userSesion'
+import ItemMenu from '../components/ItemMenu'
+import Subtitle from '../components/Subtitle'
+import TextBox from '../components/TextBox'
 import Redes from '../components/Redes'
 import Title from '../components/Title'
-import Subtitle from '../components/Subtitle'
-import ItemMenu from '../components/ItemMenu'
-import TextBox from '../components/TextBox'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import './styles/login.css'
 
 function RecoverPws () {
+  const sesion = userSesion.getInstance()
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (sesion.isLogged()) {
+      navigate('/home', { replace: true })
+    }
+  }, [])
   return (
     <div>
       <main className='mainLogin'>

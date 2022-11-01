@@ -7,7 +7,6 @@ import ItemMenu from '../components/ItemMenu'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
-import { enumPermisos } from '../enum'
 import './styles/login.css'
 
 function Login () {
