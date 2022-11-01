@@ -12,8 +12,11 @@ export class userSesion {
   private constructor () { }
 
   public static getInstance (): userSesion {
-    if (userSesion.instance == null) {
+    if (userSesion.instance === undefined) {
       userSesion.instance = new userSesion()
+    }
+    if (userSesion.user === undefined) {
+      userSesion.user = cookies.get('user')
     }
     return userSesion.instance
   }
