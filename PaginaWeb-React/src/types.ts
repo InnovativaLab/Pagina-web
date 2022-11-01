@@ -27,9 +27,9 @@ export type Usuario= {
   Estado: string
   RolID: string
   RolNombre:string
-  Permisos: Permisos[]
+  Permisos: Permiso[]
 }
-export type Permisos ={
+export type Permiso ={
   Id: string
   Nombre: string
 }
