@@ -8,9 +8,9 @@ export interface Course {
   Descripcion: string
   Estado: string
   Idioma: string
-  TiempoDePublicacion: string
-  PrecioEnPesos: string
-  PrecioEnDolares: string
+  TiempoDePublicacion: number
+  PrecioEnPesos: number
+  PrecioEnDolares: number
   ImagenDePortada: string
   VideoPromocional: string
   MensajeDeBienvenida: string
