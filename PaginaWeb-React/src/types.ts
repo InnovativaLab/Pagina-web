@@ -16,7 +16,7 @@ export interface Course {
   MensajeDeBienvenida: string
   MensajeDeFelicitaciones: string
 }
-export interface User {
+export interface Usuario {
   Nombre: string
   Apellido: string
   Genero: string
