@@ -1,0 +1,104 @@
+.cursoMain{
+    margin: 50px 170px;
+    color: var(--Blanco);
+    font-family: 'Work Sans';
+    font-style: normal;
+    line-height: 125%;
+    display: flex;
+    justify-content: space-between;
+}
+.infoCurso{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 58%;
+}
+.courseInfo, .resultados{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 3px solid var(--Gris);
+    border-radius: 15px;
+}
+.courseInfoContainerTitle{
+    padding: 50px 40px;
+    width: 100%;
+    background: var(--Gris);
+}
+.courseInfoTitle{
+    font-weight: 700;
+    font-size: 40px;
+}
+.courseInfoData{
+    padding:15px 40px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.courseInfoTagContainer{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+.bold{
+    font-weight: 700;
+}
+.resultadosContainerTitle{
+    padding: 30px 40px;
+    width: 100%;
+    background: var(--Gris);
+}
+.resultadosTitle{
+    font-weight: 700;
+    font-size: 30px;
+}
+.resultados ul{
+    padding:15px 40px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+.resultados li{
+    display: flex;
+    align-items: center;
+}
+.infoDeCompra{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background: var(--GrisOscuro);
+    border: 4px solid var(--Azul);
+    border-radius: 15px;
+    overflow: hidden;
+    height: fit-content;
+}
+.infoDeCompra img{
+    width: 100%;
+}
+.infoDeCompraData{
+    margin: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.infoDeCompraPrecios{
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.infoDeCompraPrecio{
+    font-size: 40px;
+}
+.infoDeCompraPrecioSinDescuento{
+    font-size: 23px;
+    line-height: 125%;
+    text-decoration-line: line-through;
+    color: var(--Gris);
+}
+.textCenter{
+    text-align: center;
+}
