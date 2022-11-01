@@ -24,6 +24,9 @@ footer{
     font-size: 24px;
     font-weight: 700;
 }
+.footerLinksList{
+    margin-top:10px ;
+}
 .footerLinksList li{
     list-style:none;
     padding-bottom: 8px;

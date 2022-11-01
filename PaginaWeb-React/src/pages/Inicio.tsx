@@ -64,7 +64,7 @@ function Inicio () {
           {listCourses}
         </div>
       </section>
-      <section className='staff'>
+      <section className='staff' id='Staff'>
         <p className='staffTitle'>Nuestro equipo</p>
         <div className='staffContainer'>
           <StaffCard name='Franco Balich' description='Tecnico mecatronico y Analista en sistemas' />
