@@ -5,13 +5,13 @@ import { Usuario } from '../types'
 const cookies = new Cookies()
 
 export class userSesion {
-  private static instance: userSesion|undefined
-  private static user: Usuario|undefined
+  private static instance: userSesion | undefined
+  private static user: Usuario | undefined
 
   private constructor () { }
 
   public static getInstance (): userSesion {
-    if (!userSesion.instance) {
+    if (userSesion.instance == null) {
       userSesion.instance = new userSesion()
     }
     return userSesion.instance
@@ -19,7 +19,7 @@ export class userSesion {
 
   public readSesion = () => {
     console.log('Leyendo info del usuario')
-    if (userSesion.user===undefined) {
+    if (userSesion.user === undefined) {
       userSesion.user = cookies.get('user')
     }
     return userSesion.user
@@ -27,22 +27,24 @@ export class userSesion {
 
   public saveSesion = (data: Usuario) => {
     cookies.set('user', data, { path: '/' })
-    let usuario= this.readSesion()
-    //console.log(usuario)
+    const usuario = this.readSesion()
     return usuario
   }
+
   public isLogged = () => {
-    if (userSesion.user!==undefined) {
+    if (userSesion.user !== undefined) {
       return true
     }
     return false
   }
+
   public closeSesion = () => {
-      userSesion.instance=undefined
-      userSesion.user=undefined
-      cookies.remove('user')
-      console.log('Cerrando sesion')
+    userSesion.instance = undefined
+    userSesion.user = undefined
+    cookies.remove('user')
+    console.log('Cerrando sesion')
   }
+
   public isAuthorized = (permiso: enumPermisos) => {
     // if(permiso===)
   }

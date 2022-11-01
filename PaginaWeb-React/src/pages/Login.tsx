@@ -2,26 +2,27 @@ import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
-import { useState, MouseEvent,useEffect } from 'react'
+import { useState, MouseEvent, useEffect } from 'react'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
 import axios from 'axios'
 
+const API_LINK = 'http://localhost:3001'
+
 function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
-  const [logged, setLogged] = useState(false)
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
-  const API_LINK = 'http://localhost:3001'
+
   const sendDataLogin = async (pEmail: string, pPws: string) => {
     try {
       const res = await axios.post(`${API_LINK}/api/user/${pEmail}`, { Contraseña: pPws })
       return res.data
-    } catch (error:any) {
-        console.error(error.message);
+    } catch (error: any) {
+      console.error(error.message)
     }
   }
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
@@ -32,13 +33,10 @@ function Login () {
         sesion.saveSesion(data)
         navigate('/home', { replace: true })
       })
-    }
-    catch (err: any) {
+    } catch (err: any) {
       console.log(err.response)
     }
   }
-  useEffect(() => {
-  }, [])
   return (
     <div>
       <main className='mainLogin'>

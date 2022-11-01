@@ -1,15 +1,15 @@
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { HashLink } from 'react-router-hash-link'
-import { useLocation } from 'react-router-dom';
+
 import { useState, useEffect } from 'react'
 import burger from '../assets/bx-menu.svg'
-import { Link, useNavigate } from 'react-router-dom'
 import LogoBanner from './LogoBanner'
 import Browser from './Browser'
 import '../styles/Header.css'
 
 function Header () {
-  const location = useLocation();
+  const location = useLocation()
   const navigate = useNavigate()
   const sesion = userSesion.getInstance()
   const [state, setState] = useState('hide')
@@ -24,29 +24,33 @@ function Header () {
   }
   const cerrarSesion = () => {
     cambiarEstadoMenu()
-    let isLogged = sesion.isLogged()
-    if(isLogged){
-      console.log('000000clic');
+    const isLogged = sesion.isLogged()
+    if (isLogged) {
+      console.log('000000clic')
       sesion.closeSesion()
-      let button = generateButton(isLogged)
+      const button = generateButton(isLogged)
       setButton(button)
       navigate('/', { replace: true })
     }
   }
-  const generateButton = (state:Boolean)=>{
-    if(!state){
-      return <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
+  const generateButton = (state: Boolean) => {
+    if (!state) {
+      return (
+        <Link to='/login' onClick={cambiarEstadoMenu} className='buttonItemMenu withBackground ItemMenu'>
           <span>Iniciar Sesión</span>
         </Link>
+      )
     }
-    return <span onClick={cerrarSesion} className='buttonItemMenu withBackground ItemMenu'>
-          <span>Cerrar Sesión</span>
-        </span>
+    return (
+      <span onClick={cerrarSesion} className='buttonItemMenu withBackground ItemMenu'>
+        <span>Cerrar Sesión</span>
+      </span>
+    )
   }
   useEffect(() => {
-    let isLogged = sesion.isLogged()
-    console.log("--",isLogged)
-    let buttonons = generateButton(isLogged)
+    const isLogged = sesion.isLogged()
+    console.log('--', isLogged)
+    const buttonons = generateButton(isLogged)
     setButton(buttonons)
   }, [location])
 
