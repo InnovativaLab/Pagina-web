@@ -1,12 +1,35 @@
 import './styles/Curso.css'
 import Tag from '../components/Tag'
-import { enumCategoriaCurso } from '../enum';
 import imgCheck from '../assets/check.svg'
 import ItemMenu from '../components/ItemMenu';
+import { loadCards } from '../services/cards'
+import { useState, useEffect } from 'react'
+import { Course } from '../types';
+import './styles/Inicio.css'
+import axios from 'axios'
+
+const API_LINK = 'http://localhost:3001'
 
 function Curso () {
   const id=1;
   let tags:string[] =  ["Arduino","Robotica"]
+  const [course, setCourse] = useState({} as Course)
+  const getCourse = async () => {
+    try {
+      const res = await axios.post(`${API_LINK}/api/courses/get`, { Cantidad: 1 })
+      const course : Course = res.data[0]
+      return course
+    } catch (err: any) {
+      console.log(err.response)
+      return {} as Course
+    }
+  }
+  useEffect(() => {
+    getCourse().then((curso) => {
+      setCourse(curso)
+      console.log(curso)
+    })
+  }, [])
   return (
     <main className='cursoMain'>
       <section className='infoCurso'>
