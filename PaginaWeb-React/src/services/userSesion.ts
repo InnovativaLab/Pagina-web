@@ -1,3 +1,4 @@
+
 import Cookies from 'universal-cookie'
 import { enumPermisos } from '../enum'
 import { Usuario } from '../types'
@@ -45,7 +46,9 @@ export class userSesion {
   }
 
   public isAuthorized = (permiso: enumPermisos) => {
-    // if(permiso===)
+    let finded= userSesion.user?.Permisos.find(x=>x.Nombre===Object(permiso).value)
+    if(finded!==undefined) return true
+    return false
   }
 }
 
