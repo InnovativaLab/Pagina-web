@@ -20,6 +20,24 @@
     z-index: 100;
     width: 35%;
 }
+.combobox{
+    padding: 10px 15px;
+    border: none;
+    width: 100%;
+    background: var(--Negro);
+    color: var(--Blanco);
+    border-bottom: 4px solid #2563EB;
+    border-radius: 5px;
+    align-self: stretch;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 125%;
+}
+.combobox:focus {
+    outline: none;
+}
 @media screen and (max-width:1300px) {
     .mainLogin{
         padding: 100px 100px;
