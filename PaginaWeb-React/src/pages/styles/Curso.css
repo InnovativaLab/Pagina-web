@@ -29,6 +29,7 @@
 .courseInfoTitle{
     font-weight: 700;
     font-size: 40px;
+    line-height : 40px;
 }
 .courseInfoData{
     padding:15px 40px;
@@ -54,6 +55,7 @@
 .resultadosTitle{
     font-weight: 700;
     font-size: 30px;
+    line-height : 30px;
 }
 .resultados ul{
     padding:15px 40px;
