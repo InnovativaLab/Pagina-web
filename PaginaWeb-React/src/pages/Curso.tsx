@@ -12,7 +12,6 @@ const API_LINK = 'http://localhost:3001'
 
 function Curso () {
   const { id } = useParams()
-  let tags:string[] =  ["Arduino","Robotica"]
   const [course, setCourse] = useState({} as Course)
   const getCourse = async () => {
     try {
@@ -35,18 +34,17 @@ function Curso () {
       <section className='infoCurso'>
         <section className='courseInfo'>
         <div className='courseInfoContainerTitle'>
-          <p className='courseInfoTitle'>Introduccion a Arduino</p>
+          <p className='courseInfoTitle'>{course.Titulo}</p>
         </div>
         <div className='courseInfoData'>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, praesentium cupiditate quisquam molestias corrupti laudantium sunt assumenda illum impedit quidem autem harum quis veritatis eum voluptates. Et, quis esse. Et nulla possimus veritatis voluptatum nostrum earum est facilis, iste illum, maiores odit, eius placeat repudiandae! Nisi qui, illum ipsam obcaecati optio quis ipsum quae quas excepturi cupiditate eos soluta temporibus incidunt similique sit! Vel explicabo deleniti obcaecati sapiente velit quod, ipsa minima praesentium odio. Sint, dolor. Distinctio animi cumque nemo autem ipsum. Consectetur laudantium, numquam beatae optio expedita cum, delectus laborum nulla voluptate suscipit quasi. Assumenda expedita incidunt praesentium corrupti!</p>
+          <p>{course.Descripcion}</p>
           <p><span className='bold'>Categorias</span></p>
           <div className='courseInfoTagContainer'>
-            {tags.map(tag => {
-              return <Tag key={tag+id} type={tag} />
-            })}
+            <Tag key={course.Categoria+id} type={course.Categoria} />
+            <Tag key={course.Subcategoria+id} type={course.Subcategoria} />
           </div>
           <p><span className='bold'>Reservado por:</span>{` ${100} estudiantes.`}</p>
-          <p><span className='bold'>Ultima actualización: </span>{`${"10/05/2022"}`}</p>
+          <p><span className='bold'>Ultima actualización: </span>{`${course.Subcategoria}`}</p>
           <p><span className='bold'>Idioma:</span>{` ${"Español"}`}</p>
         </div>
       </section>
@@ -63,12 +61,12 @@ function Curso () {
       </section>
       </section>
       <section className='infoDeCompra'>
-            <img src='https://tfi.francobalich.com/assets/imgs/iotCourse.png' alt={`Foto del curso`}/>
+            <img src={course.ImagenDePortada} alt={`Foto del curso`}/>
             <div >
               <div  className='infoDeCompraData'>
                 <div className='infoDeCompraPrecios'>
-                  <p className='infoDeCompraPrecio'>$3999,99</p>
-                  <p className='infoDeCompraPrecioSinDescuento'>$7999,99</p>
+                  <p className='infoDeCompraPrecio'>{`$${course.PrecioEnPesos}`}</p>
+                  <p className='infoDeCompraPrecioSinDescuento'>{`$${ course.PrecioEnPesos*2}`}</p>
                 </div>
                 <p>50% de descuento</p>
                 <ItemMenu
