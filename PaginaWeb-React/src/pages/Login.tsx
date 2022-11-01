@@ -1,13 +1,14 @@
+import { useState, MouseEvent,useEffect } from 'react'
+import { sendDataLogin } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
-import { useState, MouseEvent } from 'react'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
+import { enumPermisos } from '../enum';
 import './styles/login.css'
-import { sendDataLogin } from '../services/services'
 
 function Login () {
   const sesion = userSesion.getInstance()
@@ -27,6 +28,11 @@ function Login () {
       console.log(err.response)
     }
   }
+  useEffect(() => {
+    if (sesion.isLogged()) {
+      navigate('/home', { replace: true })
+    }
+  }, [])
   return (
     <div>
       <main className='mainLogin'>
