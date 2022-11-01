@@ -43,3 +43,11 @@ export enum enumMoneda {
   PesosArgentinos = 'Pesos Argentinos',
   Dolares = 'Dolares'
 }
+export enum enumPermisos {
+  AccesoVistaCursos = 'Acceso a ver cursos',
+  VerPefil = 'Ver su perfil',
+  ReservarCursos = 'Reservar cursos',
+  VerAnaliticas = 'Ver analiticas',
+  AccesoDocente = 'Acceso docente',
+  Publicacion = 'Publicar un curso'
+}
