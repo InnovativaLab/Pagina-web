@@ -1,4 +1,4 @@
-export interface Course {
+export type Course ={
   Id: number
   Titulo: string
   Subtitulo: string
@@ -16,7 +16,7 @@ export interface Course {
   MensajeDeBienvenida: string
   MensajeDeFelicitaciones: string
 }
-export interface Usuario {
+export type Usuario= {
   NombreDeUsuario: string
   Email: string
   Nombre: string
@@ -29,7 +29,7 @@ export interface Usuario {
   RolNombre:string
   Permisos: Permisos[]
 }
-export interface Permisos {
+export type Permisos ={
   Id: string
   Nombre: string
 }
