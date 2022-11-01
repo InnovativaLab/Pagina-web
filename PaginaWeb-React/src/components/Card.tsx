@@ -1,4 +1,5 @@
 import imgDemo from '../assets/robotAzul.png'
+import { Link } from 'react-router-dom'
 import ItemMenu from './ItemMenu'
 import '../styles/Card.css'
 import Tag from './Tag'
@@ -23,15 +24,17 @@ function Card ({id, img, alt, title, text, tags }: propCard) {
         <p className='cardtitle'>{title}</p>
         <div className='cardTagContainer'>
           {tags.map(tag => {
-            return <Tag key={tag +id} type={tag} />
+            return <Tag key={tag+id} type={tag} />
           })}
         </div>
         <p className='cardText'>{text}</p>
-        <ItemMenu
-          text='Más información'
-          background
-          style={3}
-        />
+        <Link to={`/course/${id}`} style={{"width":"100%"}}>
+          <ItemMenu
+            text='Más información'
+            background
+            style={3}
+          />
+        </Link>
       </div>
     </div>
   )
