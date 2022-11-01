@@ -30,7 +30,7 @@ function Header () {
       sesion.closeSesion()
       let button = generateButton(isLogged)
       setButton(button)
-      navigate('/', { replace: false })
+      navigate('/', { replace: true })
     }
   }
   const generateButton = (state:Boolean)=>{
@@ -45,9 +45,9 @@ function Header () {
   }
   useEffect(() => {
     let isLogged = sesion.isLogged()
-    console.log(isLogged)
-    let button = generateButton(isLogged)
-    setButton(button)
+    console.log("--",isLogged)
+    let buttonons = generateButton(isLogged)
+    setButton(buttonons)
   }, [location])
 
   return (

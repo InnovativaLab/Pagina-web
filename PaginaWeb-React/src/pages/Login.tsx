@@ -15,18 +15,23 @@ function Login () {
   const [logged, setLogged] = useState(false)
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
-
+  const API_LINK = 'http://localhost:3001'
   const sendDataLogin = async (pEmail: string, pPws: string) => {
-    const res = await axios.post(`http://localhost:3001/api/user/${pEmail}`, { Contraseña: pPws })
-    return res.data
+    try {
+      const res = await axios.post(`${API_LINK}/api/user/${pEmail}`, { Contraseña: pPws })
+      return res.data
+    } catch (error:any) {
+        console.error(error.message);
+    }
   }
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
+      e.preventDefault()
       console.log('Iniciando sesion...')
       sendDataLogin(email, pws).then((data) => {
         sesion.saveSesion(data)
+        navigate('/home', { replace: true })
       })
-      navigate('/home', { replace: true })
     }
     catch (err: any) {
       console.log(err.response)

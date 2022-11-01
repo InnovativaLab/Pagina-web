@@ -5,10 +5,12 @@ import { Course } from '../types'
 import './styles/Home.css'
 import axios from 'axios'
 
+import { Link, useNavigate } from 'react-router-dom'
 const API_LINK = 'http://localhost:3001'
 
 function Home () {
   const sesion = userSesion.getInstance()
+  const navigate = useNavigate()
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
 
