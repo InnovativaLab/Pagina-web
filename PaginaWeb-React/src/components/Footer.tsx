@@ -12,25 +12,25 @@ function Footer () {
           <div className='footerLinksColumn'>
             <p className='footerLinksTitle'>Personas</p>
             <ul className='footerLinksList'>
-              <li><HashLink to="/#Nosotros">Nosotros</HashLink></li>
-              <li><HashLink to="/#Comunidad">Comunidad</HashLink></li>
-              <li><HashLink to="/#Staff">Equipo</HashLink></li>
+              <li><HashLink to='/#Nosotros'>Nosotros</HashLink></li>
+              <li><HashLink to='/#Comunidad'>Comunidad</HashLink></li>
+              <li><HashLink to='/#Staff'>Equipo</HashLink></li>
             </ul>
           </div>
           <div className='footerLinksColumn'>
             <p className='footerLinksTitle'>Column One</p>
             <ul className='footerLinksList'>
-              <li><HashLink to="/#Cursos">Cursos</HashLink></li>
+              <li><HashLink to='/#Cursos'>Cursos</HashLink></li>
               <li><a href='mailto:innovativalab@gmail.com'>Contacto</a></li>
-              <li><Link to="/browse/arduino">Arduino</Link></li>
+              <li><Link to='/browse/arduino'>Arduino</Link></li>
             </ul>
           </div>
           <div className='footerLinksColumn'>
             <p className='footerLinksTitle'>Column One</p>
             <ul className='footerLinksList'>
-              <li><Link to="/login">Iniciar Sesión</Link></li>
-              <li><Link to="/signin">Registrarse</Link></li>
-              <li><Link to="/teacher">Ser profesor</Link></li>
+              <li><Link to='/login'>Iniciar Sesión</Link></li>
+              <li><Link to='/signin'>Registrarse</Link></li>
+              <li><Link to='/teacher'>Ser profesor</Link></li>
             </ul>
           </div>
         </div>

@@ -1,43 +1,46 @@
 import Cookies from 'universal-cookie'
-import { Usuario } from '../types';
-import {enumPermisos} from '../enum'
+import { Usuario } from '../types'
+import { enumPermisos } from '../enum'
 
 const cookies = new Cookies()
 
 export class userSesion {
-    private static instance: userSesion;
-    private static user: Usuario;
+  private static instance: userSesion
+  private static user: Usuario
 
-    private constructor() { }
+  private constructor () { }
 
-    public static getInstance(): userSesion {
-        if (!userSesion.instance) {
-            userSesion.instance = new userSesion();
-        }
-        return userSesion.instance;
+  public static getInstance (): userSesion {
+    if (!userSesion.instance) {
+      userSesion.instance = new userSesion()
     }
-    public readSesion =()=>{
-        if (!userSesion.user) {
-            userSesion.user = cookies.get('user')
-        }
-        return userSesion.user
+    return userSesion.instance
+  }
+
+  public readSesion = () => {
+    if (!userSesion.user) {
+      userSesion.user = cookies.get('user')
     }
-    public saveSesion =(data:Usuario)=>{
-        cookies.set('user', data, { path: '/' })
-        userSesion.user=data
-    }
-    public isAuthorized =(permiso:enumPermisos)=>{
-        //if(permiso===)
-    }
+    return userSesion.user
+  }
+
+  public saveSesion = (data: Usuario) => {
+    cookies.set('user', data, { path: '/' })
+    userSesion.user = data
+  }
+
+  public isAuthorized = (permiso: enumPermisos) => {
+    // if(permiso===)
+  }
 }
 
-export function clientCodeTest() {
-    const s1 = userSesion.getInstance();
-    const s2 = userSesion.getInstance();
+export function clientCodeTest () {
+  const s1 = userSesion.getInstance()
+  const s2 = userSesion.getInstance()
 
-    if (s1 === s2) {
-        console.log('Singleton works, both variables contain the same instance.');
-    } else {
-        console.log('Singleton failed, variables contain different instances.');
-    }
+  if (s1 === s2) {
+    console.log('Singleton works, both variables contain the same instance.')
+  } else {
+    console.log('Singleton failed, variables contain different instances.')
+  }
 }

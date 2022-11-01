@@ -46,7 +46,8 @@
     "project": "tsconfig.json",
     "ignore": [
       "dist",
-      "src/**/*.js"
+      "src/**/*.js",
+      "src/types.ts"
     ]
   }
 }
