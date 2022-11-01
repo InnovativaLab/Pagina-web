@@ -1,12 +1,12 @@
 import { userSesion } from '../services/userSesion'
 import { useState, useEffect } from 'react'
-import {  Usuario } from '../types';
+import { Usuario } from '../types'
 import './styles/Home.css'
-import { getCourses } from '../services/services';
+import { getCourses } from '../services/services'
 
 function Home () {
   const sesion = userSesion.getInstance()
-  const user:Usuario|undefined = sesion.readSesion()
+  const user: Usuario | undefined = sesion.readSesion()
   const coursesCards: JSX.Element[] = []
   const [listCourses, setListCourses] = useState(coursesCards)
 
@@ -14,7 +14,7 @@ function Home () {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
     })
-    if(sesion.isLogged()){
+    if (sesion.isLogged()) {
 
     }
   }, [])

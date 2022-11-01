@@ -6,13 +6,12 @@ import Tag from '../components/Tag'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import './styles/Curso.css'
-import { getCourse } from '../services/services';
-
+import { getCourse } from '../services/services'
 
 function Curso () {
   const { id } = useParams()
   const [course, setCourse] = useState({} as Course)
-  
+
   useEffect(() => {
     getCourse(id).then((curso) => {
       setCourse(curso)

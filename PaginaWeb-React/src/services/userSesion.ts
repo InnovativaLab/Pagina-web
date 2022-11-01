@@ -18,7 +18,7 @@ export class userSesion {
   }
 
   public readSesion = () => {
-    //console.log('Leyendo info del usuario')
+    // console.log('Leyendo info del usuario')
     if (userSesion.user === undefined) {
       userSesion.user = cookies.get('user')
     }
