@@ -1,24 +1,24 @@
-import './styles/Curso.css'
-import Tag from '../components/Tag'
+import ItemMenu from '../components/ItemMenu'
 import imgCheck from '../assets/check.svg'
-import ItemMenu from '../components/ItemMenu';
-import { loadCards } from '../services/cards'
 import { useState, useEffect } from 'react'
-import { Course } from '../types';
+import { useParams } from 'react-router-dom'
+import Tag from '../components/Tag'
+import { Course } from '../types'
 import './styles/Inicio.css'
+import './styles/Curso.css'
 import axios from 'axios'
 
 const API_LINK = 'http://localhost:3001'
 
 function Curso () {
-  const id=1;
+  const { id } = useParams()
   let tags:string[] =  ["Arduino","Robotica"]
   const [course, setCourse] = useState({} as Course)
   const getCourse = async () => {
     try {
-      const res = await axios.post(`${API_LINK}/api/courses/get`, { Cantidad: 1 })
-      const course : Course = res.data[0]
-      return course
+      const res = await axios.get(`${API_LINK}/api/courses/${id}`)
+      const curso : Course = res.data
+      return curso
     } catch (err: any) {
       console.log(err.response)
       return {} as Course
