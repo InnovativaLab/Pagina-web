@@ -15,7 +15,8 @@ export const loadCards = (courses: Course[]) => {
   let coursesElements: JSX.Element[] = []
   coursesElements = Object.values(courses).map(course =>
     <Card
-      key={course.Titulo}
+      key={course.Id}
+      id={course.Id}
       img={course.ImagenDePortada}
       alt={`Imagen de portada del curso de ${course.Titulo}`}
       title={course.Titulo}

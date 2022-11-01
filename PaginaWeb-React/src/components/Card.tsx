@@ -4,6 +4,7 @@ import '../styles/Card.css'
 import Tag from './Tag'
 
 interface propCard {
+  id:Number
   img: string
   alt: string
   title: string
@@ -11,7 +12,7 @@ interface propCard {
   tags: string[]
 }
 
-function Card ({ img, alt, title, text, tags }: propCard) {
+function Card ({id, img, alt, title, text, tags }: propCard) {
   if (img === '') {
     img = imgDemo
   }
@@ -22,7 +23,7 @@ function Card ({ img, alt, title, text, tags }: propCard) {
         <p className='cardtitle'>{title}</p>
         <div className='cardTagContainer'>
           {tags.map(tag => {
-            return <Tag key={tag + title?.replace(' ', '')} type={tag} />
+            return <Tag key={tag +id} type={tag} />
           })}
         </div>
         <p className='cardText'>{text}</p>
