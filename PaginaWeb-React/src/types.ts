@@ -25,9 +25,9 @@ export type Usuario= {
   Contraseña: string
   Preferencias: string
   Estado: string
-  RolID: string
-  RolNombre:string
-  Permisos: Permiso[]
+  RolID?: string
+  RolNombre?:string
+  Permisos?: Permiso[]
 }
 export type Permiso ={
   Id: string
