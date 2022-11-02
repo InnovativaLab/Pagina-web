@@ -1,4 +1,5 @@
 import { useState, MouseEvent, useEffect } from 'react'
+import { checkLogInData } from '../services/verication'
 import { sendDataLogin } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
@@ -10,32 +11,35 @@ import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
 
-function Login () {
+//TODO: Comprobar la verificacion en tiempo real de los msgError
+
+function Login (){
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
-  const [errorMsg, setMsg] = useState('')
+  const [errorMsg, setMsg] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
+      //TODO: Comprobar la verificacion en tiempo real de los
       e.preventDefault()
-      if (email !== '' && pws !== '') {
-        let re = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
-        if (email.match(re)) {
-          console.log('Iniciando sesion...')
-          sendDataLogin(email, pws).then((data) => {
-            sesion.saveSesion(data)
-            navigate('/home', { replace: true })
-          })
-        }
-        else{
-          setMsg('Alguno de los datos ingresados es incorrecto')
-        }
+      let validation = checkLogInData(email,pws)
+      if (validation===true) {
+        setMsg(<></>)
+        console.log('Iniciando sesion...')
+        sendDataLogin(email, pws).then((data) => {
+          sesion.saveSesion(data)
+          navigate('/home', { replace: true })
+        })
+      }
+      else{
+        console.log(validation)
+        setMsg(<MsgBox text={ validation } />)
       }
     } catch (err: any) {
-      setMsg(err.response)
+      setMsg(<MsgBox text={err.response} />)
       console.log(err.response)
     }
   }
@@ -45,9 +49,7 @@ function Login () {
     }
   }, [])
   useEffect(() => {
-    if (sesion.isLogged()) {
-      navigate('/home', { replace: true })
-    }
+    
   }, [errorMsg])
   return (
     <div>
@@ -71,7 +73,7 @@ function Login () {
           <Link className='secondaryButton fullSpace' to='/signin'>
             Registrarse
           </Link>
-          <MsgBox text={errorMsg} />
+          { errorMsg }
         </form>
       </main>
     </div>

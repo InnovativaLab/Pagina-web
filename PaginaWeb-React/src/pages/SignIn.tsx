@@ -1,37 +1,49 @@
+import { useEffect, useState, MouseEvent } from 'react'
+import {checkSignInData} from '../services/verication'
+import { sendDataSignIn } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import ItemMenu from '../components/ItemMenu'
 import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
+import MsgBox from '../components/MsgBox'
 import Redes from '../components/Redes'
 import Title from '../components/Title'
-import { useEffect, useState, MouseEvent } from 'react'
-import './styles/login.css'
-import { Usuario } from '../types'
-import { sendDataSignIn } from '../services/services'
 import { enumGenero } from '../enum'
+import { Usuario } from '../types'
+import './styles/login.css'
+
+//TODO: Comprobar la verificacion en tiempo real de los msgError
 
 function SignIn () {
   const sesion = userSesion.getInstance()
   const navigate = useNavigate()
   let user: Usuario | undefined
 
-  const [NombreDeUsuario, setNombreDeUsuario] = useState('')
   const [ContraseñaConfirmacion, setContraseñaConfirmacion] = useState('')
+  const [NombreDeUsuario, setNombreDeUsuario] = useState('')
   const [Contraseña, setContraseña] = useState('')
   const [Apellido, setApellido] = useState('')
+  const [errorMsg, setMsg] = useState(<></>)
   const [Nombre, setNombre] = useState('')
-  const [Email, setEmail] = useState('')
   const [Genero, setGenero] = useState('')
+  const [Email, setEmail] = useState('')
 
   const signIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
       user = { NombreDeUsuario, Nombre, Apellido, Contraseña, Email, Preferencias: '', Estado: 'Sin verificar', Genero }
-      sendDataSignIn(user).then((data) => {
-        sesion.saveSesion(data)
-        navigate('/', { replace: true })
-      })
+      let valitadation = checkSignInData(user,ContraseñaConfirmacion)
+        if (valitadation===true) {
+          setMsg(<></>)
+          sendDataSignIn(user).then((data) => {
+            sesion.saveSesion(data)
+            navigate('/', { replace: true })
+          })
+        }
+      else{
+        setMsg(<MsgBox text={valitadation} />)
+      }
     } catch (err: any) {
       console.log(err.response)
     }
@@ -39,11 +51,13 @@ function SignIn () {
   const saveGender = (event: any) => {
     setGenero(event.target.value)
   }
+
   useEffect(() => {
     if (sesion.isLogged()) {
       navigate('/home', { replace: true })
     }
   }, [])
+
   return (
     <div>
       <main className='mainLogin'>
@@ -87,6 +101,7 @@ function SignIn () {
           <Link className='secondaryButton fullSpace' to='/'>
             Cancelar
           </Link>
+          {errorMsg}
         </form>
       </main>
     </div>
