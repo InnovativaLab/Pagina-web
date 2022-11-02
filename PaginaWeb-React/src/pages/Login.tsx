@@ -18,11 +18,13 @@ function Login () {
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      console.log('Iniciando sesion...')
-      sendDataLogin(email, pws).then((data) => {
-        sesion.saveSesion(data)
-        navigate('/home', { replace: true })
-      })
+      if(email!==''&&pws!==''){
+        console.log('Iniciando sesion...')
+        sendDataLogin(email, pws).then((data) => {
+          sesion.saveSesion(data)
+          navigate('/home', { replace: true })
+        })
+      }
     } catch (err: any) {
       console.log(err.response)
     }
