@@ -14,7 +14,7 @@ function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
-  const [msg, setMsg] = useState('')
+  const [errorMsg, setMsg] = useState('')
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -22,11 +22,17 @@ function Login () {
     try {
       e.preventDefault()
       if (email !== '' && pws !== '') {
-        console.log('Iniciando sesion...')
-        sendDataLogin(email, pws).then((data) => {
-          sesion.saveSesion(data)
-          navigate('/home', { replace: true })
-        })
+        let re = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
+        if (email.match(re)) {
+          console.log('Iniciando sesion...')
+          sendDataLogin(email, pws).then((data) => {
+            sesion.saveSesion(data)
+            navigate('/home', { replace: true })
+          })
+        }
+        else{
+          setMsg('Alguno de los datos ingresados es incorrecto')
+        }
       }
     } catch (err: any) {
       setMsg(err.response)
@@ -38,6 +44,11 @@ function Login () {
       navigate('/home', { replace: true })
     }
   }, [])
+  useEffect(() => {
+    if (sesion.isLogged()) {
+      navigate('/home', { replace: true })
+    }
+  }, [errorMsg])
   return (
     <div>
       <main className='mainLogin'>
@@ -60,7 +71,7 @@ function Login () {
           <Link className='secondaryButton fullSpace' to='/signin'>
             Registrarse
           </Link>
-          <MsgBox text={msg} />
+          <MsgBox text={errorMsg} />
         </form>
       </main>
     </div>
