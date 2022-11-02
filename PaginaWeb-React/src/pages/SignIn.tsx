@@ -30,7 +30,7 @@ function SignIn () {
       user = {NombreDeUsuario,Nombre,Apellido,Contraseña,Email, Preferencias:"", Estado:"Sin verificar", Genero}
       sendDataSignIn(user).then((data) => {
         sesion.saveSesion(data)
-        navigate('/home', { replace: true })
+        navigate('/', { replace: true })
       })
     } catch (err: any) {
       console.log(err.response)
