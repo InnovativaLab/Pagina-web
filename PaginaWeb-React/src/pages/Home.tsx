@@ -9,11 +9,11 @@ import { useNavigate } from 'react-router-dom'
 function Home () {
   const navigate = useNavigate()
   const sesion = userSesion.getInstance()
-
   const coursesCards: JSX.Element[] = []
   const user: Usuario | undefined = sesion.readSesion()
   const [listCourses, setListCourses] = useState(coursesCards)
 
+  window.scrollTo(0, 0);
   useEffect(() => {
     getCourses().then((listaCursos) => {
       setListCourses(listaCursos)
