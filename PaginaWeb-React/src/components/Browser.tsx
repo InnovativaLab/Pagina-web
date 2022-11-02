@@ -7,13 +7,15 @@ interface propBrowser {
   closeFunction: any
 }
 function Browser ({ closeFunction }: propBrowser) {
-  const [browse, setbrowse] = useState('a')
+  const [browse, setbrowse] = useState('')
   const readBrowse = (event: any) => {
     setbrowse(event.target.value)
   }
   const navigate = useNavigate()
   const goToBrowse = () => {
-    navigate(`/browse/${browse}`)
+    if(browse!==''){
+      navigate(`/browse/${browse}`)
+    }
   }
   return (
     <div className='browserContainer'>
