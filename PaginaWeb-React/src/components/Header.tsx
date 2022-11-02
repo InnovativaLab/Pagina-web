@@ -14,6 +14,7 @@ function Header () {
   const sesion = userSesion.getInstance()
   const [state, setState] = useState('hide')
   const [button, setButton] = useState(<></>)
+  const [itemsMenu, setItemsMenu] = useState(<></>)
 
   const cambiarEstadoMenu = () => {
     if (state === 'show') {
@@ -46,11 +47,40 @@ function Header () {
       </span>
     )
   }
+  const generateItemsMenu = (state: Boolean) => {
+    if (!state) {
+      return (
+        <>
+          <HashLink to='/#Nosotros' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+              <span>Sobre nosotros</span>
+            </HashLink>
+          <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Comunidad</span>
+          </HashLink>
+          <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+              <span>Contacto</span>
+          </a>
+        </>
+      )
+    }
+    return (
+      <>
+        <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <span>Comunidad</span>
+        </HashLink>
+        <HashLink to='/Home' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <span>Inicio</span>
+        </HashLink>
+      </>
+    )
+  }
   useEffect(() => {
     const isLogged = sesion.isLogged()
     console.info('¿Esta logueado?:', isLogged)
-    const buttonons = generateButton(isLogged)
-    setButton(buttonons)
+    const botones = generateButton(isLogged)
+    setButton(botones)
+    const itemsDelMenu = generateItemsMenu(isLogged)
+    setItemsMenu(itemsDelMenu)
   }, [location])
 
   return (
@@ -62,18 +92,10 @@ function Header () {
             <LogoBanner />
           </HashLink>
           <Browser closeFunction={cambiarEstadoMenu} />
-          <HashLink to='/#Nosotros' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-            <span>Sobre nosotros</span>
-          </HashLink>
-          <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-            <span>Comunidad</span>
-          </HashLink>
+          {itemsMenu}
           <HashLink to='/#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Cursos</span>
           </HashLink>
-          <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-            <span>Contacto</span>
-          </a>
           {button}
           <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
         </div>
