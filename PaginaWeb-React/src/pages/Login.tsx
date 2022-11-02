@@ -14,6 +14,7 @@ function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
+  const [msg, setMsg] = useState('')
   const navigate = useNavigate()
   window.scrollTo(0, 0);
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
@@ -27,6 +28,7 @@ function Login () {
         })
       }
     } catch (err: any) {
+      setMsg(err.response)
       console.log(err.response)
     }
   }
@@ -57,7 +59,7 @@ function Login () {
           <Link className='secondaryButton fullSpace' to='/signin'>
             Registrarse
           </Link>
-          <MsgBox text='' />
+          <MsgBox text={msg} />
         </form>
       </main>
     </div>
