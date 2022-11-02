@@ -8,6 +8,7 @@ import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
+import MsgBox from '../components/MsgBox'
 
 function Login () {
   const sesion = userSesion.getInstance()
@@ -56,6 +57,7 @@ function Login () {
           <Link className='secondaryButton fullSpace' to='/signin'>
             Registrarse
           </Link>
+          <MsgBox text='' />
         </form>
       </main>
     </div>
