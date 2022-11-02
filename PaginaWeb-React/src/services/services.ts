@@ -44,7 +44,7 @@ export const getCourse = async (id?: string) => {
 }
 export const sendDataSignIn = async (pUser?: Usuario) => {
   try {
-    if(pUser!==undefined){
+    if (pUser !== undefined) {
       const res = await axios.post(`${API_LINK}/api/user`, pUser)
       return res.data
     }

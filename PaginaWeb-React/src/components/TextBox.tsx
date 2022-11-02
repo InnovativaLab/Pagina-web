@@ -6,7 +6,7 @@ interface propTextBox {
   textType?: string
 }
 function TextBox ({ placeholder, getData, textType }: propTextBox) {
-  const saveData = (event:any) => {
+  const saveData = (event: any) => {
     if (getData !== undefined) {
       getData(event.target.value)
     } else {

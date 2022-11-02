@@ -52,13 +52,13 @@ function Header () {
       return (
         <>
           <HashLink to='/#Nosotros' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-              <span>Sobre nosotros</span>
-            </HashLink>
+            <span>Sobre nosotros</span>
+          </HashLink>
           <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Comunidad</span>
           </HashLink>
           <a href='mailto:innovativalab@gmail.com' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-              <span>Contacto</span>
+            <span>Contacto</span>
           </a>
         </>
       )

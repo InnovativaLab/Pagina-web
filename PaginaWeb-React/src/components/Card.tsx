@@ -28,7 +28,7 @@ function Card ({ id, img, alt, title, text, tags }: propCard) {
           })}
         </div>
         <p className='cardText'>{text}</p>
-        <Link to={`/course/${id}`} style={{ width: '100%' }} className="itemLink">
+        <Link to={`/course/${id}`} style={{ width: '100%' }} className='itemLink'>
           <ItemMenu
             text='Más información'
             background

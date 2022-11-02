@@ -16,11 +16,12 @@ function Login () {
   const [pws, setPws] = useState('')
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
-  window.scrollTo(0, 0);
+  window.scrollTo(0, 0)
+
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      if(email!==''&&pws!==''){
+      if (email !== '' && pws !== '') {
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
           sesion.saveSesion(data)
