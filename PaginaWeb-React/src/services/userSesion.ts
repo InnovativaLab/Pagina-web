@@ -48,7 +48,7 @@ export class userSesion {
   }
 
   public isAuthorized = (permiso: enumPermisos) => {
-    const finded = userSesion.user?.Permisos.find(x => x.Nombre === Object(permiso).value)
+    const finded = userSesion.user?.Permisos?.find(x => x.Nombre === Object(permiso).value)
     if (finded !== undefined) return true
     return false
   }
