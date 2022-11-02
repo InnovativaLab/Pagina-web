@@ -1,14 +1,14 @@
 import './styles/Teacher.css'
 import svgEstrella from '../assets/Estrella.svg'
+import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import svgReservas from '../assets/Reservas.svg'
 import svgUser from '../assets/User.svg'
-import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 
 function Teacher () {
   return (
     <div className='section'>
       <section className='analiticSection'>
-        <p className='msgAlert'>Introduccion a Arduino</p>
+        <p className='msgAlert'>Introducción a Arduino</p>
         <div className='itemContainer'>
           <div className='itemAnalitic'>
             <img src={svgReservas} alt='Imagen de reservas' />

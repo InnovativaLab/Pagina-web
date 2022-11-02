@@ -2,13 +2,13 @@ import { useState, MouseEvent, useEffect } from 'react'
 import { sendDataLogin } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
-import Subtitle from '../components/Subtitle'
 import ItemMenu from '../components/ItemMenu'
+import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
+import MsgBox from '../components/MsgBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
-import MsgBox from '../components/MsgBox'
 
 function Login () {
   const sesion = userSesion.getInstance()

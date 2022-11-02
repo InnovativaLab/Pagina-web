@@ -1,5 +1,5 @@
-import '../styles/MsgBox.css'
 import { useState, useEffect } from 'react'
+import '../styles/MsgBox.css'
 
 interface propMsgBox {
   text: string
