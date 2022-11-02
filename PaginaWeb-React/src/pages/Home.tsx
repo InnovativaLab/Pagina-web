@@ -25,7 +25,7 @@ function Home () {
 
   return (
     <div className='home'>
-      <p className='msgAlert'>¡Hola, {user?.Nombre}!¿Qué vas a aprender hoy?</p>
+      <p className='msgAlert'>¡Hola, {user?.Nombre}! ¿Qué vas a aprender hoy?</p>
       <p className='homeSubtitulo'>Tus cursos</p>
       <div className='cardsContinaer'>
         {
