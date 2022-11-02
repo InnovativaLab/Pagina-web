@@ -20,6 +20,9 @@
 .buttonItemMenu:hover{
     color: var(--Blanco);
 }
+.itemLink{
+    text-decoration: none;
+}
 .ItemMenu{
     display: flex;
     flex-direction: column;
