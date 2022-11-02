@@ -27,3 +27,7 @@
     line-height: 125%;
     color: var(--Blanco);
 }
+.cardsContinaer{
+    justify-content: center;
+    align-items: center;
+}
