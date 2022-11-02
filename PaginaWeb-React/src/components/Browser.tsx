@@ -17,9 +17,16 @@ function Browser ({ closeFunction }: propBrowser) {
       navigate(`/browse/${browse}`)
     }
   }
+  const goToBrowseKey = (event:any) => {
+      if (event.key === "Enter") {
+        if(browse!==''){
+          navigate(`/browse/${browse}`)
+        }
+    }
+  }
   return (
     <div className='browserContainer'>
-      <input type='text' placeholder='Buscar curso' onChange={readBrowse} />
+      <input type='text' placeholder='Buscar curso' onChange={readBrowse}  onKeyUp={goToBrowseKey}/>
       <button onClick={goToBrowse}>
         <img src={lupa} alt='' />
       </button>
