@@ -1,0 +1,13 @@
+.msgBox{
+    color: rgb(184, 21, 21);
+    background-color: rgb(252, 123, 123);
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 5px;
+    align-self: stretch;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 125%;
+}
