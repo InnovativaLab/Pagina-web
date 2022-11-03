@@ -15,7 +15,23 @@ export const getCourses = async () => {
     return coursesCards
   }
 }
-
+export const getCoursesOfUser = async (pNameUser:string|undefined) => {
+  const coursesCards: JSX.Element[] = []
+  try {
+    if(pNameUser!==undefined){
+      const res = await axios.get(`${API_LINK}/api/reserve/${pNameUser}`)
+      const courses: Course[] = res.data
+      console.log(courses);
+      const coursesElements: JSX.Element[] = loadCards(courses)
+      console.log(coursesElements)
+      return coursesElements
+    }
+    return coursesCards
+  } catch (err: any) {
+    console.log(err.response)
+    return coursesCards
+  }
+}
 export const sendDataLogin = async (pEmail: string, pPws: string) => {
   try {
     const res = await axios.post(`${API_LINK}/api/user/${pEmail}`, { Contraseña: pPws })
