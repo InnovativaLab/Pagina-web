@@ -1,17 +1,36 @@
 import ItemMenu from '../components/ItemMenu'
 import imgCheck from '../assets/check.svg'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, MouseEvent } from 'react'
 import { useParams } from 'react-router-dom'
 import Tag from '../components/Tag'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import './styles/Curso.css'
 import { getCourse } from '../services/services'
+import { userSesion } from '../services/userSesion'
+import { reserveCourse } from '../services/services'
+import { Usuario } from '../types'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Curso () {
   const { id } = useParams()
+  const navigate = useNavigate()
+  const sesion = userSesion.getInstance()
   const [course, setCourse] = useState({} as Course)
-
+  const user: Usuario | undefined = sesion.readSesion()
+  
+  const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+    try {
+      //TODO: Comprobar la verificacion en tiempo real de los
+      e.preventDefault()
+      reserveCourse(user?.NombreDeUsuario, course.Id.toString()).then((data) => {
+          sesion.saveSesion(data)
+          navigate('/home', { replace: true })
+        })
+    } catch (err: any) {
+      console.log(err.response)
+    }
+  }
   useEffect(() => {
     getCourse(id).then((curso) => {
       setCourse(curso)
@@ -62,6 +81,7 @@ function Curso () {
               text='Reservar curso'
               background
               style={3}
+              onClick={reserveCourseEvent}
             />
             <p className='textCenter'>Garantia de 30 dias</p>
           </div>
