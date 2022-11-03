@@ -1,13 +1,14 @@
+import coursesRouter from './routes/courses.routes.js'
+import reserveRouter from './routes/reserve.routes.js'
+import userRouter from './routes/user.routes.js'
+import compression  from 'compression'
 import pino from 'express-pino-logger'
 import bodyParser from 'body-parser'
-import express from 'express'
-import compression  from 'compression'
-import userRouter from './routes/user.routes.js'
-import coursesRouter from './routes/courses.routes.js'
 import { PORT } from './config.js'
+import express from 'express'
 
 const app = express()
-app.use(compression());
+app.use(compression())
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(pino())
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 app.use('/api', userRouter)
 app.use('/api', coursesRouter)
+app.use('/api', reserveRouter)
 
 app.use((req, res, next) => {
   res.status(404).json({
