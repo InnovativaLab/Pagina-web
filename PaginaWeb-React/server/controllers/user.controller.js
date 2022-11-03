@@ -1,5 +1,6 @@
 import { pool } from '../db.js'
 import passwordHash from 'password-hash'
+import { checkLogInData, checkSignInData } from '../utils/verication.js'
 
 export const getUsers = async (req, res) => {
   try {
@@ -15,20 +16,28 @@ export const getUser = async (req, res) => {
   try {
     const { Email } = req.params
     const { Contraseña } = req.body
-    const dataUser = await pool.query(`SELECT usuario.NombreDeUsuario, usuario.Email, usuario.Nombre, usuario.Apellido, usuario.Genero, usuario.Contraseña, usuario.Preferencias, usuario.Estado, rolusuario.RolID, rol.Nombre as RolNombre, rolusuario.RolID as Permisos FROM coursesdb.usuario INNER JOIN rolusuario ON usuario.NombreDeUsuario=rolusuario.NombreDeUsuario
+    let result = checkLogInData(Email,Contraseña)
+    if (result===true) {
+      const dataUser = await pool.query(`SELECT usuario.NombreDeUsuario, usuario.Email, usuario.Nombre, usuario.Apellido, usuario.Genero, usuario.Contraseña, usuario.Preferencias, usuario.Estado, rolusuario.RolID, rol.Nombre as RolNombre, rolusuario.RolID as Permisos FROM coursesdb.usuario INNER JOIN rolusuario ON usuario.NombreDeUsuario=rolusuario.NombreDeUsuario
                                       INNER JOIN rol ON rolusuario.Rolid=rol.ID
                                       Where email=?;`, [Email])
-    const user = dataUser[0][0]
-    if (passwordHash.verify(Contraseña, user.Contraseña)) {
-      const [rows] = await pool.query(`SELECT PermisoID, Nombre as PermisoNombre FROM coursesdb.permisorol
-      INNER JOIN coursesdb.permiso ON permisorol.permisoID=permiso.ID
-      Where RolID=?;`, [user.Permisos])
-      user.Permisos = rows
-      return res.json(user)
-    }
-    return res.status(500).json({
+      const user = dataUser[0][0]
+      if (passwordHash.verify(Contraseña, user.Contraseña)) {
+        const [rows] = await pool.query(`SELECT PermisoID, Nombre as PermisoNombre FROM coursesdb.permisorol
+        INNER JOIN coursesdb.permiso ON permisorol.permisoID=permiso.ID
+        Where RolID=?;`, [user.Permisos])
+        user.Permisos = rows
+        return res.json(user)
+      }
+      return res.status(500).json({
       message: 'Data incorrect'
     })
+  }
+    else{
+      return res.status(500).json({
+        message: result
+      })
+    }
   } catch (error) {
     console.log(error)
     return res.status(500).json({
