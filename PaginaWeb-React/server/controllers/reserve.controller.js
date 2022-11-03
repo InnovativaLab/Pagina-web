@@ -2,7 +2,7 @@ import { pool } from '../db.js'
 
 export const getReserve = async (req, res) => {
   try {
-    const { NombreDeUsuario } = req.body
+    const { NombreDeUsuario } = req.params
     if (NombreDeUsuario !== undefined) {
       const [rows] = await pool.query('SELECT curso.Id, curso.Titulo, curso.Subtitulo, curso.Nivel, curso.Categoria, curso.Subcategoria, curso.Descripcion, curso.Estado, curso.Idioma, curso.TiempoDePublicacion, curso.PrecioEnPesos, curso.PrecioEnDolares, curso.ImagenDePortada, curso.MensajeDeBienvenida, curso.MensajeDeFelicitaciones FROM coursesdb.cursousuario INNER JOIN curso On cursousuario.CursoID= curso.Id where cursousuario.NombreDeUsuario =?;',[NombreDeUsuario])
       return res.json(rows)
