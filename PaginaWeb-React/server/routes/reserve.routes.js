@@ -3,7 +3,7 @@ import { getReserve, createReserve, deleteReserve} from '../controllers/reserve.
 
 const router = Router()
 
-router.get('/reserve', getReserve)
+router.get('/reserve/:NombreDeUsuario', getReserve)
 
 router.post('/reserve', createReserve)
 
