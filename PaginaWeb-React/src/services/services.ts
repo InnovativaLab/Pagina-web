@@ -69,3 +69,15 @@ export const sendDataSignIn = async (pUser?: Usuario) => {
     console.error(error.message)
   }
 }
+export const reserveCourse = async (pNombreDeUsuario: string|undefined, pIdCourse: string|undefined) => {
+  try {
+    console.log("Se reservo el curso")
+    if(pNombreDeUsuario!==undefined&&pIdCourse!==undefined){
+      const res = await axios.post(`${API_LINK}/api/reserve`, {"CursoId":pIdCourse,"NombreDeUsuario":pNombreDeUsuario})
+      return res.data
+    }
+    return null
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
