@@ -1,5 +1,5 @@
 let regExpEmail = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
-let regExpIsString = new RegExp('/^[A-Z]+$/i')
+let regExpIsString = new RegExp('[a-zA-Z ]{2,}')
 
 export const checkLogInData = (pEmail,pPws)=>{
     if (pEmail!==''||pPws!=='') {
