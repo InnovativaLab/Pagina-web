@@ -114,3 +114,11 @@ export const getDataCursos = async () => {
     console.error(error.message)
   }
 }
+export const getDataAnalisis = async () => {
+  try {
+    const res = await axios.post(`${API_LINK}/api/data/dataAnalisis`)
+    return res.data
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
