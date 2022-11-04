@@ -3,44 +3,33 @@ import svgEstrella from '../assets/Estrella.svg'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import svgReservas from '../assets/Reservas.svg'
 import svgUser from '../assets/User.svg'
-import { useState, MouseEvent, useEffect } from 'react'
-import { checkLogInData } from '../services/verication'
-import { sendDataLogin } from '../services/services'
+import { useState, useEffect } from 'react'
+import { getDataNumReservas } from '../services/services'
 import { useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { enumPermisos } from '../enum'
 import MsgBox from '../components/MsgBox'
+
 function Teacher () {
   const sesion = userSesion.getInstance()
-  const [email, setEmail] = useState('')
+  const [numReservas, setNumReservas] = useState(0)
   const [pws, setPws] = useState('')
   const [errorMsg, setMsg] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
-  const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+  const getData = async () => {
     try {
-      //TODO: Comprobar la verificacion en tiempo real de los
-      e.preventDefault()
-      let validation = checkLogInData(email,pws)
-      if (validation===true) {
-        setMsg(<></>)
-        console.log('Iniciando sesion...')
-        sendDataLogin(email, pws).then((data) => {
-          sesion.saveSesion(data)
-          navigate('/home', { replace: true })
+      getDataNumReservas().then((data) => {
+        setNumReservas(data.NumeroDeReservas)
         })
-      }
-      else{
-        console.log(validation)
-        setMsg(<MsgBox text={ validation } />)
-      }
     } catch (err: any) {
       setMsg(<MsgBox text={err.response} />)
       console.log(err.response)
     }
   }
   useEffect(() => {
+    getData()
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
     }
@@ -52,7 +41,7 @@ function Teacher () {
         <div className='itemContainer'>
           <div className='itemAnalitic'>
             <img src={svgReservas} alt='Imagen de reservas' />
-            <p className='itemAnaliticNumber'>300</p>
+            <p className='itemAnaliticNumber'>{numReservas}</p>
             <p className='itemAnaliticText'>Reservas</p>
           </div>
           <div className='itemAnalitic'>
