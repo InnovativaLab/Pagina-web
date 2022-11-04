@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { enumPermisos } from '../enum'
 import {  Course } from '../types';
+import { render } from 'react-dom'
 
 function Teacher () {
   const sesion = userSesion.getInstance()
@@ -25,7 +26,7 @@ function Teacher () {
             <p>#{Object.values(courses).indexOf(course)+1} </p>
             <p>{course.Titulo}</p>
             <p>{course.Categorias}</p>
-            <p>{Math.round((course.NumeroDeReservas/numReservas)*10000)/100}%</p>
+            <p>{course.NumeroDeReservas}%</p>
           </li>)
     return coursesElements
   }
@@ -48,10 +49,10 @@ function Teacher () {
     }
   }
   useEffect(() => {
-    getData()
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
     }
+    getData()
   }, [])
   return (
     <div className='section'>
