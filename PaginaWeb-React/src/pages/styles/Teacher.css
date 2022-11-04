@@ -1,11 +1,25 @@
 .section{
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
     padding: 50px 100px;
     width: 100%;
     gap: 25px;
     background-color: var(--Negro);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.dataSection{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.chartSection{
+    width: 35%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 .analiticSection{
     display: flex;
@@ -14,28 +28,7 @@
     border: 2px solid var(--Gris);
     border-radius: 15px;
 }
-.msgAlert{
-    padding: 50px;
-    width: 100%;
-    background: var(--Gris);
-    border: 1px solid var(--Gris);
-    border-radius: 15px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 125%;
-    color: var(--Blanco);
-    text-align: center;
-}
-.homeSubtitulo{
-    padding: 30px 50px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    color: var(--Blanco);
-}
+
 .itemContainer{
     color: var(--Blanco);
     font-family: 'Work Sans';
@@ -92,15 +85,13 @@
 }
 
 @media screen and (max-width:1300px) {
-
+        .section{
+            padding: 20px 40px;
+        }
   }
   @media screen and (max-width:900px) {
     .section{
         padding: 20px 40px;
-    }
-    .msgAlert{
-        padding: 50px 25px;
-        font-size: 38px;
     }
   }
   @media screen and (max-width:500px) {

@@ -7,7 +7,7 @@
     background: linear-gradient(180deg, var(--Negro) 0%, var(--GrisOscuro) 100%);
 }
 .msgAlert{
-    padding: 50px;
+    padding: 40px 30px;
     width: 100%;
     background: var(--Gris);
     border: 1px solid var(--Gris);
@@ -15,9 +15,10 @@
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 125%;
     color: var(--Blanco);
+    text-align: center;
 }
 .homeSubtitulo{
     padding: 30px 50px;
