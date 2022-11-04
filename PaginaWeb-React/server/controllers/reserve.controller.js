@@ -24,7 +24,7 @@ export const createReserve = async (req, res) => {
     const { CursoId, NombreDeUsuario } = req.body
     const fecha = new Date(Date.now())
     const año= fecha.getFullYear()
-    const mes= fecha.getMonth()
+    const mes= fecha.getMonth()+1
     const dia= fecha.getDate()
     let date = `${año}-${mes}-${dia}`
     const [rows] = await pool.query('INSERT INTO coursesdb.cursousuario (CursoID,NombreDeUsuario,Fecha) VALUES (?,?,?);', [CursoId, NombreDeUsuario,date])
