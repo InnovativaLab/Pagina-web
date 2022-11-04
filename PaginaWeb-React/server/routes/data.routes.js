@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos,getDataCursos} from '../controllers/data.controller.js'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos } from '../controllers/data.controller.js'
 
 const router = Router()
 

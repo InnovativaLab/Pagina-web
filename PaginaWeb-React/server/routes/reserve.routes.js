@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getReserve, createReserve, deleteReserve} from '../controllers/reserve.controller.js'
+import { getReserve, createReserve, deleteReserve } from '../controllers/reserve.controller.js'
 
 const router = Router()
 

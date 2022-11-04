@@ -4,11 +4,11 @@ import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import svgReservas from '../assets/Reservas.svg'
 import svgUser from '../assets/User.svg'
 import { useState, useEffect } from 'react'
-import { getDataNumReservas,getDataNumCursos,getDataNumAlumnos,getDataCursos} from '../services/services'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos } from '../services/services'
 import { useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { enumPermisos } from '../enum'
-import {  Course } from '../types';
+import { Course } from '../types'
 import { render } from 'react-dom'
 
 function Teacher () {
@@ -23,27 +23,27 @@ function Teacher () {
   const loadItems = (courses: any[]) => {
     coursesElements = Object.values(courses).map(course =>
       <li className='itemCouseTop' key={course.Titulo}>
-            <p>#{Object.values(courses).indexOf(course)+1} </p>
-            <p>{course.Titulo}</p>
-            <p>{course.Categorias}</p>
-            <p>{course.NumeroDeReservas}%</p>
-          </li>)
+        <p>#{Object.values(courses).indexOf(course) + 1} </p>
+        <p>{course.Titulo}</p>
+        <p>{course.Categorias}</p>
+        <p>{course.NumeroDeReservas}%</p>
+      </li>)
     return coursesElements
   }
   const getData = async () => {
     try {
       getDataNumReservas().then((data) => {
         setNumReservas(data.NumeroDeReservas)
-        })
-        getDataNumCursos().then((data) => {
-          setNumCourses(data.NumeroDeCursos)
-          })
-          getDataNumAlumnos().then((data) => {
-            setNumStudents(data.NumeroDeAlumnos)
-            })
-            getDataCursos().then((data) => {
-              setDataCourses(loadItems(data))
-              })
+      })
+      getDataNumCursos().then((data) => {
+        setNumCourses(data.NumeroDeCursos)
+      })
+      getDataNumAlumnos().then((data) => {
+        setNumStudents(data.NumeroDeAlumnos)
+      })
+      getDataCursos().then((data) => {
+        setDataCourses(loadItems(data))
+      })
     } catch (err: any) {
       console.log(err.response)
     }
@@ -76,7 +76,7 @@ function Teacher () {
           </div>
           <div className='itemAnalitic'>
             <img src={svgEstrella} alt='' />
-            <p className='itemAnaliticNumber'>{Math.round(numReservas/3)}</p>
+            <p className='itemAnaliticNumber'>{Math.round(numReservas / 3)}</p>
             <p className='itemAnaliticText'>Calificaciones</p>
           </div>
         </div>

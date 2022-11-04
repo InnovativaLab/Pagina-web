@@ -1,5 +1,5 @@
 import { useEffect, useState, MouseEvent } from 'react'
-import {checkSignInData} from '../services/verication'
+import { checkSignInData } from '../services/verication'
 import { sendDataSignIn } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
@@ -13,7 +13,7 @@ import { enumGenero } from '../enum'
 import { Usuario } from '../types'
 import './styles/login.css'
 
-//TODO: Comprobar la verificacion en tiempo real de los msgError
+// TODO: Comprobar la verificacion en tiempo real de los msgError
 
 function SignIn () {
   const sesion = userSesion.getInstance()
@@ -33,15 +33,14 @@ function SignIn () {
     try {
       e.preventDefault()
       user = { NombreDeUsuario, Nombre, Apellido, Contraseña, Email, Preferencias: '', Estado: 'Sin verificar', Genero }
-      let valitadation = checkSignInData(user,ContraseñaConfirmacion)
-        if (valitadation===true) {
-          setMsg(<></>)
-          sendDataSignIn(user).then((data) => {
-            sesion.saveSesion(data)
-            navigate('/', { replace: true })
-          })
-        }
-      else{
+      const valitadation = checkSignInData(user, ContraseñaConfirmacion)
+      if (valitadation === true) {
+        setMsg(<></>)
+        sendDataSignIn(user).then((data) => {
+          sesion.saveSesion(data)
+          navigate('/', { replace: true })
+        })
+      } else {
         setMsg(<MsgBox text={valitadation} />)
       }
     } catch (err: any) {

@@ -15,13 +15,13 @@ export const getCourses = async () => {
     return coursesCards
   }
 }
-export const getCoursesOfUser = async (pNameUser:string|undefined) => {
+export const getCoursesOfUser = async (pNameUser: string | undefined) => {
   const coursesCards: JSX.Element[] = []
   try {
-    if(pNameUser!==undefined){
+    if (pNameUser !== undefined) {
       const res = await axios.get(`${API_LINK}/api/reserve/${pNameUser}`)
       const courses: Course[] = res.data
-      console.log(courses);
+      console.log(courses)
       const coursesElements: JSX.Element[] = loadCards(courses)
       console.log(coursesElements)
       return coursesElements
@@ -69,11 +69,11 @@ export const sendDataSignIn = async (pUser?: Usuario) => {
     console.error(error.message)
   }
 }
-export const reserveCourse = async (pNombreDeUsuario: string|undefined, pIdCourse: string|undefined) => {
+export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCourse: string | undefined) => {
   try {
-    console.log("Se reservo el curso")
-    if(pNombreDeUsuario!==undefined&&pIdCourse!==undefined){
-      const res = await axios.post(`${API_LINK}/api/reserve`, {"CursoId":pIdCourse,"NombreDeUsuario":pNombreDeUsuario})
+    console.log('Se reservo el curso')
+    if (pNombreDeUsuario !== undefined && pIdCourse !== undefined) {
+      const res = await axios.post(`${API_LINK}/api/reserve`, { CursoId: pIdCourse, NombreDeUsuario: pNombreDeUsuario })
       return res.data
     }
     return null
@@ -84,7 +84,7 @@ export const reserveCourse = async (pNombreDeUsuario: string|undefined, pIdCours
 export const getDataNumReservas = async () => {
   try {
     const res = await axios.post(`${API_LINK}/api/data/numReserves`)
-    console.log(res);
+    console.log(res)
     return res.data
   } catch (error: any) {
     console.error(error.message)

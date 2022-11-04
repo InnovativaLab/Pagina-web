@@ -16,8 +16,8 @@ export const getUser = async (req, res) => {
   try {
     const { Email } = req.params
     const { Contraseña } = req.body
-    let result = checkLogInData(Email,Contraseña)
-    if (result===true) {
+    const result = checkLogInData(Email, Contraseña)
+    if (result === true) {
       const dataUser = await pool.query(`SELECT usuario.NombreDeUsuario, usuario.Email, usuario.Nombre, usuario.Apellido, usuario.Genero, usuario.Contraseña, usuario.Preferencias, usuario.Estado, rolusuario.RolID, rol.Nombre as RolNombre, rolusuario.RolID as Permisos FROM coursesdb.usuario INNER JOIN rolusuario ON usuario.NombreDeUsuario=rolusuario.NombreDeUsuario
                                       INNER JOIN rol ON rolusuario.Rolid=rol.ID
                                       Where email=?;`, [Email])
@@ -30,10 +30,9 @@ export const getUser = async (req, res) => {
         return res.json(user)
       }
       return res.status(500).json({
-      message: 'Data incorrect'
-    })
-  }
-    else{
+        message: 'Data incorrect'
+      })
+    } else {
       return res.status(500).json({
         message: result
       })
@@ -49,8 +48,8 @@ export const createUser = async (req, res) => {
   try {
     const { Nombre, Apellido, Genero, Contraseña, Email, NombreDeUsuario, Preferencias, Estado } = req.body
     const user = { NombreDeUsuario, Nombre, Apellido, Contraseña, Email, Preferencias: '', Estado: 'Sin verificar', Genero }
-    let result = checkSignInData(user,Contraseña)
-    if (result===true) {
+    const result = checkSignInData(user, Contraseña)
+    if (result === true) {
       const hash = passwordHash.generate(Contraseña)
       const [rows] = await pool.query('INSERT INTO Usuario (Nombre, Apellido,Genero,Contraseña,Email,NombreDeUsuario,Preferencias,Estado) VALUES (?,?,?,?,?,?,?,?)', [Nombre, Apellido, Genero, hash, Email, NombreDeUsuario, Preferencias, Estado])
       const data = await pool.query('INSERT INTO rolusuario (RolID, NombreDeUsuario) VALUES (?,?)', [1, NombreDeUsuario])
@@ -58,12 +57,11 @@ export const createUser = async (req, res) => {
         // id: rows.insertId,
         Nombre, Apellido, Genero, hash, Email, NombreDeUsuario, Preferencias, Estado
       })
+    } else {
+      return res.status(500).json({
+        message: result
+      })
     }
-  else{
-        return res.status(500).json({
-          message: result
-        })
-      }
   } catch (error) {
     console.log(error)
     return res.status(500).json({

@@ -9,7 +9,7 @@ function MsgBox ({ text }: propMsgBox) {
   const [msg, setMsg] = useState(<></>)
 
   const generateMessage = () => {
-    if (text !== ''){
+    if (text !== '') {
       return <div className='msgBox'>{text}</div>
     }
     return <></>

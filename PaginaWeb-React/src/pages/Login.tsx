@@ -11,9 +11,9 @@ import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
 
-//TODO: Comprobar la verificacion en tiempo real de los msgError
+// TODO: Comprobar la verificacion en tiempo real de los msgError
 
-function Login (){
+function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
@@ -23,20 +23,19 @@ function Login (){
 
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
-      //TODO: Comprobar la verificacion en tiempo real de los
+      // TODO: Comprobar la verificacion en tiempo real de los
       e.preventDefault()
-      let validation = checkLogInData(email,pws)
-      if (validation===true) {
+      const validation = checkLogInData(email, pws)
+      if (validation === true) {
         setMsg(<></>)
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
           sesion.saveSesion(data)
           navigate('/home', { replace: true })
         })
-      }
-      else{
+      } else {
         console.log(validation)
-        setMsg(<MsgBox text={ validation } />)
+        setMsg(<MsgBox text={validation} />)
       }
     } catch (err: any) {
       setMsg(<MsgBox text={err.response} />)
@@ -49,7 +48,7 @@ function Login (){
     }
   }, [])
   useEffect(() => {
-    
+
   }, [errorMsg])
   return (
     <div>
@@ -73,7 +72,7 @@ function Login (){
           <Link className='secondaryButton fullSpace' to='/signin'>
             Registrarse
           </Link>
-          { errorMsg }
+          {errorMsg}
         </form>
       </main>
     </div>
