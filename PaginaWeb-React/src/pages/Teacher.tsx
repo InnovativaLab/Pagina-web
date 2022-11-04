@@ -56,7 +56,13 @@ function Teacher () {
           const uniqueData = info.filter((element, index) => {
             return info.indexOf(element) === index;
         });
-        setFechas(<LineChart pData={data} pFechas={uniqueData} />)
+        const titulos = Object.values(data as DataAnalisis[]).map(item => {
+          return item.Titulo
+        })
+          const titulosUnicos = titulos.filter((element, index) => {
+            return titulos.indexOf(element) === index;
+        });
+        setFechas(<LineChart pData={data} pFechas={uniqueData} pTitulos={titulosUnicos} />)
       })
     } catch (err: any) {
       console.log(err.response)

@@ -14,8 +14,9 @@ ChartJS.register(
   Legend
 )
 interface propLineChart {
-  pData: DataAnalisis[],
-  pFechas:string[]
+  pData: any[],
+  pFechas:string[],
+  pTitulos:string[]
 }
 
 const options = {
@@ -48,44 +49,51 @@ const options = {
   }
 }
 
-function LineChart ({pData,pFechas}:propLineChart) {
-  
-
+function LineChart ({pData,pFechas,pTitulos}:propLineChart) {
   const [chart, setChart] = useState(<></>)
   const labels = pFechas;
-  const getdataSets = Object.values(pData).map(item=>{
-    return {
-      label: item.Titulo,
-      data: pFechas.map(() => faker.datatype.number({ min: 0, max: 10 })),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      yAxisID: 'y'
+  const generarNumero=(numero:number)=>{
+    return (Math.random()*numero).toFixed(0);
+  }
+   const colorRGB=()=>{
+    var coolor = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
+    return "rgb" + coolor;
+  }
+  const findNumReservas = (pTitulo:string)=>{
+    let reservas=[0,0,0,0]
+    for (let i = 0; i < labels.length; i++) {
+      const date = labels[i];
+      for (let j = 0; j < pData.length; j++) {
+        const element = pData[j];
+        if(element.Titulo===pTitulo){
+          if(date===element.Fecha.substring(0,10)){
+          console.log(i)
+            reservas.splice(i,1, element.NumeroDeReservas)
+          }
+        }
+      }
     }
-  })
+    console.log(reservas)
+    return reservas
+  }
   let data = {
     labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        yAxisID: 'y',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        yAxisID: 'y1',
-      },
-    ],
+    datasets: Object.values(pTitulos).map(item=>{
+      let color = colorRGB()
+      return {
+        label: item,
+        data: findNumReservas(item),
+        borderColor: color,
+        backgroundColor: color,
+        yAxisID: 'y'
+      }
+    }),
  }
- 
+
   useEffect(() => {
 
     console.log('----');
-    console.log(data)
+    console.log(pTitulos)
     setChart(()=>{
       return <Line options={options} data={data} />
     })
