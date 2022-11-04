@@ -2,7 +2,7 @@ import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos 
 import VerticalBarChart from '../components/charts/VerticalBarChart'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import LineChart from '../components/charts/LineChart'
-import PieChart from '../components/charts/PieChart';
+import PieChart from '../components/charts/PieChart'
 import { userSesion } from '../services/userSesion'
 import svgEstrella from '../assets/Estrella.svg'
 import svgReservas from '../assets/Reservas.svg'
@@ -58,45 +58,45 @@ function Teacher () {
   return (
     <div className='section'>
       <div className='dataSection'>
-      <section className='analiticSection'>
-        <p className='msgAlert'>Introducción a Arduino</p>
-        <div className='itemContainer'>
-          <div className='itemAnalitic'>
-            <img src={svgReservas} alt='Imagen de reservas' />
-            <p className='itemAnaliticNumber'>{numReservas}</p>
-            <p className='itemAnaliticText'>Reservas</p>
+        <section className='analiticSection'>
+          <p className='msgAlert'>Introducción a Arduino</p>
+          <div className='itemContainer'>
+            <div className='itemAnalitic'>
+              <img src={svgReservas} alt='Imagen de reservas' />
+              <p className='itemAnaliticNumber'>{numReservas}</p>
+              <p className='itemAnaliticText'>Reservas</p>
+            </div>
+            <div className='itemAnalitic'>
+              <img src={svgUser} alt='' />
+              <p className='itemAnaliticNumber'>{numStudents}</p>
+              <p className='itemAnaliticText'>Alumnos</p>
+            </div>
+            <div className='itemAnalitic'>
+              <img src={svgSombreroEgresado} alt='' />
+              <p className='itemAnaliticNumber'>{numCourses}</p>
+              <p className='itemAnaliticText'>Cursos</p>
+            </div>
+            <div className='itemAnalitic'>
+              <img src={svgEstrella} alt='' />
+              <p className='itemAnaliticNumber'>{Math.round(numReservas / 3)}</p>
+              <p className='itemAnaliticText'>Calificaciones</p>
+            </div>
           </div>
-          <div className='itemAnalitic'>
-            <img src={svgUser} alt='' />
-            <p className='itemAnaliticNumber'>{numStudents}</p>
-            <p className='itemAnaliticText'>Alumnos</p>
-          </div>
-          <div className='itemAnalitic'>
-            <img src={svgSombreroEgresado} alt='' />
-            <p className='itemAnaliticNumber'>{numCourses}</p>
-            <p className='itemAnaliticText'>Cursos</p>
-          </div>
-          <div className='itemAnalitic'>
-            <img src={svgEstrella} alt='' />
-            <p className='itemAnaliticNumber'>{Math.round(numReservas / 3)}</p>
-            <p className='itemAnaliticText'>Calificaciones</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className='analiticSection'>
-        <p className='msgAlert'>Cursos top</p>
-        <ul className='listCousesTop'>
+        <section className='analiticSection'>
+          <p className='msgAlert'>Cursos top</p>
+          <ul className='listCousesTop'>
 
-          <li className='itemCouseTop titleCouseTop'>
-            <p>#</p>
-            <p>Nombre</p>
-            <p>Categoria</p>
-            <p>Reservas</p>
-          </li>
-          {dataCourses}
-        </ul>
-      </section>
+            <li className='itemCouseTop titleCouseTop'>
+              <p>#</p>
+              <p>Nombre</p>
+              <p>Categoria</p>
+              <p>Reservas</p>
+            </li>
+            {dataCourses}
+          </ul>
+        </section>
       </div>
       <div className='chartSection'>
         <VerticalBarChart />
