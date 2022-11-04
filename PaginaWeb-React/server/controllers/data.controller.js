@@ -36,7 +36,7 @@ export const getDataNumAlumnos = async (req, res) => {
 export const getDataCursos= async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT curso.Id, curso.Titulo, CONCAT (curso.Categoria,", ", curso.Subcategoria) as Categorias,COUNT(curso.Id)AS NumeroDeReservas FROM coursesdb.cursousuario INNER JOIN coursesdb.curso On cursousuario.CursoID= curso.Id GROUP BY curso.Id ORDER BY NumeroDeReservas DESC; ')
-    return res.json(rows[0])
+    return res.json(rows)
   } catch (error) {
     console.log(error)
     return res.status(500).json({
