@@ -33,6 +33,11 @@ export type Permiso ={
   Id: string
   Nombre: string
 }
+export type DataAnalisis ={
+  Fecha: string
+  Titulo: string
+  NumeroDeReservas: string
+}
 export interface CartItemProps {
   onAdd?: () => void
   onRemove?: () => void
