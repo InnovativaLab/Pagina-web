@@ -99,7 +99,7 @@ function Teacher () {
         </section>
       </div>
       <div className='chartSection'>
-        <VerticalBarChart />
+        <VerticalBarChart numReservas={numReservas} numCursos={numCourses} numAlumnos={numStudents} numCalificaciones={Math.round(numReservas / 3)}/>
         <LineChart />
         <PieChart />
       </div>

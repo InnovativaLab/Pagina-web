@@ -24,25 +24,41 @@ const options = {
   }
 }
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+const labels = ['Datos']
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)'
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)'
-    }
-  ]
+interface propVerticalBarChart {
+  numReservas: number,
+  numAlumnos: number,
+  numCursos: number,
+  numCalificaciones: number
 }
 
-function VerticalBarChart () {
+function VerticalBarChart ({numReservas,numAlumnos,numCursos,numCalificaciones}:propVerticalBarChart) {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Reservas',
+        data: [numReservas],
+        backgroundColor: 'rgba(37, 99, 235, 0.6)'
+      },
+      {
+        label: 'Alumnos',
+        data:[numAlumnos],
+        backgroundColor: 'rgba(233, 79, 55, 0.6)'
+      },
+      {
+        label: 'Cursos',
+        data:[numCursos],
+        backgroundColor: 'rgba(0, 167, 227, 0.6)' //'rgba(9, 82, 86, 0.6)'
+      },
+      {
+        label: 'Calificaciones',
+        data:[numCalificaciones],
+        backgroundColor: 'rgba(153, 194, 77, 0.6)'
+      }
+    ]
+  }
   return <Bar options={options} data={data} />
 }
 export default VerticalBarChart
