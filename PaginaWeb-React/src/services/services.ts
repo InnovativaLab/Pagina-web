@@ -83,7 +83,8 @@ export const reserveCourse = async (pNombreDeUsuario: string|undefined, pIdCours
 }
 export const getDataNumReservas = async () => {
   try {
-    const res = await axios.post(`${API_LINK}/data/numReserves`)
+    const res = await axios.post(`${API_LINK}/api/data/numReserves`)
+    console.log(res);
     return res.data
   } catch (error: any) {
     console.error(error.message)
@@ -91,7 +92,7 @@ export const getDataNumReservas = async () => {
 }
 export const getDataNumCursos = async () => {
   try {
-    const res = await axios.post(`${API_LINK}/data/numCourses`)
+    const res = await axios.post(`${API_LINK}/api/data/numCourses`)
     return res.data
   } catch (error: any) {
     console.error(error.message)
@@ -99,7 +100,7 @@ export const getDataNumCursos = async () => {
 }
 export const getDataNumAlumnos = async () => {
   try {
-    const res = await axios.post(`${API_LINK}/data/numStudents`)
+    const res = await axios.post(`${API_LINK}/api/data/numStudents`)
     return res.data
   } catch (error: any) {
     console.error(error.message)
@@ -107,7 +108,7 @@ export const getDataNumAlumnos = async () => {
 }
 export const getDataCursos = async () => {
   try {
-    const res = await axios.post(`${API_LINK}/data/dataCourses`)
+    const res = await axios.post(`${API_LINK}/api/data/dataCourses`)
     return res.data
   } catch (error: any) {
     console.error(error.message)
