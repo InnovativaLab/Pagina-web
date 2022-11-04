@@ -4,7 +4,7 @@ import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import svgReservas from '../assets/Reservas.svg'
 import svgUser from '../assets/User.svg'
 import { useState, useEffect } from 'react'
-import { getDataNumReservas } from '../services/services'
+import { getDataNumReservas,getDataNumCursos,getDataNumAlumnos,getDataCursos} from '../services/services'
 import { useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { enumPermisos } from '../enum'
@@ -13,8 +13,9 @@ import MsgBox from '../components/MsgBox'
 function Teacher () {
   const sesion = userSesion.getInstance()
   const [numReservas, setNumReservas] = useState(0)
-  const [pws, setPws] = useState('')
-  const [errorMsg, setMsg] = useState(<></>)
+  const [numCourses, setNumCourses] = useState(0)
+  const [numStudents, setNumStudents] = useState(0)
+  const [dataCourses, setDataCourses] = useState(0)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -23,8 +24,16 @@ function Teacher () {
       getDataNumReservas().then((data) => {
         setNumReservas(data.NumeroDeReservas)
         })
+        getDataNumCursos().then((data) => {
+          setNumCourses(data.NumeroDeCursos)
+          })
+          getDataNumAlumnos().then((data) => {
+            setNumStudents(data.NumeroDeAlumnos)
+            })
+            getDataCursos().then((data) => {
+              setDataCourses(data.NumeroDeReservas)
+              })
     } catch (err: any) {
-      setMsg(<MsgBox text={err.response} />)
       console.log(err.response)
     }
   }
@@ -46,17 +55,17 @@ function Teacher () {
           </div>
           <div className='itemAnalitic'>
             <img src={svgUser} alt='' />
-            <p className='itemAnaliticNumber'>128</p>
+            <p className='itemAnaliticNumber'>{numStudents}</p>
             <p className='itemAnaliticText'>Alumnos</p>
           </div>
           <div className='itemAnalitic'>
             <img src={svgSombreroEgresado} alt='' />
-            <p className='itemAnaliticNumber'>2</p>
+            <p className='itemAnaliticNumber'>{numCourses}</p>
             <p className='itemAnaliticText'>Cursos</p>
           </div>
           <div className='itemAnalitic'>
             <img src={svgEstrella} alt='' />
-            <p className='itemAnaliticNumber'>15</p>
+            <p className='itemAnaliticNumber'>{Math.round(numReservas/3)}</p>
             <p className='itemAnaliticText'>Calificaciones</p>
           </div>
         </div>
@@ -66,6 +75,7 @@ function Teacher () {
       <section className='analiticSection'>
         <p className='msgAlert'>Cursos top</p>
         <ul className='listCousesTop'>
+          {dataCourses}
           <li className='itemCouseTop titleCouseTop'>
             <p>#</p>
             <p>Nombre</p>
