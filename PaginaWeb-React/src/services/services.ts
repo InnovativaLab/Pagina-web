@@ -84,7 +84,6 @@ export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCou
 export const getDataNumReservas = async () => {
   try {
     const res = await axios.post(`${API_LINK}/api/data/numReserves`)
-    console.log(res)
     return res.data
   } catch (error: any) {
     console.error(error.message)
