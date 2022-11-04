@@ -1,4 +1,4 @@
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos } from '../services/services'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos,getDataAnalisis } from '../services/services'
 import VerticalBarChart from '../components/charts/VerticalBarChart'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import LineChart from '../components/charts/LineChart'
@@ -11,14 +11,18 @@ import { useState, useEffect } from 'react'
 import svgUser from '../assets/User.svg'
 import { enumPermisos } from '../enum'
 import './styles/Teacher.css'
+import { DataAnalisis } from '../types';
 
 function Teacher () {
   const sesion = userSesion.getInstance()
   let coursesElements: JSX.Element[] = []
+  let datos: DataAnalisis[] = []
   const [numReservas, setNumReservas] = useState(0)
   const [numCourses, setNumCourses] = useState(0)
   const [numStudents, setNumStudents] = useState(0)
   const [dataCourses, setDataCourses] = useState(coursesElements)
+  const [dataAnalisis, setDataAnalisis] = useState(datos)
+  const [fechas, setFechas] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
   const loadItems = (courses: any[]) => {
@@ -44,6 +48,15 @@ function Teacher () {
       })
       getDataCursos().then((data) => {
         setDataCourses(loadItems(data))
+      })
+      getDataAnalisis().then((data) => {
+        const info = Object.values(data as DataAnalisis[]).map(item => {
+          return item.Fecha.substring(0,10)
+        })
+          const uniqueData = info.filter((element, index) => {
+            return info.indexOf(element) === index;
+        });
+        setFechas(<LineChart pData={data} pFechas={uniqueData} />)
       })
     } catch (err: any) {
       console.log(err.response)
@@ -100,7 +113,7 @@ function Teacher () {
       </div>
       <div className='chartSection'>
         <VerticalBarChart numReservas={numReservas} numCursos={numCourses} numAlumnos={numStudents} numCalificaciones={Math.round(numReservas / 3)}/>
-        <LineChart />
+        {fechas}
         <PieChart />
       </div>
 
