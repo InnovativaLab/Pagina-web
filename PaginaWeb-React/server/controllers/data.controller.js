@@ -48,3 +48,14 @@ export const getDataCursos = async (req, res) => {
     })
   }
 }
+export const getDataAnalisis = async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT cursousuario.Fecha, curso.Titulo, COUNT(curso.Titulo)AS NumeroDeReservas FROM coursesdb.cursousuario INNER JOIN coursesdb.curso On cursousuario.CursoID= curso.Id  group by curso.Titulo, cursousuario.fecha ORDER BY Fecha ASC; ')
+    return res.json(rows)
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: 'Something goes wrong'
+    })
+  }
+}
