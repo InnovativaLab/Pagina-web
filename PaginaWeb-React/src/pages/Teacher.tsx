@@ -1,15 +1,16 @@
-import './styles/Teacher.css'
-import svgEstrella from '../assets/Estrella.svg'
-import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
-import svgReservas from '../assets/Reservas.svg'
-import svgUser from '../assets/User.svg'
-import { useState, useEffect } from 'react'
 import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos } from '../services/services'
-import { useNavigate } from 'react-router-dom'
+import VerticalBarChart from '../components/charts/VerticalBarChart'
+import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
+import LineChart from '../components/charts/LineChart'
+import PieChart from '../components/charts/PieChart';
 import { userSesion } from '../services/userSesion'
+import svgEstrella from '../assets/Estrella.svg'
+import svgReservas from '../assets/Reservas.svg'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import svgUser from '../assets/User.svg'
 import { enumPermisos } from '../enum'
-import { Course } from '../types'
-import { render } from 'react-dom'
+import './styles/Teacher.css'
 
 function Teacher () {
   const sesion = userSesion.getInstance()
@@ -56,6 +57,7 @@ function Teacher () {
   }, [])
   return (
     <div className='section'>
+      <div className='dataSection'>
       <section className='analiticSection'>
         <p className='msgAlert'>Introducción a Arduino</p>
         <div className='itemContainer'>
@@ -82,7 +84,6 @@ function Teacher () {
         </div>
       </section>
 
-      <div className='grafic' />
       <section className='analiticSection'>
         <p className='msgAlert'>Cursos top</p>
         <ul className='listCousesTop'>
@@ -96,6 +97,13 @@ function Teacher () {
           {dataCourses}
         </ul>
       </section>
+      </div>
+      <div className='chartSection'>
+        <VerticalBarChart />
+        <LineChart />
+        <PieChart />
+      </div>
+
     </div>
   )
 }
