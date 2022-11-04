@@ -81,3 +81,35 @@ export const reserveCourse = async (pNombreDeUsuario: string|undefined, pIdCours
     console.error(error.message)
   }
 }
+export const getDataNumReservas = async () => {
+  try {
+    const res = await axios.post(`${API_LINK}/data/numReserves`)
+    return res.data
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
+export const getDataNumCursos = async () => {
+  try {
+    const res = await axios.post(`${API_LINK}/data/numCourses`)
+    return res.data
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
+export const getDataNumAlumnos = async () => {
+  try {
+    const res = await axios.post(`${API_LINK}/data/numStudents`)
+    return res.data
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
+export const getDataCursos = async () => {
+  try {
+    const res = await axios.post(`${API_LINK}/data/dataCourses`)
+    return res.data
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
