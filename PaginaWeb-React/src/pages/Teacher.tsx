@@ -8,17 +8,27 @@ import { getDataNumReservas,getDataNumCursos,getDataNumAlumnos,getDataCursos} fr
 import { useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { enumPermisos } from '../enum'
-import MsgBox from '../components/MsgBox'
+import {  Course } from '../types';
 
 function Teacher () {
   const sesion = userSesion.getInstance()
+  let coursesElements: JSX.Element[] = []
   const [numReservas, setNumReservas] = useState(0)
   const [numCourses, setNumCourses] = useState(0)
   const [numStudents, setNumStudents] = useState(0)
-  const [dataCourses, setDataCourses] = useState(0)
+  const [dataCourses, setDataCourses] = useState(coursesElements)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
-
+  const loadItems = (courses: any[]) => {
+    coursesElements = Object.values(courses).map(course =>
+      <li className='itemCouseTop' key={course.Titulo}>
+            <p>#{Object.values(courses).indexOf(course)+1} </p>
+            <p>{course.Titulo}</p>
+            <p>{course.Categorias}</p>
+            <p>{Math.round((course.NumeroDeReservas/numReservas)*10000)/100}%</p>
+          </li>)
+    return coursesElements
+  }
   const getData = async () => {
     try {
       getDataNumReservas().then((data) => {
@@ -31,7 +41,7 @@ function Teacher () {
             setNumStudents(data.NumeroDeAlumnos)
             })
             getDataCursos().then((data) => {
-              setDataCourses(data.NumeroDeReservas)
+              setDataCourses(loadItems(data))
               })
     } catch (err: any) {
       console.log(err.response)
@@ -75,31 +85,14 @@ function Teacher () {
       <section className='analiticSection'>
         <p className='msgAlert'>Cursos top</p>
         <ul className='listCousesTop'>
-          {dataCourses}
+
           <li className='itemCouseTop titleCouseTop'>
             <p>#</p>
             <p>Nombre</p>
             <p>Categoria</p>
             <p>Reservas</p>
           </li>
-          <li className='itemCouseTop'>
-            <p>#1</p>
-            <p>Arduino desde cero para principantes</p>
-            <p>Arduino, Robotica, Simuladores</p>
-            <p>48%</p>
-          </li>
-          <li className='itemCouseTop'>
-            <p>#2</p>
-            <p>Arduino desde cero para principantes</p>
-            <p>Arduino, Robotica, Simuladores</p>
-            <p>48%</p>
-          </li>
-          <li className='itemCouseTop'>
-            <p>#3</p>
-            <p>Arduino desde cero para principantes</p>
-            <p>Arduino, Robotica, Simuladores</p>
-            <p>48%</p>
-          </li>
+          {dataCourses}
         </ul>
       </section>
     </div>
