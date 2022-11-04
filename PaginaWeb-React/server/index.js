@@ -1,5 +1,6 @@
 import coursesRouter from './routes/courses.routes.js'
 import reserveRouter from './routes/reserve.routes.js'
+import dataRouter from './routes/data.routes.js'
 import userRouter from './routes/user.routes.js'
 import compression  from 'compression'
 import pino from 'express-pino-logger'
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 app.use('/api', userRouter)
 app.use('/api', coursesRouter)
 app.use('/api', reserveRouter)
+app.use('/api', dataRouter)
 
 app.use((req, res, next) => {
   res.status(404).json({
