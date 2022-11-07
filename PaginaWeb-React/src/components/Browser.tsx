@@ -33,7 +33,7 @@ function Browser ({ closeFunction }: propBrowser) {
     <div className='browserContainer'>
       <input type='text' placeholder='Buscar curso' onChange={readBrowse} onKeyUp={goToBrowseKey} />
       <button onClick={goToBrowse}>
-        <img src={lupa} alt='' />
+        <img src={lupa} alt='Logo de lupa' />
       </button>
     </div>
   )
