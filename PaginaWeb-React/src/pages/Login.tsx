@@ -31,12 +31,16 @@ function Login () {
         setMsg(<></>)
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
-          sesion.saveSesion(data)
+          let userDataSesion =sesion.saveSesion(data)
+          let path="/"
+          console.log(userDataSesion)
           if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
-            navigate('/teacher', { replace: true })
+            if(userDataSesion?.RolNombre==="Docente"){
+            path='/teacher'
           } else {
-            navigate('/home', { replace: true })
-          }
+            path='/home'
+          }}
+          navigate(path, { replace: true })
         })
       } else {
         console.log(validation)
@@ -46,7 +50,7 @@ function Login () {
       setMsg(<MsgBox text={err.response} />)
       console.log(err.response)
     }
-  }
+  }/*
   useEffect(() => {
     if (sesion.isLogged()) {
       navigate('/home', { replace: true })
@@ -54,7 +58,7 @@ function Login () {
   }, [])
   useEffect(() => {
 
-  }, [errorMsg])
+  }, [errorMsg])*/
   return (
     <div>
       <main className='mainLogin'>
