@@ -67,13 +67,13 @@ function LineChart ({ pData, pFechas, pTitulos }: propLineChart) {
         const element = pData[j]
         if (element.Titulo === pTitulo) {
           if (date === element.Fecha.substring(0, 10)) {
-            //console.log(i)
+            // console.log(i)
             reservas.splice(i, 1, element.NumeroDeReservas)
           }
         }
       }
     }
-    //console.log(reservas)
+    // console.log(reservas)
     return reservas
   }
   const data = {
@@ -91,8 +91,8 @@ function LineChart ({ pData, pFechas, pTitulos }: propLineChart) {
   }
 
   useEffect(() => {
-   // console.log('----')
-    //console.log(pTitulos)
+    // console.log('----')
+    // console.log(pTitulos)
     setChart(() => {
       return <Line options={options} data={data} />
     })

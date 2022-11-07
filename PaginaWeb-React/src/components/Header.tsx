@@ -50,17 +50,19 @@ function Header () {
     )
   }
   const generateButtonHome = () => {
-    let userDataSesion =sesion.readSesion()
-    let path="/"
+    const userDataSesion = sesion.readSesion()
+    let path = '/'
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
-      if(userDataSesion?.RolNombre==="Docente"){
-      path='/teacher'
-    } else {
-      path='/home'
-    }
-    return(<HashLink to={path} onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-      <span>Inicio</span>
-    </HashLink>)
+      if (userDataSesion?.RolNombre === 'Docente') {
+        path = '/teacher'
+      } else {
+        path = '/home'
+      }
+      return (
+        <HashLink to={path} onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <span>Inicio</span>
+        </HashLink>
+      )
     }
   }
   const generateItemsMenu = (state: Boolean) => {

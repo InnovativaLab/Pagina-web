@@ -71,10 +71,9 @@ function Teacher () {
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
-    }
-    else{
-      let userDataSesion =sesion.readSesion()
-      if(userDataSesion?.RolNombre!=="Docente"){
+    } else {
+      const userDataSesion = sesion.readSesion()
+      if (userDataSesion?.RolNombre !== 'Docente') {
         navigate('/home', { replace: true })
       }
     }
