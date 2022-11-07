@@ -21,9 +21,9 @@ export const getCoursesOfUser = async (pNameUser: string | undefined) => {
     if (pNameUser !== undefined) {
       const res = await axios.get(`${API_LINK}/api/reserve/${pNameUser}`)
       const courses: Course[] = res.data
-      console.log(courses)
+      //console.log(courses)
       const coursesElements: JSX.Element[] = loadCards(courses)
-      console.log(coursesElements)
+     // console.log(coursesElements)
       return coursesElements
     }
     return coursesCards
