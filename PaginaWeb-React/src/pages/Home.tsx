@@ -2,7 +2,7 @@ import { userSesion } from '../services/userSesion'
 import { useState, useEffect } from 'react'
 import { Usuario } from '../types'
 import './styles/Home.css'
-import { getCoursesOfUser } from '../services/services'
+import { getCoursesOfUserJSX } from '../services/services'
 import { enumPermisos } from '../enum'
 import { useNavigate } from 'react-router-dom'
 
@@ -15,7 +15,7 @@ function Home () {
 
   window.scrollTo(0, 0)
   useEffect(() => {
-    getCoursesOfUser(user?.NombreDeUsuario).then((listaCursos) => {
+    getCoursesOfUserJSX(user?.NombreDeUsuario).then((listaCursos) => {
       setListCourses(listaCursos)
     })
     if (!sesion.isAuthorized(enumPermisos.AccesoVistaCursos)) {
