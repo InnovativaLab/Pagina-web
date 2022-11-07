@@ -30,7 +30,7 @@ function Footer () {
             <ul className='footerLinksList'>
               <li><Link to='/login'>Iniciar Sesión</Link></li>
               <li><Link to='/signin'>Registrarse</Link></li>
-              <li><Link to='/teacher'>Ser profesor</Link></li>
+              <li><Link to='/terms'>Información legal</Link></li>
             </ul>
           </div>
         </div>
