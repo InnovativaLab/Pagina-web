@@ -54,9 +54,6 @@ function Header () {
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       if (userDataSesion?.RolNombre === 'Docente') {
         path = '/teacher'
-        setBtnPublish(<HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-            <span>Publicar</span>
-          </HashLink>)
       } 
       else {
         path = '/home'
@@ -70,6 +67,20 @@ function Header () {
         </>
       )
     }
+  }
+  const generateButtonPublish = () => {
+    const userDataSesion = sesion.readSesion()
+   
+    if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
+      if (userDataSesion?.RolNombre === 'Docente') {
+        return (
+          <HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+              <span>Publicar</span>
+            </HashLink>
+        )
+      }
+    }
+    return <></>
   }
   const generateItemsMenu = (state: Boolean) => {
     if (!state) {
@@ -103,6 +114,8 @@ function Header () {
     setButton(botones)
     const itemsDelMenu = generateItemsMenu(isLogged)
     setItemsMenu(itemsDelMenu)
+    const buttonPublish = generateButtonPublish()
+    setBtnPublish(buttonPublish)
   }, [location])
 
   return (
@@ -118,6 +131,7 @@ function Header () {
           <HashLink to='/#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Cursos</span>
           </HashLink>
+          {btnPublish}
           {button}
           <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
         </div>
