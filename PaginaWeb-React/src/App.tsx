@@ -12,6 +12,7 @@ import Curso from './pages/Curso'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import './App.css'
+import PublishCourse from './pages/PublishCourse';
 
 function App () {
   return (
@@ -24,6 +25,7 @@ function App () {
         <Route path='/recoverpws' element={<RecoverPws />} />
         <Route path='/home' element={<Home />} />
         <Route path='/teacher' element={<Teacher />} />
+        <Route path='/publish' element={<PublishCourse />} />
         <Route path='/course/:id' element={<Curso />} />
         <Route path='/browse/:toFind' element={<Busqueda />} />
         <Route
