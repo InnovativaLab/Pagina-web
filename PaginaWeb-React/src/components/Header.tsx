@@ -1,7 +1,6 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { HashLink } from 'react-router-hash-link'
-
 import { useState, useEffect } from 'react'
 import burger from '../assets/bx-menu.svg'
 import LogoBanner from './LogoBanner'
@@ -15,7 +14,7 @@ function Header () {
   const sesion = userSesion.getInstance()
   const [state, setState] = useState('hide')
   const [button, setButton] = useState(<></>)
-  const [btnHome, setBtnHome] = useState(<></>)
+  const [btnPublish, setBtnPublish] = useState(<></>)
   const [itemsMenu, setItemsMenu] = useState(<></>)
 
   const cambiarEstadoMenu = () => {
@@ -55,13 +54,20 @@ function Header () {
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       if (userDataSesion?.RolNombre === 'Docente') {
         path = '/teacher'
-      } else {
+        setBtnPublish(<HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Publicar</span>
+          </HashLink>)
+      } 
+      else {
         path = '/home'
       }
       return (
-        <HashLink to={path} onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Inicio</span>
-        </HashLink>
+        <>
+          {btnPublish}
+          <HashLink to={path} onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+            <span>Inicio</span>
+          </HashLink>
+        </>
       )
     }
   }
@@ -85,9 +91,6 @@ function Header () {
       <>
         <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
-        </HashLink>
-        <HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Publicar</span>
         </HashLink>
         {generateButtonHome()}
       </>
