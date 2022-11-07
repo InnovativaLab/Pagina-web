@@ -86,6 +86,9 @@ function Header () {
         <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
         </HashLink>
+        <HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <span>Publicar</span>
+        </HashLink>
         {generateButtonHome()}
       </>
     )
