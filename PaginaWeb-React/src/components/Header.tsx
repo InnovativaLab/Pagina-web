@@ -15,7 +15,7 @@ function Header () {
   const sesion = userSesion.getInstance()
   const [state, setState] = useState('hide')
   const [button, setButton] = useState(<></>)
-  const [btnHome, setBbtHome] = useState(<></>)
+  const [btnHome, setBtnHome] = useState(<></>)
   const [itemsMenu, setItemsMenu] = useState(<></>)
 
   const cambiarEstadoMenu = () => {
@@ -50,14 +50,18 @@ function Header () {
     )
   }
   const generateButtonHome = () => {
+    console.log(sesion.isAuthorized(enumPermisos.VerAnaliticas));
+    let userDataSesion =sesion.readSesion()
+    let path="/"
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
-      setBbtHome(<HashLink to='/teacher' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-        <span>Inicio</span>
-      </HashLink>)
+      if(userDataSesion?.RolNombre==="Docente"){
+      path='/teacher'
     } else {
-      setBbtHome(<HashLink to='/Home' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-        <span>Inicio</span>
-      </HashLink>)
+      path='/home'
+    }
+    return(<HashLink to={path} onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+      <span>Inicio</span>
+    </HashLink>)
     }
   }
   const generateItemsMenu = (state: Boolean) => {
@@ -81,16 +85,13 @@ function Header () {
         <HashLink to='/#Comunidad' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
           <span>Comunidad</span>
         </HashLink>
-        <HashLink to='/Home' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-          <span>Inicio</span>
-        </HashLink>
+        {generateButtonHome()}
       </>
     )
   }
   useEffect(() => {
     const isLogged = sesion.isLogged()
     console.info('¿Esta logueado?:', isLogged)
-    generateButtonHome()
     const botones = generateButton(isLogged)
     setButton(botones)
     const itemsDelMenu = generateItemsMenu(isLogged)
