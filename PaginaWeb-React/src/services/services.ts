@@ -16,6 +16,20 @@ export const getCourses = async () => {
   }
 }
 export const getCoursesOfUser = async (pNameUser: string | undefined) => {
+  let courses: Course[] =[]
+  try {
+    if (pNameUser !== undefined) {
+      const res = await axios.get(`${API_LINK}/api/reserve/${pNameUser}`)
+      courses = res.data
+      return courses
+    }
+    return courses
+  } catch (err: any) {
+    console.log(err.response)
+    return courses
+  }
+}
+export const getCoursesOfUserJSX = async (pNameUser: string | undefined) => {
   const coursesCards: JSX.Element[] = []
   try {
     if (pNameUser !== undefined) {
@@ -74,6 +88,18 @@ export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCou
     console.log('Se reservo el curso')
     if (pNombreDeUsuario !== undefined && pIdCourse !== undefined) {
       const res = await axios.post(`${API_LINK}/api/reserve`, { CursoId: pIdCourse, NombreDeUsuario: pNombreDeUsuario })
+      return res.data
+    }
+    return null
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
+export const deleteReserveCourse = async (pId: number | undefined) => {
+  try {
+    console.log(pId);
+    if (pId !== undefined) {
+      const res = await axios.delete(`${API_LINK}/api/reserve/${pId}`)
       return res.data
     }
     return null
