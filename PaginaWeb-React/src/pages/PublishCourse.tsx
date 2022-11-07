@@ -12,6 +12,8 @@ import svgUser from '../assets/User.svg'
 import { enumPermisos } from '../enum'
 import './styles/Teacher.css'
 import { DataAnalisis } from '../types'
+import TextBox from '../components/TextBox'
+import ItemMenu from '../components/ItemMenu'
 
 function PublishCourse() {
   const sesion = userSesion.getInstance()
@@ -23,7 +25,24 @@ function PublishCourse() {
   const [fechas, setFechas] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
-  
+ /* const signIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+    try {
+      e.preventDefault()
+      user = { NombreDeUsuario, Nombre, Apellido, Contraseña, Email, Preferencias: '', Estado: 'Sin verificar', Genero }
+      const valitadation = checkSignInData(user, ContraseñaConfirmacion)
+      if (valitadation === true) {
+        setMsg(<></>)
+        sendDataSignIn(user).then((data) => {
+          sesion.saveSesion(data)
+          navigate('/', { replace: true })
+        })
+      } else {
+        setMsg(<MsgBox text={valitadation} />)
+      }
+    } catch (err: any) {
+      console.log(err.response)
+    }
+  }*/
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
@@ -35,7 +54,33 @@ function PublishCourse() {
     }
   }, [])
   return (
-    <div>PublicCuorse</div>
+    <div className='section'>
+      <div className='dataSection'>
+        <section className='analiticSection'>
+          <p className='msgAlert'>Publicar un curso</p>
+          <form className='itemContainer'>
+            <TextBox placeholder='Ingrese el Titulo'/>
+            <TextBox placeholder='Ingrese el Subtitulo'/>
+            <TextBox placeholder='Ingrese el Nivel'/>
+            <TextBox placeholder='Ingrese la Categoria'/>
+            <TextBox placeholder='Ingrese la subcategoria'/>
+            <TextBox placeholder='Ingrese la Descripcion'/>
+            <TextBox placeholder='Ingrese el Estado'/>
+            <TextBox placeholder='Ingrese el Idioma'/>
+            <TextBox placeholder='Ingrese el TiempoDePublicacion'/>
+            <TextBox placeholder='Ingrese el PrecioEnPesos'/>
+            <TextBox placeholder='Ingrese el PrecioEnDolares'/>
+            <TextBox placeholder='Ingrese el link de la imagen de portada'/>
+            <TextBox placeholder='Ingrese el mensaje de bienvenida'/>
+            <TextBox placeholder='Ingrese el mensaje de felicitaciones'/>
+            <ItemMenu text='Publicar curso'
+              background
+              style={3}
+              onClick={()=>{}} /> 
+          </form>
+        </section>
+      </div>
+  </div>
   )
 }
 
