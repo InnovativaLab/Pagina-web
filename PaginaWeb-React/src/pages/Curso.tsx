@@ -6,15 +6,16 @@ import Tag from '../components/Tag'
 import { Course, Usuario } from '../types'
 import './styles/Inicio.css'
 import './styles/Curso.css'
-import { getCourse, reserveCourse } from '../services/services'
+import { getCourse, reserveCourse,deleteReserveCourse } from '../services/services'
 import { userSesion } from '../services/userSesion'
-
+import { getCoursesOfUser } from '../services/services'
 function Curso () {
   const { id } = useParams()
   const navigate = useNavigate()
   const sesion = userSesion.getInstance()
   const [course, setCourse] = useState({} as Course)
   const user: Usuario | undefined = sesion.readSesion()
+  const [btnReserve, setBtnReserve] = useState(<></>)
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
@@ -28,12 +29,47 @@ function Curso () {
       console.log(err.response)
     }
   }
+  const deleteCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+    try {
+      // TODO: Comprobar la verificacion en tiempo real de los
+      e.preventDefault()
+      deleteReserveCourse(course.Id).then((data) => {
+        navigate('/home', { replace: true })
+      })
+    } catch (err: any) {
+      console.log(err.response)
+    }
+  }
   useEffect(() => {
     getCourse(id).then((curso) => {
       setCourse(curso)
-      console.log(curso)
     })
   }, [])
+  useEffect(() => {
+    let usuario = sesion.readSesion()
+    getCoursesOfUser(usuario?.NombreDeUsuario).then((listaCursos) => {
+      //console.log(listaCursos);
+      const cursos=listaCursos
+      //onsole.log(cursos)
+      if(Object.values(cursos).find(x=>x.Titulo===course.Titulo)){
+        console.log('Verdaddo')
+        setBtnReserve(<ItemMenu
+          text='Eliminar reserva'
+          background
+          style={3}
+          onClick={deleteCourseEvent}
+        />)
+      }
+      else{
+        setBtnReserve(<ItemMenu
+          text='Reservar curso'
+          background
+          style={3}
+          onClick={reserveCourseEvent}
+        />)
+      }
+    })
+  }, [course])
   return (
     <main className='cursoMain'>
       <section className='infoCurso'>
@@ -74,12 +110,7 @@ function Curso () {
               <p className='infoDeCompraPrecioSinDescuento'>{`$${course.PrecioEnPesos * 2}`}</p>
             </div>
             <p>50% de descuento</p>
-            <ItemMenu
-              text='Reservar curso'
-              background
-              style={3}
-              onClick={reserveCourseEvent}
-            />
+            {btnReserve}
             <p className='textCenter'>Garantia de 30 dias</p>
           </div>
         </div>
