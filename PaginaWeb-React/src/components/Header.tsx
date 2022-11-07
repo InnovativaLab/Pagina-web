@@ -54,8 +54,7 @@ function Header () {
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       if (userDataSesion?.RolNombre === 'Docente') {
         path = '/teacher'
-      } 
-      else {
+      } else {
         path = '/home'
       }
       return (
@@ -70,13 +69,13 @@ function Header () {
   }
   const generateButtonPublish = () => {
     const userDataSesion = sesion.readSesion()
-   
+
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       if (userDataSesion?.RolNombre === 'Docente') {
         return (
           <HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-              <span>Publicar</span>
-            </HashLink>
+            <span>Publicar</span>
+          </HashLink>
         )
       }
     }

@@ -10,14 +10,13 @@ function Browser ({ closeFunction }: propBrowser) {
   const [browse, setbrowse] = useState('')
   const readBrowse = (event: any) => {
     setbrowse(event.target.value)
-   
   }
   const navigate = useNavigate()
   const goToBrowse = (event: any) => {
     if (browse !== '') {
       navigate(`/browse/${browse}`)
       setbrowse('')
-      event.target.value=''
+      event.target.value = ''
     }
   }
   const goToBrowseKey = (event: any) => {
@@ -25,7 +24,7 @@ function Browser ({ closeFunction }: propBrowser) {
       if (browse !== '') {
         navigate(`/browse/${browse}`)
         setbrowse('')
-        event.target.value=''
+        event.target.value = ''
       }
     }
   }

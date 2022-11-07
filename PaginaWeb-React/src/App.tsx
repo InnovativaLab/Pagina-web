@@ -12,7 +12,7 @@ import Curso from './pages/Curso'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import './App.css'
-import PublishCourse from './pages/PublishCourse';
+import PublishCourse from './pages/PublishCourse'
 
 function App () {
   return (

@@ -6,9 +6,9 @@ import Tag from '../components/Tag'
 import { Course, Usuario } from '../types'
 import './styles/Inicio.css'
 import './styles/Curso.css'
-import { getCourse, reserveCourse,deleteReserveCourse } from '../services/services'
+import { getCourse, reserveCourse, deleteReserveCourse, getCoursesOfUser } from '../services/services'
 import { userSesion } from '../services/userSesion'
-import { getCoursesOfUser } from '../services/services'
+
 function Curso () {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -47,33 +47,32 @@ function Curso () {
     })
   }, [])
   useEffect(() => {
-    let usuario = sesion.readSesion()
+    const usuario = sesion.readSesion()
 
-    if(course.Categoria!==undefined){
-       setBtnTags(<div className='courseInfoTagContainer'>
-    <Tag key={course.Categoria + id} type={course.Categoria} />
-    <Tag key={course.Subcategoria + id} type={course.Subcategoria} />
-    </div>
-    )
+    if (course.Categoria !== undefined) {
+      setBtnTags(<div className='courseInfoTagContainer'>
+        <Tag key={course.Categoria + id} type={course.Categoria} />
+        <Tag key={course.Subcategoria + id} type={course.Subcategoria} />
+                 </div>
+      )
     }
-   
+
     getCoursesOfUser(usuario?.NombreDeUsuario).then((listaCursos) => {
-      const cursos=listaCursos
-      if(Object.values(cursos).find(x=>x.Titulo===course.Titulo)){
+      const cursos = listaCursos
+      if (Object.values(cursos).find(x => x.Titulo === course.Titulo) != null) {
         setBtnReserve(<ItemMenu
           text='Eliminar reserva'
           background
           style={3}
           onClick={deleteCourseEvent}
-        />)
-      }
-      else{
+                      />)
+      } else {
         setBtnReserve(<ItemMenu
           text='Reservar curso'
           background
           style={3}
           onClick={reserveCourseEvent}
-        />)
+                      />)
       }
     })
   }, [course])
@@ -87,7 +86,7 @@ function Curso () {
           <div className='courseInfoData'>
             <p>{course.Descripcion}</p>
             <p><span className='bold'>Categorias</span></p>
-             {btnTags}
+            {btnTags}
             <p><span className='bold'>Reservado por:</span>{` ${100} estudiantes.`}</p>
             <p><span className='bold'>Ultima actualización: </span>{`${course.Subcategoria}`}</p>
             <p><span className='bold'>Idioma:</span>{` ${'Español'}`}</p>

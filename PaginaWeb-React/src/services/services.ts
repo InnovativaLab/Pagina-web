@@ -16,7 +16,7 @@ export const getCourses = async () => {
   }
 }
 export const getCoursesOfUser = async (pNameUser: string | undefined) => {
-  let courses: Course[] =[]
+  let courses: Course[] = []
   try {
     if (pNameUser !== undefined) {
       const res = await axios.get(`${API_LINK}/api/reserve/${pNameUser}`)
@@ -97,7 +97,7 @@ export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCou
 }
 export const deleteReserveCourse = async (pId: number | undefined) => {
   try {
-    console.log(pId);
+    console.log(pId)
     if (pId !== undefined) {
       const res = await axios.delete(`${API_LINK}/api/reserve/${pId}`)
       return res.data
