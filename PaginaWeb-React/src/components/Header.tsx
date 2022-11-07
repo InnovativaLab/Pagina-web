@@ -50,7 +50,6 @@ function Header () {
     )
   }
   const generateButtonHome = () => {
-    console.log(sesion.isAuthorized(enumPermisos.VerAnaliticas));
     let userDataSesion =sesion.readSesion()
     let path="/"
     if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
