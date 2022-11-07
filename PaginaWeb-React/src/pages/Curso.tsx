@@ -16,6 +16,7 @@ function Curso () {
   const [course, setCourse] = useState({} as Course)
   const user: Usuario | undefined = sesion.readSesion()
   const [btnReserve, setBtnReserve] = useState(<></>)
+  const [btnTags, setBtnTags] = useState(<></>)
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
@@ -47,12 +48,18 @@ function Curso () {
   }, [])
   useEffect(() => {
     let usuario = sesion.readSesion()
+
+    if(course.Categoria!==undefined){
+       setBtnTags(<div className='courseInfoTagContainer'>
+    <Tag key={course.Categoria + id} type={course.Categoria} />
+    <Tag key={course.Subcategoria + id} type={course.Subcategoria} />
+    </div>
+    )
+    }
+   
     getCoursesOfUser(usuario?.NombreDeUsuario).then((listaCursos) => {
-      //console.log(listaCursos);
       const cursos=listaCursos
-      //onsole.log(cursos)
       if(Object.values(cursos).find(x=>x.Titulo===course.Titulo)){
-        console.log('Verdaddo')
         setBtnReserve(<ItemMenu
           text='Eliminar reserva'
           background
@@ -80,10 +87,7 @@ function Curso () {
           <div className='courseInfoData'>
             <p>{course.Descripcion}</p>
             <p><span className='bold'>Categorias</span></p>
-            <div className='courseInfoTagContainer'>
-              <Tag key={course.Categoria + id} type={course.Categoria} />
-              <Tag key={course.Subcategoria + id} type={course.Subcategoria} />
-            </div>
+             {btnTags}
             <p><span className='bold'>Reservado por:</span>{` ${100} estudiantes.`}</p>
             <p><span className='bold'>Ultima actualización: </span>{`${course.Subcategoria}`}</p>
             <p><span className='bold'>Idioma:</span>{` ${'Español'}`}</p>
