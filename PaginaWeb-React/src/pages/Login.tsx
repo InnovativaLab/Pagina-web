@@ -10,6 +10,7 @@ import MsgBox from '../components/MsgBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
+import { enumPermisos } from '../enum';
 
 // TODO: Comprobar la verificacion en tiempo real de los msgError
 
@@ -31,7 +32,12 @@ function Login () {
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
           sesion.saveSesion(data)
-          navigate('/home', { replace: true })
+          if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
+            navigate('/teacher', { replace: true })
+          }
+          else{
+            navigate('/home', { replace: true })
+          }
         })
       } else {
         console.log(validation)
