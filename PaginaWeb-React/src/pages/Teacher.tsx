@@ -1,4 +1,4 @@
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos,getDataAnalisis } from '../services/services'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis } from '../services/services'
 import VerticalBarChart from '../components/charts/VerticalBarChart'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import LineChart from '../components/charts/LineChart'
@@ -11,12 +11,12 @@ import { useState, useEffect } from 'react'
 import svgUser from '../assets/User.svg'
 import { enumPermisos } from '../enum'
 import './styles/Teacher.css'
-import { DataAnalisis } from '../types';
+import { DataAnalisis } from '../types'
 
 function Teacher () {
   const sesion = userSesion.getInstance()
   let coursesElements: JSX.Element[] = []
-  let datos: DataAnalisis[] = []
+  const datos: DataAnalisis[] = []
   const [numReservas, setNumReservas] = useState(0)
   const [numCourses, setNumCourses] = useState(0)
   const [numStudents, setNumStudents] = useState(0)
@@ -51,17 +51,17 @@ function Teacher () {
       })
       getDataAnalisis().then((data) => {
         const info = Object.values(data as DataAnalisis[]).map(item => {
-          return item.Fecha.substring(0,10)
+          return item.Fecha.substring(0, 10)
         })
-          const uniqueData = info.filter((element, index) => {
-            return info.indexOf(element) === index;
-        });
+        const uniqueData = info.filter((element, index) => {
+          return info.indexOf(element) === index
+        })
         const titulos = Object.values(data as DataAnalisis[]).map(item => {
           return item.Titulo
         })
-          const titulosUnicos = titulos.filter((element, index) => {
-            return titulos.indexOf(element) === index;
-        });
+        const titulosUnicos = titulos.filter((element, index) => {
+          return titulos.indexOf(element) === index
+        })
         setFechas(<LineChart pData={data} pFechas={uniqueData} pTitulos={titulosUnicos} />)
       })
     } catch (err: any) {
@@ -118,7 +118,7 @@ function Teacher () {
         </section>
       </div>
       <div className='chartSection'>
-        <VerticalBarChart numReservas={numReservas} numCursos={numCourses} numAlumnos={numStudents} numCalificaciones={Math.round(numReservas / 3)}/>
+        <VerticalBarChart numReservas={numReservas} numCursos={numCourses} numAlumnos={numStudents} numCalificaciones={Math.round(numReservas / 3)} />
         {fechas}
         <PieChart />
       </div>
