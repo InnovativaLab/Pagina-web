@@ -7,6 +7,7 @@ import burger from '../assets/bx-menu.svg'
 import LogoBanner from './LogoBanner'
 import Browser from './Browser'
 import '../styles/Header.css'
+import { enumPermisos } from '../enum'
 
 function Header () {
   const location = useLocation()
@@ -14,6 +15,7 @@ function Header () {
   const sesion = userSesion.getInstance()
   const [state, setState] = useState('hide')
   const [button, setButton] = useState(<></>)
+  const [btnHome, setBbtHome] = useState(<></>)
   const [itemsMenu, setItemsMenu] = useState(<></>)
 
   const cambiarEstadoMenu = () => {
@@ -47,6 +49,17 @@ function Header () {
       </span>
     )
   }
+  const generateButtonHome = () => {
+    if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
+      setBbtHome(<HashLink to='/teacher' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+        <span>Inicio</span>
+      </HashLink>)
+    } else {
+      setBbtHome(<HashLink to='/Home' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+        <span>Inicio</span>
+      </HashLink>)
+    }
+  }
   const generateItemsMenu = (state: Boolean) => {
     if (!state) {
       return (
@@ -77,6 +90,7 @@ function Header () {
   useEffect(() => {
     const isLogged = sesion.isLogged()
     console.info('¿Esta logueado?:', isLogged)
+    generateButtonHome()
     const botones = generateButton(isLogged)
     setButton(botones)
     const itemsDelMenu = generateItemsMenu(isLogged)

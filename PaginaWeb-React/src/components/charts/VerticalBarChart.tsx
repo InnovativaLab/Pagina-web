@@ -27,13 +27,13 @@ const options = {
 const labels = ['Datos']
 
 interface propVerticalBarChart {
-  numReservas: number,
-  numAlumnos: number,
-  numCursos: number,
+  numReservas: number
+  numAlumnos: number
+  numCursos: number
   numCalificaciones: number
 }
 
-function VerticalBarChart ({numReservas,numAlumnos,numCursos,numCalificaciones}:propVerticalBarChart) {
+function VerticalBarChart ({ numReservas, numAlumnos, numCursos, numCalificaciones }: propVerticalBarChart) {
   const data = {
     labels,
     datasets: [
@@ -44,17 +44,17 @@ function VerticalBarChart ({numReservas,numAlumnos,numCursos,numCalificaciones}:
       },
       {
         label: 'Alumnos',
-        data:[numAlumnos],
+        data: [numAlumnos],
         backgroundColor: 'rgba(233, 79, 55, 0.6)'
       },
       {
         label: 'Cursos',
-        data:[numCursos],
-        backgroundColor: 'rgba(0, 167, 227, 0.6)' //'rgba(9, 82, 86, 0.6)'
+        data: [numCursos],
+        backgroundColor: 'rgba(0, 167, 227, 0.6)' // 'rgba(9, 82, 86, 0.6)'
       },
       {
         label: 'Calificaciones',
-        data:[numCalificaciones],
+        data: [numCalificaciones],
         backgroundColor: 'rgba(153, 194, 77, 0.6)'
       }
     ]

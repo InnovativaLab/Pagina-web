@@ -23,14 +23,13 @@ export const createReserve = async (req, res) => {
   try {
     const { CursoId, NombreDeUsuario } = req.body
     const fecha = new Date(Date.now())
-    const año= fecha.getFullYear()
-    const mes= fecha.getMonth()+1
-    const dia= fecha.getDate()
-    let date = `${año}-${mes}-${dia}`
-    const [rows] = await pool.query('INSERT INTO coursesdb.cursousuario (CursoID,NombreDeUsuario,Fecha) VALUES (?,?,?);', [CursoId, NombreDeUsuario,date])
+    const año = fecha.getFullYear()
+    const mes = fecha.getMonth() + 1
+    const dia = fecha.getDate()
+    const date = `${año}-${mes}-${dia}`
+    const [rows] = await pool.query('INSERT INTO coursesdb.cursousuario (CursoID,NombreDeUsuario,Fecha) VALUES (?,?,?);', [CursoId, NombreDeUsuario, date])
     return res.send(rows)
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error)
     return res.status(500).json({
       message: 'Something goes wrong'

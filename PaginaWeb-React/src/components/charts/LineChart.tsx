@@ -1,8 +1,8 @@
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import { faker } from '@faker-js/faker'
-import { DataAnalisis } from '../../types';
-import { useState, useEffect } from 'react';
+import { DataAnalisis } from '../../types'
+import { useState, useEffect } from 'react'
 
 ChartJS.register(
   CategoryScale,
@@ -14,9 +14,9 @@ ChartJS.register(
   Legend
 )
 interface propLineChart {
-  pData: any[],
-  pFechas:string[],
-  pTitulos:string[]
+  pData: any[]
+  pFechas: string[]
+  pTitulos: string[]
 }
 
 const options = {
@@ -49,26 +49,26 @@ const options = {
   }
 }
 
-function LineChart ({pData,pFechas,pTitulos}:propLineChart) {
+function LineChart ({ pData, pFechas, pTitulos }: propLineChart) {
   const [chart, setChart] = useState(<></>)
-  const labels = pFechas;
-  const generarNumero=(numero:number)=>{
-    return (Math.random()*numero).toFixed(0);
+  const labels = pFechas
+  const generarNumero = (numero: number) => {
+    return (Math.random() * numero).toFixed(0)
   }
-   const colorRGB=()=>{
-    var coolor = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
-    return "rgb" + coolor;
+  const colorRGB = () => {
+    const coolor = '(' + generarNumero(255) + ',' + generarNumero(255) + ',' + generarNumero(255) + ')'
+    return 'rgb' + coolor
   }
-  const findNumReservas = (pTitulo:string)=>{
-    let reservas=[0,0,0,0]
+  const findNumReservas = (pTitulo: string) => {
+    const reservas = [0, 0, 0, 0]
     for (let i = 0; i < labels.length; i++) {
-      const date = labels[i];
+      const date = labels[i]
       for (let j = 0; j < pData.length; j++) {
-        const element = pData[j];
-        if(element.Titulo===pTitulo){
-          if(date===element.Fecha.substring(0,10)){
-          console.log(i)
-            reservas.splice(i,1, element.NumeroDeReservas)
+        const element = pData[j]
+        if (element.Titulo === pTitulo) {
+          if (date === element.Fecha.substring(0, 10)) {
+            console.log(i)
+            reservas.splice(i, 1, element.NumeroDeReservas)
           }
         }
       }
@@ -76,10 +76,10 @@ function LineChart ({pData,pFechas,pTitulos}:propLineChart) {
     console.log(reservas)
     return reservas
   }
-  let data = {
+  const data = {
     labels,
-    datasets: Object.values(pTitulos).map(item=>{
-      let color = colorRGB()
+    datasets: Object.values(pTitulos).map(item => {
+      const color = colorRGB()
       return {
         label: item,
         data: findNumReservas(item),
@@ -87,14 +87,13 @@ function LineChart ({pData,pFechas,pTitulos}:propLineChart) {
         backgroundColor: color,
         yAxisID: 'y'
       }
-    }),
- }
+    })
+  }
 
   useEffect(() => {
-
-    console.log('----');
+    console.log('----')
     console.log(pTitulos)
-    setChart(()=>{
+    setChart(() => {
       return <Line options={options} data={data} />
     })
   }, [])
