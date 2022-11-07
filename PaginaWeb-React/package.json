@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/password-hash": "^1.2.21",
-    "@types/react": "18.0.17",
+    "@types/react": "^18.0.17",
     "@types/react-dom": "18.0.6",
     "@types/react-router-hash-link": "^2.4.5",
     "@vitejs/plugin-react": "2.0.1",
