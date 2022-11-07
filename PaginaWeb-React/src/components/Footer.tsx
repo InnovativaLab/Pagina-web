@@ -18,7 +18,7 @@ function Footer () {
             </ul>
           </div>
           <div className='footerLinksColumn'>
-            <p className='footerLinksTitle'>Column One</p>
+            <p className='footerLinksTitle'>Nosotros</p>
             <ul className='footerLinksList'>
               <li><HashLink to='/#Cursos'>Cursos</HashLink></li>
               <li><a href='mailto:innovativalab@gmail.com'>Contacto</a></li>
@@ -26,7 +26,7 @@ function Footer () {
             </ul>
           </div>
           <div className='footerLinksColumn'>
-            <p className='footerLinksTitle'>Column One</p>
+            <p className='footerLinksTitle'>Otros links</p>
             <ul className='footerLinksList'>
               <li><Link to='/login'>Iniciar Sesión</Link></li>
               <li><Link to='/signin'>Registrarse</Link></li>
@@ -36,7 +36,7 @@ function Footer () {
         </div>
       </div>
       <div className='footerInformation'>
-        <p>©2022, All right reserved.</p>
+        <p>©2022, Todos los derechos reservados.</p>
         <div className='footerInformationLinks'>
           <Link to='/privacity'>Politicas de privacidad</Link>
           <Link to='/terms'>Terminos de servicio</Link>
