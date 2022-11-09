@@ -23,6 +23,7 @@ function Teacher () {
   const [dataCourses, setDataCourses] = useState(coursesElements)
   const [dataAnalisis, setDataAnalisis] = useState(datos)
   const [fechas, setFechas] = useState(<></>)
+  const [cantidades, setCantidades] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
   const loadItems = (courses: any[]) => {
@@ -53,7 +54,7 @@ function Teacher () {
         const info = Object.values(data as DataAnalisis[]).map(item => {
           return item.Fecha.substring(0, 10)
         })
-        const uniqueData = info.filter((element, index) => {
+        const fechasUnicas = info.filter((element, index) => {
           return info.indexOf(element) === index
         })
         const titulos = Object.values(data as DataAnalisis[]).map(item => {
@@ -62,7 +63,9 @@ function Teacher () {
         const titulosUnicos = titulos.filter((element, index) => {
           return titulos.indexOf(element) === index
         })
-        setFechas(<LineChart pData={data} pFechas={uniqueData} pTitulos={titulosUnicos} />)
+        setFechas(<LineChart pData={data} pFechas={fechasUnicas} pTitulos={titulosUnicos} />)
+        console.log(data)
+        setCantidades( <PieChart pData={data}/>)
       })
     } catch (err: any) {
       console.log(err.response)
@@ -125,7 +128,7 @@ function Teacher () {
       <div className='chartSection'>
         <VerticalBarChart numReservas={numReservas} numCursos={numCourses} numAlumnos={numStudents} numCalificaciones={Math.round(numReservas / 3)} />
         {fechas}
-        <PieChart />
+        {cantidades}
       </div>
 
     </div>
