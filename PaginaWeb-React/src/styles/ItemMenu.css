@@ -46,6 +46,9 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+.btnDelete{
+    background: linear-gradient(86.47deg, #9c0f0f 0%, #dd4104 100%);
+}
 .simple{
     background-color: transparent;
     border: none;

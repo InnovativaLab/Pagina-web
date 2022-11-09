@@ -63,7 +63,7 @@ function Curso () {
         setBtnReserve(<ItemMenu
           text='Eliminar reserva'
           background
-          style={3}
+          style={4}
           onClick={deleteCourseEvent}
                       />)
       } else {

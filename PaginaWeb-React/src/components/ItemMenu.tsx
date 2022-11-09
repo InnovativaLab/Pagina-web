@@ -29,6 +29,9 @@ function ItemMenu ({ text, background, style, onClick }: propButtonCallToAction)
       case 3:
         styles += ' button'
         break
+      case 4:
+        styles += ' button btnDelete'
+        break
       default:
         styles += ' buttonItemMenu'
         break
