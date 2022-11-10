@@ -1,4 +1,4 @@
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis } from '../services/services'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis, saveFiles} from '../services/services'
 import VerticalBarChart from '../components/charts/VerticalBarChart'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import LineChart from '../components/charts/LineChart'
@@ -53,12 +53,16 @@ function PublishCourse () {
     data.append("data", e.target.previousSibling);
     console.log(data)
     e.preventDefault()
+    saveFiles(files.profileImg).then(res => {
+      console.log(res)
+  })
+    /*
         const formData = new FormData()
         formData.append('profileImg', files.profileImg)
         axios.post("http://localhost:3001/api/saveFile", formData, {
         }).then(res => {
             console.log(res)
-        })
+        })*/
   }
   const saveFile = (e: any) => {
       setFiles({ profileImg: e.target.files[0] })

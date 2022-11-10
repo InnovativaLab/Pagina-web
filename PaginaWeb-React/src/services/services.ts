@@ -147,3 +147,17 @@ export const getDataAnalisis = async () => {
     console.error(error.message)
   }
 }
+export const saveFiles = async (files:string) => {
+  try {
+    const formData = new FormData()
+    formData.append('profileImg', files)
+    const res = await  axios.post("http://localhost:3001/api/saveFile", formData, {
+    }).then(res => {
+        console.log(res)
+    })
+    //const res = await axios.post(`${API_LINK}/api/data/dataAnalisis`)
+    return res
+  } catch (error: any) {
+    console.error(error.message)
+  }
+}
