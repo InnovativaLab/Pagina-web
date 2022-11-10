@@ -27,5 +27,9 @@ router.post('/saveFile', upload.single('profileImg'), async (req, res) => {
     })
   }
 })
-
+router.get('/uploads/:name',(req,res)=>{
+    const {name}= req.params
+    console.log(name)
+    res.sendFile(`${process.cwd()}/server/uploads/${name}`)
+  })
 export default router
