@@ -37,7 +37,7 @@
     flex-wrap: wrap;
     gap: 10px;
     padding: 20px 50px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 .itemAnalitic{
@@ -100,8 +100,16 @@
 .inputFile input{
     display: none;
 }
-.textbox:focus {
-    outline: none;
+.columnInput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+.inputContainer{
+    display: flex;
+    width: 100%;
+    gap: 15px;
 }
 @media screen and (max-width:1300px) {
         .section{

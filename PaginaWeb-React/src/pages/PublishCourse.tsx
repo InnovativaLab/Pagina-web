@@ -93,50 +93,69 @@ function PublishCourse () {
             <TextBox placeholder='Ingrese el titulo' />
             <Subtitle msg='Subtitulo' />
             <TextBox placeholder='Ingrese el subtitulo' />
+
             <Subtitle msg='Nivel' />
             <select name='select' className='combobox' onChange={saveNivel}>
               <option value={enumNivel.Principiante}>{enumNivel.Principiante}</option>
               <option value={enumNivel.Intermeido}>{enumNivel.Intermeido}</option>
               <option value={enumNivel.Avanzado}>{enumNivel.Avanzado}</option>
             </select>
+            <div className='inputContainer'>
+              <div className='columnInput'>
+                <Subtitle msg='Categoria' />
+                <select name='select' className='combobox' onChange={saveNivel}>
+                  <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
+                  <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
+                  <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
+                  <option value={enumCategoriaCurso.Impresion3D}>{enumCategoriaCurso.Impresion3D}</option>
+                  <option value={enumCategoriaCurso.Programacion}>{enumCategoriaCurso.Programacion}</option>
+                  <option value={enumCategoriaCurso.Robotica}>{enumCategoriaCurso.Robotica}</option>
+                  <option value={enumCategoriaCurso.Tinkercad}>{enumCategoriaCurso.Tinkercad}</option>
+                </select>
+              </div>
+              <div className='columnInput'>
+                <Subtitle msg='Subcategoria' />
+                <select name='select' className='combobox' onChange={saveNivel}>
+                  <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
+                  <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
+                  <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
+                  <option value={enumCategoriaCurso.Impresion3D}>{enumCategoriaCurso.Impresion3D}</option>
+                  <option value={enumCategoriaCurso.Programacion}>{enumCategoriaCurso.Programacion}</option>
+                  <option value={enumCategoriaCurso.Robotica}>{enumCategoriaCurso.Robotica}</option>
+                  <option value={enumCategoriaCurso.Tinkercad}>{enumCategoriaCurso.Tinkercad}</option>
+                </select>
+              </div>
+            </div>
 
-            <Subtitle msg='Categoria' />
-            <select name='select' className='combobox' onChange={saveNivel}>
-              <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
-              <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
-              <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
-              <option value={enumCategoriaCurso.Impresion3D}>{enumCategoriaCurso.Impresion3D}</option>
-              <option value={enumCategoriaCurso.Programacion}>{enumCategoriaCurso.Programacion}</option>
-              <option value={enumCategoriaCurso.Robotica}>{enumCategoriaCurso.Robotica}</option>
-              <option value={enumCategoriaCurso.Tinkercad}>{enumCategoriaCurso.Tinkercad}</option>
-            </select>
-
-            <Subtitle msg='Subcategoria' />
-            <select name='select' className='combobox' onChange={saveNivel}>
-              <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
-              <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
-              <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
-              <option value={enumCategoriaCurso.Impresion3D}>{enumCategoriaCurso.Impresion3D}</option>
-              <option value={enumCategoriaCurso.Programacion}>{enumCategoriaCurso.Programacion}</option>
-              <option value={enumCategoriaCurso.Robotica}>{enumCategoriaCurso.Robotica}</option>
-              <option value={enumCategoriaCurso.Tinkercad}>{enumCategoriaCurso.Tinkercad}</option>
-            </select>
             <Subtitle msg='Descripción' />
             <TextBox placeholder='Ingrese la descripcion' />
-            <Subtitle msg='Precio en pesos' />
+
+            <div className='inputContainer'>
+              <div className='columnInput'>
+              <Subtitle msg='Precio en pesos' />
             <TextBox placeholder='Ingrese el precio en pesos' />
-            <Subtitle msg='Precio en dolares' />
+              </div>
+              <div className='columnInput'>
+              <Subtitle msg='Precio en dolares' />
             <TextBox placeholder='Ingrese el precio en dolares' />
-            <Subtitle msg='Imagen de portada' />
+              </div>
+            </div>
+            <div className='inputContainer'>
+              <div className='columnInput'>
+              <Subtitle msg='Imagen de portada' />
             <label htmlFor="inputTag" className="inputFile">
-              Seleccione una imagen de portada
+              Seleccione una imagen
               <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
             </label>
-            <Subtitle msg='Video promocional' />
+              </div>
+              <div className='columnInput'>
+              <Subtitle msg='Video promocional' />
             <label htmlFor="inputTag" className="inputFile">
-              Seleccione un video promocional
+              Seleccione un video
               <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
             </label>
+              </div>
+            </div>
             <Subtitle msg='Mensaje de bienvenida' />
             <TextBox placeholder='Ingrese el mensaje de bienvenida' />
             <Subtitle msg='Mensaje de felicitaciones' />
