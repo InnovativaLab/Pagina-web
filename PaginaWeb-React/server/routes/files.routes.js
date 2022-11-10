@@ -3,11 +3,12 @@ import multer from 'multer'
 import mimeTypes from 'mime-types'
 
 const router = Router()
-
+let fileName=""
 const storage = multer.diskStorage({
   destination: './server/uploads/',
   filename: (req, file, cb) => {
-    cb('', `${Date.now()}.${mimeTypes.extension(file.mimetype)}`)
+    fileName=`${Date.now()}.${mimeTypes.extension(file.mimetype)}`
+    cb('',fileName)
   }
 })
 
@@ -18,7 +19,7 @@ router.post('/saveFile', upload.single('profileImg'), async (req, res) => {
     try {
       console.log('Se guardo el archivo')
       res.json({
-          message: 'Ok'
+          message: fileName
         })
     } catch (error) {
       console.log(error)
