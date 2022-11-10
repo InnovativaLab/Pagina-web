@@ -7,6 +7,9 @@ import pino from 'express-pino-logger'
 import bodyParser from 'body-parser'
 import { PORT } from './config.js'
 import express from 'express'
+import multer from'multer'
+import mimeTypes from'mime-types'
+
 
 const app = express()
 app.use(compression())
@@ -32,6 +35,19 @@ app.use((req, res, next) => {
   res.status(404).json({
     message: 'Endpoint not found'
   })
+})
+const storage = multer.diskStorage({
+  destination:'uploads/',
+  filename:(req,file,cb)=>{
+      cb("",`${Date.now()}.${mimeTypes.extension(file.mimetype)}`)
+  }
+})
+
+const upload = multer({
+  storage
+})
+app.post('/files', upload.single('avatar'),(req,res)=>{
+  res.send("Se guardo el archivo")
 })
 app.listen(PORT, () =>
   console.log(`Es servidor se esta ejecutando en el puerto:${PORT}`)
