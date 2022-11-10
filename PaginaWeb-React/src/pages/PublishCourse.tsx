@@ -55,7 +55,7 @@ function PublishCourse () {
     e.preventDefault()
         const formData = new FormData()
         formData.append('profileImg', files.profileImg)
-        axios.post("http://localhost:3001/files", formData, {
+        axios.post("http://localhost:3001/api/saveFile", formData, {
         }).then(res => {
             console.log(res)
         })
