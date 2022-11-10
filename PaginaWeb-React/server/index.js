@@ -26,6 +26,21 @@ app.use((req, res, next) => {
   next()
 })
 
+const storage = multer.diskStorage({
+  destination:'./server/uploads/',
+  filename:(req,file,cb)=>{
+      cb("",`${Date.now()}.${mimeTypes.extension(file.mimetype)}`)
+  }
+})
+
+const upload = multer({
+  storage:storage
+})
+app.post('/files', upload.single('profileImg'), (req,res)=>{
+  console.log("Se guardo el archivo")
+  res.send("Ok")
+})
+
 app.use('/api', userRouter)
 app.use('/api', coursesRouter)
 app.use('/api', reserveRouter)
@@ -36,19 +51,7 @@ app.use((req, res, next) => {
     message: 'Endpoint not found'
   })
 })
-const storage = multer.diskStorage({
-  destination:'uploads/',
-  filename:(req,file,cb)=>{
-      cb("",`${Date.now()}.${mimeTypes.extension(file.mimetype)}`)
-  }
-})
 
-const upload = multer({
-  storage
-})
-app.post('/files', upload.single('avatar'),(req,res)=>{
-  res.send("Se guardo el archivo")
-})
 app.listen(PORT, () =>
   console.log(`Es servidor se esta ejecutando en el puerto:${PORT}`)
 )
