@@ -9,7 +9,7 @@ import svgReservas from '../assets/Reservas.svg'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, MouseEvent } from 'react';
 import svgUser from '../assets/User.svg'
-import { enumPermisos } from '../enum'
+import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel } from '../enum';
 import './styles/Teacher.css'
 import { DataAnalisis, Course } from '../types';
 import TextBox from '../components/TextBox'
@@ -24,19 +24,19 @@ function PublishCourse () {
     Id: 0,
     Titulo: "",
     Subtitulo: "",
-    Nivel: "",
+    Nivel: enumNivel.Principiante,
     Categoria: "",
     Subcategoria: "",
     Descripcion: "",
-    Estado: "",
-    Idioma: "",
-    TiempoDePublicacion: 0,
-    PrecioEnPesos: 0,
-    PrecioEnDolares: 0,
+    Estado: enumEstadoCurso.Verificado,
+    Idioma: enumIdioma.Español,
+    TiempoDePublicacion: 1,
+    PrecioEnPesos: 1000,
+    PrecioEnDolares: 10,
     ImagenDePortada: "",
     VideoPromocional: "",
-    MensajeDeBienvenida: "",
-    MensajeDeFelicitaciones: ""
+    MensajeDeBienvenida: "¡Hola!",
+    MensajeDeFelicitaciones: "¡Felicidades! Terminaste el curso."
   }
   const [newCourse, setNewCourse] = useState(course)
   const [numReservas, setNumReservas] = useState(0)
