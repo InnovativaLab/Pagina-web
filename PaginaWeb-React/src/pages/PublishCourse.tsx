@@ -14,6 +14,7 @@ import './styles/Teacher.css'
 import { DataAnalisis } from '../types'
 import TextBox from '../components/TextBox'
 import ItemMenu from '../components/ItemMenu'
+import axios from 'axios'
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()
@@ -22,7 +23,7 @@ function PublishCourse () {
   const [numStudents, setNumStudents] = useState(0)
   const [dataCourses, setDataCourses] = useState(0)
   const [dataAnalisis, setDataAnalisis] = useState(0)
-  const [files, setFiles] = useState({})
+  const [files, setFiles] = useState( {profileImg: ''})
   const [fechas, setFechas] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
@@ -46,10 +47,21 @@ function PublishCourse () {
   } */
   const sendData = (e:any)=>{
     e.preventDefault()
+    var data = new FormData();
     console.log(files)
+    console.log(e.target.previousSibling)
+    data.append("data", e.target.previousSibling);
+    console.log(data)
+    e.preventDefault()
+        const formData = new FormData()
+        formData.append('profileImg', files.profileImg)
+        axios.post("http://localhost:3001/files", formData, {
+        }).then(res => {
+            console.log(res)
+        })
   }
-  const saveFile = (event: any) => {
-      setFiles(event.target.files[0])
+  const saveFile = (e: any) => {
+      setFiles({ profileImg: e.target.files[0] })
   }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
