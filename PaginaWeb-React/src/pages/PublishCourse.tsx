@@ -7,17 +7,38 @@ import { userSesion } from '../services/userSesion'
 import svgEstrella from '../assets/Estrella.svg'
 import svgReservas from '../assets/Reservas.svg'
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, MouseEvent } from 'react';
 import svgUser from '../assets/User.svg'
 import { enumPermisos } from '../enum'
 import './styles/Teacher.css'
-import { DataAnalisis } from '../types'
+import { DataAnalisis, Course } from '../types';
 import TextBox from '../components/TextBox'
 import ItemMenu from '../components/ItemMenu'
 import axios from 'axios'
+import MsgBox from '../components/MsgBox'
+import { checkCourse } from '../services/verication';
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()
+  let course:Course ={
+    Id: 0,
+    Titulo: "",
+    Subtitulo: "",
+    Nivel: "",
+    Categoria: "",
+    Subcategoria: "",
+    Descripcion: "",
+    Estado: "",
+    Idioma: "",
+    TiempoDePublicacion: 0,
+    PrecioEnPesos: 0,
+    PrecioEnDolares: 0,
+    ImagenDePortada: "",
+    VideoPromocional: "",
+    MensajeDeBienvenida: "",
+    MensajeDeFelicitaciones: ""
+  }
+  const [newCourse, setNewCourse] = useState(course)
   const [numReservas, setNumReservas] = useState(0)
   const [numCourses, setNumCourses] = useState(0)
   const [numStudents, setNumStudents] = useState(0)
@@ -25,26 +46,28 @@ function PublishCourse () {
   const [dataAnalisis, setDataAnalisis] = useState(0)
   const [files, setFiles] = useState({ profileImg: '' })
   const [fechas, setFechas] = useState(<></>)
+  const [errorMsg, setMsg] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
-  /* const signIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+
+  const publishCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      user = { NombreDeUsuario, Nombre, Apellido, Contraseña, Email, Preferencias: '', Estado: 'Sin verificar', Genero }
-      const valitadation = checkSignInData(user, ContraseñaConfirmacion)
-      if (valitadation === true) {
+      const validation = checkCourse(newCourse)
+      console.log(validation);
+      if (validation === true) {
         setMsg(<></>)
-        sendDataSignIn(user).then((data) => {
-          sesion.saveSesion(data)
-          navigate('/', { replace: true })
+        saveFiles(files.profileImg).then(res => {
+          console.log(res)
         })
       } else {
-        setMsg(<MsgBox text={valitadation} />)
+        setMsg(<MsgBox text={validation} />)
       }
     } catch (err: any) {
       console.log(err.response)
     }
-  } */
+  }
+
   const sendData = (e: any) => {
     e.preventDefault()
     saveFiles(files.profileImg).then(res => {
@@ -93,8 +116,9 @@ function PublishCourse () {
               text='Publicar curso'
               background
               style={3}
-              onClick={() => {}}
+              onClick={publishCourse}
             />
+            {errorMsg}
           </form>
         </section>
       </div>
