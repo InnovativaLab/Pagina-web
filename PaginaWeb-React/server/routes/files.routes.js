@@ -28,8 +28,15 @@ router.post('/saveFile', upload.single('profileImg'), async (req, res) => {
   }
 })
 router.get('/uploads/:name',(req,res)=>{
-    const {name}= req.params
-    console.log(name)
-    res.sendFile(`${process.cwd()}/server/uploads/${name}`)
+    try {
+        const {name}= req.params
+        console.log(name)
+        res.sendFile(`${process.cwd()}/server/uploads/${name}`)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+          message: 'Something goes wrong'
+        })
+      }
   })
 export default router
