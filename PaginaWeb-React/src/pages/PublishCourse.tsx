@@ -1,4 +1,4 @@
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis, saveFiles} from '../services/services'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis, saveFiles } from '../services/services'
 import VerticalBarChart from '../components/charts/VerticalBarChart'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import LineChart from '../components/charts/LineChart'
@@ -23,7 +23,7 @@ function PublishCourse () {
   const [numStudents, setNumStudents] = useState(0)
   const [dataCourses, setDataCourses] = useState(0)
   const [dataAnalisis, setDataAnalisis] = useState(0)
-  const [files, setFiles] = useState( {profileImg: ''})
+  const [files, setFiles] = useState({ profileImg: '' })
   const [fechas, setFechas] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
@@ -45,27 +45,14 @@ function PublishCourse () {
       console.log(err.response)
     }
   } */
-  const sendData = (e:any)=>{
-    e.preventDefault()
-    var data = new FormData();
-    console.log(files)
-    console.log(e.target.previousSibling)
-    data.append("data", e.target.previousSibling);
-    console.log(data)
+  const sendData = (e: any) => {
     e.preventDefault()
     saveFiles(files.profileImg).then(res => {
       console.log(res)
-  })
-    /*
-        const formData = new FormData()
-        formData.append('profileImg', files.profileImg)
-        axios.post("http://localhost:3001/api/saveFile", formData, {
-        }).then(res => {
-            console.log(res)
-        })*/
+    })
   }
   const saveFile = (e: any) => {
-      setFiles({ profileImg: e.target.files[0] })
+    setFiles({ profileImg: e.target.files[0] })
   }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
@@ -97,8 +84,8 @@ function PublishCourse () {
             <TextBox placeholder='Ingrese el link de la imagen de portada' />
             <TextBox placeholder='Ingrese el mensaje de bienvenida' />
             <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
-            <input type="file" name="avatar" onChange={saveFile} />
-            <input type="submit" value="Enviar" onClick={sendData} />
+            <input type='file' name='avatar' onChange={saveFile} />
+            <input type='submit' value='Enviar' onClick={sendData} />
             <ItemMenu
               text='Publicar curso'
               background

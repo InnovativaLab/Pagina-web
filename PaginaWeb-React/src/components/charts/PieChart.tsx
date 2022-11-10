@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
-import { Course, DataAnalisis } from '../../types';
+import { Course, DataAnalisis } from '../../types'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -16,16 +16,16 @@ const colorRGB = () => {
   return 'rgba' + coolor
 }
 
-function PieChart ({pData}:propPieChart) {
+function PieChart ({ pData }: propPieChart) {
   const [chart, setChart] = useState(<></>)
-  const colors=Object.values(pData as DataAnalisis[]).map((item)=>{return colorRGB()})
+  const colors = Object.values(pData as DataAnalisis[]).map((item) => { return colorRGB() })
   useEffect(() => {
     const data = {
-      labels: Object.values(pData as DataAnalisis[]).map((item)=>{return item.Titulo}),
+      labels: Object.values(pData as DataAnalisis[]).map((item) => { return item.Titulo }),
       datasets: [
         {
           label: 'Cantidad de reservvas',
-          data:  Object.values(pData as DataAnalisis[]).map((item)=>{return item.NumeroDeReservas}),
+          data: Object.values(pData as DataAnalisis[]).map((item) => { return item.NumeroDeReservas }),
           backgroundColor: colors,
           borderColor: colors,
           borderWidth: 1

@@ -65,7 +65,7 @@ function Teacher () {
         })
         setFechas(<LineChart pData={data} pFechas={fechasUnicas} pTitulos={titulosUnicos} />)
         console.log(data)
-        setCantidades( <PieChart pData={data}/>)
+        setCantidades(<PieChart pData={data} />)
       })
     } catch (err: any) {
       console.log(err.response)
