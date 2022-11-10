@@ -93,24 +93,20 @@ function PublishCourse () {
         <section className='analiticSection'>
           <p className='msgAlert'>Publicar un curso</p>
           <form className='itemContainer'>
-            <TextBox placeholder='Ingrese el Titulo' />
-            <TextBox placeholder='Ingrese el Subtitulo' />
-            <TextBox placeholder='Ingrese el Nivel' />
-            <TextBox placeholder='Ingrese la Categoria' />
+            <TextBox placeholder='Ingrese el titulo' />
+            <TextBox placeholder='Ingrese el subtitulo' />
+            <TextBox placeholder='Ingrese el nivel' />
+            <TextBox placeholder='Ingrese la categoria' />
             <TextBox placeholder='Ingrese la subcategoria' />
-            <TextBox placeholder='Ingrese la Descripcion' />
-            <TextBox placeholder='Ingrese el Estado' />
-            <TextBox placeholder='Ingrese el Idioma' />
-            <TextBox placeholder='Ingrese el TiempoDePublicacion' />
-            <TextBox placeholder='Ingrese el PrecioEnPesos' />
-            <TextBox placeholder='Ingrese el PrecioEnDolares' />
-            <TextBox placeholder='Ingrese el link de la imagen de portada' />
-            <TextBox placeholder='Ingrese el mensaje de bienvenida' />
-            <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
+            <TextBox placeholder='Ingrese la descripcion' />
+            <TextBox placeholder='Ingrese el precio en pesos' />
+            <TextBox placeholder='Ingrese el precio en dolares' />
             <label htmlFor="inputTag" className="inputFile">
-              Seleccione una imagen
+              Seleccione una imagen de portada
               <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
             </label>
+            <TextBox placeholder='Ingrese el mensaje de bienvenida' />
+            <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
             <input type='submit' value='Enviar' onClick={sendData} />
             <ItemMenu
               text='Publicar curso'
