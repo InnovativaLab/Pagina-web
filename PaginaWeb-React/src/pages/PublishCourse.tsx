@@ -1,22 +1,15 @@
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis, saveFiles } from '../services/services'
-import VerticalBarChart from '../components/charts/VerticalBarChart'
-import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
-import LineChart from '../components/charts/LineChart'
-import PieChart from '../components/charts/PieChart'
+import { saveFiles } from '../services/services'
 import { userSesion } from '../services/userSesion'
-import svgEstrella from '../assets/Estrella.svg'
-import svgReservas from '../assets/Reservas.svg'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, MouseEvent } from 'react';
-import svgUser from '../assets/User.svg'
-import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel } from '../enum';
+import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum';
 import './styles/Teacher.css'
-import { DataAnalisis, Course } from '../types';
+import { Course } from '../types';
 import TextBox from '../components/TextBox'
 import ItemMenu from '../components/ItemMenu'
-import axios from 'axios'
 import MsgBox from '../components/MsgBox'
 import { checkCourse } from '../services/verication';
+import Subtitle from '../components/Subtitle'
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()
@@ -67,7 +60,6 @@ function PublishCourse () {
       console.log(err.response)
     }
   }
-
   const sendData = (e: any) => {
     e.preventDefault()
     saveFiles(files.profileImg).then(res => {
@@ -76,6 +68,10 @@ function PublishCourse () {
   }
   const saveFile = (e: any) => {
     setFiles({ profileImg: e.target.files[0] })
+  }
+  const saveNivel = (event: any) => {
+    course=course.Nivel=event.target.value
+    setNewCourse(course)
   }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
@@ -93,21 +89,58 @@ function PublishCourse () {
         <section className='analiticSection'>
           <p className='msgAlert'>Publicar un curso</p>
           <form className='itemContainer'>
+            <Subtitle msg='Titulo' />
             <TextBox placeholder='Ingrese el titulo' />
+            <Subtitle msg='Subtitulo' />
             <TextBox placeholder='Ingrese el subtitulo' />
-            <TextBox placeholder='Ingrese el nivel' />
-            <TextBox placeholder='Ingrese la categoria' />
-            <TextBox placeholder='Ingrese la subcategoria' />
+            <Subtitle msg='Nivel' />
+            <select name='select' className='combobox' onChange={saveNivel}>
+              <option value={enumNivel.Principiante}>{enumNivel.Principiante}</option>
+              <option value={enumNivel.Intermeido}>{enumNivel.Intermeido}</option>
+              <option value={enumNivel.Avanzado}>{enumNivel.Avanzado}</option>
+            </select>
+
+            <Subtitle msg='Categoria' />
+            <select name='select' className='combobox' onChange={saveNivel}>
+              <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
+              <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
+              <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
+              <option value={enumCategoriaCurso.Impresion3D}>{enumCategoriaCurso.Impresion3D}</option>
+              <option value={enumCategoriaCurso.Programacion}>{enumCategoriaCurso.Programacion}</option>
+              <option value={enumCategoriaCurso.Robotica}>{enumCategoriaCurso.Robotica}</option>
+              <option value={enumCategoriaCurso.Tinkercad}>{enumCategoriaCurso.Tinkercad}</option>
+            </select>
+
+            <Subtitle msg='Subcategoria' />
+            <select name='select' className='combobox' onChange={saveNivel}>
+              <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
+              <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
+              <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
+              <option value={enumCategoriaCurso.Impresion3D}>{enumCategoriaCurso.Impresion3D}</option>
+              <option value={enumCategoriaCurso.Programacion}>{enumCategoriaCurso.Programacion}</option>
+              <option value={enumCategoriaCurso.Robotica}>{enumCategoriaCurso.Robotica}</option>
+              <option value={enumCategoriaCurso.Tinkercad}>{enumCategoriaCurso.Tinkercad}</option>
+            </select>
+            <Subtitle msg='Descripción' />
             <TextBox placeholder='Ingrese la descripcion' />
+            <Subtitle msg='Precio en pesos' />
             <TextBox placeholder='Ingrese el precio en pesos' />
+            <Subtitle msg='Precio en dolares' />
             <TextBox placeholder='Ingrese el precio en dolares' />
+            <Subtitle msg='Imagen de portada' />
             <label htmlFor="inputTag" className="inputFile">
               Seleccione una imagen de portada
               <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
             </label>
+            <Subtitle msg='Video promocional' />
+            <label htmlFor="inputTag" className="inputFile">
+              Seleccione un video promocional
+              <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
+            </label>
+            <Subtitle msg='Mensaje de bienvenida' />
             <TextBox placeholder='Ingrese el mensaje de bienvenida' />
+            <Subtitle msg='Mensaje de felicitaciones' />
             <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
-            <input type='submit' value='Enviar' onClick={sendData} />
             <ItemMenu
               text='Publicar curso'
               background
