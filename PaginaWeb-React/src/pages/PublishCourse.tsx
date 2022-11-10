@@ -22,6 +22,7 @@ function PublishCourse () {
   const [numStudents, setNumStudents] = useState(0)
   const [dataCourses, setDataCourses] = useState(0)
   const [dataAnalisis, setDataAnalisis] = useState(0)
+  const [files, setFiles] = useState({})
   const [fechas, setFechas] = useState(<></>)
   const navigate = useNavigate()
   window.scrollTo(0, 0)
@@ -43,6 +44,13 @@ function PublishCourse () {
       console.log(err.response)
     }
   } */
+  const sendData = (e:any)=>{
+    e.preventDefault()
+    console.log(files)
+  }
+  const saveFile = (event: any) => {
+      setFiles(event.target.files[0])
+  }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
@@ -73,6 +81,8 @@ function PublishCourse () {
             <TextBox placeholder='Ingrese el link de la imagen de portada' />
             <TextBox placeholder='Ingrese el mensaje de bienvenida' />
             <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
+            <input type="file" name="avatar" onChange={saveFile} />
+            <input type="submit" value="Enviar" onClick={sendData} />
             <ItemMenu
               text='Publicar curso'
               background
