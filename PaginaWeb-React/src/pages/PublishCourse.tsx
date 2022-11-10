@@ -13,7 +13,7 @@ import Subtitle from '../components/Subtitle'
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()
-  let course:Course ={
+  const [newCourse, setNewCourse] = useState({
     Id: 0,
     Titulo: "",
     Subtitulo: "",
@@ -30,14 +30,13 @@ function PublishCourse () {
     VideoPromocional: "",
     MensajeDeBienvenida: "¡Hola!",
     MensajeDeFelicitaciones: "¡Felicidades! Terminaste el curso."
-  }
-  const [newCourse, setNewCourse] = useState(course)
+  })
   const [numReservas, setNumReservas] = useState(0)
   const [numCourses, setNumCourses] = useState(0)
   const [numStudents, setNumStudents] = useState(0)
   const [dataCourses, setDataCourses] = useState(0)
   const [dataAnalisis, setDataAnalisis] = useState(0)
-  const [files, setFiles] = useState({ profileImg: '' })
+  const [files, setFiles] = useState({ image: '',video:'' })
   const [fechas, setFechas] = useState(<></>)
   const [errorMsg, setMsg] = useState(<></>)
   const navigate = useNavigate()
@@ -46,13 +45,12 @@ function PublishCourse () {
   const publishCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
+      console.log(newCourse)
       const validation = checkCourse(newCourse)
-      console.log(validation);
       if (validation === true) {
         setMsg(<></>)
-        saveFiles(files.profileImg).then(res => {
-          console.log(res)
-        })
+        //Inserte codigo para guardar en bd
+        //Agregar validaciones de Precios numericos
       } else {
         setMsg(<MsgBox text={validation} />)
       }
@@ -60,18 +58,33 @@ function PublishCourse () {
       console.log(err.response)
     }
   }
-  const sendData = (e: any) => {
+  const saveNivel = (event: any) => {
+    newCourse.Nivel=event.target.value
+    setNewCourse(newCourse)
+  }
+  const saveCategoria = (event: any) => {
+    newCourse.Categoria=event.target.value
+    setNewCourse(newCourse)
+  }
+  const saveSubcategoria = (event: any) => {
+    newCourse.Subcategoria=event.target.value
+    setNewCourse(newCourse)
+  }
+  const saveImg = (e: any) => {
     e.preventDefault()
-    saveFiles(files.profileImg).then(res => {
-      console.log(res)
+    setFiles(files.image=e.target.files[0])
+    saveFiles(files.image).then(res => {
+      newCourse.ImagenDePortada=res.path
+      setNewCourse(newCourse)
     })
   }
-  const saveFile = (e: any) => {
-    setFiles({ profileImg: e.target.files[0] })
-  }
-  const saveNivel = (event: any) => {
-    course=course.Nivel=event.target.value
-    setNewCourse(course)
+  const saveVideo = (e: any) => {
+    e.preventDefault()
+    setFiles(files.video=e.target.files[0])
+    saveFiles(files.video).then(res => {
+      newCourse.VideoPromocional=res.path
+      setNewCourse(newCourse)
+    })
   }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
@@ -89,10 +102,16 @@ function PublishCourse () {
         <section className='analiticSection'>
           <p className='msgAlert'>Publicar un curso</p>
           <form className='itemContainer'>
+            {errorMsg}
             <Subtitle msg='Titulo' />
-            <TextBox placeholder='Ingrese el titulo' />
+            <TextBox placeholder='Ingrese el titulo' getData={(value: any) => {
+             newCourse.Titulo=value
+             setNewCourse(newCourse)
+             }} />
             <Subtitle msg='Subtitulo' />
-            <TextBox placeholder='Ingrese el subtitulo' />
+            <TextBox placeholder='Ingrese el subtitulo'  getData={(value: any) => {
+              newCourse.Subtitulo=value
+              setNewCourse(newCourse)}} />
 
             <Subtitle msg='Nivel' />
             <select name='select' className='combobox' onChange={saveNivel}>
@@ -103,7 +122,7 @@ function PublishCourse () {
             <div className='inputContainer'>
               <div className='columnInput'>
                 <Subtitle msg='Categoria' />
-                <select name='select' className='combobox' onChange={saveNivel}>
+                <select name='select' className='combobox' onChange={saveCategoria}>
                   <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
                   <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
                   <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
@@ -115,7 +134,7 @@ function PublishCourse () {
               </div>
               <div className='columnInput'>
                 <Subtitle msg='Subcategoria' />
-                <select name='select' className='combobox' onChange={saveNivel}>
+                <select name='select' className='combobox' onChange={saveSubcategoria}>
                   <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
                   <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
                   <option value={enumCategoriaCurso.Electronica}>{enumCategoriaCurso.Electronica}</option>
@@ -128,16 +147,22 @@ function PublishCourse () {
             </div>
 
             <Subtitle msg='Descripción' />
-            <TextBox placeholder='Ingrese la descripcion' />
+            <TextBox placeholder='Ingrese la descripcion' getData={(value: any) => {
+              newCourse.Descripcion=value
+              setNewCourse(newCourse)}} />
 
             <div className='inputContainer'>
               <div className='columnInput'>
               <Subtitle msg='Precio en pesos' />
-            <TextBox placeholder='Ingrese el precio en pesos' />
+            <TextBox placeholder='Ingrese el precio en pesos'  getData={(value: any) => {
+              newCourse.PrecioEnPesos=value
+              setNewCourse(newCourse)}} />
               </div>
               <div className='columnInput'>
               <Subtitle msg='Precio en dolares' />
-            <TextBox placeholder='Ingrese el precio en dolares' />
+            <TextBox placeholder='Ingrese el precio en dolares'  getData={(value: any) => {
+              newCourse.PrecioEnDolares=value
+              setNewCourse(newCourse)}} />
               </div>
             </div>
             <div className='inputContainer'>
@@ -145,28 +170,31 @@ function PublishCourse () {
               <Subtitle msg='Imagen de portada' />
             <label htmlFor="inputTag" className="inputFile">
               Seleccione una imagen
-              <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
+              <input type='file'  id="inputTag" name='avatar' onChange={saveImg}  />
             </label>
               </div>
               <div className='columnInput'>
               <Subtitle msg='Video promocional' />
-            <label htmlFor="inputTag" className="inputFile">
+            <label htmlFor="inputTag2" className="inputFile">
               Seleccione un video
-              <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
+              <input type='file'  id="inputTag2" name='avatar' onChange={saveVideo}  />
             </label>
               </div>
             </div>
             <Subtitle msg='Mensaje de bienvenida' />
-            <TextBox placeholder='Ingrese el mensaje de bienvenida' />
+            <TextBox placeholder='Ingrese el mensaje de bienvenida' getData={(value: any) => {
+              newCourse.MensajeDeBienvenida=value
+              setNewCourse(newCourse)}} />
             <Subtitle msg='Mensaje de felicitaciones' />
-            <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
+            <TextBox placeholder='Ingrese el mensaje de felicitaciones' getData={(value: any) => {
+              newCourse.MensajeDeFelicitaciones=value
+              setNewCourse(newCourse)}} />
             <ItemMenu
               text='Publicar curso'
               background
               style={3}
               onClick={publishCourse}
             />
-            {errorMsg}
           </form>
         </section>
       </div>
