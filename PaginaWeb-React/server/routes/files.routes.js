@@ -2,6 +2,8 @@ import { Router } from 'express'
 import multer from 'multer'
 import mimeTypes from 'mime-types'
 
+let pathBase="http://localhost:3001/api/uploads/"
+
 const router = Router()
 let fileName = ''
 const storage = multer.diskStorage({
@@ -18,7 +20,7 @@ const upload = multer({
 router.post('/saveFile', upload.single('profileImg'), async (req, res) => {
   try {
     res.json({
-      message: fileName
+      path: pathBase+fileName
     })
   } catch (error) {
     console.log(error)
