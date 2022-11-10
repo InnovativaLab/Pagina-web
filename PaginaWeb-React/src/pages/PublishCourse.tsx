@@ -84,7 +84,10 @@ function PublishCourse () {
             <TextBox placeholder='Ingrese el link de la imagen de portada' />
             <TextBox placeholder='Ingrese el mensaje de bienvenida' />
             <TextBox placeholder='Ingrese el mensaje de felicitaciones' />
-            <input type='file' name='avatar' onChange={saveFile} />
+            <label htmlFor="inputTag" className="inputFile">
+              Seleccione una imagen
+              <input type='file'  id="inputTag" name='avatar' onChange={saveFile}  />
+            </label>
             <input type='submit' value='Enviar' onClick={sendData} />
             <ItemMenu
               text='Publicar curso'
