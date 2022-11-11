@@ -18,7 +18,7 @@ function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
-  const [errorMsg, setMsg] = useState("")
+  const [errorMsg, setMsg] = useState('')
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -28,11 +28,11 @@ function Login () {
       e.preventDefault()
       const validation = checkLogInData(email, pws)
       if (validation === true) {
-        setMsg("")
+        setMsg('')
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
-          console.log(data);
-          if(data!== undefined){
+          console.log(data)
+          if (data !== undefined) {
             const userDataSesion = sesion.saveSesion(data)
             let path = '/'
             if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
@@ -44,14 +44,14 @@ function Login () {
             }
             navigate(path, { replace: true })
           }
-          setMsg("No se pudo iniciar sesión.")
+          setMsg('No se pudo iniciar sesión.')
         })
       } else {
         console.log(validation)
         setMsg(validation)
       }
     } catch (err: any) {
-      setMsg(<MsgBox text={err.response} />)
+      setMsg(err.response)
       console.log(err.response)
     }
   }/*
@@ -68,7 +68,7 @@ function Login () {
       <main className='mainLogin'>
         <Redes size='big' />
         <form className='loginForm'>
-          <MsgBox text= {errorMsg} />
+          <MsgBox text={errorMsg} />
           <Title msg='Inicie sesión' />
           <Subtitle msg='Email' />
           <TextBox placeholder='Ingresa tu correo electrónico' textType='email' getData={(value: any) => setEmail(value)} />

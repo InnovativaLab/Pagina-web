@@ -32,23 +32,23 @@ export const checkSignInData = (pUser: Usuario, pConfirmacion: string) => {
 }
 // Investigar libreria yup
 export const checkCourse = (pCourse: Course) => {
-  if(pCourse.Titulo === '') return "No ingreso el titulo."
-  if(pCourse.Subtitulo === '') return "No ingreso el subtitulo."
-  if(pCourse.Nivel === '') return "No ingreso el nivel."
-  if(pCourse.Categoria === '') return "No ingreso la categoria."
-  if(pCourse.Subcategoria === '') return "No ingreso la subcategoria."
-  if(pCourse.Descripcion === '') return "No ingreso la descripción."
-  if(pCourse.Estado === '') return "No ingreso el estado."
-  if(pCourse.Idioma === '') return "No ingreso el idioma."
-  if(pCourse.TiempoDePublicacion === 0) return "No ingreso el tiempo de publicación."
-  if(pCourse.ImagenDePortada === '') return "No ingreso la imagen de portada."
-  if(pCourse.VideoPromocional === '') return "No ingreso el video promocional."
-  if(pCourse.MensajeDeBienvenida === '') return "No ingreso el mensaje de bienvenida."
-  if(pCourse.MensajeDeFelicitaciones === '') return "No ingreso el mensaje de felicitaciones."
-  if(pCourse.PrecioEnPesos === 0) return "No ingreso el precio en pesos."
-  if(pCourse.PrecioEnDolares === 0) return "No ingreso el precio en dolares."
-  if(pCourse.PrecioEnPesos.toString().match(regExpIsNum) != null) return "No ingreso el precio en pesos no es numerico."
-  if(pCourse.PrecioEnDolares.toString().match(regExpIsNum) != null) return "No ingreso el precio en dolares no es numerico."
-  if(pCourse.PrecioEnDolares===pCourse.PrecioEnPesos) return "El precio en pesos NO PUEDE ser igual al precio en dolares."
+  if (pCourse.Titulo === '') return 'No ingreso el titulo.'
+  if (pCourse.Subtitulo === '') return 'No ingreso el subtitulo.'
+  if (pCourse.Nivel === '') return 'No ingreso el nivel.'
+  if (pCourse.Categoria === '') return 'No ingreso la categoria.'
+  if (pCourse.Subcategoria === '') return 'No ingreso la subcategoria.'
+  if (pCourse.Descripcion === '') return 'No ingreso la descripción.'
+  if (pCourse.Estado === '') return 'No ingreso el estado.'
+  if (pCourse.Idioma === '') return 'No ingreso el idioma.'
+  if (pCourse.TiempoDePublicacion === 0) return 'No ingreso el tiempo de publicación.'
+  if (pCourse.ImagenDePortada === '') return 'No ingreso la imagen de portada.'
+  if (pCourse.VideoPromocional === '') return 'No ingreso el video promocional.'
+  if (pCourse.MensajeDeBienvenida === '') return 'No ingreso el mensaje de bienvenida.'
+  if (pCourse.MensajeDeFelicitaciones === '') return 'No ingreso el mensaje de felicitaciones.'
+  if (pCourse.PrecioEnPesos === 0) return 'No ingreso el precio en pesos.'
+  if (pCourse.PrecioEnDolares === 0) return 'No ingreso el precio en dolares.'
+  if (pCourse.PrecioEnPesos.toString().match(regExpIsNum) != null) return 'No ingreso el precio en pesos no es numerico.'
+  if (pCourse.PrecioEnDolares.toString().match(regExpIsNum) != null) return 'No ingreso el precio en dolares no es numerico.'
+  if (pCourse.PrecioEnDolares === pCourse.PrecioEnPesos) return 'El precio en pesos NO PUEDE ser igual al precio en dolares.'
   return true
 }

@@ -32,7 +32,7 @@ function PublishCourse () {
     MensajeDeFelicitaciones: ''
   })
   const [files, setFiles] = useState({ image: '', video: '' })
-  const [errorMsg, setMsg] = useState("")
+  const [errorMsg, setMsg] = useState('')
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -43,7 +43,7 @@ function PublishCourse () {
       const validation = checkCourse(newCourse)
       console.log(validation)
       if (validation === true) {
-        setMsg("")
+        setMsg('')
         createCourse(newCourse).then((data) => {
           console.log(data)
         })
