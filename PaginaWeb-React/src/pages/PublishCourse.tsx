@@ -24,21 +24,15 @@ function PublishCourse () {
     Estado: enumEstadoCurso.Verificado,
     Idioma: enumIdioma.Español,
     TiempoDePublicacion: 1,
-    PrecioEnPesos: 1000,
-    PrecioEnDolares: 10,
+    PrecioEnPesos: 0,
+    PrecioEnDolares: 0,
     ImagenDePortada: '',
     VideoPromocional: '',
-    MensajeDeBienvenida: '¡Hola!',
-    MensajeDeFelicitaciones: '¡Felicidades! Terminaste el curso.'
+    MensajeDeBienvenida: '',
+    MensajeDeFelicitaciones: ''
   })
-  const [numReservas, setNumReservas] = useState(0)
-  const [numCourses, setNumCourses] = useState(0)
-  const [numStudents, setNumStudents] = useState(0)
-  const [dataCourses, setDataCourses] = useState(0)
-  const [dataAnalisis, setDataAnalisis] = useState(0)
   const [files, setFiles] = useState({ image: '', video: '' })
-  const [fechas, setFechas] = useState(<></>)
-  const [errorMsg, setMsg] = useState(<></>)
+  const [errorMsg, setMsg] = useState("")
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -47,15 +41,15 @@ function PublishCourse () {
       e.preventDefault()
       console.log(newCourse)
       const validation = checkCourse(newCourse)
+      console.log(validation)
       if (validation === true) {
-        setMsg(<></>)
+        setMsg("")
         createCourse(newCourse).then((data) => {
           console.log(data)
         })
-        // ¿Los docentes pueden reservar cursos?
         // Agregar validaciones de Precios numericos
       } else {
-        setMsg(<MsgBox text={validation} />)
+        setMsg(validation)
       }
     } catch (err: any) {
       console.log(err.response)
@@ -105,7 +99,7 @@ function PublishCourse () {
         <section className='analiticSection'>
           <p className='msgAlert'>Publicar un curso</p>
           <form className='itemContainer'>
-            {errorMsg}
+            <MsgBox text={errorMsg} />
             <Subtitle msg='Titulo' />
             <TextBox
               placeholder='Ingrese el titulo' getData={(value: any) => {
