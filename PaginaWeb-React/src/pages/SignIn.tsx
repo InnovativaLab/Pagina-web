@@ -6,12 +6,12 @@ import { userSesion } from '../services/userSesion'
 import ItemMenu from '../components/ItemMenu'
 import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
-import MsgBox from '../components/MsgBox'
 import Redes from '../components/Redes'
 import Title from '../components/Title'
 import { enumGenero } from '../enum'
 import { Usuario } from '../types'
 import './styles/login.css'
+import { toast } from 'react-toastify';
 
 // TODO: Comprobar la verificacion en tiempo real de los msgError
 
@@ -24,7 +24,6 @@ function SignIn () {
   const [NombreDeUsuario, setNombreDeUsuario] = useState('')
   const [Contraseña, setContraseña] = useState('')
   const [Apellido, setApellido] = useState('')
-  const [errorMsg, setMsg] = useState(<></>)
   const [Nombre, setNombre] = useState('')
   const [Genero, setGenero] = useState('')
   const [Email, setEmail] = useState('')
@@ -35,13 +34,12 @@ function SignIn () {
       user = { NombreDeUsuario, Nombre, Apellido, Contraseña, Email, Preferencias: '', Estado: 'Sin verificar', Genero }
       const valitadation = checkSignInData(user, ContraseñaConfirmacion)
       if (valitadation === true) {
-        setMsg(<></>)
         sendDataSignIn(user).then((data) => {
           sesion.saveSesion(data)
           navigate('/', { replace: true })
         })
       } else {
-        setMsg(<MsgBox text={valitadation} />)
+        toast.error(valitadation)
       }
     } catch (err: any) {
       console.log(err.response)
@@ -100,7 +98,6 @@ function SignIn () {
           <Link className='secondaryButton fullSpace' to='/'>
             Cancelar
           </Link>
-          {errorMsg}
         </form>
       </main>
     </div>

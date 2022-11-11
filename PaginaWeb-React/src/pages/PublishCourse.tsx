@@ -7,9 +7,9 @@ import './styles/Teacher.css'
 import { Course } from '../types'
 import TextBox from '../components/TextBox'
 import ItemMenu from '../components/ItemMenu'
-import MsgBox from '../components/MsgBox'
 import { checkCourse } from '../services/verication'
 import Subtitle from '../components/Subtitle'
+import { toast } from 'react-toastify';
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()
@@ -32,7 +32,6 @@ function PublishCourse () {
     MensajeDeFelicitaciones: ''
   })
   const [files, setFiles] = useState({ image: '', video: '' })
-  const [errorMsg, setMsg] = useState('')
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -43,13 +42,12 @@ function PublishCourse () {
       const validation = checkCourse(newCourse)
       console.log(validation)
       if (validation === true) {
-        setMsg('')
         createCourse(newCourse).then((data) => {
           console.log(data)
         })
         // Agregar validaciones de Precios numericos
       } else {
-        setMsg(validation)
+        toast.error(validation)
       }
     } catch (err: any) {
       console.log(err.response)
@@ -99,7 +97,6 @@ function PublishCourse () {
         <section className='analiticSection'>
           <p className='msgAlert'>Publicar un curso</p>
           <form className='itemContainer'>
-            <MsgBox text={errorMsg} />
             <Subtitle msg='Titulo' />
             <TextBox
               placeholder='Ingrese el titulo' getData={(value: any) => {

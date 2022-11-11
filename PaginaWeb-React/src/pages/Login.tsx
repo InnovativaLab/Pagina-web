@@ -6,11 +6,12 @@ import { userSesion } from '../services/userSesion'
 import ItemMenu from '../components/ItemMenu'
 import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
-import MsgBox from '../components/MsgBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
 import { enumPermisos } from '../enum'
+import { toast } from 'react-toastify';
+
 
 // TODO: Comprobar la verificacion en tiempo real de los msgError
 
@@ -18,7 +19,6 @@ function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
-  const [errorMsg, setMsg] = useState('')
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -28,7 +28,6 @@ function Login () {
       e.preventDefault()
       const validation = checkLogInData(email, pws)
       if (validation === true) {
-        setMsg('')
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
           console.log(data)
@@ -44,31 +43,24 @@ function Login () {
             }
             navigate(path, { replace: true })
           }
-          setMsg('No se pudo iniciar sesión.')
+          else{
+            toast.error('No se pudo iniciar sesión.');
+          }
         })
       } else {
         console.log(validation)
-        setMsg(validation)
+        toast.error(validation)
       }
     } catch (err: any) {
-      setMsg(err.response)
+      toast.error(err.response)
       console.log(err.response)
     }
-  }/*
-  useEffect(() => {
-    if (sesion.isLogged()) {
-      navigate('/home', { replace: true })
-    }
-  }, [])
-  useEffect(() => {
-
-  }, [errorMsg]) */
+  }
   return (
     <div>
       <main className='mainLogin'>
         <Redes size='big' />
         <form className='loginForm'>
-          <MsgBox text={errorMsg} />
           <Title msg='Inicie sesión' />
           <Subtitle msg='Email' />
           <TextBox placeholder='Ingresa tu correo electrónico' textType='email' getData={(value: any) => setEmail(value)} />

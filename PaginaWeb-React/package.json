@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.3.0",
     "react-router-hash-link": "^2.4.3",
+    "react-toastify": "^9.1.1",
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
