@@ -31,17 +31,21 @@ function Login () {
         setMsg(<></>)
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
-          const userDataSesion = sesion.saveSesion(data)
-          let path = '/'
-          // console.log(userDataSesion)
-          if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
-            if (userDataSesion?.RolNombre === 'Docente') {
-              path = '/teacher'
-            } else {
-              path = '/home'
+          console.log(data);
+          if(data!== undefined){
+            const userDataSesion = sesion.saveSesion(data)
+            let path = '/'
+            // console.log(userDataSesion)
+            if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
+              if (userDataSesion?.RolNombre === 'Docente') {
+                path = '/teacher'
+              } else {
+                path = '/home'
+              }
             }
+            navigate(path, { replace: true })
           }
-          navigate(path, { replace: true })
+          setMsg(<MsgBox text="No se pudo iniciar sesion." />)
         })
       } else {
         console.log(validation)
