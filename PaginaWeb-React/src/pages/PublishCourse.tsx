@@ -1,4 +1,4 @@
-import { saveFiles } from '../services/services'
+import { saveFiles, createCourse } from '../services/services';
 import { userSesion } from '../services/userSesion'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, MouseEvent } from 'react';
@@ -49,7 +49,10 @@ function PublishCourse () {
       const validation = checkCourse(newCourse)
       if (validation === true) {
         setMsg(<></>)
-        //Inserte codigo para guardar en bd
+        createCourse(newCourse).then((data)=>{
+          console.log(data)
+        })
+        //¿Los docentes pueden reservar cursos?
         //Agregar validaciones de Precios numericos
       } else {
         setMsg(<MsgBox text={validation} />)
