@@ -19,7 +19,7 @@ function MsgBox ({ text }: propMsgBox) {
   }, [])
   return (
     <>
-      {msg}
+      <div className='msgBox'>{text}</div>
     </>
   )
 }
