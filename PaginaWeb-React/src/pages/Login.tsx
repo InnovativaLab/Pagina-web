@@ -18,7 +18,7 @@ function Login () {
   const sesion = userSesion.getInstance()
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
-  const [errorMsg, setMsg] = useState(<></>)
+  const [errorMsg, setMsg] = useState("")
   const navigate = useNavigate()
   window.scrollTo(0, 0)
 
@@ -28,14 +28,13 @@ function Login () {
       e.preventDefault()
       const validation = checkLogInData(email, pws)
       if (validation === true) {
-        setMsg(<></>)
+        setMsg("")
         console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
           console.log(data);
           if(data!== undefined){
             const userDataSesion = sesion.saveSesion(data)
             let path = '/'
-            // console.log(userDataSesion)
             if (sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
               if (userDataSesion?.RolNombre === 'Docente') {
                 path = '/teacher'
@@ -45,11 +44,11 @@ function Login () {
             }
             navigate(path, { replace: true })
           }
-          setMsg(<MsgBox text="No se pudo iniciar sesion." />)
+          setMsg("No se pudo iniciar sesión.")
         })
       } else {
         console.log(validation)
-        setMsg(<MsgBox text={validation} />)
+        setMsg(validation)
       }
     } catch (err: any) {
       setMsg(<MsgBox text={err.response} />)
@@ -69,6 +68,7 @@ function Login () {
       <main className='mainLogin'>
         <Redes size='big' />
         <form className='loginForm'>
+          <MsgBox text= {errorMsg} />
           <Title msg='Inicie sesión' />
           <Subtitle msg='Email' />
           <TextBox placeholder='Ingresa tu correo electrónico' textType='email' getData={(value: any) => setEmail(value)} />
@@ -86,7 +86,6 @@ function Login () {
           <Link className='secondaryButton fullSpace' to='/signin'>
             Registrarse
           </Link>
-          {errorMsg}
         </form>
       </main>
     </div>
