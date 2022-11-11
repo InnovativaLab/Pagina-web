@@ -75,8 +75,21 @@
     overflow: hidden;
     height: fit-content;
 }
-.infoDeCompra img{
+.imgVistaPrevia{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.imgPortada,.videoPreview{
+    width: 100%;
+    min-height: 340px;
+    border: none;
+}
+.btnPlay{
+    width: 150px;
+    position: absolute;
 }
 .infoDeCompraData{
     margin: 20px 30px;
