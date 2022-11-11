@@ -55,12 +55,12 @@ function Header () {
       if (userDataSesion?.RolNombre === 'Docente') {
         return (
           <>
-          <HashLink to='/teacher' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-            <span>Panel</span>
-          </HashLink>
-          <HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
-            <span>Publicar</span>
-          </HashLink>
+            <HashLink to='/teacher' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+              <span>Panel</span>
+            </HashLink>
+            <HashLink to='/publish' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+              <span>Publicar</span>
+            </HashLink>
           </>
         )
       }
@@ -111,12 +111,11 @@ function Header () {
           <HashLink to='/#Cursos' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Cursos</span>
           </HashLink>
-          <HashLink to="/home" onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
+          <HashLink to='/home' onClick={cambiarEstadoMenu} className='buttonItemMenu simple'>
             <span>Inicio</span>
           </HashLink>
           {btnPublish}
           {button}
-          
           <button onClick={cambiarEstadoMenu} className='buttonItemMenu simple closeMenuButtom' id='closeMenuButtom'>Cerrar</button>
         </div>
       </header>

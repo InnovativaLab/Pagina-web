@@ -19,7 +19,7 @@ function Busqueda () {
       setListCourses(listaCursos)
     })
   }, [toFind])
-/*<p className='browseSubTitle'>Filtrar por categoria</p>
+  /* <p className='browseSubTitle'>Filtrar por categoria</p>
       <div className='tagContainer'>
         <Tag type={enumCategoriaCurso.Arduino} />
         <Tag type={enumCategoriaCurso.Electronica} />
@@ -28,7 +28,7 @@ function Busqueda () {
   return (
     <div className='browse'>
       <p className='browseTitle'>{`${num} resultados encontrados para "${toFind}"`}</p>
-      
+
       <div className='cardsContinaer'>
         {loadCards(listCourses)}
       </div>

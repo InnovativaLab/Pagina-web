@@ -2,7 +2,7 @@ import { Router } from 'express'
 import multer from 'multer'
 import mimeTypes from 'mime-types'
 
-let pathBase="http://localhost:3001/api/uploads/"
+const pathBase = 'http://localhost:3001/api/uploads/'
 
 const router = Router()
 let fileName = ''
@@ -20,7 +20,7 @@ const upload = multer({
 router.post('/saveFile', upload.single('profileImg'), async (req, res) => {
   try {
     res.json({
-      path: pathBase+fileName
+      path: pathBase + fileName
     })
   } catch (error) {
     console.log(error)
@@ -29,16 +29,16 @@ router.post('/saveFile', upload.single('profileImg'), async (req, res) => {
     })
   }
 })
-router.get('/uploads/:name',(req,res)=>{
-    try {
-        const {name}= req.params
-        console.log(name)
-        res.sendFile(`${process.cwd()}/server/uploads/${name}`)
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({
-          message: 'Something goes wrong'
-        })
-      }
-  })
+router.get('/uploads/:name', (req, res) => {
+  try {
+    const { name } = req.params
+    console.log(name)
+    res.sendFile(`${process.cwd()}/server/uploads/${name}`)
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: 'Something goes wrong'
+    })
+  }
+})
 export default router
