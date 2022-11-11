@@ -3,6 +3,7 @@ import { Usuario, Course } from '../types'
 const regExpEmail = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
 const regExpIsString = new RegExp('[a-zA-Z ]{2,}')
 const regExpIsNum = new RegExp('\d+$')
+
 export const checkLogInData = (pEmail: string, pPws: string) => {
   if (pEmail !== '' || pPws !== '') {
     if (pEmail.match(regExpEmail) != null) {

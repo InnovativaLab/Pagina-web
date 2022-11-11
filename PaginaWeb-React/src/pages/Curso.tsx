@@ -1,13 +1,13 @@
+import { getCourse, reserveCourse, deleteReserveCourse, getCoursesOfUser } from '../services/services'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useState, useEffect, MouseEvent } from 'react'
+import { userSesion } from '../services/userSesion'
 import ItemMenu from '../components/ItemMenu'
 import imgCheck from '../assets/check.svg'
-import { useState, useEffect, MouseEvent } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
-import Tag from '../components/Tag'
 import { Course, Usuario } from '../types'
+import Tag from '../components/Tag'
 import './styles/Inicio.css'
 import './styles/Curso.css'
-import { getCourse, reserveCourse, deleteReserveCourse, getCoursesOfUser } from '../services/services'
-import { userSesion } from '../services/userSesion'
 
 function Curso () {
   const { id } = useParams()
@@ -20,7 +20,6 @@ function Curso () {
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
-      // TODO: Comprobar la verificacion en tiempo real de los
       e.preventDefault()
       reserveCourse(user?.NombreDeUsuario, course.Id.toString()).then((data) => {
         sesion.saveSesion(data)
@@ -32,7 +31,6 @@ function Curso () {
   }
   const deleteCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
-      // TODO: Comprobar la verificacion en tiempo real de los
       e.preventDefault()
       deleteReserveCourse(course.Id).then((data) => {
         navigate('/home', { replace: true })
@@ -64,15 +62,13 @@ function Curso () {
           text='Eliminar reserva'
           background
           style={4}
-          onClick={deleteCourseEvent}
-                      />)
+          onClick={deleteCourseEvent}/>)
       } else {
         setBtnReserve(<ItemMenu
           text='Reservar curso'
           background
           style={3}
-          onClick={reserveCourseEvent}
-                      />)
+          onClick={reserveCourseEvent}/>)
       }
     })
   }, [course])

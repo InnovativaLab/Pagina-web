@@ -1,18 +1,16 @@
-import { useState, MouseEvent, useEffect } from 'react'
 import { checkLogInData } from '../services/verication'
 import { sendDataLogin } from '../services/services'
 import { Link, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import ItemMenu from '../components/ItemMenu'
 import Subtitle from '../components/Subtitle'
+import { useState, MouseEvent } from 'react'
 import TextBox from '../components/TextBox'
 import Title from '../components/Title'
 import Redes from '../components/Redes'
-import './styles/login.css'
-import { enumPermisos } from '../enum'
 import { toast } from 'react-toastify'
-
-// TODO: Comprobar la verificacion en tiempo real de los msgError
+import { enumPermisos } from '../enum'
+import './styles/login.css'
 
 function Login () {
   const sesion = userSesion.getInstance()
@@ -23,7 +21,6 @@ function Login () {
 
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
-      // TODO: Comprobar la verificacion en tiempo real de los
       e.preventDefault()
       const validation = checkLogInData(email, pws)
       if (validation === true) {

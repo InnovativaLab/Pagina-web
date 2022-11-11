@@ -8,12 +8,10 @@ import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
 import Redes from '../components/Redes'
 import Title from '../components/Title'
+import { toast } from 'react-toastify'
 import { enumGenero } from '../enum'
 import { Usuario } from '../types'
 import './styles/login.css'
-import { toast } from 'react-toastify'
-
-// TODO: Comprobar la verificacion en tiempo real de los msgError
 
 function SignIn () {
   const sesion = userSesion.getInstance()

@@ -1,15 +1,14 @@
+import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
 import { saveFiles, createCourse } from '../services/services'
+import { useState, useEffect, MouseEvent } from 'react'
+import { checkCourse } from '../services/verication'
 import { userSesion } from '../services/userSesion'
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect, MouseEvent } from 'react'
-import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
-import './styles/Teacher.css'
-import { Course } from '../types'
-import TextBox from '../components/TextBox'
 import ItemMenu from '../components/ItemMenu'
-import { checkCourse } from '../services/verication'
 import Subtitle from '../components/Subtitle'
+import TextBox from '../components/TextBox'
 import { toast } from 'react-toastify'
+import './styles/Teacher.css'
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()
@@ -45,7 +44,6 @@ function PublishCourse () {
         createCourse(newCourse).then((data) => {
           console.log(data)
         })
-        // Agregar validaciones de Precios numericos
       } else {
         toast.error(validation)
       }

@@ -1,9 +1,7 @@
 import { sendDataToFind } from '../services/services'
 import { loadCards } from '../services/cards'
-import { enumCategoriaCurso } from '../enum'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Tag from '../components/Tag'
 import { Course } from '../types'
 import './styles/Busqueda.css'
 
@@ -15,7 +13,6 @@ function Busqueda () {
   useEffect(() => {
     sendDataToFind(toFind).then((listaCursos) => {
       setNum(listaCursos.length)
-      // console.log(listaCursos)
       setListCourses(listaCursos)
     })
   }, [toFind])
