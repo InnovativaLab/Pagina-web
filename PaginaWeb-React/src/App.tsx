@@ -13,8 +13,8 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import './App.css'
 import PublishCourse from './pages/PublishCourse'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App () {
   return (

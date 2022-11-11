@@ -10,8 +10,7 @@ import Title from '../components/Title'
 import Redes from '../components/Redes'
 import './styles/login.css'
 import { enumPermisos } from '../enum'
-import { toast } from 'react-toastify';
-
+import { toast } from 'react-toastify'
 
 // TODO: Comprobar la verificacion en tiempo real de los msgError
 
@@ -42,9 +41,8 @@ function Login () {
               }
             }
             navigate(path, { replace: true })
-          }
-          else{
-            toast.error('No se pudo iniciar sesión.');
+          } else {
+            toast.error('No se pudo iniciar sesión.')
           }
         })
       } else {

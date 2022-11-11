@@ -9,7 +9,7 @@ import TextBox from '../components/TextBox'
 import ItemMenu from '../components/ItemMenu'
 import { checkCourse } from '../services/verication'
 import Subtitle from '../components/Subtitle'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 function PublishCourse () {
   const sesion = userSesion.getInstance()

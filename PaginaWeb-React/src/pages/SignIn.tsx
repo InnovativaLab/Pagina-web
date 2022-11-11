@@ -11,7 +11,7 @@ import Title from '../components/Title'
 import { enumGenero } from '../enum'
 import { Usuario } from '../types'
 import './styles/login.css'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 // TODO: Comprobar la verificacion en tiempo real de los msgError
 
