@@ -9,8 +9,7 @@ import { enumRedSocial } from '../enum'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import axios from 'axios'
-
-const API_LINK = 'http://localhost:3001'
+import { API_LINK } from '../enum'
 
 function Inicio () {
   const coursesCards: JSX.Element[] = []

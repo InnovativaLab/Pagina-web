@@ -51,3 +51,4 @@ export enum enumPermisos {
   AccesoDocente = 'Acceso docente',
   Publicacion = 'Publicar un curso'
 }
+export const API_LINK = 'https://api.francobalich.com'

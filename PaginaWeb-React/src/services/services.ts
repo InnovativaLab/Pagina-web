@@ -1,7 +1,7 @@
 import { Course, Usuario } from '../types'
 import axios from 'axios'
 import { loadCards } from './cards'
-const API_LINK = 'http://localhost:3001'
+import { API_LINK } from '../enum'
 
 export const getCourses = async () => {
   const coursesCards: JSX.Element[] = []
@@ -151,7 +151,7 @@ export const saveFiles = async (files: string) => {
   try {
     const formData = new FormData()
     formData.append('profileImg', files)
-    const res = await axios.post('http://localhost:3001/api/saveFile', formData)
+    const res = await axios.post(`${API_LINK}/api/saveFile`, formData)
     return res.data
   } catch (error: any) {
     console.error(error.message)
