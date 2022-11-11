@@ -8,6 +8,7 @@ import { Course, Usuario } from '../types'
 import Tag from '../components/Tag'
 import './styles/Inicio.css'
 import './styles/Curso.css'
+import btnPlay from '../assets/playBtn.png'
 
 function Curso () {
   const { id } = useParams()
@@ -17,6 +18,7 @@ function Curso () {
   const user: Usuario | undefined = sesion.readSesion()
   const [btnReserve, setBtnReserve] = useState(<></>)
   const [btnTags, setBtnTags] = useState(<></>)
+  const [preview, setPreview] = useState(<></>)
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
@@ -39,6 +41,13 @@ function Curso () {
       console.log(err.response)
     }
   }
+
+  const chargeVideo = ()=>{
+    console.log('clic')
+    setPreview(<iframe className='videoPreview' src="../server\uploads\1668191469815.mp4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>)
+  }
+
+
   useEffect(() => {
     getCourse(id).then((curso) => {
       setCourse(curso)
@@ -46,7 +55,6 @@ function Curso () {
   }, [])
   useEffect(() => {
     const usuario = sesion.readSesion()
-
     if (course.Categoria !== undefined) {
       setBtnTags(<div className='courseInfoTagContainer'>
         <Tag key={course.Categoria + id} type={course.Categoria} />
@@ -71,6 +79,8 @@ function Curso () {
           onClick={reserveCourseEvent}/>)
       }
     })
+    setPreview(<><img className='btnPlay' src={btnPlay} />
+    <img className='imgPortada' src={course.ImagenDePortada} alt='Foto del curso' /></>)
   }, [course])
   return (
     <main className='cursoMain'>
@@ -101,7 +111,9 @@ function Curso () {
         </section>
       </section>
       <section className='infoDeCompra'>
-        <img src={course.ImagenDePortada} alt='Foto del curso' />
+        <div className='imgVistaPrevia' onClick={chargeVideo}>
+          {preview}
+        </div>
         <div>
           <div className='infoDeCompraData'>
             <div className='infoDeCompraPrecios'>
