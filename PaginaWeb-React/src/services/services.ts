@@ -157,3 +157,12 @@ export const saveFiles = async (files: string) => {
     console.error(error.message)
   }
 }
+export const createCourse = async (pCourse?: Course) => {
+  try {
+    const res = await axios.post(`${API_LINK}/api/saveCourses`,pCourse)
+    return res.data
+  } catch (err: any) {
+    console.log(err.response)
+    return {} as Course
+  }
+}
