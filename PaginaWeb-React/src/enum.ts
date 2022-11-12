@@ -52,4 +52,4 @@ export enum enumPermisos {
   Publicacion = 'Publicar un curso'
 }
 export const API_LINK = 'http://localhost:3001'
-//export const API_LINK = 'https://api.francobalich.com'
+// export const API_LINK = 'https://api.francobalich.com'

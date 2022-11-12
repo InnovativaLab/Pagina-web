@@ -5,11 +5,10 @@ import StaffCard from '../components/StaffCard'
 import { loadCards } from '../services/cards'
 import learnImg from '../assets/svgLearn.svg'
 import { useState, useEffect } from 'react'
-import { enumRedSocial } from '../enum'
+import { enumRedSocial, API_LINK } from '../enum'
 import { Course } from '../types'
 import './styles/Inicio.css'
 import axios from 'axios'
-import { API_LINK } from '../enum'
 
 function Inicio () {
   const coursesCards: JSX.Element[] = []

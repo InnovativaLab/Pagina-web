@@ -42,11 +42,10 @@ function Curso () {
     }
   }
 
-  const chargeVideo = ()=>{
+  const chargeVideo = () => {
     console.log('clic')
-    setPreview(<iframe className='videoPreview' src="../server\uploads\1668191469815.mp4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>)
+    setPreview(<iframe className='videoPreview' src='../server\uploads\1668191469815.mp4' title='YouTube video player' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' />)
   }
-
 
   useEffect(() => {
     getCourse(id).then((curso) => {
@@ -70,17 +69,20 @@ function Curso () {
           text='Eliminar reserva'
           background
           style={4}
-          onClick={deleteCourseEvent}/>)
+          onClick={deleteCourseEvent}
+                      />)
       } else {
         setBtnReserve(<ItemMenu
           text='Reservar curso'
           background
           style={3}
-          onClick={reserveCourseEvent}/>)
+          onClick={reserveCourseEvent}
+                      />)
       }
     })
     setPreview(<><img className='btnPlay' src={btnPlay} />
-    <img className='imgPortada' src={course.ImagenDePortada} alt='Foto del curso' /></>)
+      <img className='imgPortada' src={course.ImagenDePortada} alt='Foto del curso' />
+    </>)
   }, [course])
   return (
     <main className='cursoMain'>
