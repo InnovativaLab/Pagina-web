@@ -60,9 +60,10 @@ header{
     .closeMenuButtom{
         display: block;
     }
-   .containerMenu{position: fixed;
+   .containerMenu{
+    position: fixed;
     background-color: var(--Negro);
-    z-index: 1000;
+    z-index: 10000;
     flex-direction: column;
     height: 100vh;
     width: 80%;
