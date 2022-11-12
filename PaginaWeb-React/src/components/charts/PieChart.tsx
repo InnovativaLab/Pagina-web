@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
-import { Course, DataAnalisis } from '../../types'
+import { DataAnalisis } from '../../types'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
