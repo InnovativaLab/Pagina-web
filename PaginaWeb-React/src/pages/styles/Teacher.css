@@ -111,9 +111,20 @@
     width: 100%;
     gap: 15px;
 }
+.columnInput{
+    width: 100%;
+}
 @media screen and (max-width:1300px) {
         .section{
             padding: 20px 40px;
+        }
+        .itemContainer{
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .dataSection{
+            width: 85%;
         }
   }
   @media screen and (max-width:900px) {
@@ -123,15 +134,14 @@
     .dataSection{
         width: 100%;
     }
-    .itemContainer{
-        justify-content: center;
-        align-items: center;
-    }
     .listCousesTop{
         padding: 20px;
     }
     .chartSection{
         width: 100%;
+    }
+    .inputContainer{
+        flex-wrap: wrap;
     }
   }
   @media screen and (max-width:500px) {

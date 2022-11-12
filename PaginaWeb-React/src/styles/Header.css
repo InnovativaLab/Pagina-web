@@ -36,6 +36,7 @@ header{
     width: 80%;
     transition: left ease .3s;
     z-index: 10000;
+    gap: 10px;
   }
   .menuhide{
     left: -100%;
@@ -46,6 +47,7 @@ header{
   @media screen and (max-width:1300px) {
         .containerMenu{
            padding: 20px 70px;
+           width: 100%;
         }
   }
   @media screen and (max-width:900px) {

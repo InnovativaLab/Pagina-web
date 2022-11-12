@@ -38,12 +38,12 @@
 }
 @media screen and (max-width:1300px) {
     .browserContainer{
-        width: 20%;
+        width: auto;
     }
 }
 @media screen and (max-width:900px) {
     .browserContainer{
-        width: 80%;
+        width: 100%;
     }
 }
 @media screen and (max-width:500px) {

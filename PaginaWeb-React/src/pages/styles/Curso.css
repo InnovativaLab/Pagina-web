@@ -127,12 +127,30 @@
         flex-direction: column-reverse;
         gap: 20px;
         align-items: center;
+        margin: 0;
+        padding: 20px;
     }
     .infoCurso{
         width: 70%;
     }
     .infoDeCompra{
         width: 70%;
+    }
+    .browse{
+        width: 100%;
+        padding: 20px;
+    }
+    .browseTitle{
+        padding: 20px;
+        font-size: 35px;
+        text-align: center;
+    }
+    .courseInfoContainerTitle{
+        padding: 20px;
+        text-align: center;
+    }
+    .courseInfoData{
+        padding: 20px;
     }
 }
 @media screen and (max-width:500px) {
