@@ -32,7 +32,6 @@ function PublishCourse () {
   })
   const [files, setFiles] = useState({ image: '', video: '' })
   const navigate = useNavigate()
-  window.scrollTo(0, 0)
 
   const publishCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {

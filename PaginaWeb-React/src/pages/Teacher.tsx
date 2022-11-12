@@ -25,7 +25,7 @@ function Teacher () {
   const [fechas, setFechas] = useState(<></>)
   const [cantidades, setCantidades] = useState(<></>)
   const navigate = useNavigate()
-  window.scrollTo(0, 0)
+
   const loadItems = (courses: any[]) => {
     coursesElements = Object.values(courses).map(course =>
       <li className='itemCouseTop' key={course.Titulo}>

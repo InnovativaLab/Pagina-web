@@ -17,7 +17,6 @@ function Login () {
   const [email, setEmail] = useState('')
   const [pws, setPws] = useState('')
   const navigate = useNavigate()
-  window.scrollTo(0, 0)
 
   const logIn = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {

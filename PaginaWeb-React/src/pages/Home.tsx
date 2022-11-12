@@ -13,7 +13,6 @@ function Home () {
   const user: Usuario | undefined = sesion.readSesion()
   const [listCourses, setListCourses] = useState(coursesCards)
 
-  window.scrollTo(0, 0)
   useEffect(() => {
     getCoursesOfUserJSX(user?.NombreDeUsuario).then((listaCursos) => {
       setListCourses(listaCursos)
