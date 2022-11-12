@@ -70,6 +70,7 @@ header{
     padding:50px  0;
     justify-content: start;
     gap: 15px;
+    padding: 20px;
    }
   }
   @media screen and (max-width:500px) {

@@ -79,7 +79,7 @@
 }
 @media screen and (max-width:800px) {
     .buttonItemMenu {
-        width: 80%;
+        width: 100%;
         padding: 15px 10px;
         text-align: center;
     }
