@@ -33,3 +33,19 @@
     flex-wrap: wrap;
     gap: 30px 60px;
 }
+@media screen and (max-width:1300px) {
+    .home{
+        padding: 30px;
+    }
+    .msgAlert{
+        padding: 30px 20px;
+    }
+  }
+  @media screen and (max-width:900px) {
+    .home{
+        padding: 15px;
+    }
+  }
+  @media screen and (max-width:500px) {
+
+  }

@@ -47,6 +47,9 @@
 }
 @media screen and (max-width:900px) {
     .cardContainerInfo{
-        padding: 20px 30px;
+        padding: 20px;
+    }
+    .card{
+        width: 100%;
     }
 }

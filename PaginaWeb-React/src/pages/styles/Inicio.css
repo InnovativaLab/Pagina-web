@@ -116,8 +116,32 @@
 @media screen and (max-width:900px) {
   .weObjects{
       flex-direction: column;
-      margin: 20px 0;
+      margin: 0;
       gap: 0;
+      padding: 20px;
+  }
+  .homeCardsContainer{
+    width: 100%;
+  }
+  .homeCourseSection{
+    padding: 20px;
+  }
+  .weObjectsSvg{
+    display: none;
+  }
+  .mainInformation{
+    width: 100%;
+  }
+  .mainInformation h1{
+    width: 100%;
+  }
+  .mainContainer{
+    padding: 20px;
+  }
+  .mainContainer img{
+    width: 100%;
+  }.socialNetworks{
+    padding: 20px;
   }
 }
 @media screen and (max-width:500px) {
