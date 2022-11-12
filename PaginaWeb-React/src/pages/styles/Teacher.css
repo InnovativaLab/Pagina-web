@@ -118,7 +118,20 @@
   }
   @media screen and (max-width:900px) {
     .section{
-        padding: 20px 40px;
+        padding: 10px;
+    }
+    .dataSection{
+        width: 100%;
+    }
+    .itemContainer{
+        justify-content: center;
+        align-items: center;
+    }
+    .listCousesTop{
+        padding: 20px;
+    }
+    .chartSection{
+        width: 100%;
     }
   }
   @media screen and (max-width:500px) {
