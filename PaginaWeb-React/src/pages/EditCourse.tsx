@@ -14,7 +14,7 @@ import { Course } from '../types';
 function EditCourse () {
   const { id } = useParams()
   const [course, setCourse] = useState({
-    Id: 0,
+    Id: id,
     Titulo: '',
     Subtitulo: '',
     Nivel: enumNivel.Principiante,
@@ -38,13 +38,14 @@ function EditCourse () {
   const saveCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      console.log(course)
+      //console.log(course)
       const validation = checkCourse(course)
-      console.log(validation)
+      //console.log(validation)
       if (validation === true) {
-        console.log(course)
+        //console.log(course)
         saveChangesCourse(course).then((data) => {
           console.log(data)
+          navigate(`/course/${id}`, { replace: true })
         })
       } else {
         toast.error(validation)
