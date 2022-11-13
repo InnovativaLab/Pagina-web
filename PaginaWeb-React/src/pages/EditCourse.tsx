@@ -1,5 +1,5 @@
 import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
-import { saveFiles, createCourse } from '../services/services'
+import { saveFiles, createCourse, getCourse } from '../services/services';
 import { useState, useEffect, MouseEvent } from 'react'
 import { checkCourse } from '../services/verication'
 import { userSesion } from '../services/userSesion'
@@ -9,9 +9,11 @@ import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
 import { toast } from 'react-toastify'
 import './styles/Teacher.css'
+import { Course } from '../types';
 
 function EditCourse () {
   const { id } = useParams()
+  const [course, setCourse] = useState({} as Course)
   const sesion = userSesion.getInstance()
   const [newCourse, setNewCourse] = useState({
     Id: 0,
@@ -87,13 +89,16 @@ function EditCourse () {
       if (userDataSesion?.RolNombre !== 'Docente') {
         navigate('/home', { replace: true })
       }
+      getCourse(id).then((curso) => {
+        setCourse(curso)
+      })
     }
   }, [])
   return (
     <div className='section'>
       <div className='dataSection'>
         <section className='analiticSection'>
-          <p className='msgAlert'>Publicar un curso {id}</p>
+          <p className='msgAlert'>Editar "{course.Titulo}"</p>
           <form className='itemContainer'>
             <Subtitle msg='Titulo' />
             <TextBox
