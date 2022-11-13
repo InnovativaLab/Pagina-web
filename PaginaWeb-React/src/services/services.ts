@@ -176,3 +176,13 @@ export const saveChangesCourse = async (pCourse: Course) => {
     return {} as Course
   }
 }
+export const changeStateCourse = async (pId?: string,pState?:string) => {
+  try {
+    // console.log(pCourse)
+    const res = await axios.post(`${API_LINK}/api/changeStateCourse/${pId}`,{"Estado":pState})
+    return res.data
+  } catch (err: any) {
+    console.log(err.response)
+    return {} as Course
+  }
+}
