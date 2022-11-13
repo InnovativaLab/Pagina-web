@@ -37,7 +37,7 @@
     flex-wrap: wrap;
     gap: 10px;
     padding: 20px 50px;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 }
 .itemAnalitic{
@@ -119,8 +119,6 @@
             padding: 20px 40px;
         }
         .itemContainer{
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
         .dataSection{
