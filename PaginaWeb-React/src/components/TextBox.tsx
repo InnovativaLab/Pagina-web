@@ -4,8 +4,9 @@ interface propTextBox {
   placeholder: string
   getData?: Function
   textType?: string
+  defaultValue?: string|number
 }
-function TextBox ({ placeholder, getData, textType }: propTextBox) {
+function TextBox ({ placeholder, getData, textType,defaultValue="" }: propTextBox) {
   const saveData = (event: any) => {
     if (getData !== undefined) {
       getData(event.target.value)
@@ -19,6 +20,7 @@ function TextBox ({ placeholder, getData, textType }: propTextBox) {
       onChange={saveData}
       type={(textType !== undefined) ? textType : 'text'}
       placeholder={placeholder}
+      value={defaultValue}
     />
   )
 }
