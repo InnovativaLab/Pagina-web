@@ -20,6 +20,7 @@ export const getCourses = async (req, res) => {
     })
   }
 }
+
 export const getCourse = async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * from Curso WHERE id=? and curso.Estado="Aprobado";', [req.params.id])
@@ -86,6 +87,17 @@ export const changeStateCourse = async (req, res) => {
     if (result.affectedRows <= 0) return res.status(404).json({ message: 'Course not found' })
     const [rows] = await pool.query('SELECT * from Curso WHERE id=?;', [id])
     res.json(rows[0])
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: 'Something goes wrong'
+    })
+  }
+}
+export const getRemoveCourses = async (req, res) => {
+  try {
+    const [rows] = await pool.query("SELECT * from Curso WHERE curso.Estado='Retirado'")
+    res.json(rows)
   } catch (error) {
     console.log(error)
     return res.status(500).json({
