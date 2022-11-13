@@ -1,5 +1,5 @@
 import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
-import { saveFiles, createCourse, getCourse, saveChangesCourse } from '../services/services'
+import { saveFiles, changeStateCourse, getCourse, saveChangesCourse } from '../services/services'
 import { useState, useEffect, MouseEvent } from 'react'
 import { checkCourse } from '../services/verication'
 import { userSesion } from '../services/userSesion'
@@ -13,6 +13,7 @@ import { Course } from '../types'
 
 function EditCourse () {
   const { id } = useParams()
+  const [removeCourse, setRemoveCourse] = useState(<></>)
   const [course, setCourse] = useState({
     Id: id,
     Titulo: '',
@@ -82,6 +83,17 @@ function EditCourse () {
       setCourse(course)
     })
   }
+  const removeCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+    try {
+      e.preventDefault()
+      changeStateCourse(id,enumEstadoCurso.Retirado).then((data) => {
+        console.log(data)
+        //navigate(`/course/${id}`, { replace: true })
+      })
+    } catch (err: any) {
+      console.log(err.response)
+    }
+  }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
@@ -93,7 +105,14 @@ function EditCourse () {
       getCourse(id).then((curso) => {
         setCourse(curso)
       })
+      setRemoveCourse(<ItemMenu
+        text='Remover curso'
+        background
+        style={4}
+        onClick={removeCourseEvent}
+                 />)
     }
+    
   }, [])
   return (
     <div className='section'>
@@ -213,6 +232,7 @@ function EditCourse () {
               style={3}
               onClick={saveCourse}
             />
+            {removeCourse}
           </form>
         </section>
       </div>
