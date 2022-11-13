@@ -64,7 +64,6 @@ function Teacher () {
           return titulos.indexOf(element) === index
         })
         setFechas(<LineChart pData={data} pFechas={fechasUnicas} pTitulos={titulosUnicos} />)
-        console.log(data)
         setCantidades(<PieChart pData={data} />)
       })
     } catch (err: any) {

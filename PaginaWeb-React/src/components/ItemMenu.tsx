@@ -11,7 +11,7 @@ interface propButtonCallToAction {
 function ItemMenu ({ text, background, style, onClick }: propButtonCallToAction) {
   const clic = (event: MouseEvent<HTMLButtonElement>): void => {
     // event.preventDefault();
-    (onClick === undefined) ? console.log('Se hizo clic') : onClick(event)
+    (onClick === undefined) ? ()=>{} : onClick(event)
   }
   const selectorStyle = (backgroundIn: boolean, styleIn: Number) => {
     let styles = 'buttonItemMenu '

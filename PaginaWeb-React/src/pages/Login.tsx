@@ -25,7 +25,7 @@ function Login () {
       if (validation === true) {
         //console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
-          console.log(data)
+          //console.log(data)
           if (data !== undefined) {
             const userDataSesion = sesion.saveSesion(data)
             let path = '/'
