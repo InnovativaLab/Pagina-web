@@ -11,6 +11,6 @@ router.post('/saveCourses', createCourse)
 
 router.patch('/courses/:id', updateCourse)
 
-router.delete('/changeStateCourse/:id', changeStateCourse)
+router.post('/changeStateCourse/:id', changeStateCourse)
 
 export default router
