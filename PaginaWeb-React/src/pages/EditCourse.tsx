@@ -1,5 +1,5 @@
 import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
-import { saveFiles, createCourse, getCourse } from '../services/services';
+import { saveFiles, createCourse, getCourse, saveChangesCourse } from '../services/services';
 import { useState, useEffect, MouseEvent } from 'react'
 import { checkCourse } from '../services/verication'
 import { userSesion } from '../services/userSesion'
@@ -43,9 +43,9 @@ function EditCourse () {
       console.log(validation)
       if (validation === true) {
         console.log(course)
-        //createCourse(course).then((data) => {
-        //  console.log(data)
-        //})
+        saveChangesCourse(course).then((data) => {
+          console.log(data)
+        })
       } else {
         toast.error(validation)
       }
