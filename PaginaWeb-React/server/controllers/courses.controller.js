@@ -62,8 +62,15 @@ export const createCourse = async (req, res) => {
 }
 export const updateCourse = async (req, res) => {
   try {
-    res.json({ message: 'Hello world' })
+    const { id } = req.params
+    const user = req.body
+    console.log(user.Titulo);
+    console.log(parseInt(id));
+    //const [rows] = await pool.query(`UPDATE Curso SET Titulo="dfs" Where id=16;`)
+    const [rows] = await pool.query(`UPDATE Curso SET Titulo=?,Subtitulo=?,Nivel=?,Categoria=?,Subcategoria=?,Descripcion=?,Estado=?,Idioma=?,TiempoDePublicacion=?,PrecioEnPesos=?,PrecioEnDolares=?,ImagenDePortada=?,VideoPromocional=?,MensajeDeBienvenida=?,MensajeDeFelicitaciones=? Where Id=?;`, [ user.Titulo,user.Subtitulo, user.Nivel, user.Categoria, user.Subcategoria, user.Descripcion, user.Estado, user.Idioma, user.TiempoDePublicacion, user.PrecioEnPesos, user.PrecioEnDolares, user.ImagenDePortada, user.VideoPromocional, user.MensajeDeBienvenida, user.MensajeDeFelicitaciones,id])
+    res.send(rows)
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       message: 'Something goes wrong'
     })
