@@ -208,7 +208,7 @@ function EditCourse () {
               }}
             />
             <ItemMenu
-              text='Publicar curso'
+              text='Guardar cambios'
               background
               style={3}
               onClick={saveCourse}
