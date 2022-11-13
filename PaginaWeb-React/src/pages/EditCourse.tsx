@@ -22,7 +22,7 @@ function EditCourse () {
     Categoria: '',
     Subcategoria: '',
     Descripcion: '',
-    Estado: enumEstadoCurso.Verificado,
+    Estado: enumEstadoCurso.Aprobado,
     Idioma: enumIdioma.Español,
     TiempoDePublicacion: 1,
     PrecioEnPesos: 0,
