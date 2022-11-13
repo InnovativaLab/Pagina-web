@@ -95,7 +95,7 @@ function Curso () {
           background
           style={4}
           onClick={editCourseEvent}
-                      />)
+                   />)
       }
     })
     setPreview(<><img className='btnPlay' src={btnPlay} />

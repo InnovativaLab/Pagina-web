@@ -1,15 +1,15 @@
 import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
-import { saveFiles, createCourse, getCourse, saveChangesCourse } from '../services/services';
+import { saveFiles, createCourse, getCourse, saveChangesCourse } from '../services/services'
 import { useState, useEffect, MouseEvent } from 'react'
 import { checkCourse } from '../services/verication'
 import { userSesion } from '../services/userSesion'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom'
 import ItemMenu from '../components/ItemMenu'
 import Subtitle from '../components/Subtitle'
 import TextBox from '../components/TextBox'
 import { toast } from 'react-toastify'
 import './styles/Teacher.css'
-import { Course } from '../types';
+import { Course } from '../types'
 
 function EditCourse () {
   const { id } = useParams()
@@ -38,11 +38,11 @@ function EditCourse () {
   const saveCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      //console.log(course)
+      // console.log(course)
       const validation = checkCourse(course)
-      //console.log(validation)
+      // console.log(validation)
       if (validation === true) {
-        //console.log(course)
+        // console.log(course)
         saveChangesCourse(course).then((data) => {
           console.log(data)
           navigate(`/course/${id}`, { replace: true })
@@ -116,7 +116,7 @@ function EditCourse () {
               }}
             />
 
-            <Subtitle msg={`Nivel (${course.Nivel})`}/>
+            <Subtitle msg={`Nivel (${course.Nivel})`} />
             <select name='select' className='combobox' onChange={saveNivel}>
               <option value={enumNivel.Principiante}>{enumNivel.Principiante}</option>
               <option value={enumNivel.Intermeido}>{enumNivel.Intermeido}</option>
@@ -151,7 +151,7 @@ function EditCourse () {
 
             <Subtitle msg='Descripción' />
             <TextBox
-              placeholder='Ingrese la descripcion'  getData={(value: any) => {
+              placeholder='Ingrese la descripcion' getData={(value: any) => {
                 course.Descripcion = value
                 setCourse(course)
               }}
@@ -161,7 +161,7 @@ function EditCourse () {
               <div className='columnInput'>
                 <Subtitle msg='Precio en pesos' />
                 <TextBox
-                  placeholder={course.PrecioEnPesos.toString()}  getData={(value: any) => {
+                  placeholder={course.PrecioEnPesos.toString()} getData={(value: any) => {
                     course.PrecioEnPesos = value
                     setCourse(course)
                   }}
@@ -170,7 +170,7 @@ function EditCourse () {
               <div className='columnInput'>
                 <Subtitle msg='Precio en dolares' />
                 <TextBox
-                  placeholder={course.PrecioEnPesos.toString()}  getData={(value: any) => {
+                  placeholder={course.PrecioEnPesos.toString()} getData={(value: any) => {
                     course.PrecioEnDolares = value
                     setCourse(course)
                   }}
@@ -195,14 +195,14 @@ function EditCourse () {
             </div>
             <Subtitle msg='Mensaje de bienvenida' />
             <TextBox
-              placeholder={course.MensajeDeBienvenida}  getData={(value: any) => {
+              placeholder={course.MensajeDeBienvenida} getData={(value: any) => {
                 course.MensajeDeBienvenida = value
                 setCourse(course)
               }}
             />
             <Subtitle msg='Mensaje de felicitaciones' />
             <TextBox
-              placeholder={course.MensajeDeFelicitaciones}  getData={(value: any) => {
+              placeholder={course.MensajeDeFelicitaciones} getData={(value: any) => {
                 course.MensajeDeFelicitaciones = value
                 setCourse(course)
               }}

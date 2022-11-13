@@ -15,7 +15,7 @@ import Curso from './pages/Curso'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import './App.css'
-import EditCourse from './pages/EditCourse';
+import EditCourse from './pages/EditCourse'
 
 function App () {
   return (
