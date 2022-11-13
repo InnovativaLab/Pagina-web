@@ -91,6 +91,17 @@ function EditCourse () {
       console.log(err.response)
     }
   }
+  const restoreCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+    try {
+      e.preventDefault()
+      changeStateCourse(id,enumEstadoCurso.Aprobado).then((data) => {
+        console.log(data)
+        //navigate(`/course/${id}`, { replace: true })
+      })
+    } catch (err: any) {
+      console.log(err.response)
+    }
+  }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
       navigate('/', { replace: true })
@@ -101,13 +112,25 @@ function EditCourse () {
       }
       getCourse(id).then((curso) => {
         setCourse(curso)
+        console.log(curso)
+        if(curso.Estado===enumEstadoCurso.Aprobado){
+          setRemoveCourse(<ItemMenu
+            text='Remover curso'
+            background
+            style={4}
+            onClick={removeCourseEvent}
+                     />)
+        }else{
+          setRemoveCourse(<ItemMenu
+            text='Volver a publicar'
+            background
+            style={3}
+            onClick={restoreCourseEvent}
+                     />)
+        }
       })
-      setRemoveCourse(<ItemMenu
-        text='Remover curso'
-        background
-        style={4}
-        onClick={removeCourseEvent}
-                 />)
+      
+      
     }
   }, [])
   return (
