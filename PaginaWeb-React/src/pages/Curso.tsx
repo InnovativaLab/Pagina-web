@@ -20,7 +20,7 @@ function Curso () {
   const [btnTags, setBtnTags] = useState(<></>)
   const [btnEdit, setBtnEdit] = useState(<></>)
   const [preview, setPreview] = useState(<></>)
-  const [stateRemoved, setStateRemoved] = useState("")
+  const [stateRemoved, setStateRemoved] = useState('')
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
@@ -53,14 +53,14 @@ function Curso () {
   }
   const chargeVideo = () => {
     console.log('clic')
-    setPreview(<iframe className='videoPreview' src='../server/uploads/1668191469815.mp4' title='Reproductor de video'/>)
+    setPreview(<iframe className='videoPreview' src='../server/uploads/1668191469815.mp4' title='Reproductor de video' />)
   }
 
   useEffect(() => {
     getCourse(id).then((curso) => {
       setCourse(curso)
-      if(curso.Estado===enumEstadoCurso.Retirado){
-        setStateRemoved("RETIRADO")
+      if (curso.Estado === enumEstadoCurso.Retirado) {
+        setStateRemoved('RETIRADO')
       }
     })
   }, [])
@@ -139,10 +139,10 @@ function Curso () {
           {preview}
         </div>
         <div>
-          <div className={`infoDeCompraData`}>
+          <div className='infoDeCompraData'>
             <div className='infoDeCompraPrecios'>
               <p className='infoDeCompraPrecio'>{`$${course.PrecioEnPesos}`}</p>
-              <p className='infoDeCompraPrecioSinDescuento'>{`$${course.PrecioEnPesos*1.5}`}</p>
+              <p className='infoDeCompraPrecioSinDescuento'>{`$${course.PrecioEnPesos * 1.5}`}</p>
             </div>
             <p>33% de descuento</p>
             {btnReserve}

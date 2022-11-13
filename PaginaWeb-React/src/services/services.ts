@@ -176,10 +176,10 @@ export const saveChangesCourse = async (pCourse: Course) => {
     return {} as Course
   }
 }
-export const changeStateCourse = async (pId?: string,pState?:string) => {
+export const changeStateCourse = async (pId?: string, pState?: string) => {
   try {
     // console.log(pCourse)
-    const res = await axios.post(`${API_LINK}/api/changeStateCourse/${pId}`,{"Estado":pState})
+    const res = await axios.post(`${API_LINK}/api/changeStateCourse/${pId}`, { Estado: pState })
     return res.data
   } catch (err: any) {
     console.log(err.response)
@@ -188,10 +188,10 @@ export const changeStateCourse = async (pId?: string,pState?:string) => {
 }
 export const getRemoveCourses = async () => {
   const coursesCards: JSX.Element[] = []
-  let courses: Course[] = []
+  const courses: Course[] = []
   try {
     const res = await axios.get(`${API_LINK}/api/removeCourses`)
-    let courses = res.data
+    const courses = res.data
     return courses
   } catch (err: any) {
     console.log(err.response)

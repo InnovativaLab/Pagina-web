@@ -83,8 +83,8 @@ function EditCourse () {
   const removeCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      changeStateCourse(id,enumEstadoCurso.Retirado).then((data) => {
-        //console.log(data)
+      changeStateCourse(id, enumEstadoCurso.Retirado).then((data) => {
+        // console.log(data)
         navigate(`/course/${id}`, { replace: true })
       })
     } catch (err: any) {
@@ -94,8 +94,8 @@ function EditCourse () {
   const restoreCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      changeStateCourse(id,enumEstadoCurso.Aprobado).then((data) => {
-        //console.log(data)
+      changeStateCourse(id, enumEstadoCurso.Aprobado).then((data) => {
+        // console.log(data)
         navigate(`/course/${id}`, { replace: true })
       })
     } catch (err: any) {
@@ -112,21 +112,21 @@ function EditCourse () {
       }
       getCourse(id).then((curso) => {
         setCourse(curso)
-        //console.log(curso)
-        if(curso.Estado===enumEstadoCurso.Aprobado){
+        // console.log(curso)
+        if (curso.Estado === enumEstadoCurso.Aprobado) {
           setRemoveCourse(<ItemMenu
             text='Remover curso'
             background
             style={4}
             onClick={removeCourseEvent}
-                     />)
-        }else{
+                          />)
+        } else {
           setRemoveCourse(<ItemMenu
             text='Volver a publicar'
             background
             style={3}
             onClick={restoreCourseEvent}
-                     />)
+                          />)
         }
       })
     }
@@ -187,7 +187,7 @@ function EditCourse () {
 
             <Subtitle msg='Descripción' />
             <TextBox
-              placeholder={course.Descripcion}  getData={(value: any) => {
+              placeholder={course.Descripcion} getData={(value: any) => {
                 course.Descripcion = value
                 setCourse(course)
               }}

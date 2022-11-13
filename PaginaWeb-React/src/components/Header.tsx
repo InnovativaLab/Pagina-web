@@ -89,7 +89,7 @@ function Header () {
   }
   useEffect(() => {
     const isLogged = sesion.isLogged()
-    //console.info('¿Esta logueado?:', isLogged)
+    // console.info('¿Esta logueado?:', isLogged)
     const botones = generateButton(isLogged)
     setButton(botones)
     const itemsDelMenu = generateItemsMenu(isLogged)

@@ -36,7 +36,7 @@ export const loadRemoveCards = (courses: Course[]) => {
       title={course.Titulo}
       text={course.Descripcion}
       tags={loadTags(course)}
-      style="removedCourse"
+      style='removedCourse'
     />)
   return coursesElements
 }

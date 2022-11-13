@@ -14,13 +14,13 @@ interface propCard {
   tags: string[]
 }
 
-function Card ({ id, img, alt, title, text, tags,style }: propCard) {
+function Card ({ id, img, alt, title, text, tags, style }: propCard) {
   if (img === '') {
     img = imgDemo
   }
   return (
-    <div className={`card ${style}`} >
-      <img src={img} alt={alt}/>
+    <div className={`card ${style}`}>
+      <img src={img} alt={alt} />
       <div className='cardContainerInfo'>
         <p className='cardtitle'>{title}</p>
         <div className='cardTagContainer'>

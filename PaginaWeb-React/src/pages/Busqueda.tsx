@@ -1,6 +1,6 @@
-import { sendDataToFind, getRemoveCourses } from '../services/services';
-import { loadCards, loadRemoveCards } from '../services/cards';
-import { useParams,useNavigate } from 'react-router-dom'
+import { sendDataToFind, getRemoveCourses } from '../services/services'
+import { loadCards, loadRemoveCards } from '../services/cards'
+import { useParams, useNavigate } from 'react-router-dom'
 import { userSesion } from '../services/userSesion'
 import { useState, useEffect } from 'react'
 import { enumPermisos } from '../enum'
@@ -31,7 +31,7 @@ function Busqueda () {
       if (userDataSesion?.RolNombre === 'Docente') {
         getRemoveCourses().then((curso) => {
           setRemoveCourse(curso)
-          console.log(curso);
+          console.log(curso)
         })
       }
     }
