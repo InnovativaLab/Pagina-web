@@ -166,3 +166,12 @@ export const createCourse = async (pCourse?: Course) => {
     return {} as Course
   }
 }
+export const saveChangesCourse = async (pCourse?: Course) => {
+  try {
+    const res = await axios.patch(`${API_LINK}/api/courses/${pCourse?.Id}`, pCourse)
+    return res.data
+  } catch (err: any) {
+    console.log(err.response)
+    return {} as Course
+  }
+}
