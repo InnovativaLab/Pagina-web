@@ -53,7 +53,7 @@ function Curso () {
   }
   const chargeVideo = () => {
     console.log('clic')
-    setPreview(<iframe className='videoPreview' src='../server\uploads\1668191469815.mp4' title='YouTube video player' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' />)
+    setPreview(<iframe className='videoPreview' src='../server/uploads/1668191469815.mp4' title='Reproductor de video'/>)
   }
 
   useEffect(() => {
