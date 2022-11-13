@@ -1,6 +1,6 @@
 import { Course, Usuario } from '../types'
 import axios from 'axios'
-import { loadCards } from './cards'
+import { loadCards, loadRemoveCards } from './cards'
 import { API_LINK } from '../enum'
 
 export const getCourses = async () => {
@@ -184,5 +184,17 @@ export const changeStateCourse = async (pId?: string,pState?:string) => {
   } catch (err: any) {
     console.log(err.response)
     return {} as Course
+  }
+}
+export const getRemoveCourses = async () => {
+  const coursesCards: JSX.Element[] = []
+  try {
+    const res = await axios.get(`${API_LINK}/api/removeCourses`)
+    const courses: Course[] = res.data
+    const coursesElements: JSX.Element[] = loadRemoveCards(courses)
+    return coursesElements
+  } catch (err: any) {
+    console.log(err.response)
+    return coursesCards
   }
 }
