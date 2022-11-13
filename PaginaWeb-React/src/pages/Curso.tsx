@@ -18,6 +18,7 @@ function Curso () {
   const user: Usuario | undefined = sesion.readSesion()
   const [btnReserve, setBtnReserve] = useState(<></>)
   const [btnTags, setBtnTags] = useState(<></>)
+  const [btnEdit, setBtnEdit] = useState(<></>)
   const [preview, setPreview] = useState(<></>)
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
@@ -41,7 +42,14 @@ function Curso () {
       console.log(err.response)
     }
   }
-
+  const editCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+    try {
+      e.preventDefault()
+      navigate(`/edit/${course.Id}`, { replace: true })
+    } catch (err: any) {
+      console.log(err.response)
+    }
+  }
   const chargeVideo = () => {
     console.log('clic')
     setPreview(<iframe className='videoPreview' src='../server\uploads\1668191469815.mp4' title='YouTube video player' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' />)
@@ -52,6 +60,7 @@ function Curso () {
       setCourse(curso)
     })
   }, [])
+
   useEffect(() => {
     const usuario = sesion.readSesion()
     if (course.Categoria !== undefined) {
@@ -77,6 +86,15 @@ function Curso () {
           background
           style={3}
           onClick={reserveCourseEvent}
+                      />)
+      }
+      const userDataSesion = sesion.readSesion()
+      if (userDataSesion?.RolNombre === 'Docente') {
+        setBtnEdit(<ItemMenu
+          text='Editar curso'
+          background
+          style={4}
+          onClick={editCourseEvent}
                       />)
       }
     })
@@ -125,6 +143,7 @@ function Curso () {
             <p>50% de descuento</p>
             {btnReserve}
             <p className='textCenter'>Garantia de 30 dias</p>
+            {btnEdit}
           </div>
         </div>
       </section>
