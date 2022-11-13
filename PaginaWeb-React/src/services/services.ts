@@ -95,7 +95,7 @@ export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCou
     console.error(error.message)
   }
 }
-export const deleteReserveCourse = async (pId: number | undefined) => {
+export const deleteReserveCourse = async (pId: string | undefined) => {
   try {
     console.log(pId)
     if (pId !== undefined) {
@@ -166,9 +166,10 @@ export const createCourse = async (pCourse?: Course) => {
     return {} as Course
   }
 }
-export const saveChangesCourse = async (pCourse?: Course) => {
+export const saveChangesCourse = async (pCourse: Course) => {
   try {
-    const res = await axios.patch(`${API_LINK}/api/courses/${pCourse?.Id}`, pCourse)
+    //console.log(pCourse)
+    const res = await axios.patch(`${API_LINK}/api/courses/${pCourse.Id}`, pCourse)
     return res.data
   } catch (err: any) {
     console.log(err.response)
