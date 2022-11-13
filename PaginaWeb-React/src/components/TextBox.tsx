@@ -4,7 +4,7 @@ interface propTextBox {
   placeholder: string
   getData?: Function
   textType?: string
-  defaultValue?: string|number
+  defaultValue?: string
 }
 function TextBox ({ placeholder, getData, textType,defaultValue="" }: propTextBox) {
   const saveData = (event: any) => {
