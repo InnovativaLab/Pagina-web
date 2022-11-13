@@ -85,7 +85,7 @@ function EditCourse () {
       e.preventDefault()
       changeStateCourse(id,enumEstadoCurso.Retirado).then((data) => {
         console.log(data)
-        //navigate(`/course/${id}`, { replace: true })
+        navigate(`/course/${id}`, { replace: true })
       })
     } catch (err: any) {
       console.log(err.response)
@@ -96,7 +96,7 @@ function EditCourse () {
       e.preventDefault()
       changeStateCourse(id,enumEstadoCurso.Aprobado).then((data) => {
         console.log(data)
-        //navigate(`/course/${id}`, { replace: true })
+        navigate(`/course/${id}`, { replace: true })
       })
     } catch (err: any) {
       console.log(err.response)
