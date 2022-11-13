@@ -23,7 +23,7 @@ function Login () {
       e.preventDefault()
       const validation = checkLogInData(email, pws)
       if (validation === true) {
-        console.log('Iniciando sesion...')
+        //console.log('Iniciando sesion...')
         sendDataLogin(email, pws).then((data) => {
           console.log(data)
           if (data !== undefined) {
@@ -42,7 +42,7 @@ function Login () {
           }
         })
       } else {
-        console.log(validation)
+        //console.log(validation)
         toast.error(validation)
       }
     } catch (err: any) {
