@@ -112,7 +112,7 @@ function PublishCourse () {
             <Subtitle msg='Nivel' />
             <select name='select' className='combobox' onChange={saveNivel}>
               <option value={enumNivel.Principiante}>{enumNivel.Principiante}</option>
-              <option value={enumNivel.Intermeido}>{enumNivel.Intermeido}</option>
+              <option value={enumNivel.Intermedio}>{enumNivel.Intermedio}</option>
               <option value={enumNivel.Avanzado}>{enumNivel.Avanzado}</option>
             </select>
             <div className='inputContainer'>

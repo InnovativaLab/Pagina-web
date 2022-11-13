@@ -16,7 +16,7 @@ export enum enumRedSocial {
 }
 export enum enumNivel {
   Principiante = 'Principiante',
-  Intermeido = 'Intermedio',
+  Intermedio = 'Intermedio',
   Avanzado = 'Avanzado'
 }
 export enum enumIdioma {
