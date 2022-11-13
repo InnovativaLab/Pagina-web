@@ -23,7 +23,7 @@ export enum enumIdioma {
   Español = 'Español',
   Ingles = 'Ingles',
 }
-export enum enumEstadosCurso {
+export enum enumEstadoCurso {
   Borrador = 'Borrador',
   Aprobado = 'Aprobado',
   EnRevision = 'En revisión',
@@ -34,10 +34,6 @@ export enum enumGenero {
   Femenino = 'Femenino',
   PrefieroNoDecirlo = 'Prefiero no decirlo',
   Otro = 'Otro'
-}
-export enum enumEstadoCurso {
-  SinVerificar = 'Sin verificar',
-  Verificado = 'Verificado'
 }
 export enum enumMoneda {
   PesosArgentinos = 'Pesos Argentinos',
