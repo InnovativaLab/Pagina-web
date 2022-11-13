@@ -142,8 +142,8 @@ function Curso () {
             </div>
             <p>50% de descuento</p>
             {btnReserve}
-            <p className='textCenter'>Garantia de 30 dias</p>
             {btnEdit}
+            <p className='textCenter'>Garantia de 30 dias</p>
           </div>
         </div>
       </section>
