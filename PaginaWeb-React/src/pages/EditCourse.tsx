@@ -39,11 +39,8 @@ function EditCourse () {
   const saveCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      // console.log(course)
       const validation = checkCourse(course)
-      // console.log(validation)
       if (validation === true) {
-        // console.log(course)
         saveChangesCourse(course).then((data) => {
           console.log(data)
           navigate(`/course/${id}`, { replace: true })
