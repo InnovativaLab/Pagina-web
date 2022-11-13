@@ -188,13 +188,13 @@ export const changeStateCourse = async (pId?: string,pState?:string) => {
 }
 export const getRemoveCourses = async () => {
   const coursesCards: JSX.Element[] = []
+  let courses: Course[] = []
   try {
     const res = await axios.get(`${API_LINK}/api/removeCourses`)
-    const courses: Course[] = res.data
-    const coursesElements: JSX.Element[] = loadRemoveCards(courses)
-    return coursesElements
+    let courses = res.data
+    return courses
   } catch (err: any) {
     console.log(err.response)
-    return coursesCards
+    return courses
   }
 }
