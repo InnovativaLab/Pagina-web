@@ -109,7 +109,6 @@ function EditCourse () {
         onClick={removeCourseEvent}
                  />)
     }
-    
   }, [])
   return (
     <div className='section'>
