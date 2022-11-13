@@ -25,3 +25,18 @@ export const loadCards = (courses: Course[]) => {
     />)
   return coursesElements
 }
+export const loadRemoveCards = (courses: Course[]) => {
+  let coursesElements: JSX.Element[] = []
+  coursesElements = Object.values(courses).map(course =>
+    <Card
+      key={course.Id}
+      id={course.Id}
+      img={course.ImagenDePortada}
+      alt={`Imagen de portada del curso de ${course.Titulo}`}
+      title={course.Titulo}
+      text={course.Descripcion}
+      tags={loadTags(course)}
+      style="removedCourse"
+    />)
+  return coursesElements
+}
