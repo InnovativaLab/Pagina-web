@@ -5,21 +5,22 @@ import '../styles/Card.css'
 import Tag from './Tag'
 
 interface propCard {
-  id: Number
+  id: string
   img: string
   alt: string
   title: string
   text: string
+  style?: string
   tags: string[]
 }
 
-function Card ({ id, img, alt, title, text, tags }: propCard) {
+function Card ({ id, img, alt, title, text, tags,style }: propCard) {
   if (img === '') {
     img = imgDemo
   }
   return (
-    <div className='card'>
-      <img src={img} alt={alt} />
+    <div className={`card ${style}`} >
+      <img src={img} alt={alt}/>
       <div className='cardContainerInfo'>
         <p className='cardtitle'>{title}</p>
         <div className='cardTagContainer'>

@@ -45,6 +45,10 @@
     justify-content: center;
     align-items: center;
 }
+.removedCourse{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
 @media screen and (max-width:900px) {
     .cardContainerInfo{
         padding: 20px;
