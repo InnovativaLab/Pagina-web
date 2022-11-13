@@ -3,12 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect, MouseEvent } from 'react'
 import { userSesion } from '../services/userSesion'
 import ItemMenu from '../components/ItemMenu'
+import btnPlay from '../assets/playBtn.png'
 import imgCheck from '../assets/check.svg'
 import { Course, Usuario } from '../types'
+import { enumEstadoCurso } from '../enum'
 import Tag from '../components/Tag'
-import './styles/Inicio.css'
 import './styles/Curso.css'
-import btnPlay from '../assets/playBtn.png'
 
 function Curso () {
   const { id } = useParams()
@@ -20,6 +20,7 @@ function Curso () {
   const [btnTags, setBtnTags] = useState(<></>)
   const [btnEdit, setBtnEdit] = useState(<></>)
   const [preview, setPreview] = useState(<></>)
+  const [stateRemoved, setStateRemoved] = useState("")
 
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
@@ -58,6 +59,9 @@ function Curso () {
   useEffect(() => {
     getCourse(id).then((curso) => {
       setCourse(curso)
+      if(curso.Estado===enumEstadoCurso.Retirado){
+        setStateRemoved("RETIRADO")
+      }
     })
   }, [])
 
@@ -107,7 +111,7 @@ function Curso () {
       <section className='infoCurso'>
         <section className='courseInfo'>
           <div className='courseInfoContainerTitle'>
-            <p className='courseInfoTitle'>{course.Titulo}</p>
+            <p className='courseInfoTitle'>{course.Titulo} {stateRemoved}</p>
           </div>
           <div className='courseInfoData'>
             <p>{course.Descripcion}</p>
@@ -130,17 +134,17 @@ function Curso () {
           </ul>
         </section>
       </section>
-      <section className='infoDeCompra'>
+      <section className={`infoDeCompra ${stateRemoved}`}>
         <div className='imgVistaPrevia' onClick={chargeVideo}>
           {preview}
         </div>
         <div>
-          <div className='infoDeCompraData'>
+          <div className={`infoDeCompraData`}>
             <div className='infoDeCompraPrecios'>
               <p className='infoDeCompraPrecio'>{`$${course.PrecioEnPesos}`}</p>
-              <p className='infoDeCompraPrecioSinDescuento'>{`$${course.PrecioEnPesos * 2}`}</p>
+              <p className='infoDeCompraPrecioSinDescuento'>{`$${course.PrecioEnPesos*1.5}`}</p>
             </div>
-            <p>50% de descuento</p>
+            <p>33% de descuento</p>
             {btnReserve}
             {btnEdit}
             <p className='textCenter'>Garantia de 30 dias</p>
