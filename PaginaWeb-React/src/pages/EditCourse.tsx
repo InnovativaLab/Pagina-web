@@ -13,21 +13,39 @@ import { Course } from '../types';
 
 function EditCourse () {
   const { id } = useParams()
-  const [course, setCourse] = useState({} as Course)
+  const [course, setCourse] = useState({
+    Id: 0,
+    Titulo: '',
+    Subtitulo: '',
+    Nivel: enumNivel.Principiante,
+    Categoria: '',
+    Subcategoria: '',
+    Descripcion: '',
+    Estado: enumEstadoCurso.Verificado,
+    Idioma: enumIdioma.Español,
+    TiempoDePublicacion: 1,
+    PrecioEnPesos: 0,
+    PrecioEnDolares: 0,
+    ImagenDePortada: '',
+    VideoPromocional: '',
+    MensajeDeBienvenida: '',
+    MensajeDeFelicitaciones: ''
+  } as Course)
   const sesion = userSesion.getInstance()
   const [files, setFiles] = useState({ image: '', video: '' })
   const navigate = useNavigate()
 
-  const publishCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
+  const saveCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
       console.log(course)
       const validation = checkCourse(course)
       console.log(validation)
       if (validation === true) {
-        createCourse(course).then((data) => {
-          console.log(data)
-        })
+        console.log(course)
+        //createCourse(course).then((data) => {
+        //  console.log(data)
+        //})
       } else {
         toast.error(validation)
       }
@@ -84,20 +102,20 @@ function EditCourse () {
           <form className='itemContainer'>
             <Subtitle msg='Titulo' />
             <TextBox
-              placeholder='Ingrese el titulo' defaultValue={course.Titulo} getData={(value: any) => {
+              placeholder={course.Titulo} getData={(value: any) => {
                 course.Titulo = value
                 setCourse(course)
               }}
             />
             <Subtitle msg='Subtitulo' />
             <TextBox
-              placeholder='Ingrese el subtitulo' defaultValue={course.Subtitulo} getData={(value: any) => {
+              placeholder={course.Subtitulo} getData={(value: any) => {
                 course.Subtitulo = value
                 setCourse(course)
               }}
             />
 
-            <Subtitle msg='Nivel' />
+            <Subtitle msg={`Nivel (${course.Nivel})`}/>
             <select name='select' className='combobox' onChange={saveNivel}>
               <option value={enumNivel.Principiante}>{enumNivel.Principiante}</option>
               <option value={enumNivel.Intermeido}>{enumNivel.Intermeido}</option>
@@ -105,7 +123,7 @@ function EditCourse () {
             </select>
             <div className='inputContainer'>
               <div className='columnInput'>
-                <Subtitle msg='Categoria' />
+                <Subtitle msg={`Categoria (${course.Categoria})`} />
                 <select name='select' className='combobox' onChange={saveCategoria}>
                   <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
                   <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
@@ -117,7 +135,7 @@ function EditCourse () {
                 </select>
               </div>
               <div className='columnInput'>
-                <Subtitle msg='Subcategoria' />
+                <Subtitle msg={`Subcategoria (${course.Subcategoria})`} />
                 <select name='select' className='combobox' onChange={saveSubcategoria}>
                   <option value={enumCategoriaCurso.Arduino}>{enumCategoriaCurso.Arduino}</option>
                   <option value={enumCategoriaCurso.DesarrolloWeb}>{enumCategoriaCurso.DesarrolloWeb}</option>
@@ -132,7 +150,7 @@ function EditCourse () {
 
             <Subtitle msg='Descripción' />
             <TextBox
-              placeholder='Ingrese la descripcion' defaultValue={course.Descripcion}  getData={(value: any) => {
+              placeholder='Ingrese la descripcion'  getData={(value: any) => {
                 course.Descripcion = value
                 setCourse(course)
               }}
@@ -142,7 +160,7 @@ function EditCourse () {
               <div className='columnInput'>
                 <Subtitle msg='Precio en pesos' />
                 <TextBox
-                  placeholder='Ingrese el precio en pesos' defaultValue={(course.PrecioEnPesos)}  getData={(value: any) => {
+                  placeholder={course.PrecioEnPesos.toString()}  getData={(value: any) => {
                     course.PrecioEnPesos = value
                     setCourse(course)
                   }}
@@ -151,7 +169,7 @@ function EditCourse () {
               <div className='columnInput'>
                 <Subtitle msg='Precio en dolares' />
                 <TextBox
-                  placeholder='Ingrese el precio en dolares' defaultValue={(course.PrecioEnDolares)}  getData={(value: any) => {
+                  placeholder={course.PrecioEnPesos.toString()}  getData={(value: any) => {
                     course.PrecioEnDolares = value
                     setCourse(course)
                   }}
@@ -176,14 +194,14 @@ function EditCourse () {
             </div>
             <Subtitle msg='Mensaje de bienvenida' />
             <TextBox
-              placeholder='Ingrese el mensaje de bienvenida' defaultValue={course.MensajeDeBienvenida}  getData={(value: any) => {
+              placeholder={course.MensajeDeBienvenida}  getData={(value: any) => {
                 course.MensajeDeBienvenida = value
                 setCourse(course)
               }}
             />
             <Subtitle msg='Mensaje de felicitaciones' />
             <TextBox
-              placeholder='Ingrese el mensaje de felicitaciones' defaultValue={course.MensajeDeFelicitaciones}  getData={(value: any) => {
+              placeholder={course.MensajeDeFelicitaciones}  getData={(value: any) => {
                 course.MensajeDeFelicitaciones = value
                 setCourse(course)
               }}
@@ -192,7 +210,7 @@ function EditCourse () {
               text='Publicar curso'
               background
               style={3}
-              onClick={publishCourse}
+              onClick={saveCourse}
             />
           </form>
         </section>
