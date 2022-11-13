@@ -15,6 +15,7 @@ import Curso from './pages/Curso'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import './App.css'
+import EditCourse from './pages/EditCourse';
 
 function App () {
   return (
@@ -31,6 +32,7 @@ function App () {
         <Route path='/publish' element={<PublishCourse />} />
         <Route path='/course/:id' element={<Curso />} />
         <Route path='/browse/:toFind' element={<Busqueda />} />
+        <Route path='/edit/:id' element={<EditCourse />} />
         <Route
           path='/privacity' element={<Info
             title={infoOptions.Privacity}
