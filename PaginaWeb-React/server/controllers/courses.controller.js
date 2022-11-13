@@ -76,12 +76,14 @@ export const updateCourse = async (req, res) => {
     })
   }
 }
-export const deleteCourse = async (req, res) => {
+export const changeStateCourse = async (req, res) => {
   try {
     const { id } = req.params
+    const { Estado } = req.body
+    console.log(Estado)
     // const [result] = await pool.query('UPDATE Curso SET Estado=IFNULL("Sin publicar",Estado) WHERE id=?;', [id])
-    const [result] = await pool.query('DELETE from Curso WHERE id=?;', [id])
-    if (result.affectedRows <= 0) return res.status(404).json({ message: 'Course not found' })
+    //const [result] = await pool.query('DELETE from Curso WHERE id=?;', [id])
+    //if (result.affectedRows <= 0) return res.status(404).json({ message: 'Course not found' })
     const [rows] = await pool.query('SELECT * from Curso WHERE id=?;', [id])
     res.json(rows[0])
   } catch (error) {
