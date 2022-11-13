@@ -84,7 +84,7 @@ function EditCourse () {
     try {
       e.preventDefault()
       changeStateCourse(id,enumEstadoCurso.Retirado).then((data) => {
-        console.log(data)
+        //console.log(data)
         navigate(`/course/${id}`, { replace: true })
       })
     } catch (err: any) {
@@ -95,7 +95,7 @@ function EditCourse () {
     try {
       e.preventDefault()
       changeStateCourse(id,enumEstadoCurso.Aprobado).then((data) => {
-        console.log(data)
+        //console.log(data)
         navigate(`/course/${id}`, { replace: true })
       })
     } catch (err: any) {
@@ -112,7 +112,7 @@ function EditCourse () {
       }
       getCourse(id).then((curso) => {
         setCourse(curso)
-        console.log(curso)
+        //console.log(curso)
         if(curso.Estado===enumEstadoCurso.Aprobado){
           setRemoveCourse(<ItemMenu
             text='Remover curso'
@@ -129,8 +129,6 @@ function EditCourse () {
                      />)
         }
       })
-      
-      
     }
   }, [])
   return (
