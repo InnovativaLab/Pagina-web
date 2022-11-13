@@ -187,7 +187,7 @@ function EditCourse () {
 
             <Subtitle msg='Descripción' />
             <TextBox
-              placeholder='Ingrese la descripcion' getData={(value: any) => {
+              placeholder={course.Descripcion}  getData={(value: any) => {
                 course.Descripcion = value
                 setCourse(course)
               }}
@@ -206,7 +206,7 @@ function EditCourse () {
               <div className='columnInput'>
                 <Subtitle msg='Precio en dolares' />
                 <TextBox
-                  placeholder={course.PrecioEnPesos.toString()} getData={(value: any) => {
+                  placeholder={course.PrecioEnDolares.toString()} getData={(value: any) => {
                     course.PrecioEnDolares = value
                     setCourse(course)
                   }}
