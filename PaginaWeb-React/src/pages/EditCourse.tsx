@@ -15,35 +15,17 @@ function EditCourse () {
   const { id } = useParams()
   const [course, setCourse] = useState({} as Course)
   const sesion = userSesion.getInstance()
-  const [newCourse, setNewCourse] = useState({
-    Id: 0,
-    Titulo: '',
-    Subtitulo: '',
-    Nivel: enumNivel.Principiante,
-    Categoria: '',
-    Subcategoria: '',
-    Descripcion: '',
-    Estado: enumEstadoCurso.Verificado,
-    Idioma: enumIdioma.Español,
-    TiempoDePublicacion: 1,
-    PrecioEnPesos: 0,
-    PrecioEnDolares: 0,
-    ImagenDePortada: '',
-    VideoPromocional: '',
-    MensajeDeBienvenida: '',
-    MensajeDeFelicitaciones: ''
-  })
   const [files, setFiles] = useState({ image: '', video: '' })
   const navigate = useNavigate()
 
   const publishCourse = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      console.log(newCourse)
-      const validation = checkCourse(newCourse)
+      console.log(course)
+      const validation = checkCourse(course)
       console.log(validation)
       if (validation === true) {
-        createCourse(newCourse).then((data) => {
+        createCourse(course).then((data) => {
           console.log(data)
         })
       } else {
@@ -54,31 +36,31 @@ function EditCourse () {
     }
   }
   const saveNivel = (event: any) => {
-    newCourse.Nivel = event.target.value
-    setNewCourse(newCourse)
+    course.Nivel = event.target.value
+    setCourse(course)
   }
   const saveCategoria = (event: any) => {
-    newCourse.Categoria = event.target.value
-    setNewCourse(newCourse)
+    course.Categoria = event.target.value
+    setCourse(course)
   }
   const saveSubcategoria = (event: any) => {
-    newCourse.Subcategoria = event.target.value
-    setNewCourse(newCourse)
+    course.Subcategoria = event.target.value
+    setCourse(course)
   }
   const saveImg = (e: any) => {
     e.preventDefault()
     setFiles(files.image = e.target.files[0])
     saveFiles(files.image).then(res => {
-      newCourse.ImagenDePortada = res.path
-      setNewCourse(newCourse)
+      course.ImagenDePortada = res.path
+      setCourse(course)
     })
   }
   const saveVideo = (e: any) => {
     e.preventDefault()
     setFiles(files.video = e.target.files[0])
     saveFiles(files.video).then(res => {
-      newCourse.VideoPromocional = res.path
-      setNewCourse(newCourse)
+      course.VideoPromocional = res.path
+      setCourse(course)
     })
   }
   useEffect(() => {
@@ -102,16 +84,16 @@ function EditCourse () {
           <form className='itemContainer'>
             <Subtitle msg='Titulo' />
             <TextBox
-              placeholder='Ingrese el titulo' getData={(value: any) => {
-                newCourse.Titulo = value
-                setNewCourse(newCourse)
+              placeholder='Ingrese el titulo' defaultValue={course.Titulo} getData={(value: any) => {
+                course.Titulo = value
+                setCourse(course)
               }}
             />
             <Subtitle msg='Subtitulo' />
             <TextBox
-              placeholder='Ingrese el subtitulo' getData={(value: any) => {
-                newCourse.Subtitulo = value
-                setNewCourse(newCourse)
+              placeholder='Ingrese el subtitulo' defaultValue={course.Subtitulo} getData={(value: any) => {
+                course.Subtitulo = value
+                setCourse(course)
               }}
             />
 
@@ -150,9 +132,9 @@ function EditCourse () {
 
             <Subtitle msg='Descripción' />
             <TextBox
-              placeholder='Ingrese la descripcion' getData={(value: any) => {
-                newCourse.Descripcion = value
-                setNewCourse(newCourse)
+              placeholder='Ingrese la descripcion' defaultValue={course.Descripcion}  getData={(value: any) => {
+                course.Descripcion = value
+                setCourse(course)
               }}
             />
 
@@ -160,18 +142,18 @@ function EditCourse () {
               <div className='columnInput'>
                 <Subtitle msg='Precio en pesos' />
                 <TextBox
-                  placeholder='Ingrese el precio en pesos' getData={(value: any) => {
-                    newCourse.PrecioEnPesos = value
-                    setNewCourse(newCourse)
+                  placeholder='Ingrese el precio en pesos' defaultValue={(course.PrecioEnPesos)}  getData={(value: any) => {
+                    course.PrecioEnPesos = value
+                    setCourse(course)
                   }}
                 />
               </div>
               <div className='columnInput'>
                 <Subtitle msg='Precio en dolares' />
                 <TextBox
-                  placeholder='Ingrese el precio en dolares' getData={(value: any) => {
-                    newCourse.PrecioEnDolares = value
-                    setNewCourse(newCourse)
+                  placeholder='Ingrese el precio en dolares' defaultValue={(course.PrecioEnDolares)}  getData={(value: any) => {
+                    course.PrecioEnDolares = value
+                    setCourse(course)
                   }}
                 />
               </div>
@@ -194,16 +176,16 @@ function EditCourse () {
             </div>
             <Subtitle msg='Mensaje de bienvenida' />
             <TextBox
-              placeholder='Ingrese el mensaje de bienvenida' getData={(value: any) => {
-                newCourse.MensajeDeBienvenida = value
-                setNewCourse(newCourse)
+              placeholder='Ingrese el mensaje de bienvenida' defaultValue={course.MensajeDeBienvenida}  getData={(value: any) => {
+                course.MensajeDeBienvenida = value
+                setCourse(course)
               }}
             />
             <Subtitle msg='Mensaje de felicitaciones' />
             <TextBox
-              placeholder='Ingrese el mensaje de felicitaciones' getData={(value: any) => {
-                newCourse.MensajeDeFelicitaciones = value
-                setNewCourse(newCourse)
+              placeholder='Ingrese el mensaje de felicitaciones' defaultValue={course.MensajeDeFelicitaciones}  getData={(value: any) => {
+                course.MensajeDeFelicitaciones = value
+                setCourse(course)
               }}
             />
             <ItemMenu
