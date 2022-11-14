@@ -74,7 +74,7 @@ function LineChart ({ pData, pFechas, pTitulos }: propLineChart) {
         }
       }
     }
-    //console.log(reservas)
+    // console.log(reservas)
     return reservas
   }
   const data = {

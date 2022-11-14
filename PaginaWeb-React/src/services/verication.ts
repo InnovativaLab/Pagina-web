@@ -63,10 +63,10 @@ export const checkCourse = (pCourse: Course) => {
   return true
 }
 export const checkImgFormat = (pImage: string) => {
-  if (!pImage.includes(".png")&&!pImage.includes(".jpg")&&!pImage.includes(".jpeg")) return 'Solo se pueden subir imagenes .png, .jpeg y .jpg'
+  if (!pImage.includes('.png') && !pImage.includes('.jpg') && !pImage.includes('.jpeg')) return 'Solo se pueden subir imagenes .png, .jpeg y .jpg'
   return true
 }
 export const checkVideoFormat = (pVideo: string) => {
-  if (!pVideo.includes(".mp4")) return 'Solo se pueden subir videos .mp4'
+  if (!pVideo.includes('.mp4')) return 'Solo se pueden subir videos .mp4'
   return true
 }
