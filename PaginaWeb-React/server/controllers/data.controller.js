@@ -59,3 +59,15 @@ export const getDataAnalisis = async (req, res) => {
     })
   }
 }
+export const getNumReservasDeCurso = async (req, res) => {
+  try {
+    const {id} = req.params
+    const [rows] = await pool.query('SELECT COUNT(cursousuario.ID) AS NumeroDeReservas FROM coursesdb.cursousuario WHERE cursoID=?;',[id])
+    return res.json(rows[0])
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: 'Something goes wrong'
+    })
+  }
+}
