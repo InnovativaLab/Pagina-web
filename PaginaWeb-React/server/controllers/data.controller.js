@@ -71,3 +71,17 @@ export const getNumReservasDeCurso = async (req, res) => {
     })
   }
 }
+export const getReservasDeCursoPorTitulo = async (req, res) => {
+  try {
+    const {title} = req.params
+    console.log(title);
+    const [rows] = await pool.query('SELECT COUNT(cursousuario.ID) AS NumeroDeReservas FROM coursesdb.cursousuario INNER JOIN coursesdb.curso ON CursoID=curso.Id WHERE Titulo=?;',[title])
+    console.log(rows);
+    return res.json(rows[0])
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: 'Something goes wrong'
+    })
+  }
+}

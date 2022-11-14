@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis,getNumReservasDeCurso } from '../controllers/data.controller.js'
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis,getNumReservasDeCurso,getReservasDeCursoPorTitulo } from '../controllers/data.controller.js'
 
 const router = Router()
 
@@ -14,5 +14,7 @@ router.post('/data/dataCourses', getDataCursos)
 router.post('/data/dataAnalisis', getDataAnalisis)
 
 router.post('/data/ReservasDeCurso/:id', getNumReservasDeCurso)
+
+router.post('/data/ReservasDeCursoPorTitulo/:title', getReservasDeCursoPorTitulo)
 
 export default router
