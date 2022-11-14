@@ -37,6 +37,14 @@ function PublishCourse () {
     try {
       e.preventDefault()
       console.log(newCourse)
+      saveFiles(files.image).then(res => {
+        newCourse.ImagenDePortada = res.path
+        setNewCourse(newCourse)
+      })
+      saveFiles(files.video).then(res => {
+        newCourse.VideoPromocional = res.path
+        setNewCourse(newCourse)
+      })
       const validation = checkCourse(newCourse)
       console.log(validation)
       if (validation === true) {
@@ -65,18 +73,10 @@ function PublishCourse () {
   const saveImg = (e: any) => {
     e.preventDefault()
     setFiles(files.image = e.target.files[0])
-    saveFiles(files.image).then(res => {
-      newCourse.ImagenDePortada = res.path
-      setNewCourse(newCourse)
-    })
   }
   const saveVideo = (e: any) => {
     e.preventDefault()
     setFiles(files.video = e.target.files[0])
-    saveFiles(files.video).then(res => {
-      newCourse.VideoPromocional = res.path
-      setNewCourse(newCourse)
-    })
   }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
