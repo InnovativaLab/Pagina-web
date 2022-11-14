@@ -37,7 +37,7 @@ function Curso () {
   const deleteCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      deleteReserveCourse(course.Id).then((data) => {
+      deleteReserveCourse(course.Id, user?.NombreDeUsuario).then((data) => {
         navigate('/home', { replace: true })
       })
     } catch (err: any) {

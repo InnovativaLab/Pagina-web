@@ -38,8 +38,9 @@ export const createReserve = async (req, res) => {
 }
 export const deleteReserve = async (req, res) => {
   try {
-    const { id } = req.params
-    const [rows] = await pool.query('DELETE FROM coursesdb.cursousuario where cursousuario.CursoID=?;', [id])
+    const { id,name } = req.params
+    console.log(name);
+    const [rows] = await pool.query('DELETE FROM coursesdb.cursousuario where cursousuario.CursoID=? and cursousuario.NombreDeUsuario=?;', [id,name])
     console.log(rows)
     return res.send(rows)
   } catch (error) {

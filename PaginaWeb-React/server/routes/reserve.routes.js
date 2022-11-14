@@ -7,6 +7,6 @@ router.get('/reserve/:NombreDeUsuario', getReserve)
 
 router.post('/reserve', createReserve)
 
-router.delete('/reserve/:id', deleteReserve)
+router.delete('/reserve/:id/:name', deleteReserve)
 
 export default router

@@ -95,11 +95,11 @@ export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCou
     console.error(error.message)
   }
 }
-export const deleteReserveCourse = async (pId: string | undefined) => {
+export const deleteReserveCourse = async (pId?: string,pName?:string) => {
   try {
     console.log(pId)
     if (pId !== undefined) {
-      const res = await axios.delete(`${API_LINK}/api/reserve/${pId}`)
+      const res = await axios.delete(`${API_LINK}/api/reserve/${pId}/${pName}`)
       return res.data
     }
     return null
