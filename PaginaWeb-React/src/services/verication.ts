@@ -3,6 +3,8 @@ import { Usuario, Course } from '../types'
 const regExpEmail = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
 const regExpIsString = new RegExp('[a-zA-Z ]{2,}')
 const regExpIsNum = new RegExp('\d+$')
+const regExpPws = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$")
+//^([a-zA-Z0-9]{4,16})$
 
 export const checkLogInData = (pEmail: string, pPws: string) => {
   if (pEmail !== '' || pPws !== '') {
@@ -13,13 +15,20 @@ export const checkLogInData = (pEmail: string, pPws: string) => {
   }
   return 'Tiene que ingresar todos los datos.'
 }
+
+//regExpPws
 export const checkSignInData = (pUser: Usuario, pConfirmacion: string) => {
   if (pUser.Nombre !== '' || pUser.Apellido !== '' || pUser.Email !== '' || pUser.NombreDeUsuario !== '' || pUser.Genero !== '' || pUser.Email !== '' || pUser.Contraseña !== '' || pConfirmacion !== '') {
     if ((pUser.Nombre.match(regExpIsString) != null) && (pUser.Apellido.match(regExpIsString) != null)) {
       if (pUser.Genero !== undefined) {
         if (pUser.Email.match(regExpEmail) != null) {
           if (pUser.Contraseña === pConfirmacion) {
-            return true
+            console.log(pUser.Contraseña)
+            console.log(regExpPws.test(pUser.Contraseña))
+            if (pUser.Contraseña.match(regExpPws) != null) {
+              return true
+            }
+            return 'La contraseña debe tener este formato:\n Minimo 6 caracteres\n  Al menos una letra mayúscula\n Al menos una letra minucula\n Al menos un dígito\n No espacios en blanco.'
           }
           return 'Las contraseñas no coiciden.'
         }
