@@ -198,3 +198,12 @@ export const getRemoveCourses = async () => {
     return courses
   }
 }
+export const getNumReservasDeCurso = async (id:string) => {
+  try {
+    const res = await axios.post(`${API_LINK}/api/data/ReservasDeCurso/${id}`)
+    return res.data
+  } catch (err: any) {
+    console.log(err.response)
+    return err
+  }
+}
