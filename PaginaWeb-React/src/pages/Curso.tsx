@@ -53,7 +53,9 @@ function Curso () {
   }
   const chargeVideo = () => {
     console.log('clic')
-    setPreview(<iframe className='videoPreview' src='../server/uploads/1668191469815.mp4' title='Reproductor de video' />)
+    setPreview(<video className='videoPreview'src={course.VideoPromocional} autoPlay title='Reproductor de video' controls>
+    Tu navegador no admite el elemento <code>video</code>.
+  </video>)
   }
 
   useEffect(() => {
