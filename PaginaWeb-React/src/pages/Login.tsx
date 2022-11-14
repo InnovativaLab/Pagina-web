@@ -60,9 +60,10 @@ function Login () {
           <TextBox placeholder='Ingresa tu correo electrónico' textType='email' getData={(value: any) => setEmail(value)} />
           <Subtitle msg='Contraseña' />
           <TextBox placeholder='Ingresa tu contraseña' textType='password' getData={(value: any) => setPws(value)} />
-          <Link className='secondaryButton' to='/recoverpws'>
+          {/*<Link className='secondaryButton' to='/recoverpws'>
             ¿Olvidaste tu contraseña?
-          </Link>
+          </Link>*/}
+          <br/>
           <ItemMenu
             text='Iniciar Sesion'
             background
