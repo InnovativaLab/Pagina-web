@@ -1,4 +1,4 @@
-import imgDemo from '../assets/robotAzul.png'
+import imgDemo from '../assets/robotAzul.jpg'
 import { Link } from 'react-router-dom'
 import ItemMenu from './ItemMenu'
 import '../styles/Card.css'

@@ -1,5 +1,5 @@
 import { HashLink } from 'react-router-hash-link'
-import FotoRobot from '../assets/robotAzul.png'
+import FotoRobot from '../assets/robotAzul.jpg'
 import ItemMenu from './ItemMenu'
 import '../styles/MainInicio.css'
 
