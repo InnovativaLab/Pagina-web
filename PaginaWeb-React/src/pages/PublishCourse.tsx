@@ -1,7 +1,7 @@
 import { enumPermisos, enumEstadoCurso, enumIdioma, enumNivel, enumCategoriaCurso } from '../enum'
 import { saveFiles, createCourse } from '../services/services'
 import { useState, useEffect, MouseEvent } from 'react'
-import { checkCourse } from '../services/verication'
+import { checkCourse, checkImgFormat, checkVideoFormat } from '../services/verication';
 import { userSesion } from '../services/userSesion'
 import { useNavigate } from 'react-router-dom'
 import ItemMenu from '../components/ItemMenu'
@@ -65,18 +65,30 @@ function PublishCourse () {
   const saveImg = (e: any) => {
     e.preventDefault()
     setFiles(files.image = e.target.files[0])
-    saveFiles(files.image).then(res => {
-      newCourse.ImagenDePortada = res.path
-      setNewCourse(newCourse)
-    })
+    const validImg=checkImgFormat((files.image as any).name)
+    if(validImg===true){
+      saveFiles(files.image).then(res => {
+        newCourse.ImagenDePortada = res.path
+        setNewCourse(newCourse)
+      })
+    }
+    else{
+      toast.error(validImg)
+    }
   }
   const saveVideo = (e: any) => {
     e.preventDefault()
     setFiles(files.video = e.target.files[0])
-    saveFiles(files.video).then(res => {
-      newCourse.VideoPromocional = res.path
-      setNewCourse(newCourse)
-    })
+    const validVideo=checkVideoFormat((files.video as any).name)
+    if(validVideo===true){
+      saveFiles(files.video).then(res => {
+        newCourse.VideoPromocional = res.path
+        setNewCourse(newCourse)
+      })
+    }
+    else{
+      toast.error(validVideo)
+    }
   }
   useEffect(() => {
     if (!sesion.isAuthorized(enumPermisos.VerAnaliticas)) {
