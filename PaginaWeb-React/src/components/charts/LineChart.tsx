@@ -58,7 +58,10 @@ function LineChart ({ pData, pFechas, pTitulos }: propLineChart) {
     return 'rgb' + coolor
   }
   const findNumReservas = (pTitulo: string) => {
-    const reservas = [0, 0, 0, 0]
+    const reservas = []
+    for (let index = 0; index < labels.length; index++) {
+      reservas.push(0)
+    }
     for (let i = 0; i < labels.length; i++) {
       const date = labels[i]
       for (let j = 0; j < pData.length; j++) {
@@ -71,7 +74,7 @@ function LineChart ({ pData, pFechas, pTitulos }: propLineChart) {
         }
       }
     }
-    // console.log(reservas)
+    //console.log(reservas)
     return reservas
   }
   const data = {
