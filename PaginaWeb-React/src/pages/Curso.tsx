@@ -26,10 +26,15 @@ function Curso () {
   const reserveCourseEvent = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>): void => {
     try {
       e.preventDefault()
-      reserveCourse(user?.NombreDeUsuario, course.Id.toString()).then((data) => {
-        sesion.saveSesion(data)
+      if(user?.NombreDeUsuario!==undefined){
+        reserveCourse(user?.NombreDeUsuario, course.Id.toString()).then((data) => {
+          sesion.saveSesion(data)
+          navigate('/home', { replace: true })
+        })
+      }
+      else{
         navigate('/login', { replace: true })
-      })
+      }
     } catch (err: any) {
       console.log(err.response)
     }
