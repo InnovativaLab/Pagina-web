@@ -207,3 +207,18 @@ export const getNumReservasDeCurso = async (id:string) => {
     return err
   }
 }
+export const getNumReservasDeCursoTitulo = async (titulo:string) => {
+  try {
+    /*const data = Object.values(titulos).map( async (titulo)=>{
+      const res = await axios.post(`${API_LINK}/api/data/ReservasDeCursoPorTitulo/${titulo}`)
+      return res.data
+    })
+    console.log(data);
+    return data*/
+    const res = await axios.post(`${API_LINK}/api/data/ReservasDeCursoPorTitulo/${titulo}`)
+    return res.data
+  } catch (err: any) {
+    console.log(err.response)
+    return err
+  }
+}
