@@ -120,19 +120,19 @@ function Curso () {
             <p><span className='bold'>Categorias</span></p>
             {btnTags}
             <p><span className='bold'>Reservado por:</span>{` ${100} estudiantes.`}</p>
-            <p><span className='bold'>Ultima actualización: </span>{`${course.Subcategoria}`}</p>
+            <p><span className='bold'>Ultima actualización: </span>11/2022</p>
             <p><span className='bold'>Idioma:</span>{` ${'Español'}`}</p>
           </div>
         </section>
         <section className='resultados'>
           <div className='resultadosContainerTitle'>
-            <p className='resultadosTitle'>Lo que aprenderas</p>
+            <p className='resultadosTitle'>En este curso:</p>
           </div>
           <ul>
-            <li><img src={imgCheck} alt='icono de check' />En este cursos aprenderas los conceptos basicos de Arduino.</li>
-            <li><img src={imgCheck} alt='icono de check' />Electronica basica.</li>
-            <li><img src={imgCheck} alt='icono de check' />Simuladores de robotica.</li>
-            <li><img src={imgCheck} alt='icono de check' />A crear tu propio robot.</li>
+            <li><img src={imgCheck} alt='icono de check' />Material multimedia a tu disposición.</li>
+            <li><img src={imgCheck} alt='icono de check' />Archivos pdf para leer.</li>
+            <li><img src={imgCheck} alt='icono de check' />Actividades asincronicas.</li>
+            <li><img src={imgCheck} alt='icono de check' />Crearas tus propios proyectos.</li>
           </ul>
         </section>
       </section>
