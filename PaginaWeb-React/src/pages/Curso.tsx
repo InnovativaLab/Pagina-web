@@ -1,4 +1,4 @@
-import { getCourse, reserveCourse, deleteReserveCourse, getCoursesOfUser, getNumReservasDeCurso } from '../services/services';
+import { getCourse, reserveCourse, deleteReserveCourse, getCoursesOfUser, getNumReservasDeCurso } from '../services/services'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect, MouseEvent } from 'react'
 import { userSesion } from '../services/userSesion'
@@ -54,9 +54,9 @@ function Curso () {
   }
   const chargeVideo = () => {
     console.log('clic')
-    setPreview(<video className='videoPreview'src={course.VideoPromocional} autoPlay title='Reproductor de video' controls>
-    Tu navegador no admite el elemento <code>video</code>.
-  </video>)
+    setPreview(<video className='videoPreview' src={course.VideoPromocional} autoPlay title='Reproductor de video' controls>
+      Tu navegador no admite el elemento <code>video</code>.
+    </video>)
   }
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function Curso () {
                  </div>
       )
     }
-    
+
     getCoursesOfUser(usuario?.NombreDeUsuario).then((listaCursos) => {
       const cursos = listaCursos
       if (Object.values(cursos).find(x => x.Titulo === course.Titulo) != null) {
@@ -108,8 +108,8 @@ function Curso () {
     setPreview(<><img className='btnPlay' src={btnPlay} />
       <img className='imgPortada' src={course.ImagenDePortada} alt='Foto del curso' />
     </>)
-    ///getNumReservasDeCurso
-    getNumReservasDeCurso(course.Id).then((num)=>{
+    /// getNumReservasDeCurso
+    getNumReservasDeCurso(course.Id).then((num) => {
       setNumReserves(num.NumeroDeReservas)
     })
   }, [course])

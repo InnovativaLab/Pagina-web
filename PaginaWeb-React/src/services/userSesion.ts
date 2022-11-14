@@ -32,7 +32,8 @@ export class userSesion {
     cookies.set('user', data, {
       path: '/',
       sameSite: 'none',
-      secure: true})
+      secure: true
+    })
     const usuario = this.readSesion()
     return usuario
   }
@@ -47,10 +48,11 @@ export class userSesion {
   public closeSesion = () => {
     userSesion.instance = undefined
     userSesion.user = undefined
-    cookies.remove('user',{
+    cookies.remove('user', {
       path: '/',
       sameSite: 'none',
-      secure: true})
+      secure: true
+    })
   }
 
   public isAuthorized = (permiso: enumPermisos) => {

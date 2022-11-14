@@ -95,7 +95,7 @@ export const reserveCourse = async (pNombreDeUsuario: string | undefined, pIdCou
     console.error(error.message)
   }
 }
-export const deleteReserveCourse = async (pId?: string,pName?:string) => {
+export const deleteReserveCourse = async (pId?: string, pName?: string) => {
   try {
     console.log(pId)
     if (pId !== undefined) {
@@ -198,7 +198,7 @@ export const getRemoveCourses = async () => {
     return courses
   }
 }
-export const getNumReservasDeCurso = async (id:string) => {
+export const getNumReservasDeCurso = async (id: string) => {
   try {
     const res = await axios.post(`${API_LINK}/api/data/ReservasDeCurso/${id}`)
     return res.data
@@ -207,14 +207,14 @@ export const getNumReservasDeCurso = async (id:string) => {
     return err
   }
 }
-export const getNumReservasDeCursoTitulo = async (titulo:string) => {
+export const getNumReservasDeCursoTitulo = async (titulo: string) => {
   try {
-    /*const data = Object.values(titulos).map( async (titulo)=>{
+    /* const data = Object.values(titulos).map( async (titulo)=>{
       const res = await axios.post(`${API_LINK}/api/data/ReservasDeCursoPorTitulo/${titulo}`)
       return res.data
     })
     console.log(data);
-    return data*/
+    return data */
     const res = await axios.post(`${API_LINK}/api/data/ReservasDeCursoPorTitulo/${titulo}`)
     return res.data
   } catch (err: any) {

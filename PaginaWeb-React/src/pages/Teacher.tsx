@@ -1,4 +1,4 @@
-import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis, getNumReservasDeCursoTitulo } from '../services/services';
+import { getDataNumReservas, getDataNumCursos, getDataNumAlumnos, getDataCursos, getDataAnalisis, getNumReservasDeCursoTitulo } from '../services/services'
 import VerticalBarChart from '../components/charts/VerticalBarChart'
 import svgSombreroEgresado from '../assets/SombreroEgresado.svg'
 import LineChart from '../components/charts/LineChart'
@@ -50,7 +50,7 @@ function Teacher () {
       getDataCursos().then((data) => {
         setDataCourses(loadItems(data))
       })
-      getDataAnalisis().then(async(data) => {
+      getDataAnalisis().then(async (data) => {
         const info = Object.values(data as DataAnalisis[]).map(item => {
           return item.Fecha.substring(0, 10)
         })
@@ -63,16 +63,17 @@ function Teacher () {
         const titulosUnicos = titulos.filter((element, index) => {
           return titulos.indexOf(element) === index
         })
-       // console.log(titulosUnicos);
+        // console.log(titulosUnicos);
         setFechas(<LineChart pData={data} pFechas={fechasUnicas} pTitulos={titulosUnicos} />)
 
-        const reserves:any[] = []
-        titulosUnicos.forEach(async(title) => {
-          const {NumeroDeReservas}= await getNumReservasDeCursoTitulo(title)
-          reserves.push({Titulo:title,NumeroDeReservas})
-        });
-        setTimeout(()=>{
-          setCantidades(<PieChart pData={reserves} />)},1000)
+        const reserves: any[] = []
+        titulosUnicos.forEach(async (title) => {
+          const { NumeroDeReservas } = await getNumReservasDeCursoTitulo(title)
+          reserves.push({ Titulo: title, NumeroDeReservas })
+        })
+        setTimeout(() => {
+          setCantidades(<PieChart pData={reserves} />)
+        }, 1000)
       })
     } catch (err: any) {
       console.log(err.response)

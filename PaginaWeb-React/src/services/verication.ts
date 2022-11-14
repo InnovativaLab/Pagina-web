@@ -3,8 +3,8 @@ import { Usuario, Course } from '../types'
 const regExpEmail = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
 const regExpIsString = new RegExp('[a-zA-Z ]{2,}')
 const regExpIsNum = new RegExp('\d+$')
-const regExpPws = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$")
-//^([a-zA-Z0-9]{4,16})$
+const regExpPws = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$')
+// ^([a-zA-Z0-9]{4,16})$
 
 export const checkLogInData = (pEmail: string, pPws: string) => {
   if (pEmail !== '' || pPws !== '') {
@@ -16,7 +16,7 @@ export const checkLogInData = (pEmail: string, pPws: string) => {
   return 'Tiene que ingresar todos los datos.'
 }
 
-//regExpPws
+// regExpPws
 export const checkSignInData = (pUser: Usuario, pConfirmacion: string) => {
   if (pUser.Nombre !== '' || pUser.Apellido !== '' || pUser.Email !== '' || pUser.NombreDeUsuario !== '' || pUser.Genero !== '' || pUser.Email !== '' || pUser.Contraseña !== '' || pConfirmacion !== '') {
     if ((pUser.Nombre.match(regExpIsString) != null) && (pUser.Apellido.match(regExpIsString) != null)) {
