@@ -28,7 +28,7 @@ function Curso () {
       e.preventDefault()
       reserveCourse(user?.NombreDeUsuario, course.Id.toString()).then((data) => {
         sesion.saveSesion(data)
-        navigate('/home', { replace: true })
+        navigate('/login', { replace: true })
       })
     } catch (err: any) {
       console.log(err.response)
