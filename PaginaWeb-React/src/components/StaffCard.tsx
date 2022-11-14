@@ -1,4 +1,4 @@
-import fotoFranco from '../assets/staff/francobalich.png'
+import fotoFranco from '../assets/staff/francobalich.jpg'
 import '../styles/StaffCard.css'
 
 interface propStaffCard {

@@ -1,5 +1,5 @@
 import SocialNetworkButton from '../components/SocialNetworkButton'
-import imgProfRobot from '../assets/staff/profRobot.jpeg'
+import imgProfRobot from '../assets/staff/profRobot.jpg'
 import MainInicio from '../components/MainInicio'
 import StaffCard from '../components/StaffCard'
 import { loadCards } from '../services/cards'
