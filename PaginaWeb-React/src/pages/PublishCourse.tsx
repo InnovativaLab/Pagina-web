@@ -13,14 +13,14 @@ import './styles/Teacher.css'
 function PublishCourse () {
   const sesion = userSesion.getInstance()
   const [newCourse, setNewCourse] = useState({
-    Id: 0,
+    Id: "0",
     Titulo: '',
     Subtitulo: '',
     Nivel: enumNivel.Principiante,
     Categoria: '',
     Subcategoria: '',
     Descripcion: '',
-    Estado: enumEstadoCurso.Verificado,
+    Estado: enumEstadoCurso.Aprobado,
     Idioma: enumIdioma.Español,
     TiempoDePublicacion: 1,
     PrecioEnPesos: 0,
